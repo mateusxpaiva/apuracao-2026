@@ -871,7 +871,8 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
       if (startMin <= 19*60 + 41) break;
       pts.push({h: pad(Math.floor(startMin/60)) + ":" + pad(startMin%60), v: Math.max(acc, 155), m: startMin});
     }
-    AUD_SEED.forEach(function(sd){ var mm = +sd[0].slice(0,2)*60 + +sd[0].slice(3); if (mm < pts[pts.length-1].m) pts.push({h: sd[0], v: sd[1], m: mm}); });
+    var earliest = Math.min.apply(null, pts.map(function(p){ return p.m; }));
+    AUD_SEED.forEach(function(sd){ var mm = +sd[0].slice(0,2)*60 + +sd[0].slice(3); if (mm < earliest) pts.push({h: sd[0], v: sd[1], m: mm}); });
     pts.sort(function(a,b){ return a.m - b.m; });
     drawAud(pts);
   }
