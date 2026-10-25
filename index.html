@@ -892,7 +892,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     g += '<text x="'+(x(lp.m)+10)+'" y="'+(y(lp.v)+5)+'" style="font:800 15px var(--f-display);fill:#EEF2F8">'+fmt.format(lp.v)+'</text>';
     $("aud").innerHTML = g;
     var hourAgo = pts.filter(function(p){ return p.m <= lp.m - 60; }).pop();
-    $("audT").textContent = fmt.format(lp.v) + " acessos até " + lp.h + (hourAgo ? " · +" + fmt.format(lp.v - hourAgo.v) + " na última hora" : "");
+    $("audT").textContent = fmt.format(lp.v) + " acessos até " + lp.h + (hourAgo ? " · +" + fmt.format(lp.v - hourAgo.v) + " desde " + hourAgo.h : "");
   }
   setTimeout(audience, 2500); setInterval(audience, 120000);
 
