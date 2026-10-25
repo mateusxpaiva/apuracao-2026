@@ -229,6 +229,13 @@ h1 .ia{background:linear-gradient(90deg,#F2CF6B,#E2B84B);-webkit-background-clip
 .strip .tr{height:8px;border:0;background:rgba(255,255,255,.08)}
 button{font:600 12.5px var(--f-body);background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);padding:7px 14px}
 .wait,.banner{border-radius:16px}
+.regTbl{display:grid;gap:14px;margin-top:10px}
+.rg{display:grid;gap:8px;padding:12px 0;border-top:1px solid var(--line)}
+.rgH{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.rgH b{font:700 16px var(--f-display)}.rgH span{font:500 12px var(--f-body);color:var(--mute)}
+.rgM{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;font:500 11.5px var(--f-body);color:var(--mute);text-align:center}
+.rgM b{display:block;font:700 14px var(--f-display);color:var(--fg);font-variant-numeric:tabular-nums}
+@media (max-width:560px){.rgM{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .share{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;padding:14px 20px 14px 16px;border:0;border-radius:999px;background:#25D366;color:#06210F;font:800 16px var(--f-display);box-shadow:0 12px 30px -6px rgba(37,211,102,.55),0 4px 12px rgba(0,0,0,.4);cursor:pointer}
 .share svg{width:26px;height:26px;flex:none}
 .share:active{transform:scale(.97)}
@@ -390,7 +397,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
       <svg class="chart" id="tChart" viewBox="0 0 560 200" role="img" aria-label="Evolução da chance de vitória conforme as urnas são apuradas"></svg>
       <details class="how"><summary>Como esta tendência é calculada</summary>
         <p>1. Para cada estado, comparamos o desempenho de Lula e Flávio nas urnas já apuradas com o resultado dos dois no 1º turno, no mesmo estado. Essa diferença é a "variação".</p>
-        <p>2. Os votos que ainda faltam em cada estado são projetados com o resultado do 1º turno mais essa variação. Onde há poucas urnas, usamos a média da região.</p>
+        <p>2. A quantidade de votos que ainda falta em cada estado é calculada pelos eleitores das seções não apuradas e pelo comparecimento já observado hoje no estado. Esses votos são projetados com o resultado do 1º turno mais a variação. Onde há poucas urnas, usamos a média da região.</p>
         <p>3. Somamos os votos já contados com os projetados e combinamos com as últimas pesquisas (Datafolha e Quaest: Flávio 51%, Lula 49%). O peso das pesquisas diminui conforme a apuração avança.</p>
         <p>4. A chance de vitória considera a incerteza do que falta apurar: com poucas urnas a margem é grande; perto de 100%, a chance converge para o resultado real.</p>
         <p><b>É uma estimativa estatística, não um resultado.</b> As primeiras urnas não são uma amostra aleatória do eleitorado.</p>
@@ -437,6 +444,14 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="card" aria-labelledby="qR">
+    <h2 class="q" id="qR">Quem já votou, por região</h2>
+    <p class="qs">votos já contados para cada partido · comparecimento · quanto falta e para que lado tende</p>
+    <div class="flyHead"><span>Lula · PT</span><span></span><span>Flávio · PL</span></div>
+    <div class="regTbl" id="regTbl"><p class="hint">Carregando regiões…</p></div>
+    <p class="note">"Faltam" usa os eleitores das seções ainda não apuradas e o comparecimento já observado hoje em cada estado. "Do que falta" é a projeção da tendência.</p>
   </section>
 
   <!-- 5. Comparações -->
@@ -525,7 +540,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     var d = { dg:j.dg||"", hg:j.hg||"", pst:num(s.pst), st:num(s.st), ts:num(s.ts),
       lp:L?num(L.pvap):null, lv:L?num(L.vap):null, fp:F?num(F.pvap):null, fv:F?num(F.vap):null,
       vv:num(v.vv), vb:num(v.vb), pvb:num(v.pvb), tvn:num(v.tvn), ptvn:num(v.ptvn), a:num(e.a), pa:num(e.pa),
-      te:num(e.te), ea:num(e.est != null ? e.est : e.ea), ena:num(e.esnt != null ? e.esnt : e.ena), lE:elected(L), fE:elected(F) };
+      te:num(e.te), ea:num(e.est != null ? e.est : e.ea), ena:num(e.esnt != null ? e.esnt : e.ena), c:num(e.c), lE:elected(L), fE:elected(F) };
     if (d.vv == null && d.lv != null && d.fv != null) d.vv = d.lv + d.fv;
     return d;
   }
@@ -690,7 +705,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
   /* ---------- tendência / projeção ---------- */
   var T1UF = {ac:[134770,302807],al:[995459,735718],ap:[212503,212278],am:[1046996,976764],ba:[5664771,2442585],ce:[3555263,1756850],df:[675627,909616],es:[850028,1233194],go:[1188880,2051888],ma:[2566301,1239040],mt:[581681,1298581],ms:[516855,873351],mg:[5188936,5777548],pa:[2427237,2163957],pb:[1541127,831377],pr:[2054597,3945345],pe:[3553971,1738043],pi:[1523710,517028],rj:[3693021,4966844],rn:[1237963,720493],rs:[2294759,3573783],ro:[250667,652988],rr:[74420,231322],sc:[1127168,3000020],sp:[9505413,12922023],se:[856019,417839],to:[404009,469321],zz:[157387,143900]};
   var REGOF = {}; Object.keys(REG).forEach(function(r){ REG[r].forEach(function(u){ REGOF[u.toLowerCase()] = r; }); }); REGOF.zz = "ZZ";
-  var thist = load("apur6258_trend") || [];
+  var thist = load("apur6258_trend") || [], lastReg = null;
   function phi(z){ var t = 1/(1+0.2316419*Math.abs(z)), d = 0.3989423*Math.exp(-z*z/2), p = d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.821256+t*1.330274)))); return z > 0 ? 1-p : p; }
   function projection(nat){
     var ufs = Object.keys(T1UF), rs = {}, rw = {}, nsw = 0, nw = 0;
@@ -702,15 +717,25 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
       }
     });
     if (!nw) return null;
-    var natSw = nsw/nw, L = 0, F = 0, rem = 0, tot = 0;
+    var natSw = nsw/nw, L = 0, F = 0, rem = 0, tot = 0, reg = {};
+    var natVpe = 0, vS = 0, eS = 0;
+    ufs.forEach(function(u){ var d = ufData[u.toUpperCase()]; if (d && d.ea > 0 && d.vv > 0){ vS += d.vv; eS += d.ea; } });
+    natVpe = eS ? vS/eS : 0.72;
     ufs.forEach(function(u){
       var w = T1UF[u][0] + T1UF[u][1], b = T1UF[u][0]/w, d = ufData[u.toUpperCase()], g = REGOF[u];
       var gs = rw[g] ? rs[g]/rw[g] : natSw, pst = d && d.pst ? Math.min(100, d.pst)/100 : 0;
       var own = d && d.lv != null && (d.lv + d.fv) > 0 ? d.lv/(d.lv + d.fv) - b : gs;
       var k = Math.min(1, pst/0.2), sw = k*own + (1-k)*gs, sh = Math.min(.97, Math.max(.03, b + sw));
-      var cl = d && d.lv ? d.lv : 0, cf = d && d.fv ? d.fv : 0, r = w*(1 - pst);
-      L += cl + r*sh; F += cf + r*(1-sh); rem += r; tot += w;
+      var cl = d && d.lv ? d.lv : 0, cf = d && d.fv ? d.fv : 0;
+      // votos que faltam: eleitores ainda não apurados × válidos por eleitor já observados hoje no estado
+      var vpe = d && d.ea > 1000 && d.vv > 0 ? d.vv/d.ea : natVpe;
+      var r = d && d.ena != null ? d.ena*vpe : (d && d.te ? d.te*natVpe : w*(1 - pst));
+      L += cl + r*sh; F += cf + r*(1-sh); rem += r; tot += cl + cf + r;
+      var R = reg[g] = reg[g] || {te:0, ea:0, c:0, lv:0, fv:0, rem:0, remL:0};
+      R.te += d && d.te ? d.te : 0; R.ea += d && d.ea ? d.ea : 0; R.c += d && d.c ? d.c : 0;
+      R.lv += cl; R.fv += cf; R.rem += r; R.remL += r*sh;
     });
+    lastReg = reg;
     var share = L/(L+F), remFrac = Math.max(0, Math.min(1, rem/tot));
     if (nat && nat.pst >= 100) return {share: nat.lp/100, p: nat.lp > nat.fp ? 1 : 0, remFrac: 0};
     var sdc = 0.03*remFrac + 0.002, wc = 1/(sdc*sdc), wp = remFrac*remFrac/(0.025*0.025);
@@ -726,7 +751,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     if (nat && nat.pst > 0 && !thist.some(function(t){ return Math.abs(t.x - nat.pst) < 0.05; })){
       thist.push({x: nat.pst, y: pl}); thist.sort(function(a,b){ return a.x - b.x; }); store("apur6258_trend", thist.slice(-300));
     }
-    drawTrend();
+    drawTrend(); renderRegions();
   }
   function drawTrend(){
     var W=560,H=200,m={l:40,r:14,t:12,b:26}, x=function(v){ return m.l + v/100*(W-m.l-m.r); }, y=function(v){ return m.t + (100-v)/100*(H-m.t-m.b); }, g="";
@@ -742,6 +767,20 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     $("tChart").innerHTML = g;
   }
   var lastNat = null;
+  function renderRegions(){
+    if (!lastReg) return;
+    var NAMES = {N:"Norte", NE:"Nordeste", "C.-Oeste":"Centro-Oeste", SE:"Sudeste", S:"Sul", ZZ:"Exterior", Norte:"Norte", Nordeste:"Nordeste", Sudeste:"Sudeste", Sul:"Sul"};
+    var order = Object.keys(lastReg), max = 1;
+    order.forEach(function(g){ var R = lastReg[g]; max = Math.max(max, R.lv, R.fv); });
+    $("regTbl").innerHTML = order.map(function(g){
+      var R = lastReg[g], comp = R.ea ? R.c/R.ea*100 : null, ap = R.te ? R.ea/R.te*100 : null, net = R.remL - (R.rem - R.remL);
+      var wl = R.lv/max*100, wf = R.fv/max*100, lead = R.lv >= R.fv;
+      return "<div class='rg'>" +
+        "<div class='rgH'><b>" + (NAMES[g] || g) + "</b><span>" + (R.te ? fk(R.te) + " eleitores" : "") + "</span></div>" +
+        "<div class='fr'><div class='bl'><em>" + fk(R.lv) + "</em><i style='width:" + wl + "%'></i></div><div class='c'>" + (R.lv + R.fv ? f1.format(R.lv/(R.lv+R.fv)*100) + "<small>% Lula</small>" : "—") + "</div><div class='br'><i style='width:" + wf + "%'></i><em>" + fk(R.fv) + "</em></div></div>" +
+        "<div class='rgM'><span>Apurado <b>" + (ap != null ? f1.format(ap) + "%" : "—") + "</b></span><span>Comparecimento <b>" + (comp != null ? f1.format(comp) + "%" : "—") + "</b></span><span>Faltam <b>~" + fk(R.rem) + "</b> votos</span><span>Do que falta: <b style='color:" + (net >= 0 ? "var(--lula)" : "var(--flavio)") + "'>" + (net >= 0 ? "Lula +" : "Flávio +") + fk(Math.abs(net)) + "</b></span></div></div>";
+    }).join("");
+  }
 
   /* ---------- aviso de virada ---------- */
   var swReg = null;
