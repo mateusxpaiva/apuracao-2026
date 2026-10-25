@@ -224,6 +224,19 @@ h1 .ia{background:linear-gradient(90deg,#F2CF6B,#E2B84B);-webkit-background-clip
 .strip .tr{height:8px;border:0;background:rgba(255,255,255,.08)}
 button{font:600 12.5px var(--f-body);background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);padding:7px 14px}
 .wait,.banner{border-radius:16px}
+.trend{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:10px}
+.trH{text-align:center;font:700 12px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.trRow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.trS{display:grid;gap:2px}.trS.L{text-align:left}.trS.F{text-align:right}
+.trS b{font:800 clamp(34px,6vw,52px)/1 var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.trS.L b{color:var(--lula)}.trS.F b{color:var(--flavio)}
+.trS span{font:600 12px var(--f-body);color:var(--mute)}
+.trBar{height:8px;margin-top:2px}
+.trP{text-align:center;font-size:13.5px;color:var(--fg);margin:2px 0 0}
+.trP b{font-weight:700}
+.how{font-size:12.5px;color:var(--mute);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.how summary{cursor:pointer;font-weight:700;color:var(--fg);text-align:center}
+.how p{margin:8px 0 0;line-height:1.55}.how b{color:var(--fg)}
 .bell{background:linear-gradient(90deg,#F7D97C,#E2B84B);color:#0B1220;border:0;font:700 14px var(--f-body);padding:10px 18px}
 .bell.on{background:rgba(63,182,139,.15);color:#7BE0B6;border:1px solid rgba(63,182,139,.5)}
 .toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:40;width:min(520px,calc(100% - 32px));border-radius:18px;padding:16px 18px;display:grid;gap:4px;text-align:center;box-shadow:0 20px 50px -10px rgba(0,0,0,.7);animation:pop .5s ease}
@@ -332,6 +345,24 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     </div>
     <div class="split"><span class="bl" id="bL" style="width:50%"></span><span class="bf" id="bF" style="width:50%"></span></div>
     <div class="leader" id="leader">Aguardando a primeira leitura.</div>
+
+    <div class="trend" id="trend">
+      <div class="trH">Tendência · quem deve vencer</div>
+      <div class="trRow">
+        <div class="trS L"><b id="tcL">—</b><span>chance de Lula</span></div>
+        <div class="trS F"><b id="tcF">—</b><span>chance de Flávio</span></div>
+      </div>
+      <div class="split trBar"><span class="bl" id="tbL" style="width:50%"></span><span class="bf" id="tbF" style="width:50%"></span></div>
+      <p class="trP" id="tProj">Calculando projeção…</p>
+      <svg class="chart" id="tChart" viewBox="0 0 560 200" role="img" aria-label="Evolução da chance de vitória conforme as urnas são apuradas"></svg>
+      <details class="how"><summary>Como esta tendência é calculada</summary>
+        <p>1. Para cada estado, comparamos o desempenho de Lula e Flávio nas urnas já apuradas com o resultado dos dois no 1º turno, no mesmo estado. Essa diferença é a "variação".</p>
+        <p>2. Os votos que ainda faltam em cada estado são projetados com o resultado do 1º turno mais essa variação. Onde há poucas urnas, usamos a média da região.</p>
+        <p>3. Somamos os votos já contados com os projetados e combinamos com as últimas pesquisas (Datafolha e Quaest: Flávio 51%, Lula 49%). O peso das pesquisas diminui conforme a apuração avança.</p>
+        <p>4. A chance de vitória considera a incerteza do que falta apurar: com poucas urnas a margem é grande; perto de 100%, a chance converge para o resultado real.</p>
+        <p><b>É uma estimativa estatística, não um resultado.</b> As primeiras urnas não são uma amostra aleatória do eleitorado.</p>
+      </details>
+    </div>
   </section>
 
   <!-- 3. Números-chave -->
@@ -536,6 +567,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     drawGauge(d); drawChart(); drawCompare(d);
     checkWin(d, diffV);
     checkLead(d);
+    lastNat = d; renderTrend(d);
   }
 
   function checkStale(d){
@@ -548,6 +580,62 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
       $("status").textContent = "Conectado · TSE em pausa";
     } else { $("pause").hidden = true; $("status").textContent = "Ao vivo · dados oficiais"; }
   }
+
+  /* ---------- tendência / projeção ---------- */
+  var T1UF = {ac:[134770,302807],al:[995459,735718],ap:[212503,212278],am:[1046996,976764],ba:[5664771,2442585],ce:[3555263,1756850],df:[675627,909616],es:[850028,1233194],go:[1188880,2051888],ma:[2566301,1239040],mt:[581681,1298581],ms:[516855,873351],mg:[5188936,5777548],pa:[2427237,2163957],pb:[1541127,831377],pr:[2054597,3945345],pe:[3553971,1738043],pi:[1523710,517028],rj:[3693021,4966844],rn:[1237963,720493],rs:[2294759,3573783],ro:[250667,652988],rr:[74420,231322],sc:[1127168,3000020],sp:[9505413,12922023],se:[856019,417839],to:[404009,469321],zz:[157387,143900]};
+  var REGOF = {}; Object.keys(REG).forEach(function(r){ REG[r].forEach(function(u){ REGOF[u.toLowerCase()] = r; }); }); REGOF.zz = "ZZ";
+  var thist = load("apur6258_trend") || [];
+  function phi(z){ var t = 1/(1+0.2316419*Math.abs(z)), d = 0.3989423*Math.exp(-z*z/2), p = d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.821256+t*1.330274)))); return z > 0 ? 1-p : p; }
+  function projection(nat){
+    var ufs = Object.keys(T1UF), rs = {}, rw = {}, nsw = 0, nw = 0;
+    ufs.forEach(function(u){
+      var d = ufData[u.toUpperCase()], b = T1UF[u][0]/(T1UF[u][0]+T1UF[u][1]);
+      if (d && d.lv != null && (d.lv + d.fv) > 0){
+        var n = d.lv + d.fv, sw = d.lv/n - b, g = REGOF[u];
+        rs[g] = (rs[g]||0) + sw*n; rw[g] = (rw[g]||0) + n; nsw += sw*n; nw += n;
+      }
+    });
+    if (!nw) return null;
+    var natSw = nsw/nw, L = 0, F = 0, rem = 0, tot = 0;
+    ufs.forEach(function(u){
+      var w = T1UF[u][0] + T1UF[u][1], b = T1UF[u][0]/w, d = ufData[u.toUpperCase()], g = REGOF[u];
+      var gs = rw[g] ? rs[g]/rw[g] : natSw, pst = d && d.pst ? Math.min(100, d.pst)/100 : 0;
+      var own = d && d.lv != null && (d.lv + d.fv) > 0 ? d.lv/(d.lv + d.fv) - b : gs;
+      var k = Math.min(1, pst/0.2), sw = k*own + (1-k)*gs, sh = Math.min(.97, Math.max(.03, b + sw));
+      var cl = d && d.lv ? d.lv : 0, cf = d && d.fv ? d.fv : 0, r = w*(1 - pst);
+      L += cl + r*sh; F += cf + r*(1-sh); rem += r; tot += w;
+    });
+    var share = L/(L+F), remFrac = Math.max(0, Math.min(1, rem/tot));
+    if (nat && nat.pst >= 100) return {share: nat.lp/100, p: nat.lp > nat.fp ? 1 : 0, remFrac: 0};
+    var sdc = 0.03*remFrac + 0.002, wc = 1/(sdc*sdc), wp = remFrac*remFrac/(0.025*0.025);
+    var mu = (share*wc + 0.49*wp)/(wc + wp), sd = Math.sqrt(1/(wc + wp));
+    return {share: mu, p: phi((mu - 0.5)/sd), remFrac: remFrac};
+  }
+  function renderTrend(nat){
+    var pr = projection(nat); if (!pr) return;
+    var pl = Math.round(pr.p*100), pf = 100 - pl;
+    $("tcL").textContent = pl + "%"; $("tcF").textContent = pf + "%";
+    $("tbL").style.width = pl + "%"; $("tbF").style.width = pf + "%";
+    $("tProj").innerHTML = "Projeção para o fim da apuração: <b style='color:var(--lula)'>Lula " + f1.format(pr.share*100) + "%</b> × <b style='color:var(--flavio)'>Flávio " + f1.format(100 - pr.share*100) + "%</b>" + (pl >= 85 || pf >= 85 ? " · tendência forte" : pl >= 65 || pf >= 65 ? " · tendência moderada" : " · disputa aberta");
+    if (nat && nat.pst > 0 && !thist.some(function(t){ return Math.abs(t.x - nat.pst) < 0.05; })){
+      thist.push({x: nat.pst, y: pl}); thist.sort(function(a,b){ return a.x - b.x; }); store("apur6258_trend", thist.slice(-300));
+    }
+    drawTrend();
+  }
+  function drawTrend(){
+    var W=560,H=200,m={l:40,r:14,t:12,b:26}, x=function(v){ return m.l + v/100*(W-m.l-m.r); }, y=function(v){ return m.t + (100-v)/100*(H-m.t-m.b); }, g="";
+    [0,25,50,75,100].forEach(function(t){ g += '<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(t)+'" y2="'+y(t)+'" stroke="'+(t===50?"rgba(255,255,255,.35)":"rgba(255,255,255,.06)")+'"'+(t===50?' stroke-dasharray="4 4"':'')+'/><text x="'+(m.l-6)+'" y="'+(y(t)+3.5)+'" text-anchor="end">'+t+'%</text>'; });
+    [0,25,50,75,100].forEach(function(t,i){ g += '<text x="'+x(t)+'" y="'+(H-8)+'" text-anchor="'+(i===0?"start":i===4?"end":"middle")+'">'+t+'% urnas</text>'; });
+    if (thist.length){
+      var dl = thist.map(function(p,i){ return (i?"L":"M") + x(p.x).toFixed(1) + " " + y(p.y).toFixed(1); }).join(" ");
+      var df = thist.map(function(p,i){ return (i?"L":"M") + x(p.x).toFixed(1) + " " + y(100-p.y).toFixed(1); }).join(" ");
+      var lp = thist[thist.length-1];
+      g += '<path d="'+dl+'" fill="none" stroke="#E0353D" stroke-width="2.5" stroke-linejoin="round"/><path d="'+df+'" fill="none" stroke="#3B78EA" stroke-width="2.5" stroke-linejoin="round"/>';
+      g += '<circle cx="'+x(lp.x)+'" cy="'+y(lp.y)+'" r="4.5" fill="#E0353D" stroke="#111A2C" stroke-width="2"/><circle cx="'+x(lp.x)+'" cy="'+y(100-lp.y)+'" r="4.5" fill="#3B78EA" stroke="#111A2C" stroke-width="2"/>';
+    } else g += '<text x="280" y="100" text-anchor="middle">a curva se forma conforme as urnas entram</text>';
+    $("tChart").innerHTML = g;
+  }
+  var lastNat = null;
 
   /* ---------- aviso de virada ---------- */
   var swReg = null;
@@ -824,7 +912,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
   }
   async function tickUF(){
     await Promise.all(UFS.map(async function(u){ try{ ufData[u] = await get(u.toLowerCase()); }catch(e){} }));
-    store("apur6258_uf", ufData); renderMap(); renderRank();
+    store("apur6258_uf", ufData); renderMap(); renderRank(); renderTrend(lastNat);
   }
   function setMode(m){ mode = m; $("mBoth").setAttribute("aria-pressed", String(m==="both")); $("mMargin").setAttribute("aria-pressed", String(m!=="both")); renderMap(); }
   $("mBoth").addEventListener("click", function(){ setMode("both"); });
