@@ -224,6 +224,9 @@ h1 .ia{background:linear-gradient(90deg,#F2CF6B,#E2B84B);-webkit-background-clip
 .strip .tr{height:8px;border:0;background:rgba(255,255,255,.08)}
 button{font:600 12.5px var(--f-body);background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);padding:7px 14px}
 .wait,.banner{border-radius:16px}
+.pause{border-radius:16px;border:1px solid rgba(226,184,75,.55);background:rgba(226,184,75,.1);padding:16px 18px;text-align:center;display:grid;gap:6px}
+.pause .pt{font:700 18px var(--f-display);color:var(--gold)}
+.pause .pd{font-size:13.5px;line-height:1.55;max-width:66ch;margin:0 auto}
 .views{display:inline-flex;align-items:center;gap:14px;padding:8px 18px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font:500 13px var(--f-body);color:var(--mute)}
 .views b{font:700 15px var(--f-display);color:var(--fg);font-variant-numeric:tabular-nums}
 .views .sep{width:1px;height:14px;background:var(--line)}
@@ -278,6 +281,10 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     <div class="wt" id="winT"></div>
     <div class="wd" id="winD"></div>
   </div>
+  <div class="pause" id="pause" role="status" hidden>
+    <div class="pt">⏸ Divulgação pausada pelo TSE</div>
+    <div class="pd" id="pauseD"></div>
+  </div>
   <div class="banner" id="banner" hidden></div>
 
   <!-- 1. Urnas apuradas -->
@@ -325,7 +332,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     <div class="kpi"><div class="k">Faltam contar (estimativa)</div><div class="v" id="kRem">—</div><div class="s">votos válidos</div></div>
     <div class="kpi"><div class="k">Para virar, precisa de</div><div class="v" id="kFlip">—</div><div class="s">dos votos que faltam</div></div>
     <div class="kpi"><div class="k">Brancos e nulos</div><div class="v" id="kBN">—</div><div class="s" id="kBNs">&nbsp;</div></div>
-    <div class="kpi"><div class="k">Abstenção</div><div class="v" id="kAbs">—</div><div class="s">2022: 20,59%</div></div>
+    <div class="kpi"><div class="k">Abstenção</div><div class="v" id="kAbs">—</div><div class="s">nas seções já apuradas · 2022: 20,59%</div></div>
   </section>
 
   <!-- 4. De onde vêm os votos -->
@@ -438,7 +445,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     var d = { dg:j.dg||"", hg:j.hg||"", pst:num(s.pst), st:num(s.st), ts:num(s.ts),
       lp:L?num(L.pvap):null, lv:L?num(L.vap):null, fp:F?num(F.pvap):null, fv:F?num(F.vap):null,
       vv:num(v.vv), vb:num(v.vb), pvb:num(v.pvb), tvn:num(v.tvn), ptvn:num(v.ptvn), a:num(e.a), pa:num(e.pa),
-      te:num(e.te), ea:num(e.ea), ena:num(e.ena), lE:elected(L), fE:elected(F) };
+      te:num(e.te), ea:num(e.est != null ? e.est : e.ea), ena:num(e.esnt != null ? e.esnt : e.ena), lE:elected(L), fE:elected(F) };
     if (d.vv == null && d.lv != null && d.fv != null) d.vv = d.lv + d.fv;
     return d;
   }
@@ -512,6 +519,17 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     }
     drawGauge(d); drawChart(); drawCompare(d);
     checkWin(d, diffV);
+  }
+
+  function checkStale(d){
+    var m = /^(\d{2}):(\d{2})/.exec(d.hg || ""); if (!m || d.pst >= 100){ $("pause").hidden = true; return; }
+    var now = new Date(), t = new Date(now); t.setHours(+m[1], +m[2], 0, 0);
+    var mins = Math.round((now - t)/60000);
+    if (mins >= 10){
+      $("pause").hidden = false;
+      $("pauseD").innerHTML = "O TSE não publica números novos desde as <b>" + m[1] + "h" + m[2] + "</b>, com " + f2.format(d.pst||0) + "% das urnas. A divulgação foi suspensa depois que o STF prorrogou a votação até as 19h em todo o país. <b>O painel está conectado e volta a se mover sozinho</b> assim que o TSE retomar; não precisa recarregar.";
+      $("status").textContent = "Conectado · TSE em pausa";
+    } else { $("pause").hidden = true; $("status").textContent = "Ao vivo · dados oficiais"; }
   }
 
   /* ---------- alerta de vitória matemática ---------- */
@@ -732,7 +750,8 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
   async function tickBR(){
     try{
       var d = await get("br"); render(d); store("apur6258_last", d); fails = 0;
-      $("dot").className = "dot on"; $("status").textContent = "Ao vivo · dados oficiais"; $("banner").hidden = true; $("wait").hidden = true;
+      $("dot").className = "dot on"; $("status").textContent = "Conectado ao TSE"; $("banner").hidden = true; $("wait").hidden = true;
+      checkStale(d);
     }catch(e){
       fails++; $("dot").className = "dot err"; $("status").textContent = "Reconectando ao TSE…";
       if (fails >= 3){ $("banner").hidden = false; $("banner").textContent = "O TSE está demorando a responder, o que é comum nos picos da apuração. O painel continua tentando sozinho e mostra a última leitura recebida."; }
