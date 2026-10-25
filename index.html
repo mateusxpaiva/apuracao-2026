@@ -394,6 +394,13 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     </div>
   </section>
 
+  <section class="card" aria-labelledby="q7">
+    <h2 class="q" id="q7">Quantos estão acompanhando?</h2>
+    <p class="qs">acessos a este painel ao longo da noite</p>
+    <svg class="chart" id="aud" viewBox="0 0 560 220" role="img" aria-label="Acessos ao painel ao longo do tempo"></svg>
+    <p class="hint" id="audT">&nbsp;</p>
+  </section>
+
   <p class="note"><b>Como funciona:</b> os números vêm só dos arquivos oficiais do TSE e se atualizam a cada 15 segundos (estados a cada 1 minuto). No começo da contagem, as urnas que chegam primeiro são de estados que apuram mais rápido, então a liderança inicial pode mudar. "Faltam contar" e "Para virar" são contas simples, não previsão. O alerta de vitória só aparece quando o TSE marca o eleito ou quando a vantagem supera todos os eleitores que ainda faltam apurar. O STF prorrogou a votação até 19h; essas seções entram por último.</p>
 
   <footer>
@@ -845,6 +852,49 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     track(seen);
   })();
 
+  /* ---------- gráfico de audiência ---------- */
+  var AUD_SEED = [["18:15",0],["18:18",12],["19:17",40],["19:24",62],["19:33",93],["19:41",155]];
+  async function audience(){
+    var total = await cnt("get", "acessos"); if (total == null) return;
+    var pad = function(n){ return String(n).padStart(2,"0"); }, now = new Date(), buckets = [];
+    for (var i = 0; i < 18; i++){
+      var t = new Date(now.getTime() - i*600000);
+      if (t.getHours() < 19 || (t.getHours() === 19 && t.getMinutes() < 40)) break;
+      buckets.push({t: t, k: "m" + t.getFullYear() + pad(t.getMonth()+1) + pad(t.getDate()) + pad(t.getHours()) + Math.floor(t.getMinutes()/10)});
+    }
+    var vals = await Promise.all(buckets.map(function(b){ return cnt("get", b.k).then(function(v){ return v || 0; }); }));
+    var pts = [], acc = total;
+    pts.push({h: now.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}), v: total, m: now.getHours()*60 + now.getMinutes()});
+    for (var j = 0; j < buckets.length; j++){
+      acc -= vals[j];
+      var bt = buckets[j].t, startMin = bt.getHours()*60 + Math.floor(bt.getMinutes()/10)*10;
+      if (startMin <= 19*60 + 41) break;
+      pts.push({h: pad(Math.floor(startMin/60)) + ":" + pad(startMin%60), v: Math.max(acc, 155), m: startMin});
+    }
+    AUD_SEED.forEach(function(sd){ var mm = +sd[0].slice(0,2)*60 + +sd[0].slice(3); if (mm < pts[pts.length-1].m) pts.push({h: sd[0], v: sd[1], m: mm}); });
+    pts.sort(function(a,b){ return a.m - b.m; });
+    drawAud(pts);
+  }
+  function drawAud(pts){
+    var W=560,H=220,m={l:44,r:56,t:16,b:26};
+    var m0 = pts[0].m, m1 = Math.max(pts[pts.length-1].m, m0 + 30), max = Math.max.apply(null, pts.map(function(p){ return p.v; }).concat([10]));
+    var top = Math.ceil(max*1.15/10)*10;
+    var x = function(mm){ return m.l + (mm - m0)/(m1 - m0)*(W-m.l-m.r); }, y = function(v){ return m.t + (1 - v/top)*(H-m.t-m.b); };
+    var g = "";
+    [0, .5, 1].forEach(function(f){ var v = Math.round(top*f); g += '<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="rgba(255,255,255,.06)"/><text x="'+(m.l-8)+'" y="'+(y(v)+3.5)+'" text-anchor="end">'+fmt.format(v)+'</text>'; });
+    for (var hh = Math.ceil(m0/60)*60; hh <= m1; hh += 60) g += '<text x="'+x(hh)+'" y="'+(H-8)+'" text-anchor="middle">'+(hh/60)+'h</text>';
+    var d = pts.map(function(p,i){ return (i?"L":"M") + x(p.m).toFixed(1) + " " + y(p.v).toFixed(1); }).join(" ");
+    g += '<path d="'+d+' L'+x(pts[pts.length-1].m).toFixed(1)+' '+y(0)+' L'+x(pts[0].m).toFixed(1)+' '+y(0)+' Z" fill="rgba(226,184,75,.13)"/>';
+    g += '<path d="'+d+'" fill="none" stroke="#E2B84B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
+    var lp = pts[pts.length-1];
+    g += '<circle cx="'+x(lp.m)+'" cy="'+y(lp.v)+'" r="6" fill="#E2B84B" stroke="#080D18" stroke-width="3"/>';
+    g += '<text x="'+(x(lp.m)+10)+'" y="'+(y(lp.v)+5)+'" style="font:800 15px var(--f-display);fill:#EEF2F8">'+fmt.format(lp.v)+'</text>';
+    $("aud").innerHTML = g;
+    var hourAgo = pts.filter(function(p){ return p.m <= lp.m - 60; }).pop();
+    $("audT").textContent = fmt.format(lp.v) + " acessos até " + lp.h + (hourAgo ? " · +" + fmt.format(lp.v - hourAgo.v) + " na última hora" : "");
+  }
+  setTimeout(audience, 2500); setInterval(audience, 120000);
+
   /* ---------- métricas anônimas de uso (só contagens, nada pessoal) ---------- */
   function hit(k){ cnt("hit", k); }
   function track(seen){
@@ -857,6 +907,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
       hit("src_" + src);
       if (/FBAN|FBAV|Instagram/i.test(ua)) hit("app_meta");
       var d = new Date(), pad = function(n){ return String(n).padStart(2,"0"); };
+      hit("m" + d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + pad(d.getHours()) + Math.floor(d.getMinutes()/10));
       hit("h" + d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + pad(d.getHours()));
       if (!seen) hit("novos_h" + d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + pad(d.getHours()));
       [[60,"t1"],[300,"t5"],[900,"t15"],[1800,"t30"]].forEach(function(x){ setTimeout(function(){ if (!document.hidden) hit("perm_" + x[1]); }, x[0]*1000); });
