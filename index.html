@@ -432,7 +432,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     <p class="hint" id="audT">&nbsp;</p>
   </section>
 
-  <p class="note"><b>Como funciona:</b> os números vêm só dos arquivos oficiais do TSE e se atualizam a cada 3 segundos (estados a cada 30 segundos). No começo da contagem, as urnas que chegam primeiro são de estados que apuram mais rápido, então a liderança inicial pode mudar. "Faltam contar" e "Para virar" são contas simples, não previsão. O alerta de vitória só aparece quando o TSE marca o eleito ou quando a vantagem supera todos os eleitores que ainda faltam apurar. O STF prorrogou a votação até 19h; essas seções entram por último.</p>
+  <p class="note"><b>Como funciona:</b> os números vêm só dos arquivos oficiais do TSE e são conferidos a cada 2 segundos; quando o TSE publica um arquivo novo, os estados são atualizados na hora. No começo da contagem, as urnas que chegam primeiro são de estados que apuram mais rápido, então a liderança inicial pode mudar. "Faltam contar" e "Para virar" são contas simples, não previsão. O alerta de vitória só aparece quando o TSE marca o eleito ou quando a vantagem supera todos os eleitores que ainda faltam apurar. O STF prorrogou a votação até 19h; essas seções entram por último.</p>
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
@@ -897,10 +897,11 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
   }
 
   /* ---------- ciclo ---------- */
-  var fails = 0, lastOk = 0;
+  var fails = 0, lastOk = 0, lastHg = null, ufBusy = false;
   async function tickBR(){
     try{
       var d = await get("br"); render(d); store("apur6258_last", d); fails = 0; lastOk = Date.now();
+      if (d.hg && d.hg !== lastHg){ lastHg = d.hg; tickUF(); }
       $("dot").className = "dot on"; $("status").textContent = "Conectado ao TSE"; $("banner").hidden = true; $("wait").hidden = true;
       checkStale(d);
       liveReads++;
@@ -911,7 +912,8 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     elapsed();
   }
   async function tickUF(){
-    await Promise.all(UFS.map(async function(u){ try{ ufData[u] = await get(u.toLowerCase()); }catch(e){} }));
+    if (ufBusy) return; ufBusy = true;
+    try{ await Promise.all(UFS.map(async function(u){ try{ ufData[u] = await get(u.toLowerCase()); }catch(e){} })); } finally { ufBusy = false; }
     store("apur6258_uf", ufData); renderMap(); renderRank(); renderTrend(lastNat);
   }
   function setMode(m){ mode = m; $("mBoth").setAttribute("aria-pressed", String(m==="both")); $("mMargin").setAttribute("aria-pressed", String(m!=="both")); renderMap(); }
@@ -1010,16 +1012,16 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
   if (load("apur6258_last")) $("wait").querySelector("div").innerHTML = "<b>Reconectando aos dados oficiais do TSE.</b> Enquanto isso, você vê a última leitura recebida neste aparelho. Os números se atualizam sozinhos, sem recarregar a página.";
   render(load("apur6258_last") || {hg:"17:06 (1ª parcial)", pst:0.25, lp:57.66, lv:193574, fp:42.34, fv:142169, vv:335743, pvb:1.21, ptvn:1.49});
   renderRank(); elapsed(); buildMap();
-  tickBR(); tickUF();
-  var n = 3, busy = false;
+  tickBR();
+  var n = 2, busy = false;
   setInterval(async function(){
     n--;
-    if (n <= 0 && !busy){ n = 3; busy = true; try{ await tickBR(); }finally{ busy = false; } }
+    if (n <= 0 && !busy){ n = 2; busy = true; try{ await tickBR(); }finally{ busy = false; } }
     var ago = lastOk ? Math.round((Date.now() - lastOk)/1000) : null;
     $("countdown").textContent = ago == null ? "conectando…" : "lido há " + ago + " s";
   }, 1000);
-  setInterval(tickUF, 30000);
-  $("refresh").addEventListener("click", function(){ n = 3; tickBR(); tickUF(); });
+  setInterval(tickUF, 60000);
+  $("refresh").addEventListener("click", function(){ n = 2; tickBR(); tickUF(); });
 })();
 </script>
 </body>
