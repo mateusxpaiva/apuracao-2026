@@ -273,7 +273,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
       <span class="dot" id="dot"></span>
       <span id="status">Aguardando transmissão do TSE</span>
       <span id="tseTime">—</span>
-      <span id="countdown">nova leitura em 15s</span>
+      <span id="countdown">conectando…</span>
       <button id="refresh" type="button">Atualizar</button>
     </div>
     <button type="button" id="bell" class="bell">🔔 Avisar quando houver virada</button>
@@ -401,7 +401,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     <p class="hint" id="audT">&nbsp;</p>
   </section>
 
-  <p class="note"><b>Como funciona:</b> os números vêm só dos arquivos oficiais do TSE e se atualizam a cada 15 segundos (estados a cada 1 minuto). No começo da contagem, as urnas que chegam primeiro são de estados que apuram mais rápido, então a liderança inicial pode mudar. "Faltam contar" e "Para virar" são contas simples, não previsão. O alerta de vitória só aparece quando o TSE marca o eleito ou quando a vantagem supera todos os eleitores que ainda faltam apurar. O STF prorrogou a votação até 19h; essas seções entram por último.</p>
+  <p class="note"><b>Como funciona:</b> os números vêm só dos arquivos oficiais do TSE e se atualizam a cada 3 segundos (estados a cada 30 segundos). No começo da contagem, as urnas que chegam primeiro são de estados que apuram mais rápido, então a liderança inicial pode mudar. "Faltam contar" e "Para virar" são contas simples, não previsão. O alerta de vitória só aparece quando o TSE marca o eleito ou quando a vantagem supera todos os eleitores que ainda faltam apurar. O STF prorrogou a votação até 19h; essas seções entram por último.</p>
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
@@ -809,10 +809,10 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
   }
 
   /* ---------- ciclo ---------- */
-  var fails = 0;
+  var fails = 0, lastOk = 0;
   async function tickBR(){
     try{
-      var d = await get("br"); render(d); store("apur6258_last", d); fails = 0;
+      var d = await get("br"); render(d); store("apur6258_last", d); fails = 0; lastOk = Date.now();
       $("dot").className = "dot on"; $("status").textContent = "Conectado ao TSE"; $("banner").hidden = true; $("wait").hidden = true;
       checkStale(d);
       liveReads++;
@@ -923,10 +923,15 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
   render(load("apur6258_last") || {hg:"17:06 (1ª parcial)", pst:0.25, lp:57.66, lv:193574, fp:42.34, fv:142169, vv:335743, pvb:1.21, ptvn:1.49});
   renderRank(); elapsed(); buildMap();
   tickBR(); tickUF();
-  var n = 15;
-  setInterval(function(){ n--; if (n <= 0){ n = 15; tickBR(); } $("countdown").textContent = "nova leitura em " + n + "s"; }, 1000);
-  setInterval(tickUF, 60000);
-  $("refresh").addEventListener("click", function(){ n = 15; tickBR(); tickUF(); });
+  var n = 3, busy = false;
+  setInterval(async function(){
+    n--;
+    if (n <= 0 && !busy){ n = 3; busy = true; try{ await tickBR(); }finally{ busy = false; } }
+    var ago = lastOk ? Math.round((Date.now() - lastOk)/1000) : null;
+    $("countdown").textContent = ago == null ? "conectando…" : "lido há " + ago + " s";
+  }, 1000);
+  setInterval(tickUF, 30000);
+  $("refresh").addEventListener("click", function(){ n = 3; tickBR(); tickUF(); });
 })();
 </script>
 </body>
