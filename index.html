@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B1220">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <style>
 /* Layout: eixo central — tudo espelhado, Lula à esquerda (vermelho), Flávio à direita (azul); urnas apuradas sempre visíveis numa faixa fixa no topo */
@@ -167,6 +167,75 @@ button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold)}
 .note b{color:var(--fg);font-weight:600}
 footer{display:grid;justify-items:center;gap:6px;border-top:1px solid var(--line);padding-top:16px;text-align:center;font:400 11.5px var(--f-mono);color:var(--mute)}
 footer .sig{font:800 18px var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+
+/* ===== camada moderna ===== */
+:root{
+  --ink:#080D18; --panel:#0F1729; --line:rgba(255,255,255,.07); --mute:#8C97AE; --fg:#EEF2F8;
+  --f-display:"Sora","Segoe UI",system-ui,sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:20px;
+}
+html,body{background:var(--ink)}
+body{background:
+  radial-gradient(900px 520px at -10% -5%, rgba(224,53,61,.16), transparent 60%),
+  radial-gradient(900px 520px at 110% -5%, rgba(59,120,234,.18), transparent 60%),
+  var(--ink);background-attachment:fixed}
+.wrap{gap:18px;padding-block:20px 40px}
+.card,.kpi{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:var(--r);box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 18px 40px -18px rgba(0,0,0,.6)}
+.card{padding:22px}
+.kpi{border-radius:16px;padding:16px}
+.urnas{border-color:rgba(226,184,75,.28);background:linear-gradient(180deg,rgba(226,184,75,.09),rgba(255,255,255,.015))}
+.eyebrow,.qs,.kpi .k,.kpi .s,.side .tag,.side .vt,.apMeta span,.regbar b,.ticks,.live,.hint,.flyHead,.fr em,.fr .c small,.strip .lb,.scale,footer{font-family:var(--f-body);letter-spacing:.02em}
+.eyebrow{font-weight:600;font-size:12px;text-transform:none;letter-spacing:.04em;color:var(--mute)}
+h1{font:800 clamp(40px,8.5vw,76px)/1 var(--f-display);text-transform:none;letter-spacing:-.03em}
+h1 .ia{background:linear-gradient(90deg,#F2CF6B,#E2B84B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.byline .nm{font:700 clamp(18px,3vw,22px)/1 var(--f-display);letter-spacing:.01em;text-transform:none}
+.byline .role{font:600 11px var(--f-body);letter-spacing:.14em}
+.byline .mono{font:700 13px var(--f-display);background:rgba(226,184,75,.1)}
+.q{font:700 clamp(18px,2.4vw,22px)/1.2 var(--f-display);text-transform:none;letter-spacing:-.01em}
+.qs{font-size:13px;margin:6px 0 18px}
+.kpi .k{font-weight:600;font-size:11.5px;text-transform:none;letter-spacing:.01em}
+.kpi .v{font:700 28px/1.15 var(--f-display);letter-spacing:-.02em}
+.kpi .s{font-size:12px}
+.apPc{font:800 clamp(64px,12vw,112px)/.95 var(--f-display);letter-spacing:-.04em}
+.track{height:16px;border:0;background:rgba(255,255,255,.06)}
+.fill::after{width:16px;height:16px;border-radius:50%;top:0;right:0;background:#FFF3C9}
+.apMeta b{font:700 22px/1.15 var(--f-display);letter-spacing:-.02em}
+.apMeta span{font-size:11.5px;text-transform:none;letter-spacing:.01em}
+.regbar div{font-family:var(--f-display);font-weight:600}
+.regbar b{text-transform:none;font-size:11px;letter-spacing:.01em}
+.side .nm{font:700 clamp(18px,2.2vw,24px)/1.1 var(--f-display);text-transform:none;letter-spacing:-.01em}
+.side .pc{font:800 clamp(44px,6.4vw,76px)/.95 var(--f-display);letter-spacing:-.04em}
+.side .tag{font-weight:600;font-size:11.5px}
+.split{height:10px}
+.leader{font-size:15px}
+.fr .c{font:700 14px/1 var(--f-display);letter-spacing:0}
+.fr i{border-radius:999px;height:12px}
+.fr.big i{height:18px}
+.fr em{font-weight:600;font-size:12px}
+.flyHead{font-weight:700;font-size:12px;text-transform:none;letter-spacing:.02em}
+#map .lab{font:700 10px var(--f-display);letter-spacing:.02em}
+.tip{border-radius:12px;font-family:var(--f-body);background:rgba(8,13,24,.96)}
+.tip b{font:700 14px var(--f-display)}
+.strip{background:rgba(8,13,24,.72)}
+.strip .lb{font-weight:700;font-size:11px;letter-spacing:.06em}
+.strip .pv{font:800 22px/1 var(--f-display);letter-spacing:-.02em}
+.strip .tr{height:8px;border:0;background:rgba(255,255,255,.08)}
+button{font:600 12.5px var(--f-body);background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);padding:7px 14px}
+.wait,.banner{border-radius:16px}
+.win{border-radius:20px}
+.win .wt{font:800 clamp(28px,5.5vw,46px)/1.05 var(--f-display);text-transform:none;letter-spacing:-.03em}
+.win .wk{font:700 11.5px var(--f-body);letter-spacing:.16em}
+.chart text{font:500 10.5px var(--f-body)}
+.legendLine{font:600 12px var(--f-body)}
+footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.01em}
+@media (max-width:640px){
+  .card{padding:16px}
+  .side .pc{font-size:38px}
+  .kpi .v{font-size:22px}
+  h1{font-size:44px}
+}
 @media (prefers-reduced-motion:reduce){.dot,.spin{animation:none}*{transition:none!important}}
 </style>
 </head>
@@ -182,7 +251,7 @@ footer .sig{font:800 18px var(--f-display);letter-spacing:.12em;text-transform:u
 
   <header class="hero">
     <div class="eyebrow">Eleições 2026 · Presidente · 2º turno · ao vivo</div>
-    <h1>Apuração por IA</h1>
+    <h1>Apuração <span class="ia">por IA</span></h1>
     <div class="byline">
       <div class="mono" aria-hidden="true">MP</div>
       <div><div class="nm">Mateus Paiva</div><div class="role">Designer</div></div>
@@ -484,9 +553,9 @@ footer .sig{font:800 18px var(--f-display);letter-spacing:.12em;text-transform:u
       '<path d="' + arc(cx,cy,r0,r1,aMid,0.0001) + '" fill="#3B78EA"/>' +
       '<line x1="' + cx + '" y1="' + (cy-r1-8) + '" x2="' + cx + '" y2="' + (cy-r0+4) + '" stroke="#E8ECF4" stroke-width="2.5"/>' +
       '<text x="' + cx + '" y="' + (cy-r1-12) + '" text-anchor="middle" style="font:500 10px var(--f-mono);fill:#8592AB">50%</text>' +
-      '<text x="' + cx + '" y="' + (cy-58) + '" text-anchor="middle" style="font:500 11px var(--f-mono);fill:#8592AB;letter-spacing:.12em">VANTAGEM</text>' +
-      '<text x="' + cx + '" y="' + (cy-14) + '" text-anchor="middle" style="font:900 44px var(--f-display);fill:' + (lead ? "#E0353D" : "#3B78EA") + '">+' + f2.format(pp) + '</text>' +
-      '<text x="' + cx + '" y="' + (cy+12) + '" text-anchor="middle" style="font:600 12px var(--f-mono);fill:#E8ECF4;letter-spacing:.1em">' + (lead ? "LULA" : "FLÁVIO") + ' · PONTOS</text>';
+      '<text x="' + cx + '" y="' + (cy-58) + '" text-anchor="middle" style="font:600 12px var(--f-body);fill:#8C97AE">Vantagem</text>' +
+      '<text x="' + cx + '" y="' + (cy-14) + '" text-anchor="middle" style="font:800 40px var(--f-display);letter-spacing:-.03em;fill:' + (lead ? "#E0353D" : "#3B78EA") + '">+' + f2.format(pp) + '</text>' +
+      '<text x="' + cx + '" y="' + (cy+12) + '" text-anchor="middle" style="font:700 12px var(--f-body);fill:#EEF2F8">' + (lead ? "pontos para Lula" : "pontos para Flávio") + '</text>';
   }
 
   function elapsed(){
