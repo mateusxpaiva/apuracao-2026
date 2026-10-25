@@ -233,9 +233,9 @@ button{font:600 12.5px var(--f-body);background:rgba(255,255,255,.04);border-col
 .rg{display:grid;gap:8px;padding:12px 0;border-top:1px solid var(--line)}
 .rgH{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .rgH b{font:700 16px var(--f-display)}.rgH span{font:500 12px var(--f-body);color:var(--mute)}
-.rgM{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;font:500 11.5px var(--f-body);color:var(--mute);text-align:center}
+.rgM{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;font:500 11.5px var(--f-body);color:var(--mute);text-align:center}
 .rgM b{display:block;font:700 14px var(--f-display);color:var(--fg);font-variant-numeric:tabular-nums}
-@media (max-width:560px){.rgM{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 .share{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;padding:14px 20px 14px 16px;border:0;border-radius:999px;background:#25D366;color:#06210F;font:800 16px var(--f-display);box-shadow:0 12px 30px -6px rgba(37,211,102,.55),0 4px 12px rgba(0,0,0,.4);cursor:pointer}
 .share svg{width:26px;height:26px;flex:none}
 .share:active{transform:scale(.97)}
@@ -386,7 +386,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     <div class="split"><span class="bl" id="bL" style="width:50%"></span><span class="bf" id="bF" style="width:50%"></span></div>
     <div class="leader" id="leader">Aguardando a primeira leitura.</div>
 
-    <div class="trend" id="trend">
+    <div class="trend" id="trend" hidden>
       <div class="trH">Tendência · quem deve vencer</div>
       <div class="trRow">
         <div class="trS L"><b id="tcL">—</b><span>chance de Lula</span></div>
@@ -448,10 +448,10 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
 
   <section class="card" aria-labelledby="qR">
     <h2 class="q" id="qR">Quem já votou, por região</h2>
-    <p class="qs">votos já contados para cada partido · comparecimento · quanto falta e para que lado tende</p>
+    <p class="qs">votos já contados para cada partido · comparecimento · quanto falta</p>
     <div class="flyHead"><span>Lula · PT</span><span></span><span>Flávio · PL</span></div>
     <div class="regTbl" id="regTbl"><p class="hint">Carregando regiões…</p></div>
-    <p class="note">"Faltam" usa os eleitores das seções ainda não apuradas e o comparecimento já observado hoje em cada estado. "Do que falta" é a projeção da tendência.</p>
+    <p class="note">"Faltam" é uma estimativa: eleitores das seções ainda não apuradas multiplicados pelo comparecimento já observado hoje em cada estado.</p>
   </section>
 
   <!-- 5. Comparações -->
@@ -663,11 +663,11 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     x.font = "800 100px " + D; x.fillText($("pF").textContent, W-96, 1360);
     // trend
     x.textAlign = "center"; x.fillStyle = "rgba(255,255,255,.06)"; rr(x, 90, 1430, W-180, 150, 30); x.fill();
-    x.fillStyle = "#E2B84B"; x.font = "700 24px " + B; x.fillText("TENDÊNCIA · CHANCE DE VITÓRIA", cx, 1482);
-    if (/%/.test($("tcL").textContent)){
+    x.fillStyle = "#E2B84B"; x.font = "700 24px " + B; x.fillText("VANTAGEM AGORA", cx, 1482);
+    if (false){
       x.font = "800 52px " + D; x.fillStyle = "#F0484F"; x.textAlign = "left"; x.fillText("Lula " + $("tcL").textContent, 140, 1552);
       x.fillStyle = "#5B8DF0"; x.textAlign = "right"; x.fillText($("tcF").textContent + " Flávio", W-140, 1552);
-    } else { x.font = "700 40px " + D; x.fillStyle = "#EEF2F8"; x.fillText("acompanhe no painel ao vivo", cx, 1550); }
+    } else { var lpv = parseFloat(($("pL").textContent||"0").replace(",",".")), fpv = parseFloat(($("pF").textContent||"0").replace(",",".")); x.font = "800 50px " + D; x.fillStyle = lpv >= fpv ? "#F0484F" : "#5B8DF0"; x.fillText((lpv >= fpv ? "Lula" : "Flávio") + " +" + Math.abs(lpv - fpv).toFixed(2).replace(".",",") + " pontos", cx, 1552); }
     // footer
     x.textAlign = "center"; x.fillStyle = "#C9D2E3"; x.font = "600 32px " + B; x.fillText("Ao vivo: mateusxpaiva.github.io/apuracao-2026", cx, 1680);
     x.fillStyle = "#8C97AE"; x.font = "500 24px " + B; x.fillText("Dados oficiais do TSE · " + ($("tseTime").textContent || ""), cx, 1726);
@@ -778,7 +778,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
       return "<div class='rg'>" +
         "<div class='rgH'><b>" + (NAMES[g] || g) + "</b><span>" + (R.te ? fk(R.te) + " eleitores" : "") + "</span></div>" +
         "<div class='fr'><div class='bl'><em>" + fk(R.lv) + "</em><i style='width:" + wl + "%'></i></div><div class='c'>" + (R.lv + R.fv ? f1.format(R.lv/(R.lv+R.fv)*100) + "<small>% Lula</small>" : "—") + "</div><div class='br'><i style='width:" + wf + "%'></i><em>" + fk(R.fv) + "</em></div></div>" +
-        "<div class='rgM'><span>Apurado <b>" + (ap != null ? f1.format(ap) + "%" : "—") + "</b></span><span>Comparecimento <b>" + (comp != null ? f1.format(comp) + "%" : "—") + "</b></span><span>Faltam <b>~" + fk(R.rem) + "</b> votos</span><span>Do que falta: <b style='color:" + (net >= 0 ? "var(--lula)" : "var(--flavio)") + "'>" + (net >= 0 ? "Lula +" : "Flávio +") + fk(Math.abs(net)) + "</b></span></div></div>";
+        "<div class='rgM'><span>Apurado <b>" + (ap != null ? f1.format(ap) + "%" : "—") + "</b></span><span>Comparecimento <b>" + (comp != null ? f1.format(comp) + "%" : "—") + "</b></span><span>Faltam <b>~" + fk(R.rem) + "</b> votos</span></div></div>";
     }).join("");
   }
 
