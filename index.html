@@ -842,7 +842,29 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
     if (!seen && p != null){ try{ localStorage.setItem("apur_seen", "1"); }catch(e){} }
     showViews(a, p);
     setInterval(async function(){ showViews(await cnt("get","acessos"), await cnt("get","pessoas")); }, 60000);
+    track(seen);
   })();
+
+  /* ---------- métricas anônimas de uso (só contagens, nada pessoal) ---------- */
+  function hit(k){ cnt("hit", k); }
+  function track(seen){
+    try{
+      var ua = navigator.userAgent || "", q = (location.search || "").toLowerCase(), ref = (document.referrer || "").toLowerCase();
+      var mob = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+      hit(mob ? "dev_celular" : "dev_computador");
+      hit(/Android/i.test(ua) ? "os_android" : /iPhone|iPad|iPod/i.test(ua) ? "os_ios" : /Windows/i.test(ua) ? "os_windows" : /Mac OS/i.test(ua) ? "os_mac" : "os_outro");
+      var src = /src=wa/.test(q) || /whatsapp/.test(ref) ? "whatsapp" : /src=ig/.test(q) || /instagram/.test(ref) ? "instagram" : /facebook|fb\./.test(ref) ? "facebook" : /google/.test(ref) ? "google" : ref && ref.indexOf(location.host) < 0 ? "outro" : "direto";
+      hit("src_" + src);
+      if (/FBAN|FBAV|Instagram/i.test(ua)) hit("app_meta");
+      var d = new Date(), pad = function(n){ return String(n).padStart(2,"0"); };
+      hit("h" + d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + pad(d.getHours()));
+      if (!seen) hit("novos_h" + d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + pad(d.getHours()));
+      [[60,"t1"],[300,"t5"],[900,"t15"],[1800,"t30"]].forEach(function(x){ setTimeout(function(){ if (!document.hidden) hit("perm_" + x[1]); }, x[0]*1000); });
+      $("bell").addEventListener("click", function(){ setTimeout(function(){ if ("Notification" in window && Notification.permission === "granted") hit("alerta_ativado"); }, 1500); });
+      $("mapBox").addEventListener("click", function(){ if (!track.m){ track.m = 1; hit("mapa_toque"); } });
+      $("refresh").addEventListener("click", function(){ hit("botao_atualizar"); });
+    }catch(e){}
+  }
 
   ufData = load("apur6258_uf") || {};
   if (load("apur6258_last")) $("wait").querySelector("div").innerHTML = "<b>Reconectando aos dados oficiais do TSE.</b> Enquanto isso, você vê a última leitura recebida neste aparelho. Os números se atualizam sozinhos, sem recarregar a página.";
