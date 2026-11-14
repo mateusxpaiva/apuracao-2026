@@ -34,7 +34,7 @@ html,body{margin:0;background:var(--ink);color:var(--fg);font:14px/1.45 var(--f-
 .wrap{max-width:1200px;margin:0 auto;padding-block:16px 36px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:16px}
 
 /* faixa fixa de urnas */
-.strip{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.strip{position:sticky;top:56px;z-index:20;background:rgba(11,18,32,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .strip .in{max-width:1200px;margin:0 auto;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center}
 .strip .lb{font:500 10.5px/1.1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 .strip .pv{font:900 26px/1 var(--f-display);color:var(--gold);font-variant-numeric:tabular-nums;text-align:right}
@@ -292,6 +292,7 @@ footer .sig{font:700 16px var(--f-display);text-transform:none;letter-spacing:.0
 }
 @media (prefers-reduced-motion:reduce){.dot,.spin{animation:none}*{transition:none!important}}
 </style>
+<script src="menu.js" defer></script>
 </head>
 <body>
 <div class="strip" role="status" aria-label="Urnas apuradas no Brasil">
