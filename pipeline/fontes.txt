@@ -1,18 +1,10 @@
-# nome  url   (rodada 2)
-fr/2022_t1_dpt.txt https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-1er-tour/20220414-152356/resultats-par-niveau-dpt-t1-france-entiere.txt
-fr/2022_t2_dpt.txt https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-2nd-tour/20220428-142127/resultats-par-niveau-dpt-t2-france-entiere.txt
-fr/2022_t1_fe.txt https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-1er-tour/20220414-152200/resultats-par-niveau-fe-t1-france-entiere.txt
-fr/2022_t2_fe.txt https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-2nd-tour/20220428-141900/resultats-par-niveau-fe-t2-france-entiere.txt
-fr/2017_t1.xls https://static.data.gouv.fr/resources/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-1er-tour-1/20170427-100131/Presidentielle_2017_Resultats_Tour_1_c.xls
-fr/2017_t2.xls https://static.data.gouv.fr/resources/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-2nd-tour/20170511-092258/Presidentielle_2017_Resultats_Tour_2_c.xls
-fr/2012_a.xls https://static.data.gouv.fr/15/56da0680db5a23d2d1601aed81359f21e0dc8ed9f8abd49e2a7c66b5c02b6f.xls
-fr/2012_b.xls https://static.data.gouv.fr/ff/e9c9483d39e00030815089aca1e2939f9cb99a84b0136e43056790e47bb4f0.xls
-us/fec_2024.xlsx https://www.fec.gov/documents/5645/2024presgeresults.xlsx
-ar/2015_generales.zip https://www.argentina.gob.ar/sites/default/files/2015-provisorios_generales.zip
-ar/2015_ballotage.zip https://www.argentina.gob.ar/sites/default/files/2015-provisorios_ballotage.zip
-ar/2019_generales.zip https://www.argentina.gob.ar/sites/default/files/2019-provisorios_generales.zip
-ar/2023_generales.zip https://www.argentina.gob.ar/sites/default/files/2023_generales_1.zip
-ar/2023_segundavuelta.zip https://www.argentina.gob.ar/sites/default/files/2023_segundavuelta.zip
-cl/servel_app.js https://elecciones.servel.cl/assets/index-6a002b79.js
-cl/servel_2025.html https://www.servel.cl/elecciones-2025/
-cl/archivo_resultados.html https://archivo.servel.cl/index.php/resultados-de-elecciones?sort=lastUpdated&listLimit=50
+# nome  url   (rodada 3: Chile)
+cl/config.zip https://elecciones.servel.cl/config.zip
+cl/territorios.zip https://elecciones.servel.cl/territorios.zip
+cl/territorios_ext.zip https://elecciones.servel.cl/territorios_ext.zip
+cl/candidaturas.zip https://elecciones.servel.cl/candidaturas.zip
+cl/iteracion.zip https://elecciones.servel.cl/iteracion.zip
+cl/total_votacion_4.zip https://elecciones.servel.cl/total_votacion_4.zip
+cl/total_votacion_5.zip https://elecciones.servel.cl/total_votacion_5.zip
+cl/total_votacion_6.zip https://elecciones.servel.cl/total_votacion_6.zip
+cl/resultados_prelim_2025.html https://www.servel.cl/resultados-preliminares-eleccion-presidencial-y-parlamentarias-2025/
