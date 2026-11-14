@@ -9,7 +9,8 @@
     { href: "", label: "Ao vivo 2026", sub: "2º turno presidencial, apuração em tempo real" },
     { href: "historico/", label: "Histórico", sub: "Todos os 2º turnos presidenciais, 1989–2026" },
     { href: "municipios/", label: "Prefeitos e vereadores", sub: "Todas as cidades, 2016, 2020 e 2024" },
-    { href: "mundo/", label: "Mundo", sub: "Argentina, EUA, Chile e França comparados ao Brasil" }
+    { href: "mundo/", label: "Mundo", sub: "Argentina, EUA e França comparados ao Brasil" },
+    { href: "calendario/", label: "Calendário", sub: "Próximas eleições, com contagem regressiva" }
   ];
   var here = location.href.split(/[?#]/)[0].replace(/index\.html$/, "");
   var current = -1;
