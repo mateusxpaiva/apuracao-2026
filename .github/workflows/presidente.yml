@@ -1,0 +1,44 @@
+name: Coletor presidente por município (TSE)
+
+on:
+  workflow_dispatch:
+    inputs:
+      anos:
+        description: "Anos, separados por espaço"
+        required: true
+        default: "2018 2022 2026"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coletor-dados
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Testar acesso ao TSE
+        run: |
+          for a in ${{ github.event.inputs.anos }}; do
+            curl -sS -I --max-time 60 "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_$a.zip" | head -1
+          done
+      - name: Processar
+        run: python pipeline/presidente_mun.py ${{ github.event.inputs.anos }}
+      - name: Tamanho
+        run: du -sh data/pres/*
+      - name: Publicar
+        run: |
+          git config user.name "apuracao-por-ia-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pres
+          if git diff --cached --quiet; then echo "Sem mudanças"; exit 0; fi
+          git commit -m "Presidente por município TSE: ${{ github.event.inputs.anos }}"
+          git pull --rebase -q
+          git push
