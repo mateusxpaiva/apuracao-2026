@@ -1,0 +1,17 @@
+fr/api_2022_t2.json 200 application/json 36741 https://www.data.gouv.fr/api/1/datasets/626a86215fb310e32b48b137/
+fr/busca_pres.json 200 application/json 108134 https://www.data.gouv.fr/api/1/datasets/?q=election%20presidentielle%20resultats%20definitifs&page_size=40
+fr/busca_pres2.json 200 application/json 390988 https://www.data.gouv.fr/api/1/datasets/?q=presidentielle%202017%20resultats&page_size=40
+fr/busca_pres3.json 200 application/json 131164 https://www.data.gouv.fr/api/1/datasets/?q=presidentielle%202012%20resultats&page_size=40
+ar/ckan_2023.json 404 application/json;charset=utf-8 159 https://datos.gob.ar/api/3/action/package_show?id=dine-resultados-provisionales-elecciones-2023
+ar/ckan_busca.json 200 application/json;charset=utf-8 70786 https://datos.gob.ar/api/3/action/package_search?q=elecciones%20resultados&rows=60
+ar/mininterior_busca.json 200 application/json;charset=utf-8 55031 https://datos.mininterior.gob.ar/api/3/action/package_search?q=resultados&rows=60
+ar/resultados_2023.html 200 text/html 4077 https://resultados.mininterior.gob.ar/resultados/2023/3/1/0
+ar/cne_resultados.html 404 text/html 151 https://www.electoral.gob.ar/nuevo/paginas/btn/resultados.php
+cl/servel_hist.html 404 text/html; charset=UTF-8 226401 https://www.servel.cl/centro-de-datos/resultados-electorales-historicos-gw3/
+cl/servel_datos.html 404 text/html; charset=UTF-8 226401 https://www.servel.cl/centro-de-datos/estadisticas-de-datos-abiertos-4zg/
+cl/servel_home.html 200 text/html; charset=UTF-8 268705 https://www.servel.cl/
+cl/elecciones_servel.html 200 text/html 1595 https://elecciones.servel.cl/
+us/fec_2016.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 1549194 https://www.fec.gov/resources/cms-content/documents/federalelections2016.xlsx
+us/fec_2020.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 6251110 https://www.fec.gov/resources/cms-content/documents/federalelections2020.xlsx
+us/fec_2024.xlsx 403 application/xml 275 https://www.fec.gov/resources/cms-content/documents/federalelections2024.xlsx
+us/fec_page.html 200 text/html; charset=utf-8 37675 https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/
