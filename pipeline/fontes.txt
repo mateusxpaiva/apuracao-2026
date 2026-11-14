@@ -1,5 +1,3 @@
-# nome  url   (rodada 4: malhas IBGE)
-geo/br_mun_minima.json https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?formato=application/vnd.geo%2Bjson&qualidade=minima&intrarregiao=municipio
-geo/br_mun_intermediaria.json https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?formato=application/vnd.geo%2Bjson&qualidade=intermediaria&intrarregiao=municipio
-geo/br_uf_minima.json https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?formato=application/vnd.geo%2Bjson&qualidade=minima&intrarregiao=UF
-geo/municipios_ibge.json https://servicodados.ibge.gov.br/api/v1/localidades/municipios
+# nome  url   (rodada 5: malha municipal IBGE via GeoDadosBrasil, que copia a API de malhas do IBGE)
+geo/municipios_minima.geojson https://media.githubusercontent.com/media/cristoferluch/GeoDadosBrasil/main/Munic%C3%ADpios/municipios_minima.geojson
+geo/municipios_intermediaria.geojson https://media.githubusercontent.com/media/cristoferluch/GeoDadosBrasil/main/Munic%C3%ADpios/municipios_intermediaria.geojson
