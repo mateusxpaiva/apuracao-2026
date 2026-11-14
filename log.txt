@@ -1,9 +1,2 @@
-cl/config.zip 200 application/zip 937 https://elecciones.servel.cl/config.zip
-cl/territorios.zip 200 application/zip 526768 https://elecciones.servel.cl/territorios.zip
-cl/territorios_ext.zip 200 application/zip 8188 https://elecciones.servel.cl/territorios_ext.zip
-cl/candidaturas.zip 200 application/zip 40493 https://elecciones.servel.cl/candidaturas.zip
-cl/iteracion.zip 200 application/zip 243 https://elecciones.servel.cl/iteracion.zip
-cl/total_votacion_4.zip 200 application/zip 1223 https://elecciones.servel.cl/total_votacion_4.zip
-cl/total_votacion_5.zip 200 application/zip 1582 https://elecciones.servel.cl/total_votacion_5.zip
-cl/total_votacion_6.zip 200 application/zip 1807 https://elecciones.servel.cl/total_votacion_6.zip
-cl/resultados_prelim_2025.html 200 text/html; charset=UTF-8 237838 https://www.servel.cl/resultados-preliminares-eleccion-presidencial-y-parlamentarias-2025/
+geo/municipios_minima.geojson 200 application/octet-stream 3767826 https://media.githubusercontent.com/media/cristoferluch/GeoDadosBrasil/main/Munic%C3%ADpios/municipios_minima.geojson
+geo/municipios_intermediaria.geojson 200 application/octet-stream 12469647 https://media.githubusercontent.com/media/cristoferluch/GeoDadosBrasil/main/Munic%C3%ADpios/municipios_intermediaria.geojson
