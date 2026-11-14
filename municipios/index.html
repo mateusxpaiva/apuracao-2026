@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prefeitos e vereadores · Apuração por IA</title>
+<meta name="author" content="Mateus Paiva">
+<meta name="description" content="Resultados de prefeito e vereador em todas as cidades do Brasil, 2016, 2020 e 2024, com dados oficiais do TSE. Design: Mateus Paiva.">
+<meta property="og:title" content="Prefeitos e vereadores · Apuração por IA">
+<meta property="og:description" content="Busque qualquer cidade do Brasil e compare 2016, 2020 e 2024. Dados oficiais do TSE. Design: Mateus Paiva.">
+<meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
+<meta name="theme-color" content="#0B1220">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: busca de cidade no topo como ação principal; resumo nacional (prefeituras por partido, reeleição) abaixo; ficha da cidade com abas de ano, prefeito, vereadores e comparação entre eleições. Tema escuro único, igual ao painel. */
+:root{
+  --ink:#080D18; --panel:#0F1729; --line:rgba(255,255,255,.08); --mute:#8C97AE; --fg:#EEF2F8;
+  --gold:#E2B84B; --y16:#7A6427; --y20:#B8932F; --y24:#F2CF6B; --ok:#3FB68B; --gray:#4A556C;
+  --f-display:"Sora","Segoe UI",system-ui,sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.5 var(--f-body);-webkit-text-size-adjust:100%}
+body{background:radial-gradient(900px 520px at 50% -10%,rgba(226,184,75,.12),transparent 60%),var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:22px}
+nav.top{display:flex;flex-wrap:wrap;gap:8px}
+nav.top a{font:600 13px var(--f-body);color:#C9D2E3;text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px}
+nav.top a[aria-current]{border-color:var(--gold);color:var(--gold)}
+.eyebrow{font:700 12px var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:800 clamp(32px,6.5vw,58px)/1.03 var(--f-display);letter-spacing:-.035em;margin:8px 0 0;text-wrap:balance}
+.lede{font-size:16.5px;color:#C9D2E3;max-width:62ch;margin:12px 0 0}
+.byline{display:flex;align-items:center;gap:10px;margin-top:16px}
+.byline .mono{width:34px;height:34px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:700 12px var(--f-display);color:var(--gold);background:rgba(226,184,75,.1)}
+.byline b{display:block;font:700 18px/1 var(--f-display);color:var(--gold)}
+.byline small{font:600 10.5px var(--f-body);letter-spacing:.2em;color:var(--mute)}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:20px;padding:22px;min-width:0}
+h2{font:700 clamp(20px,2.8vw,26px)/1.2 var(--f-display);letter-spacing:-.015em;margin:0;text-wrap:balance}
+h3{font:700 17px/1.25 var(--f-display);margin:0 0 10px}
+.sub{color:var(--mute);font-size:13.5px;margin:6px 0 16px;max-width:72ch}
+.note{font-size:13px;color:var(--mute);max-width:75ch;margin:12px 0 0;line-height:1.6}
+.note b{color:var(--fg)}
+
+/* busca */
+.search{position:relative}
+.search input{width:100%;font:600 18px var(--f-body);color:var(--fg);background:#0B1325;border:1.5px solid rgba(226,184,75,.45);border-radius:16px;padding:16px 18px 16px 48px;outline:none}
+.search input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(226,184,75,.15)}
+.search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:20px;height:20px}
+.sug{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:10;background:#0B1325;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -10px rgba(0,0,0,.7)}
+.sug button{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:12px 16px;font:600 15px var(--f-body);color:var(--fg);cursor:pointer}
+.sug button:first-child{border-top:0}
+.sug button:hover,.sug button.on{background:rgba(226,184,75,.12)}
+.sug span{color:var(--mute);font-weight:700}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+button{font:600 13px var(--f-body);background:rgba(255,255,255,.04);color:var(--fg);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 13px;cursor:pointer}
+button[aria-pressed="true"]{background:var(--gold);color:#0B1220;border-color:var(--gold)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.kpi{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.03);min-width:0}
+.kpi b{display:block;font:800 clamp(26px,4.2vw,36px)/1.05 var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--mute)}
+@media (max-width:680px){.kpis{grid-template-columns:1fr}}
+
+/* barras por partido */
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font:600 12.5px var(--f-body);color:var(--mute);margin-bottom:12px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.pbars{display:grid;gap:12px}
+.pb{display:grid;grid-template-columns:118px minmax(0,1fr);gap:4px 12px;align-items:center}
+.pb .lab{font:700 13.5px var(--f-display);text-align:right;line-height:1.15}
+.pb .lab small{display:block;font:500 10.5px var(--f-body);color:var(--mute)}
+.pb .rows{display:grid;gap:2px}
+.pb .r{display:flex;align-items:center;gap:8px;height:12px}
+.pb .r i{display:block;height:100%;border-radius:0 4px 4px 0;min-width:2px}
+.pb .r em{font:700 11.5px var(--f-body);font-style:normal;color:var(--fg);font-variant-numeric:tabular-nums}
+@media (max-width:520px){.pb{grid-template-columns:86px minmax(0,1fr)}.pb .lab{font-size:12.5px}}
+
+/* ficha da cidade */
+.cityHead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:16px}
+.cityHead h2{font-size:clamp(26px,4.5vw,40px);letter-spacing:-.03em}
+.cityHead .uf{color:var(--mute);font:700 15px var(--f-body);margin-left:6px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.grid2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px}
+@media (max-width:820px){.grid2{grid-template-columns:1fr}}
+.box{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.025);min-width:0}
+.cand{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.cand:first-of-type{border-top:0}
+.cand .nm{font:700 14.5px var(--f-display);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cand .nm small{font:600 12px var(--f-body);color:var(--mute);margin-left:6px}
+.cand .vt{font:700 14px var(--f-display);text-align:right;font-variant-numeric:tabular-nums}
+.cand .vt small{display:block;font:600 11.5px var(--f-body);color:var(--mute)}
+.cand .bar{grid-column:1/-1;height:7px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden}
+.cand .bar i{display:block;height:100%;background:var(--gray);border-radius:4px}
+.cand.win .bar i{background:var(--gold)}
+.tag{display:inline-block;font:700 10.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:2px}
+.tag.e{background:rgba(226,184,75,.18);color:var(--gold)}
+.tag.t{background:rgba(255,255,255,.08);color:#C9D2E3}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;text-align:center}
+.stats b{display:block;font:700 17px var(--f-display);font-variant-numeric:tabular-nums}
+.stats span{font-size:11.5px;color:var(--mute)}
+.turnTabs{display:flex;gap:6px;margin-bottom:8px}
+.ver{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+@media (max-width:560px){.ver{grid-template-columns:1fr}}
+.vrow{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-top:1px solid var(--line);font-size:14px;min-width:0}
+.vrow span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vrow b{font-family:var(--f-display);font-variant-numeric:tabular-nums}
+.vrow small{color:var(--mute);font-weight:700;margin-left:6px}
+.seats{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
+.seat{font:700 12.5px var(--f-body);padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.06)}
+.seat b{color:var(--gold);margin-left:4px}
+.filter{width:100%;font:600 14px var(--f-body);color:var(--fg);background:#0B1325;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0}
+.hist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.hist{grid-template-columns:1fr}}
+.hist .box b{display:block;font:800 22px var(--f-display);color:var(--gold)}
+.hist .box .w{font:700 15.5px var(--f-display);margin-top:6px}
+.hist .box .w small{display:block;font:600 12.5px var(--f-body);color:var(--mute)}
+.empty{color:var(--mute);font-size:14px;padding:10px 0}
+.loading{color:var(--mute);font-size:14px}
+footer{display:grid;gap:6px;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--mute)}
+footer .sig{font:700 16px var(--f-display);color:var(--gold)}
+footer a{color:#C9D2E3}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top" aria-label="Seções do Apuração por IA">
+    <a href="../">Painel 2026</a><a href="../historico/">Histórico presidencial</a><a href="./" aria-current="page">Prefeitos e vereadores</a>
+  </nav>
+
+  <header>
+    <div class="eyebrow">Apuração por IA · Eleições municipais</div>
+    <h1>Prefeitos e vereadores de todas as cidades do Brasil</h1>
+    <p class="lede">Resultados oficiais do TSE de 2016, 2020 e 2024 para as 5.569 cidades com eleição. Busque sua cidade para ver quem venceu, quantos votos cada candidato teve e o que mudou de uma eleição para outra.</p>
+    <div class="byline"><div class="mono" aria-hidden="true">MP</div><div><b>Mateus Paiva</b><small>DESIGNER</small></div></div>
+  </header>
+
+  <section class="card" aria-labelledby="h-busca">
+    <h2 id="h-busca">Buscar cidade</h2>
+    <p class="sub">Digite o nome da cidade. Acentos são opcionais.</p>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#E2B84B" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="Ex.: Limeira, Salvador" aria-label="Nome da cidade" aria-controls="sug">
+      <div class="sug" id="sug" role="listbox" hidden></div>
+    </div>
+    <div class="quick" id="quick" aria-label="Capitais"></div>
+  </section>
+
+  <section class="card" id="city" aria-live="polite" hidden></section>
+
+  <section class="kpis" aria-label="Destaques nacionais" id="kpis"></section>
+
+  <section class="card" aria-labelledby="h-part">
+    <h2 id="h-part">Prefeituras por partido</h2>
+    <p class="sub">Número de prefeitos eleitos em cada eleição. Partidos que mudaram de nome ou se fundiram aparecem pela sigla atual.</p>
+    <div class="legend"><span><i style="background:var(--y16)"></i>2016</span><span><i style="background:var(--y20)"></i>2020</span><span><i style="background:var(--y24)"></i>2024</span></div>
+    <div class="pbars" id="pbars"><p class="loading">Carregando…</p></div>
+    <p class="note" id="mapNote"></p>
+  </section>
+
+  <section class="card" aria-labelledby="h-mt">
+    <h2 id="h-mt">Fonte e método</h2>
+    <p class="note"><b>Fonte:</b> Portal de Dados Abertos do TSE, arquivos "Votação nominal por município e zona", "Detalhe da apuração por município e zona" e "Votação em partido por município e zona" de 2016, 2020 e 2024. As zonas eleitorais foram somadas por cidade. Os dados são baixados e processados automaticamente pelo coletor do Apuração por IA.</p>
+    <p class="note"><b>Situação do candidato</b> (eleito, suplente, 2º turno) é a registrada pelo TSE. Decisões judiciais posteriores podem mudar resultados em algumas cidades. <b>Reeleição</b> é identificada quando o mesmo nome completo vence na mesma cidade em duas eleições seguidas.</p>
+    <p class="note"><b>Brasília</b> e <b>Fernando de Noronha</b> não elegem prefeito nem vereador.</p>
+  </section>
+
+  <footer>
+    <div class="sig">Design · Mateus Paiva</div>
+    <div>Apuração por IA · dados oficiais do TSE · <a href="https://dadosabertos.tse.jus.br/" rel="noopener">dadosabertos.tse.jus.br</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var DATA = "../data/mun/", YEARS = [2016, 2020, 2024];
+var $ = function(id){ return document.getElementById(id); };
+var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1});
+var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+var norm = function(s){ return String(s).normalize("NFD").replace(/[̀-ͯ]/g,"").toUpperCase().replace(/[^A-Z0-9 ]/g," ").replace(/\s+/g," ").trim(); };
+var title = function(s){ var low = {DE:1,DA:1,DO:1,DAS:1,DOS:1,E:1,D:1}; return String(s).toLowerCase().split(" ").map(function(w,i){ var u = w.toUpperCase(); if (i && low[u]) return w; return w.replace(/^(d')?(\S)/, function(m,a,b){ return (a||"") + b.toUpperCase(); }); }).join(" "); };
+var FAM = {PMDB:"MDB",PR:"PL",PRB:"REPUBLICANOS",DEM:"UNIÃO",PSL:"UNIÃO",SD:"SOLIDARIEDADE",PPS:"CIDADANIA",PTN:"PODE","PT do B":"AVANTE",PSDC:"DC",PEN:"PRD",PATRIOTA:"PRD",PTB:"PRD",PRP:"PRD",PHS:"PODE",PSC:"PODE",PPL:"PC do B",PTC:"AGIR",PROS:"SOLIDARIEDADE",PMN:"MOBILIZA"};
+var cache = {};
+function getJSON(p){ if (!cache[p]) cache[p] = fetch(DATA + p).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }); return cache[p]; }
+
+var INDEX = null, LIST = [];
+var CAPS = [["São Paulo","SP"],["Rio de Janeiro","RJ"],["Belo Horizonte","MG"],["Salvador","BA"],["Fortaleza","CE"],["Recife","PE"],["Porto Alegre","RS"],["Curitiba","PR"],["Manaus","AM"],["Goiânia","GO"]];
+
+/* resumo nacional */
+getJSON("resumo.json").then(function(R){
+  var A = R.por_ano, r20 = R.reeleicao["2016-2020"], r24 = R.reeleicao["2020-2024"];
+  $("kpis").innerHTML =
+    "<div class='kpi'><b>" + fmt.format(A["2024"].municipios) + "</b><span>cidades com eleição em 2024, " + A["2024"].segundo_turno + " delas com 2º turno</span></div>" +
+    "<div class='kpi'><b>" + Math.round(r24.mesmo_prefeito/r24.municipios*100) + "%</b><span>das cidades mantiveram o mesmo prefeito de 2020 para 2024 (em 2020: " + Math.round(r20.mesmo_prefeito/r20.municipios*100) + "%)</span></div>" +
+    "<div class='kpi'><b>" + fmt.format(Object.values(A["2024"].vereadores_por_partido).reduce(function(a,b){ return a+b; },0)) + "</b><span>vereadores eleitos em 2024</span></div>";
+  var fam = {};
+  YEARS.forEach(function(y){ Object.entries(A[y].prefeitos_por_partido).forEach(function(e){ var k = FAM[e[0]] || e[0]; fam[k] = fam[k] || {}; fam[k][y] = (fam[k][y] || 0) + e[1]; }); });
+  var top = Object.keys(fam).sort(function(a,b){ return (fam[b][2024]||0) - (fam[a][2024]||0); }).slice(0,12);
+  var max = Math.max.apply(null, top.map(function(k){ return Math.max(fam[k][2016]||0, fam[k][2020]||0, fam[k][2024]||0); }));
+  var origins = {}; Object.keys(FAM).forEach(function(k){ (origins[FAM[k]] = origins[FAM[k]] || []).push(k); });
+  $("pbars").innerHTML = top.map(function(k){
+    var o = origins[k] ? "<small>inclui " + origins[k].join(", ") + "</small>" : "";
+    return "<div class='pb'><div class='lab'>" + esc(k) + o + "</div><div class='rows'>" + YEARS.map(function(y,i){ var v = fam[k][y] || 0; return "<div class='r'><i style='width:" + (v/max*88) + "%;background:var(--y" + String(y).slice(2) + ")'></i><em>" + fmt.format(v) + "</em></div>"; }).join("") + "</div></div>";
+  }).join("");
+  $("mapNote").innerHTML = "<b>2024:</b> o PSD passou o MDB e teve mais prefeituras. O União Brasil, criado em 2022 pela fusão de DEM e PSL, aparece somado a eles em 2016 e 2020 para permitir a comparação.";
+}).catch(function(){ $("pbars").innerHTML = "<p class='empty'>Não foi possível carregar o resumo agora. Recarregue a página.</p>"; });
+
+/* busca */
+getJSON("index.json").then(function(I){
+  INDEX = I; LIST = Object.keys(I).map(function(cd){ return {cd:cd, n:I[cd][0], uf:I[cd][1], k:norm(I[cd][0])}; });
+  $("quick").innerHTML = CAPS.map(function(c){ var it = LIST.find(function(x){ return x.k === norm(c[0]) && x.uf === c[1]; }); return it ? "<button type='button' data-cd='" + it.cd + "'>" + esc(c[0]) + "</button>" : ""; }).join("");
+  var m = /[?&]m=(\d+)/.exec(location.search); if (m && I[m[1]]) openCity(m[1], false);
+});
+$("quick").addEventListener("click", function(e){ var b = e.target.closest("button"); if (b) openCity(b.getAttribute("data-cd"), true); });
+var sel = -1, found = [];
+$("q").addEventListener("input", function(){
+  var q = norm(this.value); sel = -1;
+  if (!q || !LIST.length){ $("sug").hidden = true; return; }
+  found = LIST.filter(function(x){ return x.k.indexOf(q) >= 0; }).sort(function(a,b){ return (a.k.indexOf(q) - b.k.indexOf(q)) || a.k.length - b.k.length; }).slice(0, 8);
+  $("sug").innerHTML = found.length ? found.map(function(x,i){ return "<button type='button' role='option' data-cd='" + x.cd + "'>" + esc(title(x.n)) + "<span>" + x.uf + "</span></button>"; }).join("") : "<div class='empty' style='padding:12px 16px'>Nenhuma cidade encontrada.</div>";
+  $("sug").hidden = false;
+});
+$("q").addEventListener("keydown", function(e){
+  var bs = $("sug").querySelectorAll("button"); if (!bs.length) return;
+  if (e.key === "ArrowDown" || e.key === "ArrowUp"){ e.preventDefault(); sel = (sel + (e.key === "ArrowDown" ? 1 : -1) + bs.length) % bs.length; bs.forEach(function(b,i){ b.classList.toggle("on", i === sel); }); }
+  if (e.key === "Enter"){ e.preventDefault(); openCity((bs[Math.max(0,sel)]).getAttribute("data-cd"), true); }
+  if (e.key === "Escape"){ $("sug").hidden = true; }
+});
+$("sug").addEventListener("click", function(e){ var b = e.target.closest("button"); if (b) openCity(b.getAttribute("data-cd"), true); });
+document.addEventListener("click", function(e){ if (!e.target.closest(".search")) $("sug").hidden = true; });
+
+/* ficha da cidade */
+var cur = {cd:null, y:2024, t:"1"};
+function openCity(cd, push){
+  $("sug").hidden = true; $("q").value = "";
+  cur.cd = cd; cur.t = "1";
+  try{ if (push) history.replaceState(null, "", "?m=" + cd); }catch(e){}
+  var info = INDEX[cd], box = $("city"); box.hidden = false;
+  box.innerHTML = "<p class='loading'>Carregando " + esc(title(info[0])) + "…</p>";
+  Promise.all(YEARS.map(function(y){ return getJSON(y + "/" + info[1] + ".json").catch(function(){ return null; }); })).then(function(all){
+    cur.p = {}; YEARS.forEach(function(y,i){ cur.p[y] = all[i] && all[i].mun[cd] || null; });
+    if (!cur.p[cur.y]) cur.y = YEARS.slice().reverse().find(function(y){ return cur.p[y]; }) || 2024;
+    renderCity();
+    box.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
+  });
+}
+function candRows(cs, tot){
+  var max = cs.length ? cs[0][3] : 1;
+  return cs.map(function(c){
+    var tag = c[4] === "E" ? "<span class='tag e'>Eleito</span>" : c[4] === "T" ? "<span class='tag t'>2º turno</span>" : "";
+    return "<div class='cand" + (c[4] === "E" ? " win" : "") + "'><div class='nm'>" + esc(title(c[1])) + "<small>" + esc(c[2]) + " · " + c[0] + "</small>" + tag + "</div><div class='vt'>" + fmt.format(c[3]) + "<small>" + (tot ? f1.format(c[3]/tot*100) + "%" : "") + "</small></div><div class='bar'><i style='width:" + (max ? c[3]/max*100 : 0) + "%'></i></div></div>";
+  }).join("");
+}
+function renderCity(){
+  var info = INDEX[cur.cd], P = cur.p[cur.y], box = $("city");
+  var html = "<div class='cityHead'><div><div class='eyebrow'>Sua busca</div><h2>" + esc(title(info[0])) + "<span class='uf'>" + info[1] + "</span></h2></div>" +
+    "<div class='seg' role='group' aria-label='Eleição'>" + YEARS.map(function(y){ return "<button type='button' data-y='" + y + "' aria-pressed='" + (y === cur.y) + "'" + (cur.p[y] ? "" : " disabled") + ">" + y + "</button>"; }).join("") + "</div></div>";
+  if (!P){ box.innerHTML = html + "<p class='empty'>Não houve eleição nesta cidade em " + cur.y + ".</p>"; bindYears(); return; }
+  var turns = Object.keys(P.p).sort(); if (turns.indexOf(cur.t) < 0) cur.t = turns[0];
+  var T = P.p[cur.t], t = T.t;
+  html += "<div class='grid2'><div class='box'><h3>Prefeito · " + cur.y + "</h3>" +
+    (turns.length > 1 ? "<div class='turnTabs'>" + turns.map(function(k){ return "<button type='button' data-t='" + k + "' aria-pressed='" + (k === cur.t) + "'>" + k + "º turno</button>"; }).join("") + "</div>" : "") +
+    candRows(T.c, t[3]) +
+    "<div class='stats'><div><b>" + fmt.format(t[0]) + "</b><span>eleitores</span></div><div><b>" + (t[0] ? f1.format(t[1]/t[0]*100) : "—") + "%</b><span>comparecimento</span></div><div><b>" + (t[1] ? f1.format((t[4]+t[5])/t[1]*100) : "—") + "%</b><span>brancos e nulos</span></div></div></div>" +
+    "<div class='box' id='vbox'><h3>Câmara de Vereadores · " + cur.y + "</h3><p class='loading'>Carregando vereadores…</p></div></div>";
+  html += "<h3 style='margin-top:22px'>Quem venceu para prefeito em cada eleição</h3><div class='hist'>" + YEARS.map(function(y){
+    var p = cur.p[y]; if (!p) return "<div class='box'><b>" + y + "</b><div class='w'>Sem eleição</div></div>";
+    var w = null; ["2","1"].some(function(k){ if (p.p[k]){ w = p.p[k].c.find(function(c){ return c[4] === "E"; }); return !!w; } return false; });
+    var tt = p.p["2"] ? p.p["2"].t : p.p["1"].t;
+    return "<div class='box'><b>" + y + "</b><div class='w'>" + (w ? esc(title(w[1])) + "<small>" + esc(w[2]) + " · " + fmt.format(w[3]) + " votos (" + f1.format(w[3]/tt[3]*100) + "%)" + (p.p["2"] ? " · 2º turno" : "") + "</small>" : "Sem eleito registrado<small>resultado sub judice ou anulado</small>") + "</div></div>";
+  }).join("") + "</div>";
+  box.innerHTML = html; bindYears();
+  box.querySelectorAll("[data-t]").forEach(function(b){ b.addEventListener("click", function(){ cur.t = b.getAttribute("data-t"); renderCity(); }); });
+  loadVer();
+}
+function bindYears(){ $("city").querySelectorAll("[data-y]").forEach(function(b){ b.addEventListener("click", function(){ cur.y = +b.getAttribute("data-y"); renderCity(); }); }); }
+function loadVer(){
+  var info = INDEX[cur.cd], y = cur.y, cd = cur.cd;
+  getJSON(y + "/" + info[1] + "_v.json").then(function(V){
+    if (cur.cd !== cd || cur.y !== y) return;
+    var v = V.mun[cd], el = $("vbox"); if (!el) return;
+    if (!v){ el.innerHTML = "<h3>Câmara de Vereadores · " + y + "</h3><p class='empty'>Sem dados de vereador.</p>"; return; }
+    var eleitos = v.c.filter(function(c){ return c[4] === "E"; }), seats = {};
+    eleitos.forEach(function(c){ seats[c[2]] = (seats[c[2]] || 0) + 1; });
+    var vt = cur.p[y].vt;
+    var h = "<h3>Câmara de Vereadores · " + y + "</h3><div class='sub' style='margin:0 0 4px'>" + eleitos.length + " eleitos de " + fmt.format(v.c.length) + " candidatos" + (vt ? " · " + fmt.format(vt[6]) + " votos só na legenda" : "") + "</div>" +
+      "<div class='seats'>" + Object.entries(seats).sort(function(a,b){ return b[1]-a[1]; }).map(function(e){ return "<span class='seat'>" + esc(e[0]) + "<b>" + e[1] + "</b></span>"; }).join("") + "</div>" +
+      "<div class='ver'>" + eleitos.map(function(c){ return "<div class='vrow'><span>" + esc(title(c[1])) + "<small>" + esc(c[2]) + "</small></span><b>" + fmt.format(c[3]) + "</b></div>"; }).join("") + "</div>" +
+      "<input class='filter' id='vf' type='search' placeholder='Buscar entre todos os " + fmt.format(v.c.length) + " candidatos' aria-label='Buscar candidato a vereador'><div id='vall'></div>";
+    el.innerHTML = h;
+    $("vf").addEventListener("input", function(){
+      var q = norm(this.value); if (q.length < 2){ $("vall").innerHTML = ""; return; }
+      var r = v.c.filter(function(c){ return norm(c[1]).indexOf(q) >= 0 || norm(c[2]) === q || c[0].indexOf(q) === 0; }).slice(0, 40);
+      $("vall").innerHTML = r.length ? r.map(function(c){ var s = {E:"eleito",S:"suplente",N:"não eleito",T:""}[c[4]]; return "<div class='vrow'><span>" + esc(title(c[1])) + "<small>" + esc(c[2]) + " · " + s + "</small></span><b>" + fmt.format(c[3]) + "</b></div>"; }).join("") : "<p class='empty'>Nenhum candidato encontrado.</p>";
+    });
+  }).catch(function(){ var el = $("vbox"); if (el) el.innerHTML = "<h3>Câmara de Vereadores</h3><p class='empty'>Não foi possível carregar os vereadores agora.</p>"; });
+}
+})();
+</script>
+</body>
+</html>
