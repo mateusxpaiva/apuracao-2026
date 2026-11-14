@@ -34,11 +34,12 @@ jobs:
             code=$(curl -sS -L --retry 3 --max-time 600 -A "$UA" -o "$nome" -w '%{http_code} %{content_type} %{size_download}' "$url" || echo "ERRO")
             echo "$nome $code $url" | tee -a log.txt
             if [ -f "$nome" ]; then
+              case "$nome" in *.zip)
+                unzip -l "$nome" > "$nome.lista.txt" 2>&1 || true
+                unzip -Z1 "$nome" 2>/dev/null | while read -r m; do echo "=== $m"; unzip -p "$nome" "$m" 2>/dev/null | head -c 3000 | head -n 6; echo; done > "$nome.amostra.txt" || true ;;
+              esac
               sz=$(stat -c %s "$nome")
-              if [ "$sz" -gt 90000000 ]; then
-                gzip -9 -f "$nome"; sz=$(stat -c %s "$nome.gz")
-                if [ "$sz" -gt 90000000 ]; then split -b 80M "$nome.gz" "$nome.gz.part-" && rm "$nome.gz"; fi
-              fi
+              if [ "$sz" -gt 40000000 ]; then rm -f "$nome"; echo "$nome grande ($sz bytes): guardada so a amostra" | tee -a log.txt; fi
             fi
           done
           du -sh . ; ls -la
