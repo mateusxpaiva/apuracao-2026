@@ -5,30 +5,101 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Mundo · Apuração por IA</title>
 <meta name="author" content="Mateus Paiva">
-<meta name="description" content="Eleições presidenciais da Argentina, Estados Unidos, Chile e França comparadas ao Brasil, com dados oficiais. Design: Mateus Paiva.">
+<meta name="description" content="Eleições presidenciais do Brasil, Argentina, Estados Unidos e França lado a lado, com dados oficiais. Design: Mateus Paiva.">
 <meta property="og:title" content="Mundo · Apuração por IA">
-<meta property="og:description" content="Argentina, EUA, Chile e França comparados ao Brasil, com dados oficiais. Design: Mateus Paiva.">
+<meta property="og:description" content="Brasil, Argentina, EUA e França comparados: viradas no 2º turno, comparecimento e resultado por região. Design: Mateus Paiva.">
 <meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
 <meta name="theme-color" content="#0B1220">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
 <style>
-:root{--ink:#080D18;--line:rgba(255,255,255,.08);--mute:#8C97AE;--fg:#EEF2F8;--gold:#E2B84B;color-scheme:dark}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.5 Manrope,system-ui,sans-serif}
+/* Layout: cruzamento entre países primeiro (a pergunta principal: o líder do 1º turno sempre vence?), depois comparecimento e margem, depois a ficha de cada país com abas de país, ano e turno e as regiões ordenadas por margem. */
+:root{--ink:#080D18;--line:rgba(255,255,255,.08);--mute:#8C97AE;--fg:#EEF2F8;--sub:#C9D2E3;--gold:#E2B84B;--track:rgba(255,255,255,.06);
+  --f-d:"Sora","Segoe UI",system-ui,sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.5 var(--f-b);-webkit-text-size-adjust:100%}
 body{background:radial-gradient(900px 520px at 50% -10%,rgba(226,184,75,.12),transparent 60%),var(--ink)}
 .wrap{max-width:1080px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:grid;gap:22px}
-.eyebrow{font:700 12px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-h1{font:800 clamp(32px,6.5vw,56px)/1.03 Sora,sans-serif;letter-spacing:-.035em;margin:8px 0 0;text-wrap:balance}
-.lede{font-size:16.5px;color:#C9D2E3;max-width:62ch;margin:12px 0 0}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
-.c{border:1px solid var(--line);border-radius:20px;padding:20px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
-.c .f{font-size:30px;line-height:1}
-.c h2{font:700 22px Sora,sans-serif;margin:10px 0 4px}
-.c p{margin:0;color:var(--mute);font-size:14px}
-.st{display:inline-block;margin-top:12px;font:700 11px Manrope,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(226,184,75,.14);color:var(--gold)}
-.note{color:var(--mute);font-size:13.5px;max-width:75ch}
-footer{text-align:center;border-top:1px solid var(--line);padding-top:18px;font:700 16px Sora,sans-serif;color:var(--gold)}
+.eyebrow{font:700 12px var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:800 clamp(32px,6.5vw,56px)/1.03 var(--f-d);letter-spacing:-.035em;margin:8px 0 0;text-wrap:balance}
+.lede{font-size:16.5px;color:var(--sub);max-width:64ch;margin:12px 0 0}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:20px;padding:22px;min-width:0}
+h2{font:700 clamp(20px,2.8vw,26px)/1.2 var(--f-d);letter-spacing:-.015em;margin:0;text-wrap:balance}
+h3{font:700 17px/1.25 var(--f-d);margin:0 0 10px}
+.sub{color:var(--mute);font-size:13.5px;margin:6px 0 16px;max-width:74ch}
+.note{font-size:13px;color:var(--mute);max-width:78ch;margin:14px 0 0;line-height:1.6}
+.note b{color:var(--fg)}
+button{font:700 13px var(--f-b);background:rgba(255,255,255,.04);color:var(--fg);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 13px;cursor:pointer}
+button[aria-pressed="true"]{background:var(--gold);color:#0B1220;border-color:var(--gold)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.flag{font-size:16px;margin-right:4px}
+
+/* destaque */
+.hero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+.kpi{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.03)}
+.kpi b{display:block;font:800 clamp(26px,4vw,34px)/1.05 var(--f-d);letter-spacing:-.03em}
+.kpi span{font-size:13px;color:var(--mute)}
+
+/* viradas */
+.vt{width:100%;border-collapse:collapse;font-size:14px}
+.vt th{font:700 11.5px var(--f-b);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;padding:8px 8px;border-bottom:1px solid var(--line)}
+.vt td{padding:11px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.vt td small{display:block;color:var(--mute);font-size:12.5px;font-variant-numeric:tabular-nums}
+.vt .pa{font:700 14.5px var(--f-d);white-space:nowrap}
+.vt tr.virou td{background:rgba(226,184,75,.07)}
+.pill{display:inline-block;font:800 10.5px var(--f-b);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.pill.sim{background:var(--gold);color:#0B1220}
+.pill.nao{background:rgba(255,255,255,.08);color:var(--sub)}
+@media (max-width:640px){
+  .vt thead{display:none}.vt,.vt tbody,.vt tr,.vt td{display:block;width:100%}
+  .vt tr{border-bottom:1px solid var(--line);padding:10px 0}.vt td{border:0;padding:3px 8px}
+  .vt td[data-l]:before{content:attr(data-l);display:block;font:700 10.5px var(--f-b);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+}
+
+/* barras comparativas */
+.hb{display:grid;gap:10px}
+.hr{display:grid;grid-template-columns:150px minmax(0,1fr) 64px;gap:12px;align-items:center}
+.hr .l{font:700 14px var(--f-d);line-height:1.2}
+.hr .l small{display:block;font:600 12px var(--f-b);color:var(--mute)}
+.hr .t{height:12px;border-radius:0 4px 4px 0;background:var(--track);overflow:hidden}
+.hr .t i{display:block;height:100%;background:var(--gold);border-radius:0 4px 4px 0}
+.hr .t i.br{background:#F2CF6B}
+.hr .v{font:700 14px var(--f-d);text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.hr{grid-template-columns:110px minmax(0,1fr) 54px;gap:8px}.hr .l{font-size:13px}}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+.box{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.025);min-width:0}
+
+/* ficha do país */
+.ctrl{display:grid;gap:10px;margin-bottom:18px}
+.res{display:grid;gap:10px}
+.cand{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 10px;align-items:end}
+.cand .nm{font:700 15.5px var(--f-d);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cand .nm small{font:600 12px var(--f-b);color:var(--mute);margin-left:6px}
+.cand .pc{font:800 18px var(--f-d);font-variant-numeric:tabular-nums;text-align:right}
+.cand .pc small{display:block;font:600 11.5px var(--f-b);color:var(--mute);text-align:right}
+.cand .bar{grid-column:1/-1;height:9px;border-radius:0 4px 4px 0;background:var(--track);overflow:hidden}
+.cand .bar i{display:block;height:100%;border-radius:0 4px 4px 0}
+.tag{display:inline-block;font:800 10px var(--f-b);letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:2px;background:rgba(226,184,75,.18);color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px;text-align:center}
+.stats b{display:block;font:700 17px var(--f-d);font-variant-numeric:tabular-nums}
+.stats span{font-size:11.5px;color:var(--mute)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font:600 12.5px var(--f-b);color:var(--mute);margin:4px 0 12px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.regs{display:grid;gap:7px}
+.rg{display:grid;grid-template-columns:150px minmax(0,1fr) 62px;gap:10px;align-items:center;font-size:13.5px}
+.rg .n{font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rg .s{display:flex;height:14px;border-radius:4px;overflow:hidden;gap:2px;background:var(--ink)}
+.rg .s i{display:block;height:100%}
+.rg .m{font:700 12.5px var(--f-b);text-align:right;font-variant-numeric:tabular-nums;color:var(--sub)}
+@media (max-width:560px){.rg{grid-template-columns:96px minmax(0,1fr) 54px;gap:8px;font-size:12.5px}}
+.filter{width:100%;font:600 14px var(--f-b);color:var(--fg);background:#0B1325;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 12px}
+.soon{border:1px dashed rgba(226,184,75,.4);border-radius:16px;padding:16px;color:var(--sub);font-size:14px}
+footer{display:grid;gap:6px;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--mute)}
+footer .sig{font:700 16px var(--f-d);color:var(--gold)}
+footer a{color:var(--sub)}
 </style>
 <script src="../menu.js" defer></script>
 </head>
@@ -36,17 +107,175 @@ footer{text-align:center;border-top:1px solid var(--line);padding-top:18px;font:
 <div class="wrap">
   <header>
     <div class="eyebrow">Apuração por IA · Mundo</div>
-    <h1>Eleições presidenciais pelo mundo</h1>
-    <p class="lede">Resultados oficiais de quatro países, região por região, lado a lado com o Brasil: comparecimento, margem de vitória e quem virou do 1º para o 2º turno.</p>
+    <h1>O Brasil comparado a Argentina, EUA e França</h1>
+    <p class="lede">Eleições presidenciais com dados oficiais de cada país, lado a lado. Quem liderou o 1º turno e perdeu o 2º, quanto cada país vai às urnas e como votou cada região.</p>
   </header>
-  <section class="grid" aria-label="Países">
-    <div class="c"><div class="f" aria-hidden="true">🇦🇷</div><h2>Argentina</h2><p>2015, 2019 e 2023, por província. Fonte: Dirección Nacional Electoral.</p><span class="st">Em coleta</span></div>
-    <div class="c"><div class="f" aria-hidden="true">🇺🇸</div><h2>Estados Unidos</h2><p>2016, 2020 e 2024, por estado. Fonte: Federal Election Commission.</p><span class="st">Em coleta</span></div>
-    <div class="c"><div class="f" aria-hidden="true">🇨🇱</div><h2>Chile</h2><p>2017, 2021 e 2025, por região. Fonte: SERVEL.</p><span class="st">Em coleta</span></div>
-    <div class="c"><div class="f" aria-hidden="true">🇫🇷</div><h2>França</h2><p>2012, 2017 e 2022, por departamento. Fonte: Ministère de l'Intérieur.</p><span class="st">Em coleta</span></div>
+
+  <section class="hero" id="hero" aria-label="Destaques"></section>
+
+  <section class="card" aria-labelledby="h-vir">
+    <h2 id="h-vir">Quem liderou o 1º turno venceu o 2º?</h2>
+    <p class="sub">Todos os 2º turnos presidenciais desde 2012 nos países com dois turnos. As linhas em destaque são viradas: o primeiro colocado do 1º turno perdeu a eleição.</p>
+    <table class="vt" id="vir"><thead><tr><th>Eleição</th><th>Líder do 1º turno</th><th>Vencedor do 2º turno</th><th>Virada?</th></tr></thead><tbody></tbody></table>
+    <p class="note" id="virNote"></p>
   </section>
-  <p class="note">Cada país entra nesta página assim que os números oficiais forem baixados e conferidos.</p>
-  <footer>Design · Mateus Paiva</footer>
+
+  <section class="two">
+    <div class="card"><h2>Comparecimento no turno decisivo</h2><p class="sub">Votantes sobre eleitores aptos, na eleição mais recente de cada país.</p><div class="hb" id="comp"></div><p class="note">Os EUA não têm cadastro nacional de eleitores e a FEC não publica esse dado, por isso ficam de fora.</p></div>
+    <div class="card"><h2>Margem do vencedor</h2><p class="sub">Diferença em pontos entre eleito e 2º colocado no turno decisivo, da eleição mais apertada à mais folgada.</p><div class="hb" id="marg"></div><p class="note">Nos EUA vale o voto popular nacional. Em 2016 Trump foi eleito com 2,1 pontos a menos que Hillary Clinton (barra apagada).</p></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-pais">
+    <h2 id="h-pais">Resultado por país e por região</h2>
+    <p class="sub">Escolha o país, a eleição e o turno. As regiões aparecem da maior para a menor vantagem do vencedor.</p>
+    <div class="ctrl">
+      <div class="seg" role="group" aria-label="País" id="tabP"></div>
+      <div class="seg" role="group" aria-label="Eleição" id="tabA"></div>
+      <div class="seg" role="group" aria-label="Turno" id="tabT"></div>
+    </div>
+    <div id="ficha"><p class="sub">Carregando…</p></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-fonte">
+    <h2 id="h-fonte">Fontes</h2>
+    <div id="fontes"></div>
+    <p class="note"><b>Chile:</b> em coleta. O SERVEL publica as eleições de 2017 e 2021 só em painéis Power BI e o site de 2025 guarda apenas o 1º turno preliminar. O país entra assim que os números por região forem baixados e conferidos.</p>
+  </section>
+
+  <footer>
+    <div class="sig">Design · Mateus Paiva</div>
+    <div>Apuração por IA · dados oficiais de TSE, DINE, FEC e Ministère de l'Intérieur</div>
+  </footer>
 </div>
+
+<script>
+(function(){
+"use strict";
+var $ = function(id){ return document.getElementById(id); };
+var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1}), f2 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+var PAISES = [["br","🇧🇷","Brasil"],["ar","🇦🇷","Argentina"],["us","🇺🇸","EUA"],["fr","🇫🇷","França"]];
+var OUT = "#5B6478";
+var D = {};
+
+Promise.all(PAISES.map(function(p){ return fetch("../data/mundo/" + p[0] + ".json").then(function(r){ return r.json(); }); })).then(function(all){
+  PAISES.forEach(function(p,i){ D[p[0]] = all[i]; });
+  cruzamento(); fontes(); initFicha();
+}).catch(function(){ $("ficha").innerHTML = "<p class='sub'>Não foi possível carregar os dados agora. Recarregue a página.</p>"; });
+
+function pct(T, id){ var n = T.nac; return n.validos ? n.v[id] / n.validos * 100 : 0; }
+function ranking(T){ return T.cand.slice().sort(function(a,b){ return (T.nac.v[b.id]||0) - (T.nac.v[a.id]||0); }); }
+function decisivo(e){ return e.turnos["2"] || e.turnos["1"]; }
+function vencedorUS(T){ return T.nac.ev.R > T.nac.ev.D ? "R" : "D"; }
+
+function cruzamento(){
+  var rows = [], vir = 0, tot = 0;
+  ["br","ar","fr"].forEach(function(k){
+    var P = D[k], flag = PAISES.find(function(p){ return p[0] === k; })[1];
+    P.eleicoes.forEach(function(e){
+      if (!e.turnos["2"]) return;
+      var t1 = e.turnos["1"], t2 = e.turnos["2"], l = ranking(t1)[0], w = ranking(t2)[0];
+      var virou = l.nome !== w.nome; tot++; if (virou) vir++;
+      rows.push({ano:e.ano, html:"<tr" + (virou ? " class='virou'" : "") + "><td class='pa' data-l='Eleição'><span class='flag' aria-hidden='true'>" + flag + "</span>" + P.nome + " " + e.ano + "</td>" +
+        "<td data-l='Líder do 1º turno'>" + esc(l.nome) + "<small>" + f1.format(pct(t1,l.id)) + "% no 1º turno</small></td>" +
+        "<td data-l='Vencedor do 2º turno'>" + esc(w.nome) + "<small>" + f1.format(pct(t2,w.id)) + "% no 2º turno</small></td>" +
+        "<td data-l='Virada?'><span class='pill " + (virou ? "sim'>Virada" : "nao'>Não") + "</span></td></tr>"});
+    });
+  });
+  rows.sort(function(a,b){ return b.ano - a.ano; });
+  $("vir").querySelector("tbody").innerHTML = rows.map(function(r){ return r.html; }).join("");
+  $("virNote").innerHTML = "<b>" + vir + " viradas em " + tot + " segundos turnos.</b> No Brasil, 2026 foi a primeira vez que o líder do 1º turno perdeu (veja o <a href='../historico/' style='color:var(--sub)'>histórico desde 1989</a>). Na Argentina isso já aconteceu duas vezes seguidas: Scioli em 2015 e Massa em 2023 lideraram e perderam. Na França, o líder do 1º turno venceu nas três eleições.";
+
+  var br26 = D.br.eleicoes.find(function(e){ return e.ano === 2026; }), us16 = D.us.eleicoes.find(function(e){ return e.ano === 2016; }).turnos["1"];
+  var t1 = br26.turnos["1"], t2 = br26.turnos["2"], l = ranking(t1)[0], w = ranking(t2)[0];
+  var dif = (pct(t1,l.id) - pct(t1,w.id));
+  $("hero").innerHTML =
+    "<div class='kpi'><b>" + vir + " de " + tot + "</b><span>segundos turnos tiveram virada nos três países com dois turnos</span></div>" +
+    "<div class='kpi'><b>" + f1.format(dif) + " pts</b><span>era a vantagem de " + esc(l.nome) + " sobre " + esc(w.nome) + " no 1º turno de 2026, revertida no 2º</span></div>" +
+    "<div class='kpi'><b>" + fmt.format(us16.nac.v.D - us16.nac.v.R) + "</b><span>votos a mais teve Hillary Clinton em 2016 nos EUA, e perdeu no colégio eleitoral</span></div>";
+
+  var comp = [], marg = [];
+  PAISES.forEach(function(p){
+    var P = D[p[0]], e = P.eleicoes[P.eleicoes.length-1], T = decisivo(e), r = ranking(T);
+    if (T.nac.eleitores) comp.push({k:p[0], l:p[1] + " " + P.nome, s:e.ano + (e.turnos["2"] ? " · 2º turno" : ""), v:T.nac.votantes / T.nac.eleitores * 100});
+  });
+  PAISES.forEach(function(p){
+    D[p[0]].eleicoes.forEach(function(e){
+      var T = decisivo(e), r = ranking(T); if (r.length < 2) return;
+      var w = r[0], o = r[1];
+      if (p[0] === "us"){ var wid = vencedorUS(T); w = T.cand.find(function(c){ return c.id === wid; }); o = T.cand.find(function(c){ return c.id === (wid === "R" ? "D" : "R"); }); }
+      var v = pct(T,w.id) - pct(T,o.id);
+      marg.push({k:p[0], l:p[1] + " " + p[2] + " " + e.ano, s:esc(w.nome) + (v < 0 ? " · eleito com menos votos" : ""), v:v});
+    });
+  });
+  comp.sort(function(a,b){ return b.v - a.v; }); marg.sort(function(a,b){ return a.v - b.v; });
+  var mmax = Math.max.apply(null, marg.map(function(x){ return Math.abs(x.v); }));
+  var bars = function(arr, max, unit){ return arr.map(function(x){ return "<div class='hr'><div class='l'>" + x.l + "<small>" + x.s + "</small></div><div class='t'><i class='" + (x.k === "br" ? "br" : "") + "' style='width:" + Math.max(1, Math.abs(x.v) / max * 100) + "%" + (x.v < 0 ? ";opacity:.45" : "") + "'></i></div><div class='v'>" + (x.v < 0 ? "−" : "") + f1.format(Math.abs(x.v)) + unit + "</div></div>"; }).join(""); };
+  $("comp").innerHTML = bars(comp, 100, "%");
+  $("marg").innerHTML = bars(marg, mmax, " pts");
+}
+
+function fontes(){
+  $("fontes").innerHTML = PAISES.map(function(p){ var P = D[p[0]]; return "<p class='note'><b>" + p[1] + " " + P.nome + ":</b> " + esc(P.fonte) + ". " + esc(P.nota) + "</p>"; }).join("");
+}
+
+/* ficha */
+var cur = {p:"br", a:null, t:null};
+function initFicha(){
+  $("tabP").innerHTML = PAISES.map(function(p){ return "<button type='button' data-p='" + p[0] + "'><span class='flag' aria-hidden='true'>" + p[1] + "</span>" + p[2] + "</button>"; }).join("") + "<button type='button' disabled><span class='flag' aria-hidden='true'>🇨🇱</span>Chile · em coleta</button>";
+  $("tabP").addEventListener("click", function(e){ var b = e.target.closest("[data-p]"); if (!b) return; cur.p = b.getAttribute("data-p"); cur.a = null; cur.t = null; render(); });
+  $("tabA").addEventListener("click", function(e){ var b = e.target.closest("[data-a]"); if (!b) return; cur.a = +b.getAttribute("data-a"); cur.t = null; render(); });
+  $("tabT").addEventListener("click", function(e){ var b = e.target.closest("[data-t]"); if (!b) return; cur.t = b.getAttribute("data-t"); render(); });
+  var m = /[?&]p=(br|ar|us|fr)/.exec(location.search); if (m) cur.p = m[1];
+  render();
+}
+function render(){
+  var P = D[cur.p];
+  if (cur.a === null) cur.a = P.eleicoes[P.eleicoes.length-1].ano;
+  var E = P.eleicoes.find(function(e){ return e.ano === cur.a; });
+  if (cur.t === null) cur.t = E.turnos["2"] ? "2" : "1";
+  var T = E.turnos[cur.t];
+  $("tabP").querySelectorAll("[data-p]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-p") === cur.p)); });
+  $("tabA").innerHTML = P.eleicoes.map(function(e){ return "<button type='button' data-a='" + e.ano + "' aria-pressed='" + (e.ano === cur.a) + "'>" + e.ano + "</button>"; }).join("");
+  var ts = Object.keys(E.turnos).sort();
+  $("tabT").innerHTML = ts.length > 1 ? ts.map(function(k){ return "<button type='button' data-t='" + k + "' aria-pressed='" + (k === cur.t) + "'>" + k + "º turno</button>"; }).join("") : "<span class='sub' style='margin:0'>" + (cur.p === "us" ? "Turno único · colégio eleitoral" : "Sem 2º turno nesta eleição") + "</span>";
+
+  var r = ranking(T), n = T.nac, isUS = cur.p === "us";
+  var win = isUS ? vencedorUS(T) : r[0].id;
+  var main = r.filter(function(c){ return c.cor !== OUT; }).slice(0, 3); if (main.length < 2) main = r.slice(0, 2);
+  var lista = r.slice(0, isUS ? 3 : (cur.t === "2" ? 2 : 5));
+  var max = n.v[r[0].id] / n.validos * 100;
+  var html = "<div class='two'><div class='box'><h3>" + P.nome + " · " + cur.a + (ts.length > 1 ? " · " + cur.t + "º turno" : "") + "</h3><div class='res'>" +
+    lista.map(function(c){
+      var p = pct(T, c.id), elect = (c.id === win && (isUS || cur.t === "2" || !E.turnos["2"]));
+      var extra = isUS && c.id !== "O" ? " · " + n.ev[c.id] + " delegados" : "";
+      return "<div class='cand'><div class='nm'>" + esc(c.nome) + (c.grupo ? "<small>" + esc(c.grupo) + "</small>" : "") + (elect ? "<span class='tag'>Eleito</span>" : "") + "</div><div class='pc'>" + f2.format(p) + "%<small>" + fmt.format(n.v[c.id]) + " votos" + extra + "</small></div><div class='bar'><i style='width:" + (p / max * 100) + "%;background:" + (c.cor === OUT ? "#8C97AE" : c.cor) + "'></i></div></div>";
+    }).join("") + "</div>";
+  if (n.eleitores) html += "<div class='stats'><div><b>" + fmt.format(n.eleitores) + "</b><span>eleitores</span></div><div><b>" + f1.format(n.votantes / n.eleitores * 100) + "%</b><span>comparecimento</span></div><div><b>" + (n.brancos !== null ? f1.format((n.brancos + n.nulos) / n.votantes * 100) + "%" : f1.format(n.nulos / n.votantes * 100) + "%") + "</b><span>brancos e nulos</span></div></div>";
+  else html += "<div class='stats'><div><b>" + fmt.format(n.validos) + "</b><span>votos</span></div><div><b>" + (n.ev.R + n.ev.D) + "</b><span>delegados</span></div><div><b>270</b><span>para vencer</span></div></div>";
+  if (isUS && n.v[win] < Math.max(n.v.R, n.v.D)) html += "<p class='note'><b>Atenção:</b> o eleito teve menos votos no total do país. Nos EUA vence quem soma 270 delegados, e cada estado entrega quase todos os seus delegados a quem vence ali.</p>";
+  html += "</div>";
+
+  var regs = T.reg.map(function(g){
+    var tot = g.validos || 1, sh = main.map(function(c){ return (g.v[c.id] || 0) / tot * 100; });
+    var outros = Math.max(0, 100 - sh.reduce(function(a,b){ return a+b; }, 0));
+    var w = main.slice().sort(function(a,b){ return (g.v[b.id]||0) - (g.v[a.id]||0); });
+    var mg = ((g.v[w[0].id]||0) - (g.v[w[1].id]||0)) / tot * 100;
+    return {g:g, sh:sh, outros:outros, w:w[0], mg:mg};
+  }).sort(function(a,b){ return a.w.id === b.w.id ? b.mg - a.mg : (a.w.id === main[0].id ? -1 : b.w.id === main[0].id ? 1 : 0); });
+  var venceu = {}; regs.forEach(function(x){ venceu[x.w.id] = (venceu[x.w.id] || 0) + 1; });
+  html += "<div class='box'><h3>Por " + P.nivel.toLowerCase() + " · " + T.reg.length + "</h3>" +
+    "<div class='legend'>" + main.map(function(c){ return "<span><i style='background:" + c.cor + "'></i>" + esc(c.nome) + " · venceu em " + (venceu[c.id] || 0) + "</span>"; }).join("") + (cur.t === "2" ? "" : "<span><i style='background:" + OUT + "'></i>Outros</span>") + "</div>" +
+    (T.reg.length > 30 ? "<input class='filter' id='rf' type='search' placeholder='Buscar " + P.nivel.toLowerCase() + "' aria-label='Buscar região'>" : "") +
+    "<div class='regs' id='regs'>" + regs.map(function(x){
+      return "<div class='rg' data-n='" + esc(x.g.n.toLowerCase()) + "' title='" + esc(x.g.n) + ": " + main.map(function(c,i){ return c.nome + " " + f1.format(x.sh[i]) + "%"; }).join(", ") + "'><div class='n'>" + esc(x.g.n) + "</div><div class='s'>" +
+        main.map(function(c,i){ return "<i style='width:" + x.sh[i] + "%;background:" + c.cor + "'></i>"; }).join("") + (x.outros > .5 ? "<i style='width:" + x.outros + "%;background:" + OUT + "'></i>" : "") +
+        "</div><div class='m'>+" + f1.format(x.mg) + "</div></div>";
+    }).join("") + "</div><p class='note'>O número à direita é a vantagem, em pontos, de quem venceu na região.</p></div></div>";
+  $("ficha").innerHTML = html;
+  var rf = $("rf"); if (rf) rf.addEventListener("input", function(){ var q = this.value.trim().toLowerCase(); $("regs").querySelectorAll(".rg").forEach(function(el){ el.hidden = q && el.getAttribute("data-n").indexOf(q) < 0; }); });
+}
+})();
+</script>
 </body>
 </html>
