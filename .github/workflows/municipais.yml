@@ -1,0 +1,46 @@
+name: Coletor municipais (TSE)
+
+on:
+  workflow_dispatch:
+    inputs:
+      anos:
+        description: "Anos das eleições municipais, separados por espaço"
+        required: true
+        default: "2016 2020 2024"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coletor-dados
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Testar acesso ao TSE
+        run: |
+          curl -sS -I --max-time 60 "https://cdn.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_munzona/detalhe_votacao_munzona_2024.zip" | head -5
+
+      - name: Processar dados do TSE
+        run: python pipeline/municipais.py ${{ github.event.inputs.anos }}
+
+      - name: Tamanho dos arquivos gerados
+        run: du -sh data/mun data/mun/* | sort -h | tail -10
+
+      - name: Publicar no repositório
+        run: |
+          git config user.name "apuracao-por-ia-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/mun
+          if git diff --cached --quiet; then echo "Sem mudanças"; exit 0; fi
+          git commit -m "Dados municipais TSE: ${{ github.event.inputs.anos }}"
+          git push
