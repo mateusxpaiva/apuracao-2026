@@ -1,0 +1,9 @@
+Archive:  ar/2023_segundavuelta.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2023-11-19 23:39   2023_segundavuelta/
+     3003  2023-11-19 23:30   2023_segundavuelta/ColoresDeAgrupacionesPolíticas_2023_SegundaVuelta.csv
+120207951  2023-11-19 23:22   2023_segundavuelta/ResultadosElectorales_2023_SegundaVuelta.csv
+    22174  2023-11-19 23:05   2023_segundavuelta/AmbitosElectorales_2023_SegundaVuelta.csv
+---------                     -------
+120233128                     4 files

@@ -1,17 +1,18 @@
-fr/api_2022_t2.json 200 application/json 36741 https://www.data.gouv.fr/api/1/datasets/626a86215fb310e32b48b137/
-fr/busca_pres.json 200 application/json 108134 https://www.data.gouv.fr/api/1/datasets/?q=election%20presidentielle%20resultats%20definitifs&page_size=40
-fr/busca_pres2.json 200 application/json 390988 https://www.data.gouv.fr/api/1/datasets/?q=presidentielle%202017%20resultats&page_size=40
-fr/busca_pres3.json 200 application/json 131164 https://www.data.gouv.fr/api/1/datasets/?q=presidentielle%202012%20resultats&page_size=40
-ar/ckan_2023.json 404 application/json;charset=utf-8 159 https://datos.gob.ar/api/3/action/package_show?id=dine-resultados-provisionales-elecciones-2023
-ar/ckan_busca.json 200 application/json;charset=utf-8 70786 https://datos.gob.ar/api/3/action/package_search?q=elecciones%20resultados&rows=60
-ar/mininterior_busca.json 200 application/json;charset=utf-8 55031 https://datos.mininterior.gob.ar/api/3/action/package_search?q=resultados&rows=60
-ar/resultados_2023.html 200 text/html 4077 https://resultados.mininterior.gob.ar/resultados/2023/3/1/0
-ar/cne_resultados.html 404 text/html 151 https://www.electoral.gob.ar/nuevo/paginas/btn/resultados.php
-cl/servel_hist.html 404 text/html; charset=UTF-8 226401 https://www.servel.cl/centro-de-datos/resultados-electorales-historicos-gw3/
-cl/servel_datos.html 404 text/html; charset=UTF-8 226401 https://www.servel.cl/centro-de-datos/estadisticas-de-datos-abiertos-4zg/
-cl/servel_home.html 200 text/html; charset=UTF-8 268705 https://www.servel.cl/
-cl/elecciones_servel.html 200 text/html 1595 https://elecciones.servel.cl/
-us/fec_2016.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 1549194 https://www.fec.gov/resources/cms-content/documents/federalelections2016.xlsx
-us/fec_2020.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 6251110 https://www.fec.gov/resources/cms-content/documents/federalelections2020.xlsx
-us/fec_2024.xlsx 403 application/xml 275 https://www.fec.gov/resources/cms-content/documents/federalelections2024.xlsx
-us/fec_page.html 200 text/html; charset=utf-8 37675 https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/
+fr/2022_t1_dpt.txt 200 text/plain; charset=utf-8 54697 https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-1er-tour/20220414-152356/resultats-par-niveau-dpt-t1-france-entiere.txt
+fr/2022_t2_dpt.txt 200 text/plain; charset=utf-8 19056 https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-2nd-tour/20220428-142127/resultats-par-niveau-dpt-t2-france-entiere.txt
+fr/2022_t1_fe.txt 200 text/plain; charset=utf-8 816 https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-1er-tour/20220414-152200/resultats-par-niveau-fe-t1-france-entiere.txt
+fr/2022_t2_fe.txt 200 text/plain; charset=utf-8 439 https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-2nd-tour/20220428-141900/resultats-par-niveau-fe-t2-france-entiere.txt
+fr/2017_t1.xls 200 application/vnd.ms-excel 3122176 https://static.data.gouv.fr/resources/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-1er-tour-1/20170427-100131/Presidentielle_2017_Resultats_Tour_1_c.xls
+fr/2017_t2.xls 200 application/vnd.ms-excel 1094656 https://static.data.gouv.fr/resources/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-2nd-tour/20170511-092258/Presidentielle_2017_Resultats_Tour_2_c.xls
+fr/2012_a.xls 200 application/vnd.ms-excel 43133440 https://static.data.gouv.fr/15/56da0680db5a23d2d1601aed81359f21e0dc8ed9f8abd49e2a7c66b5c02b6f.xls
+fr/2012_a.xls grande (43133440 bytes): guardada so a amostra
+fr/2012_b.xls 200 application/vnd.ms-excel 5633024 https://static.data.gouv.fr/ff/e9c9483d39e00030815089aca1e2939f9cb99a84b0136e43056790e47bb4f0.xls
+us/fec_2024.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 21376 https://www.fec.gov/documents/5645/2024presgeresults.xlsx
+ar/2015_generales.zip 200 application/zip 33130379 https://www.argentina.gob.ar/sites/default/files/2015-provisorios_generales.zip
+ar/2015_ballotage.zip 200 application/zip 2978337 https://www.argentina.gob.ar/sites/default/files/2015-provisorios_ballotage.zip
+ar/2019_generales.zip 200 application/zip 19350825 https://www.argentina.gob.ar/sites/default/files/2019-provisorios_generales.zip
+ar/2023_generales.zip 200 application/zip 28028857 https://www.argentina.gob.ar/sites/default/files/2023_generales_1.zip
+ar/2023_segundavuelta.zip 200 application/zip 3014122 https://www.argentina.gob.ar/sites/default/files/2023_segundavuelta.zip
+cl/servel_app.js 200 application/javascript 5199289 https://elecciones.servel.cl/assets/index-6a002b79.js
+cl/servel_2025.html 200 text/html; charset=UTF-8 362739 https://www.servel.cl/elecciones-2025/
+cl/archivo_resultados.html 200 text/html; charset=UTF-8 705 https://archivo.servel.cl/index.php/resultados-de-elecciones?sort=lastUpdated&listLimit=50

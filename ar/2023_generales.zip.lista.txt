@@ -1,0 +1,9 @@
+Archive:  ar/2023_generales.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2023-11-16 12:12   2023_Generales/
+    29476  2023-10-24 11:37   2023_Generales/AmbitosElectorales_2023_Generales.csv
+    36366  2023-10-24 16:50   2023_Generales/Colores_2023.csv
+1084616664  2023-11-11 09:07   2023_Generales/ResultadoElectorales_2023_Generales.csv
+---------                     -------
+1084682506                     4 files

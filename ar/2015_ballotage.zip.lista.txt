@@ -1,0 +1,9 @@
+Archive:  ar/2015_ballotage.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2023-09-05 10:36   2015_Ballotage/
+    48581  2023-08-31 11:52   2015_Ballotage/colores_2015.csv
+115698375  2022-06-27 09:37   2015_Ballotage/ResultadosElectorales.csv
+    29115  2023-08-31 12:28   2015_Ballotage/Ambitos_Ballotage_2015.csv
+---------                     -------
+115776071                     4 files
