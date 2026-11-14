@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Calendário eleitoral · Apuração por IA</title>
+<meta name="author" content="Mateus Paiva">
+<meta name="description" content="As próximas eleições no Brasil e no mundo, com contagem regressiva, o que está em jogo e o resultado da última vez. Design: Mateus Paiva.">
+<meta property="og:title" content="Calendário eleitoral · Apuração por IA">
+<meta property="og:description" content="Próximas eleições no Brasil e no mundo, com contagem regressiva. Design: Mateus Paiva.">
+<meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
+<meta name="theme-color" content="#0B1220">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: contagem regressiva da próxima grande eleição no topo, filtros numa linha, linha do tempo agrupada por ano com um cartão por eleição. */
+:root{--ink:#080D18;--line:rgba(255,255,255,.08);--mute:#8C97AE;--fg:#EEF2F8;--sub:#C9D2E3;--gold:#E2B84B;
+  --f-d:"Sora","Segoe UI",system-ui,sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.5 var(--f-b);-webkit-text-size-adjust:100%}
+body{background:radial-gradient(900px 520px at 50% -10%,rgba(226,184,75,.12),transparent 60%),var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:grid;gap:22px}
+.eyebrow{font:700 12px var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:800 clamp(32px,6.5vw,56px)/1.03 var(--f-d);letter-spacing:-.035em;margin:8px 0 0;text-wrap:balance}
+.lede{font-size:16.5px;color:var(--sub);max-width:62ch;margin:12px 0 0}
+button,.btn{font:700 13px var(--f-b);background:rgba(255,255,255,.04);color:var(--fg);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 13px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+button[aria-pressed="true"]{background:var(--gold);color:#0B1220;border-color:var(--gold)}
+button:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+
+/* contagem */
+.next{border:1px solid rgba(226,184,75,.4);border-radius:24px;padding:24px;background:linear-gradient(180deg,rgba(226,184,75,.12),rgba(226,184,75,.02))}
+.next .t{font:700 13px var(--f-b);color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.next h2{font:800 clamp(26px,4.6vw,40px)/1.1 var(--f-d);letter-spacing:-.03em;margin:8px 0 4px}
+.next p{margin:0;color:var(--sub)}
+.cd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px;max-width:560px}
+.cd div{background:rgba(8,13,24,.6);border:1px solid var(--line);border-radius:16px;padding:12px 6px;text-align:center}
+.cd b{display:block;font:800 clamp(28px,6vw,44px)/1 var(--f-d);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cd span{font:700 11px var(--f-b);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+
+/* linha do tempo */
+.ano{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px}
+.ano>h2{font:800 34px/1 var(--f-d);letter-spacing:-.03em;color:var(--gold);margin:6px 0 0;position:sticky;top:72px;align-self:start}
+@media (max-width:700px){.ano{grid-template-columns:1fr;gap:10px}.ano>h2{position:static;font-size:28px}}
+.lista{display:grid;gap:12px}
+.ev{display:grid;grid-template-columns:76px minmax(0,1fr);gap:16px;border:1px solid var(--line);border-radius:20px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
+.ev.sys{border-color:rgba(226,184,75,.28)}
+.ev.past{opacity:.55}
+.dt{text-align:center;border-right:1px solid var(--line);padding-right:14px}
+.dt b{display:block;font:800 32px/1 var(--f-d);letter-spacing:-.03em}
+.dt span{display:block;font:700 12px var(--f-b);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.dt small{display:block;font:600 11.5px var(--f-b);color:var(--mute);margin-top:6px}
+.ev h3{font:700 19px/1.2 var(--f-d);margin:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ev .o{color:var(--sub);font-size:14.5px;margin:4px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.chip{font:700 11px var(--f-b);letter-spacing:.04em;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.07);color:var(--sub)}
+.chip.ok{background:rgba(63,182,139,.16);color:#7FD8B3}
+.chip.lei{background:rgba(226,184,75,.16);color:var(--gold)}
+.chip.prev{background:rgba(255,255,255,.07);color:var(--mute)}
+.ult{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-size:13.5px;color:var(--sub)}
+.ult b{color:var(--fg)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.falta{font:700 12.5px var(--f-b);color:var(--gold)}
+@media (max-width:520px){.ev{grid-template-columns:1fr;gap:10px}.dt{border-right:0;border-bottom:1px solid var(--line);padding:0 0 10px;text-align:left;display:flex;align-items:baseline;gap:8px}.dt b{font-size:26px}.dt span,.dt small{margin:0}}
+.note{font-size:13px;color:var(--mute);max-width:78ch;line-height:1.6}
+.note b{color:var(--fg)}
+.note a{color:var(--sub)}
+footer{display:grid;gap:6px;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--mute)}
+footer .sig{font:700 16px var(--f-d);color:var(--gold)}
+</style>
+<script src="../menu.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Apuração por IA · Calendário</div>
+    <h1>As próximas eleições no Brasil e no mundo</h1>
+    <p class="lede">Datas oficiais, o que está em jogo e o resultado da última vez. Nos países que o Apuração por IA acompanha, a apuração vai ser transmitida ao vivo aqui.</p>
+  </header>
+
+  <section class="next" id="next" aria-live="polite"></section>
+
+  <div class="seg" role="group" aria-label="Filtrar eleições" id="filtro">
+    <button type="button" data-f="todas" aria-pressed="true">Todas</button>
+    <button type="button" data-f="sys" aria-pressed="false">Com apuração ao vivo aqui</button>
+    <button type="button" data-f="am" aria-pressed="false">Américas</button>
+    <button type="button" data-f="eu" aria-pressed="false">Europa</button>
+    <button type="button" data-f="af" aria-pressed="false">África</button>
+  </div>
+
+  <main id="linha"></main>
+
+  <section>
+    <p class="note"><b>Como lemos as datas.</b> <b>Data oficial</b>: já marcada por decreto ou pela autoridade eleitoral. <b>Fixada na lei</b>: a Constituição ou a lei eleitoral define o dia (por exemplo, "primeiro domingo de outubro"), então a data só muda se a lei mudar. <b>Prevista</b>: data anunciada ou esperada, ainda sujeita a mudança.</p>
+    <p class="note"><b>Fontes:</b> <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1939" rel="noopener">Service-Public.fr</a> (França); Código Electoral Nacional (Argentina, quarto domingo de outubro); Constituição Federal, arts. 29 e 77 (Brasil); 3 U.S. Code §1 (EUA); Constituição do Chile, art. 26; <a href="https://en.wikipedia.org/wiki/2027_national_electoral_calendar" rel="noopener">calendário eleitoral internacional de 2027</a> (Nigéria, México, Guatemala, Quênia).</p>
+  </section>
+
+  <footer>
+    <div class="sig">Design · Mateus Paiva</div>
+    <div>Apuração por IA · calendário conferido em 14/11/2026</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $ = function(id){ return document.getElementById(id); };
+var MES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+var DIA = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+
+/* st: ok = data oficial, lei = fixada na lei, prev = prevista. sys = país acompanhado ao vivo. */
+var EV = [
+  {d:"2027-01-16", pais:"Nigéria", f:"🇳🇬", r:"af", st:"prev", o:"Presidente e Assembleia Nacional", info:"Maior democracia da África, com mais de 90 milhões de eleitores registrados."},
+  {d:"2027-04-18", d2:"2027-05-02", pais:"França", f:"🇫🇷", r:"eu", st:"ok", sys:true, o:"Presidente da República", info:"Macron não pode concorrer: a Constituição limita a dois mandatos seguidos. Se ninguém fizer maioria no 1º turno, os dois mais votados vão ao 2º.",
+   ult:"<b>2022:</b> Macron 58,55% × Le Pen 41,45% no 2º turno.", link:"../mundo/?p=fr"},
+  {d:"2027-06-06", pais:"México", f:"🇲🇽", r:"am", st:"prev", o:"Câmara dos Deputados (eleição de meio de mandato)", info:"Eleição de meio de mandato do governo Claudia Sheinbaum: renova os 500 deputados federais."},
+  {d:"2027-06-27", pais:"Guatemala", f:"🇬🇹", r:"am", st:"prev", o:"Presidente e Congresso", info:"Bernardo Arévalo não pode se reeleger: a Constituição proíbe."},
+  {d:"2027-08-10", pais:"Quênia", f:"🇰🇪", r:"af", st:"lei", o:"Presidente, Assembleia Nacional e Senado", info:"A Constituição fixa a eleição na segunda terça-feira de agosto, a cada cinco anos."},
+  {d:"2027-10-24", pais:"Argentina", f:"🇦🇷", r:"am", st:"lei", sys:true, o:"Presidente, metade da Câmara e um terço do Senado", info:"A lei fixa o quarto domingo de outubro. Se ninguém passar de 45% (ou de 40% com 10 pontos de vantagem), há 2º turno em até 30 dias. As primárias PASO, em agosto, podem ser extintas: o governo quer acabar com elas.",
+   ult:"<b>2023:</b> Milei 55,69% × Massa 44,31% no 2º turno, depois de ficar em 2º no 1º turno.", link:"../mundo/?p=ar"},
+  {d:"2028-10-01", d2:"2028-10-29", pais:"Brasil · municipais", f:"🇧🇷", r:"am", st:"lei", sys:true, o:"Prefeitos e vereadores nas 5.569 cidades", info:"A Constituição fixa o 1º turno no primeiro domingo de outubro e o 2º no último domingo. Só cidades com mais de 200 mil eleitores podem ter 2º turno.",
+   ult:"<b>2024:</b> PSD elegeu 886 prefeitos, seguido de MDB (858) e PP (747).", link:"../municipios/"},
+  {d:"2028-11-07", pais:"Estados Unidos", f:"🇺🇸", r:"am", st:"lei", sys:true, o:"Presidente, toda a Câmara e um terço do Senado", info:"A lei federal fixa a terça-feira depois da primeira segunda de novembro. Trump não pode concorrer: a 22ª Emenda limita a dois mandatos.",
+   ult:"<b>2024:</b> Trump 312 × Harris 226 delegados no colégio eleitoral.", link:"../mundo/?p=us"},
+  {d:"2029-11-18", d2:"2029-12-16", pais:"Chile", f:"🇨🇱", r:"am", st:"lei", sys:true, o:"Presidente e Congresso", info:"A Constituição fixa o terceiro domingo de novembro; o 2º turno é quatro domingos depois.",
+   ult:"<b>2025:</b> José Antonio Kast venceu Jeannette Jara no 2º turno."},
+  {d:"2030-10-06", d2:"2030-10-27", pais:"Brasil · gerais", f:"🇧🇷", r:"am", st:"lei", sys:true, o:"Presidente, governadores, um terço do Senado, Câmara e assembleias", info:"1º turno no primeiro domingo de outubro, 2º turno no último domingo.",
+   ult:"<b>2026:</b> Lula 51,79% × Flávio Bolsonaro 48,21% no 2º turno, a primeira virada da história.", link:"../historico/"}
+];
+var STL = {ok:"Data oficial", lei:"Fixada na lei", prev:"Prevista"};
+var dt = function(s){ var p = s.split("-"); return new Date(+p[0], +p[1]-1, +p[2]); };
+var hoje = new Date(); hoje.setHours(0,0,0,0);
+
+function ics(e){
+  var z = function(s){ return s.replace(/-/g, ""); };
+  var add = function(s){ var x = dt(s); x.setDate(x.getDate()+1); return x.getFullYear() + String(x.getMonth()+1).padStart(2,"0") + String(x.getDate()).padStart(2,"0"); };
+  var ev = [[e.d, e.d2 ? "1º turno" : ""]].concat(e.d2 ? [[e.d2, "2º turno"]] : []);
+  var body = ev.map(function(x, i){
+    return ["BEGIN:VEVENT","UID:" + z(x[0]) + "-" + e.pais.replace(/\W/g,"") + "@apuracao-por-ia","DTSTAMP:20261114T120000Z","DTSTART;VALUE=DATE:" + z(x[0]),"DTEND;VALUE=DATE:" + add(x[0]),
+      "SUMMARY:Eleição " + e.pais + (x[1] ? " · " + x[1] : ""),"DESCRIPTION:" + e.o + ". Apuração por IA · mateusxpaiva.github.io/apuracao-2026","END:VEVENT"].join("\r\n");
+  }).join("\r\n");
+  return "data:text/calendar;charset=utf-8," + encodeURIComponent("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Apuracao por IA//PT\r\n" + body + "\r\nEND:VCALENDAR");
+}
+function falta(s){ var n = dt(s) < hoje ? -1 : dt(s).getTime() === hoje.getTime() ? 0 : Math.max(1, Math.floor((dt(s) - new Date()) / 864e5)); return n < 0 ? "já aconteceu" : n === 0 ? "é hoje" : n === 1 ? "falta 1 dia" : "faltam " + n.toLocaleString("pt-BR") + " dias"; }
+
+function render(f){
+  var by = {};
+  EV.forEach(function(e){
+    if (f === "sys" && !e.sys) return;
+    if (["am","eu","af"].indexOf(f) >= 0 && e.r !== f) return;
+    (by[e.d.slice(0,4)] = by[e.d.slice(0,4)] || []).push(e);
+  });
+  $("linha").innerHTML = Object.keys(by).sort().map(function(y){
+    return "<section class='ano' aria-label='" + y + "'><h2>" + y + "</h2><div class='lista'>" + by[y].map(function(e){
+      var a = dt(e.d), b = e.d2 ? dt(e.d2) : null, past = (b || a) < hoje;
+      return "<article class='ev" + (e.sys ? " sys" : "") + (past ? " past" : "") + "'>" +
+        "<div class='dt'><b>" + a.getDate() + "</b><span>" + MES[a.getMonth()] + "</span><small>" + DIA[a.getDay()] + (b ? "<br>2º turno " + b.getDate() + " " + MES[b.getMonth()] : "") + "</small></div>" +
+        "<div><h3><span aria-hidden='true'>" + e.f + "</span>" + esc(e.pais) + "</h3><p class='o'>" + esc(e.o) + "</p>" +
+        "<div class='chips'><span class='chip " + e.st + "'>" + STL[e.st] + "</span>" + (e.sys ? "<span class='chip'>Apuração ao vivo aqui</span>" : "") + "<span class='falta'>" + falta(e.d) + "</span></div>" +
+        "<p class='note' style='margin:10px 0 0'>" + esc(e.info) + "</p>" +
+        (e.ult ? "<div class='ult'>Da última vez · " + e.ult + "</div>" : "") +
+        "<div class='acts'><a class='btn' download='eleicao-" + e.d + ".ics' href='" + ics(e) + "'>📅 Pôr na minha agenda</a>" + (e.link ? "<a class='btn' href='" + e.link + "'>Ver resultados anteriores →</a>" : "") + "</div>" +
+        "</div></article>";
+    }).join("") + "</div></section>";
+  }).join("") || "<p class='note'>Nenhuma eleição neste filtro.</p>";
+}
+$("filtro").addEventListener("click", function(ev){
+  var b = ev.target.closest("[data-f]"); if (!b) return;
+  $("filtro").querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", String(x === b)); });
+  render(b.getAttribute("data-f"));
+});
+render("todas");
+
+/* contagem regressiva: próxima eleição acompanhada ao vivo aqui */
+var alvo = EV.filter(function(e){ return e.sys && dt(e.d) >= hoje; })[0];
+function tick(){
+  if (!alvo){ $("next").hidden = true; return; }
+  var t = new Date(alvo.d + "T08:00:00"), ms = Math.max(0, t - new Date());
+  var d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60, s = Math.floor(ms / 1e3) % 60;
+  $("next").innerHTML = "<div class='t'>Próxima apuração ao vivo</div><h2><span aria-hidden='true'>" + alvo.f + "</span> " + esc(alvo.pais) + " · " + dt(alvo.d).getDate() + " de " + ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"][dt(alvo.d).getMonth()] + " de " + alvo.d.slice(0,4) + "</h2><p>" + esc(alvo.o) + (alvo.d2 ? " · 2º turno em " + dt(alvo.d2).getDate() + " de " + ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"][dt(alvo.d2).getMonth()] : "") + "</p>" +
+    "<div class='cd' role='timer' aria-label='Contagem regressiva'><div><b>" + d + "</b><span>dias</span></div><div><b>" + String(h).padStart(2,"0") + "</b><span>horas</span></div><div><b>" + String(m).padStart(2,"0") + "</b><span>min</span></div><div><b>" + String(s).padStart(2,"0") + "</b><span>seg</span></div></div>";
+}
+tick(); setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
