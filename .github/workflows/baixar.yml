@@ -1,0 +1,52 @@
+name: Baixar fontes (mundo)
+
+on:
+  workflow_dispatch:
+    inputs:
+      lista:
+        description: "Arquivo com as fontes (nome url por linha)"
+        default: "pipeline/fontes.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  baixar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: main
+      - name: Preparar ramo raw
+        run: |
+          git clone --branch raw --depth 1 "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" raw 2>/dev/null || {
+            mkdir raw && cd raw && git init -q && git checkout -q -b raw &&
+            git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"; }
+      - name: Baixar
+        run: |
+          cd raw
+          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          : > log.txt
+          grep -v '^\s*#' "../main/${{ inputs.lista }}" | while read -r nome url; do
+            [ -z "$nome" ] && continue
+            mkdir -p "$(dirname "$nome")"
+            code=$(curl -sS -L --retry 3 --max-time 600 -A "$UA" -o "$nome" -w '%{http_code} %{content_type} %{size_download}' "$url" || echo "ERRO")
+            echo "$nome $code $url" | tee -a log.txt
+            if [ -f "$nome" ]; then
+              sz=$(stat -c %s "$nome")
+              if [ "$sz" -gt 90000000 ]; then
+                gzip -9 -f "$nome"; sz=$(stat -c %s "$nome.gz")
+                if [ "$sz" -gt 90000000 ]; then split -b 80M "$nome.gz" "$nome.gz.part-" && rm "$nome.gz"; fi
+              fi
+            fi
+          done
+          du -sh . ; ls -la
+      - name: Gravar no ramo raw
+        run: |
+          cd raw
+          git config user.name "apuracao-por-ia-bot"
+          git config user.email "apuracao-por-ia-bot@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Fontes brutas: ${{ inputs.lista }}" || echo "sem mudanças"
+          git push -q origin raw
