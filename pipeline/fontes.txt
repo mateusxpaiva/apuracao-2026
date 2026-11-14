@@ -1,10 +1,5 @@
-# nome  url   (rodada 3: Chile)
-cl/config.zip https://elecciones.servel.cl/config.zip
-cl/territorios.zip https://elecciones.servel.cl/territorios.zip
-cl/territorios_ext.zip https://elecciones.servel.cl/territorios_ext.zip
-cl/candidaturas.zip https://elecciones.servel.cl/candidaturas.zip
-cl/iteracion.zip https://elecciones.servel.cl/iteracion.zip
-cl/total_votacion_4.zip https://elecciones.servel.cl/total_votacion_4.zip
-cl/total_votacion_5.zip https://elecciones.servel.cl/total_votacion_5.zip
-cl/total_votacion_6.zip https://elecciones.servel.cl/total_votacion_6.zip
-cl/resultados_prelim_2025.html https://www.servel.cl/resultados-preliminares-eleccion-presidencial-y-parlamentarias-2025/
+# nome  url   (rodada 4: malhas IBGE)
+geo/br_mun_minima.json https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?formato=application/vnd.geo%2Bjson&qualidade=minima&intrarregiao=municipio
+geo/br_mun_intermediaria.json https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?formato=application/vnd.geo%2Bjson&qualidade=intermediaria&intrarregiao=municipio
+geo/br_uf_minima.json https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?formato=application/vnd.geo%2Bjson&qualidade=minima&intrarregiao=UF
+geo/municipios_ibge.json https://servicodados.ibge.gov.br/api/v1/localidades/municipios
