@@ -1,0 +1,6 @@
+Archive:  cl/iteracion.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+      485  2025-10-07 17:52   iteracion.json
+---------                     -------
+      485                     1 file

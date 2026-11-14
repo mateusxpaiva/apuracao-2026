@@ -1,0 +1,8 @@
+=== iteracion.json
+[
+  {
+    "id": 11,
+    "indice": "cons",
+    "iteracion": "20251007000000"
+  },
+

@@ -1,0 +1,6 @@
+Archive:  cl/total_votacion_4.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     9047  2025-11-17 07:30   total_votacion_4.json
+---------                     -------
+     9047                     1 file

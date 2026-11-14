@@ -1,0 +1,6 @@
+Archive:  cl/territorios.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+ 35760599  2025-11-05 02:01   territorios.json
+---------                     -------
+ 35760599                     1 file

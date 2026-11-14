@@ -1,0 +1,6 @@
+Archive:  cl/config.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     4954  2025-11-17 03:24   config.json
+---------                     -------
+     4954                     1 file

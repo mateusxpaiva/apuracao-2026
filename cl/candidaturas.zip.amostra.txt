@@ -1,0 +1,8 @@
+=== candidaturas.json
+[
+  {
+    "id_pacto": null,
+    "pacto": null,
+    "letra": null,
+    "orden_partido": null,
+

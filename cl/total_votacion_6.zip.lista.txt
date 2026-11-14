@@ -1,0 +1,6 @@
+Archive:  cl/total_votacion_6.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+    16819  2025-11-17 07:30   total_votacion_6.json
+---------                     -------
+    16819                     1 file

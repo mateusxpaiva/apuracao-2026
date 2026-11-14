@@ -1,0 +1,6 @@
+Archive:  cl/candidaturas.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   723238  2025-11-05 02:01   candidaturas.json
+---------                     -------
+   723238                     1 file

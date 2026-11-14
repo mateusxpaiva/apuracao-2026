@@ -1,18 +1,9 @@
-fr/2022_t1_dpt.txt 200 text/plain; charset=utf-8 54697 https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-1er-tour/20220414-152356/resultats-par-niveau-dpt-t1-france-entiere.txt
-fr/2022_t2_dpt.txt 200 text/plain; charset=utf-8 19056 https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-2nd-tour/20220428-142127/resultats-par-niveau-dpt-t2-france-entiere.txt
-fr/2022_t1_fe.txt 200 text/plain; charset=utf-8 816 https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-1er-tour/20220414-152200/resultats-par-niveau-fe-t1-france-entiere.txt
-fr/2022_t2_fe.txt 200 text/plain; charset=utf-8 439 https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-2nd-tour/20220428-141900/resultats-par-niveau-fe-t2-france-entiere.txt
-fr/2017_t1.xls 200 application/vnd.ms-excel 3122176 https://static.data.gouv.fr/resources/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-1er-tour-1/20170427-100131/Presidentielle_2017_Resultats_Tour_1_c.xls
-fr/2017_t2.xls 200 application/vnd.ms-excel 1094656 https://static.data.gouv.fr/resources/election-presidentielle-des-23-avril-et-7-mai-2017-resultats-definitifs-du-2nd-tour/20170511-092258/Presidentielle_2017_Resultats_Tour_2_c.xls
-fr/2012_a.xls 200 application/vnd.ms-excel 43133440 https://static.data.gouv.fr/15/56da0680db5a23d2d1601aed81359f21e0dc8ed9f8abd49e2a7c66b5c02b6f.xls
-fr/2012_a.xls grande (43133440 bytes): guardada so a amostra
-fr/2012_b.xls 200 application/vnd.ms-excel 5633024 https://static.data.gouv.fr/ff/e9c9483d39e00030815089aca1e2939f9cb99a84b0136e43056790e47bb4f0.xls
-us/fec_2024.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 21376 https://www.fec.gov/documents/5645/2024presgeresults.xlsx
-ar/2015_generales.zip 200 application/zip 33130379 https://www.argentina.gob.ar/sites/default/files/2015-provisorios_generales.zip
-ar/2015_ballotage.zip 200 application/zip 2978337 https://www.argentina.gob.ar/sites/default/files/2015-provisorios_ballotage.zip
-ar/2019_generales.zip 200 application/zip 19350825 https://www.argentina.gob.ar/sites/default/files/2019-provisorios_generales.zip
-ar/2023_generales.zip 200 application/zip 28028857 https://www.argentina.gob.ar/sites/default/files/2023_generales_1.zip
-ar/2023_segundavuelta.zip 200 application/zip 3014122 https://www.argentina.gob.ar/sites/default/files/2023_segundavuelta.zip
-cl/servel_app.js 200 application/javascript 5199289 https://elecciones.servel.cl/assets/index-6a002b79.js
-cl/servel_2025.html 200 text/html; charset=UTF-8 362739 https://www.servel.cl/elecciones-2025/
-cl/archivo_resultados.html 200 text/html; charset=UTF-8 705 https://archivo.servel.cl/index.php/resultados-de-elecciones?sort=lastUpdated&listLimit=50
+cl/config.zip 200 application/zip 937 https://elecciones.servel.cl/config.zip
+cl/territorios.zip 200 application/zip 526768 https://elecciones.servel.cl/territorios.zip
+cl/territorios_ext.zip 200 application/zip 8188 https://elecciones.servel.cl/territorios_ext.zip
+cl/candidaturas.zip 200 application/zip 40493 https://elecciones.servel.cl/candidaturas.zip
+cl/iteracion.zip 200 application/zip 243 https://elecciones.servel.cl/iteracion.zip
+cl/total_votacion_4.zip 200 application/zip 1223 https://elecciones.servel.cl/total_votacion_4.zip
+cl/total_votacion_5.zip 200 application/zip 1582 https://elecciones.servel.cl/total_votacion_5.zip
+cl/total_votacion_6.zip 200 application/zip 1807 https://elecciones.servel.cl/total_votacion_6.zip
+cl/resultados_prelim_2025.html 200 text/html; charset=UTF-8 237838 https://www.servel.cl/resultados-preliminares-eleccion-presidencial-y-parlamentarias-2025/
