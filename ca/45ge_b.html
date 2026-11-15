@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+<meta charset="iso-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="dcterms.issued" content="1600-12-31">
+<meta name="dcterms.language" content="eng"> 
+<meta name="dcterms.creator" content="Elections Canada"> 
+<meta name="dcterms.accessRights" content="2"> 
+<meta name="gcaaterms.sitename" content="Elections"/>
+<link href="/templates/styles/style.css" rel="stylesheet" type="text/css" media="all">
+<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="templates/styles/ie.css"><![endif]-->
+<link href="/templates/styles/print.css" rel="stylesheet" type="text/css" media="print">
+<link href="/templates/styles/responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="//assets.adobedtm.com/be5dfd287373/994f2c60afa3/launch-fd35fe39edac.min.js"></script>
+<title>We couldn't find that web page (Error 500) / Nous ne pouvons trouver cette page web (Erreur 500)</title>
+
+<meta name="dcterms.title" content="Error page" />	
+<link href="/templates/styles/404.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<style>
+#col_right2 { 
+		float: right;
+		width: 200px;
+		padding: 0px;
+		margin-top: 15px;
+		margin-right: 10px;
+		background: transparent;
+}
+
+#col_right2 h2 {
+		padding-top: 8px;
+        }
+
+</style>
+<![endif]-->
+
+</head>
+<body>
+
+<div id="maincontent">
+   
+<p class="center"><img src="images/ec_logo2.gif" id="Elections Canada Logo / Logo d'Élections Canada" alt="Elections Canada Logo / Logo d'Élections Canada" /></p>
+
+
+<div id="col_left2">
+
+<h1 class="center"><span lang="fr">Page non trouv&#233;e</span></h1>
+
+<h2>Essayez :</h2>
+
+
+ 
+<ul>
+    <li><a href="accueil.aspx">Page d'accueil</a></li>
+    
+    <li><a href="https://www.canada.ca/fr/elections-canada/rechercher.html">Moteur de recherche</a></li> 
+    <!-- <li><a href="content.aspx?section=aid&dir=sitemap&lang=f&document=index">Carte du site</a></li> -->
+    <li><a href="content.aspx?section=cont&lang=f&document=index">Contactez-nous</a></li> 
+</ul>
+
+</div>
+
+<div id="col_right2">
+
+<h1 class="center">Page Not Found</h1>
+
+<h2>Try:</h2>
+
+<ul>
+    <li><a href="home.aspx">Home page</a></li>
+    <li><a href="https://www.canada.ca/en/elections-canada/search.html">Search</a></li>
+    <!-- <li><a href="content.aspx?section=aid&dir=sitemap&lang=e&document=index">Site map</a></li> -->
+    <li><a href="content.aspx?section=cont&lang=e&document=index">Contact Us</a></li> 
+</ul>
+
+</div>
+
+
+    
+   
+ </div>   
+<script type="text/javascript">_satellite.pageBottom();</script>
+
+<script src="/templates2/js/jquery-3.6.0.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		function adjust404() {
+			var path_n_file = '/templates/styles/pm_404.css';
+			var $head = $( 'head' );
+			var $headlinklast = $head.find( 'link[rel="stylesheet"]:last' );
+			var linkElement = '<link rel="stylesheet" href="' + path_n_file + '?v=' + Math.floor(Date.now() / 1000) + '">';
+
+			if ($headlinklast.length){
+				$headlinklast.after(linkElement);
+			}
+			else {
+				$head.append(linkElement);
+			}
+
+			$( '#maincontent > p:first-of-type' ).addClass( 'logoHolder' );
+
+			$( '.logoHolder' ).append( '<span class="mag"></span>' );
+
+			$( '<div id="h1404" />' ).insertAfter( '.logoHolder' );
+
+			$( '#h1404' ).load('/templates/html_s/pm_404_html.html?v=' + Math.floor(Date.now() / 1000) );
+
+			$( '#col_left2, #col_right2' ).remove();
+
+			$( 'html' ).attr( 'id', 'nu404Ev' );
+		}
+		adjust404();
+	}); // Nigh
+</script>
+
+</body>
+</html>
