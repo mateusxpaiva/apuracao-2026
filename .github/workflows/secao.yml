@@ -11,6 +11,10 @@ on:
         description: "Códigos TSE das cidades, separados por espaço (Limeira = 66397)"
         required: true
         default: "66397"
+      anos:
+        description: "Anos (2020 2024 municipais; 2022 2026 presidente, arquivos muito grandes)"
+        required: true
+        default: "2020 2024"
 
 permissions:
   contents: write
@@ -22,7 +26,7 @@ concurrency:
 jobs:
   coletar:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,7 +39,7 @@ jobs:
           done
           df -h . | tail -1
       - name: Processar
-        run: python pipeline/secao.py ${{ inputs.uf }} ${{ inputs.cidades }}
+        run: ANOS="${{ inputs.anos }}" python pipeline/secao.py ${{ inputs.uf }} ${{ inputs.cidades }}
       - name: Publicar
         run: |
           du -sh data/secao/*
