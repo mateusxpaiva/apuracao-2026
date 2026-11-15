@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Mundo · Apuração por IA</title>
 <meta name="author" content="Mateus Paiva">
-<meta name="description" content="Eleições presidenciais do Brasil, Argentina, Estados Unidos e França lado a lado, com dados oficiais. Design: Mateus Paiva.">
+<meta name="description" content="Eleições presidenciais do Brasil, Argentina, Chile, México, Estados Unidos e França lado a lado, com dados oficiais. Design: Mateus Paiva.">
 <meta property="og:title" content="Mundo · Apuração por IA">
-<meta property="og:description" content="Brasil, Argentina, EUA e França comparados: viradas no 2º turno, comparecimento e resultado por região. Design: Mateus Paiva.">
+<meta property="og:description" content="Brasil, Argentina, Chile, México, EUA e França comparados: viradas no 2º turno, comparecimento e resultado por região. Design: Mateus Paiva.">
 <meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
 <meta name="theme-color" content="#0B1220">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
@@ -107,7 +107,7 @@ footer a{color:var(--sub)}
 <div class="wrap">
   <header>
     <div class="eyebrow">Apuração por IA · Mundo</div>
-    <h1>O Brasil comparado a Argentina, EUA e França</h1>
+    <h1>O Brasil comparado a cinco países das Américas e da Europa</h1>
     <p class="lede">Eleições presidenciais com dados oficiais de cada país, lado a lado. Quem liderou o 1º turno e perdeu o 2º, quanto cada país vai às urnas e como votou cada região.</p>
   </header>
 
@@ -139,12 +139,11 @@ footer a{color:var(--sub)}
   <section class="card" aria-labelledby="h-fonte">
     <h2 id="h-fonte">Fontes</h2>
     <div id="fontes"></div>
-    <p class="note"><b>Chile:</b> em coleta. O SERVEL publica as eleições de 2017 e 2021 só em painéis Power BI e o site de 2025 guarda apenas o 1º turno preliminar. O país entra assim que os números por região forem baixados e conferidos.</p>
   </section>
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
-    <div>Apuração por IA · dados oficiais de TSE, DINE, FEC e Ministère de l'Intérieur</div>
+    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC e Ministère de l'Intérieur</div>
   </footer>
 </div>
 
@@ -154,7 +153,7 @@ footer a{color:var(--sub)}
 var $ = function(id){ return document.getElementById(id); };
 var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1}), f2 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
 var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
-var PAISES = [["br","🇧🇷","Brasil"],["ar","🇦🇷","Argentina"],["us","🇺🇸","EUA"],["fr","🇫🇷","França"]];
+var PAISES = [["br","🇧🇷","Brasil"],["ar","🇦🇷","Argentina"],["cl","🇨🇱","Chile"],["mx","🇲🇽","México"],["us","🇺🇸","EUA"],["fr","🇫🇷","França"]];
 var OUT = "#5B6478";
 var D = {};
 
@@ -170,7 +169,7 @@ function vencedorUS(T){ return T.nac.ev.R > T.nac.ev.D ? "R" : "D"; }
 
 function cruzamento(){
   var rows = [], vir = 0, tot = 0;
-  ["br","ar","fr"].forEach(function(k){
+  PAISES.map(function(p){ return p[0]; }).filter(function(k){ return k !== "us" && k !== "mx"; }).forEach(function(k){
     var P = D[k], flag = PAISES.find(function(p){ return p[0] === k; })[1];
     P.eleicoes.forEach(function(e){
       if (!e.turnos["2"]) return;
@@ -184,13 +183,13 @@ function cruzamento(){
   });
   rows.sort(function(a,b){ return b.ano - a.ano; });
   $("vir").querySelector("tbody").innerHTML = rows.map(function(r){ return r.html; }).join("");
-  $("virNote").innerHTML = "<b>" + vir + " viradas em " + tot + " segundos turnos.</b> No Brasil, 2026 foi a primeira vez que o líder do 1º turno perdeu (veja o <a href='../historico/' style='color:var(--sub)'>histórico desde 1989</a>). Na Argentina isso já aconteceu duas vezes seguidas: Scioli em 2015 e Massa em 2023 lideraram e perderam. Na França, o líder do 1º turno venceu nas três eleições.";
+  $("virNote").innerHTML = "<b>" + vir + " viradas em " + tot + " segundos turnos.</b> No Brasil, 2026 foi a primeira vez que o líder do 1º turno perdeu (veja o <a href='../historico/' style='color:var(--sub)'>histórico desde 1989</a>). Na Argentina isso já aconteceu duas vezes seguidas: Scioli em 2015 e Massa em 2023 lideraram e perderam. No Chile, Jeannette Jara liderou o 1º turno de 2025 e perdeu para José Antonio Kast, que somou os votos da direita dividida. Na França, o líder do 1º turno venceu nas três eleições.";
 
   var br26 = D.br.eleicoes.find(function(e){ return e.ano === 2026; }), us16 = D.us.eleicoes.find(function(e){ return e.ano === 2016; }).turnos["1"];
   var t1 = br26.turnos["1"], t2 = br26.turnos["2"], l = ranking(t1)[0], w = ranking(t2)[0];
   var dif = (pct(t1,l.id) - pct(t1,w.id));
   $("hero").innerHTML =
-    "<div class='kpi'><b>" + vir + " de " + tot + "</b><span>segundos turnos tiveram virada nos três países com dois turnos</span></div>" +
+    "<div class='kpi'><b>" + vir + " de " + tot + "</b><span>segundos turnos tiveram virada nos países com dois turnos</span></div>" +
     "<div class='kpi'><b>" + f1.format(dif) + " pts</b><span>era a vantagem de " + esc(l.nome) + " sobre " + esc(w.nome) + " no 1º turno de 2026, revertida no 2º</span></div>" +
     "<div class='kpi'><b>" + fmt.format(us16.nac.v.D - us16.nac.v.R) + "</b><span>votos a mais teve Hillary Clinton em 2016 nos EUA, e perdeu no colégio eleitoral</span></div>";
 
@@ -222,11 +221,11 @@ function fontes(){
 /* ficha */
 var cur = {p:"br", a:null, t:null};
 function initFicha(){
-  $("tabP").innerHTML = PAISES.map(function(p){ return "<button type='button' data-p='" + p[0] + "'><span class='flag' aria-hidden='true'>" + p[1] + "</span>" + p[2] + "</button>"; }).join("") + "<button type='button' disabled><span class='flag' aria-hidden='true'>🇨🇱</span>Chile · em coleta</button>";
+  $("tabP").innerHTML = PAISES.map(function(p){ return "<button type='button' data-p='" + p[0] + "'><span class='flag' aria-hidden='true'>" + p[1] + "</span>" + p[2] + "</button>"; }).join("");
   $("tabP").addEventListener("click", function(e){ var b = e.target.closest("[data-p]"); if (!b) return; cur.p = b.getAttribute("data-p"); cur.a = null; cur.t = null; render(); });
   $("tabA").addEventListener("click", function(e){ var b = e.target.closest("[data-a]"); if (!b) return; cur.a = +b.getAttribute("data-a"); cur.t = null; render(); });
   $("tabT").addEventListener("click", function(e){ var b = e.target.closest("[data-t]"); if (!b) return; cur.t = b.getAttribute("data-t"); render(); });
-  var m = /[?&]p=(br|ar|us|fr)/.exec(location.search); if (m) cur.p = m[1];
+  var m = /[?&]p=(br|ar|cl|mx|us|fr)/.exec(location.search); if (m) cur.p = m[1];
   render();
 }
 function render(){
