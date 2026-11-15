@@ -1,0 +1,33 @@
+Archive:  tse/pesquisa_2026.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   346719  2026-11-14 08:47   pesquisa_eleitoral_2026_AM.csv
+   244657  2026-11-14 08:46   pesquisa_eleitoral_2026_AC.csv
+   322226  2026-11-14 08:47   pesquisa_eleitoral_2026_AL.csv
+   201267  2026-11-14 08:47   pesquisa_eleitoral_2026_AP.csv
+   244849  2026-11-14 08:47   pesquisa_eleitoral_2026_BA.csv
+   737786  2026-11-14 08:47   pesquisa_eleitoral_2026_GO.csv
+   264685  2026-11-14 08:47   pesquisa_eleitoral_2026_ES.csv
+   657180  2026-11-14 08:47   pesquisa_eleitoral_2026_MA.csv
+   233334  2026-11-14 08:47   pesquisa_eleitoral_2026_CE.csv
+   258002  2026-11-14 08:47   pesquisa_eleitoral_2026_MT.csv
+   738760  2026-11-14 08:47   pesquisa_eleitoral_2026_PI.csv
+   548740  2026-11-14 08:47   pesquisa_eleitoral_2026_PB.csv
+   254230  2026-11-14 08:47   pesquisa_eleitoral_2026_MS.csv
+   353628  2026-11-14 08:47   pesquisa_eleitoral_2026_PA.csv
+   362015  2026-11-14 08:47   pesquisa_eleitoral_2026_PR.csv
+   482486  2026-11-14 08:47   pesquisa_eleitoral_2026_PE.csv
+   430344  2026-11-14 08:47   pesquisa_eleitoral_2026_MG.csv
+   215415  2026-11-14 08:47   pesquisa_eleitoral_2026_RS.csv
+   130711  2026-11-14 08:47   pesquisa_eleitoral_2026_RR.csv
+   813530  2026-11-14 08:47   pesquisa_eleitoral_2026_RN.csv
+   481299  2026-11-14 08:46   pesquisa_eleitoral_2026_SP.csv
+   280513  2026-11-14 08:47   pesquisa_eleitoral_2026_RJ.csv
+   568031  2026-11-14 08:46   pesquisa_eleitoral_2026_SE.csv
+   167218  2026-11-14 08:47   pesquisa_eleitoral_2026_RO.csv
+   187643  2026-11-14 08:46   pesquisa_eleitoral_2026_SC.csv
+   454995  2026-11-14 08:46   pesquisa_eleitoral_2026_TO.csv
+ 17069280  2026-11-14 08:47   pesquisa_eleitoral_2026_BRASIL.csv
+   186304  2026-11-04 17:06   leiame.pdf
+---------                     -------
+ 27235847                     28 files

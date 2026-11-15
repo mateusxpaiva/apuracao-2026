@@ -1,0 +1,6 @@
+Archive:  camara/ceap_2026.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+ 47667632  2026-11-14 03:37   Ano-2026.csv
+---------                     -------
+ 47667632                     1 file

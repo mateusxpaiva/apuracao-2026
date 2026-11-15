@@ -1,0 +1,35 @@
+Archive:  tse/pesquisa_2022.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   275901  2024-10-26 08:34   pesquisa_eleitoral_2022_GO.csv
+   121199  2024-10-26 13:49   pesquisa_eleitoral_2022_CE.csv
+    69177  2024-10-26 08:33   pesquisa_eleitoral_2022_AC.csv
+   378500  2024-10-26 08:33   pesquisa_eleitoral_2022_AM.csv
+   225986  2024-10-26 08:34   pesquisa_eleitoral_2022_BA.csv
+   177502  2024-10-26 08:33   pesquisa_eleitoral_2022_ES.csv
+   109273  2024-10-26 08:33   pesquisa_eleitoral_2022_DF.csv
+    81486  2024-10-26 08:33   pesquisa_eleitoral_2022_AP.csv
+   263485  2024-10-26 08:33   pesquisa_eleitoral_2022_AL.csv
+   277687  2024-10-26 08:34   pesquisa_eleitoral_2022_MG.csv
+   238124  2024-10-26 08:34   pesquisa_eleitoral_2022_MT.csv
+    96002  2024-10-26 08:34   pesquisa_eleitoral_2022_PB.csv
+   514108  2024-10-26 08:33   pesquisa_eleitoral_2022_PI.csv
+   149211  2024-10-26 08:33   pesquisa_eleitoral_2022_RO.csv
+    61594  2024-10-26 08:33   pesquisa_eleitoral_2022_RR.csv
+   420248  2024-10-26 08:34   pesquisa_eleitoral_2022_MA.csv
+   248111  2024-10-26 08:34   pesquisa_eleitoral_2022_PA.csv
+   274570  2024-10-26 08:34   pesquisa_eleitoral_2022_MS.csv
+    87822  2024-10-26 08:33   pesquisa_eleitoral_2022_PR.csv
+   239917  2024-10-26 08:34   pesquisa_eleitoral_2022_PE.csv
+   304591  2024-10-26 08:34   pesquisa_eleitoral_2022_RN.csv
+   585424  2024-10-26 08:33   pesquisa_eleitoral_2022_SP.csv
+   333323  2024-10-26 08:33   pesquisa_eleitoral_2022_TO.csv
+   153195  2024-10-26 08:33   pesquisa_eleitoral_2022_RS.csv
+  3972825  2024-10-26 08:33   pesquisa_eleitoral_2022_BR.csv
+   193376  2024-10-26 08:34   pesquisa_eleitoral_2022_RJ.csv
+   243800  2024-10-26 08:33   pesquisa_eleitoral_2022_SE.csv
+   159652  2024-10-26 08:33   pesquisa_eleitoral_2022_SC.csv
+ 10244695  2024-10-26 08:33   pesquisa_eleitoral_2022_BRASIL.csv
+   186304  2024-10-15 15:38   leiame.pdf
+---------                     -------
+ 20687088                     30 files

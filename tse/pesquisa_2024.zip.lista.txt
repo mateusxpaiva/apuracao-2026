@@ -1,0 +1,33 @@
+Archive:  tse/pesquisa_2024.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+ 57038948  2026-11-08 12:17   pesquisa_eleitoral_2024_BRASIL.csv
+  2745791  2026-11-08 12:16   pesquisa_eleitoral_2024_TO.csv
+  6776617  2026-11-08 12:16   pesquisa_eleitoral_2024_SP.csv
+  1952352  2026-11-08 12:16   pesquisa_eleitoral_2024_SE.csv
+  1171011  2026-11-08 12:16   pesquisa_eleitoral_2024_SC.csv
+   799530  2026-11-08 12:16   pesquisa_eleitoral_2024_RS.csv
+   107382  2026-11-08 12:16   pesquisa_eleitoral_2024_RR.csv
+  2869657  2026-11-08 12:16   pesquisa_eleitoral_2024_RN.csv
+   432128  2026-11-08 12:17   pesquisa_eleitoral_2024_RO.csv
+  1383636  2026-11-08 12:17   pesquisa_eleitoral_2024_RJ.csv
+  2917148  2026-11-08 12:17   pesquisa_eleitoral_2024_PR.csv
+  1987073  2026-11-08 12:17   pesquisa_eleitoral_2024_PB.csv
+   279712  2026-11-08 12:17   pesquisa_eleitoral_2024_AC.csv
+  3368160  2026-11-08 12:17   pesquisa_eleitoral_2024_PI.csv
+  4522498  2026-11-08 12:17   pesquisa_eleitoral_2024_PE.csv
+  3324549  2026-11-08 12:17   pesquisa_eleitoral_2024_PA.csv
+  1294744  2026-11-08 12:17   pesquisa_eleitoral_2024_MT.csv
+  1506411  2026-11-08 12:17   pesquisa_eleitoral_2024_MS.csv
+  4067073  2026-11-08 12:17   pesquisa_eleitoral_2024_MG.csv
+  2846442  2026-11-08 12:17   pesquisa_eleitoral_2024_MA.csv
+  3774663  2026-11-08 12:17   pesquisa_eleitoral_2024_GO.csv
+  1291231  2026-11-08 12:17   pesquisa_eleitoral_2024_ES.csv
+  1138831  2026-11-08 12:17   pesquisa_eleitoral_2024_CE.csv
+   913882  2026-11-08 12:17   pesquisa_eleitoral_2024_AL.csv
+   795648  2026-11-08 12:17   pesquisa_eleitoral_2024_AM.csv
+   306887  2026-11-08 12:17   pesquisa_eleitoral_2024_AP.csv
+  4476442  2026-11-08 12:17   pesquisa_eleitoral_2024_BA.csv
+   186304  2026-11-04 17:06   leiame.pdf
+---------                     -------
+114274750                     28 files
