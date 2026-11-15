@@ -1,3 +1,14 @@
-# nome  url   (rodada 5: malha municipal IBGE via GeoDadosBrasil, que copia a API de malhas do IBGE)
-geo/municipios_minima.geojson https://media.githubusercontent.com/media/cristoferluch/GeoDadosBrasil/main/Munic%C3%ADpios/municipios_minima.geojson
-geo/municipios_intermediaria.geojson https://media.githubusercontent.com/media/cristoferluch/GeoDadosBrasil/main/Munic%C3%ADpios/municipios_intermediaria.geojson
+# nome  url   (rodada 6: Congresso e pesquisas eleitorais)
+camara/votacoes.json https://dadosabertos.camara.leg.br/api/v2/votacoes?dataInicio=2026-10-01&dataFim=2026-11-14&ordem=DESC&ordenarPor=dataHoraRegistro&itens=200
+camara/deputados.json https://dadosabertos.camara.leg.br/api/v2/deputados?itens=600&ordem=ASC&ordenarPor=nome
+camara/proposicoes.json https://dadosabertos.camara.leg.br/api/v2/proposicoes?dataApresentacaoInicio=2026-11-01&itens=100&ordem=DESC&ordenarPor=id
+camara/eventos.json https://dadosabertos.camara.leg.br/api/v2/eventos?dataInicio=2026-11-10&itens=100
+camara/ceap_2026.zip https://www.camara.leg.br/cotas/Ano-2026.csv.zip
+camara/votacoes_2026.json https://dadosabertos.camara.leg.br/arquivos/votacoes/json/votacoes-2026.json
+camara/votacoesvotos_2026.json https://dadosabertos.camara.leg.br/arquivos/votacoesVotos/json/votacoesVotos-2026.json
+senado/votacoes.json https://legis.senado.leg.br/dadosabertos/plenario/lista/votacao/20261001/20261114.json
+senado/senadores.json https://legis.senado.leg.br/dadosabertos/senador/lista/atual.json
+tse/pesquisa_2026.zip https://cdn.tse.jus.br/estatistica/sead/odsele/pesquisa_eleitoral/pesquisa_eleitoral_2026.zip
+tse/pesquisa_2024.zip https://cdn.tse.jus.br/estatistica/sead/odsele/pesquisa_eleitoral/pesquisa_eleitoral_2024.zip
+tse/pesquisa_2022.zip https://cdn.tse.jus.br/estatistica/sead/odsele/pesquisa_eleitoral/pesquisa_eleitoral_2022.zip
+tse/dadosabertos_pesquisa.html https://dadosabertos.tse.jus.br/dataset/?q=pesquisa+eleitoral
