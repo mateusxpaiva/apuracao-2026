@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Mundo · Apuração por IA</title>
 <meta name="author" content="Mateus Paiva">
-<meta name="description" content="Eleições presidenciais do Brasil, Argentina, Chile, Uruguai, México, Estados Unidos, Canadá, França, Portugal, Alemanha, Reino Unido, Polônia e Romênia lado a lado, com dados oficiais. Design: Mateus Paiva.">
+<meta name="description" content="Eleições presidenciais do Brasil, Argentina, Chile, Uruguai, México, Estados Unidos, Canadá, França, Portugal, Espanha, Alemanha, Reino Unido, Polônia e Romênia lado a lado, com dados oficiais. Design: Mateus Paiva.">
 <meta property="og:title" content="Mundo · Apuração por IA">
-<meta property="og:description" content="Brasil, Argentina, Chile, Uruguai, México, EUA, Canadá, França, Portugal, Alemanha, Reino Unido, Polônia e Romênia comparados: viradas no 2º turno, comparecimento e resultado por região. Design: Mateus Paiva.">
+<meta property="og:description" content="Brasil, Argentina, Chile, Uruguai, México, EUA, Canadá, França, Portugal, Espanha, Alemanha, Reino Unido, Polônia e Romênia comparados: viradas no 2º turno, comparecimento e resultado por região. Design: Mateus Paiva.">
 <meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
 <meta name="theme-color" content="#0B1220">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
@@ -143,7 +143,7 @@ footer a{color:var(--sub)}
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
-    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin, House of Commons Library, PKW, Elections Canada Corte Electoral do Uruguai e Autoritatea Electorală Permanentă</div>
+    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin, House of Commons Library, PKW, Elections Canada Corte Electoral do Uruguai Autoritatea Electorală Permanentă e Ministerio del Interior da Espanha</div>
   </footer>
 </div>
 
@@ -153,7 +153,7 @@ footer a{color:var(--sub)}
 var $ = function(id){ return document.getElementById(id); };
 var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1}), f2 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
 var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
-var PAISES = [["br","🇧🇷","Brasil"],["ar","🇦🇷","Argentina"],["cl","🇨🇱","Chile"],["mx","🇲🇽","México"],["us","🇺🇸","EUA"],["fr","🇫🇷","França"],["pt","🇵🇹","Portugal"],["de","🇩🇪","Alemanha"],["uk","🇬🇧","Reino Unido"],["pl","🇵🇱","Polônia"],["ca","🇨🇦","Canadá"],["uy","🇺🇾","Uruguai"],["ro","🇷🇴","Romênia"]];
+var PAISES = [["br","🇧🇷","Brasil"],["ar","🇦🇷","Argentina"],["cl","🇨🇱","Chile"],["mx","🇲🇽","México"],["us","🇺🇸","EUA"],["fr","🇫🇷","França"],["pt","🇵🇹","Portugal"],["de","🇩🇪","Alemanha"],["uk","🇬🇧","Reino Unido"],["pl","🇵🇱","Polônia"],["ca","🇨🇦","Canadá"],["uy","🇺🇾","Uruguai"],["ro","🇷🇴","Romênia"],["es","🇪🇸","Espanha"]];
 var OUT = "#5B6478";
 var D = {};
 
@@ -226,7 +226,7 @@ function initFicha(){
   $("tabP").addEventListener("click", function(e){ var b = e.target.closest("[data-p]"); if (!b) return; cur.p = b.getAttribute("data-p"); cur.a = null; cur.t = null; render(); });
   $("tabA").addEventListener("click", function(e){ var b = e.target.closest("[data-a]"); if (!b) return; cur.a = +b.getAttribute("data-a"); cur.t = null; render(); });
   $("tabT").addEventListener("click", function(e){ var b = e.target.closest("[data-t]"); if (!b) return; cur.t = b.getAttribute("data-t"); render(); });
-  var m = /[?&]p=(br|ar|cl|mx|us|fr|pt|de|uk|pl|ca|uy|ro)/.exec(location.search); if (m) cur.p = m[1];
+  var m = /[?&]p=(br|ar|cl|mx|us|fr|pt|de|uk|pl|ca|uy|ro|es)/.exec(location.search); if (m) cur.p = m[1];
   render();
 }
 function render(){
@@ -261,7 +261,12 @@ function render(){
     var outros = Math.max(0, 100 - sh.reduce(function(a,b){ return a+b; }, 0));
     var w = main.slice().sort(function(a,b){ return (g.v[b.id]||0) - (g.v[a.id]||0); });
     var mg = ((g.v[w[0].id]||0) - (g.v[w[1].id]||0)) / tot * 100;
-    if (P.parlamentar && outros > (g.v[w[0].id]||0) / tot * 100) return {g:g, sh:sh, outros:outros, w:{id:"O", nome:"Outros"}, mg:outros - (g.v[w[0].id]||0) / tot * 100};
+    if (P.parlamentar) {
+      /* compara partido a partido (não a soma dos "outros"): se um partido fora do destaque vence, a região conta em Outros */
+      var todos = T.cand.slice().sort(function(a,b){ return (g.v[b.id]||0) - (g.v[a.id]||0); });
+      mg = ((g.v[todos[0].id]||0) - (g.v[todos[1].id]||0)) / tot * 100;
+      if (main.indexOf(todos[0]) < 0) return {g:g, sh:sh, outros:outros, w:{id:"O", nome:"Outros"}, mg:mg};
+    }
     return {g:g, sh:sh, outros:outros, w:w[0], mg:mg};
   }).sort(function(a,b){ return a.w.id === b.w.id ? b.mg - a.mg : (a.w.id === main[0].id ? -1 : b.w.id === main[0].id ? 1 : 0); });
   var venceu = {}; regs.forEach(function(x){ venceu[x.w.id] = (venceu[x.w.id] || 0) + 1; });
