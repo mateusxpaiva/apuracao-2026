@@ -1,3 +1,9 @@
-# nome  url   (rodada 15: Portugal, dados da eleição)
-pt/el61.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/election/data-electionId=61.json
-pt/el51.json https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/election/data-electionId=51.json
+# nome  url   (rodada 16: Portugal, totais e distritos)
+pt/ch_61.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/territory/children-electionId=61-territoryId=65611.json
+pt/r_61_65608.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/result/territory-electionId=61-territoryId=65608-organId=3.json
+pt/r_61_65611.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/result/territory-electionId=61-territoryId=65611-organId=3.json
+pt/r_61_65609.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/result/territory-electionId=61-territoryId=65609-organId=3.json
+pt/ch_51.json https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/territory/children-electionId=51-territoryId=54670.json
+pt/r_51_54667.json https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/result/territory-electionId=51-territoryId=54667-organId=3.json
+pt/r_51_54670.json https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/result/territory-electionId=51-territoryId=54670-organId=3.json
+pt/r_51_54668.json https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/result/territory-electionId=51-territoryId=54668-organId=3.json
