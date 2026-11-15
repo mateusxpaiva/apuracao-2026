@@ -1,0 +1,48 @@
+name: Coletor voto por local de votação (TSE)
+
+on:
+  workflow_dispatch:
+    inputs:
+      uf:
+        description: "UF"
+        required: true
+        default: "SP"
+      cidades:
+        description: "Códigos TSE das cidades, separados por espaço (Limeira = 66397)"
+        required: true
+        default: "66397"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coletor-dados
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Testar arquivos do TSE
+        run: |
+          for u in votacao_secao/votacao_secao_2024_${{ inputs.uf }}.zip votacao_secao/votacao_secao_2026_${{ inputs.uf }}.zip eleitorado_locais_votacao/eleitorado_local_votacao_2026.zip eleitorado_locais_votacao/eleitorado_local_votacao_2024.zip; do
+            echo "$u: $(curl -sS -I --max-time 60 https://cdn.tse.jus.br/estatistica/sead/odsele/$u | grep -iE '^(HTTP|content-length)' | tr '\r\n' ' ')"
+          done
+          df -h . | tail -1
+      - name: Processar
+        run: python pipeline/secao.py ${{ inputs.uf }} ${{ inputs.cidades }}
+      - name: Publicar
+        run: |
+          du -sh data/secao/*
+          git config user.name "apuracao-por-ia-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/secao
+          if git diff --cached --quiet; then echo "Sem mudanças"; exit 0; fi
+          git commit -m "Voto por local de votação: ${{ inputs.uf }} ${{ inputs.cidades }}"
+          git pull --rebase -q
+          git push
