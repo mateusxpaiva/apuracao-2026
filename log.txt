@@ -1,11 +1,2 @@
-pt/settings_2s.json 200 application/json 25 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/app-settings.json
-pt/settings_1s.json 200 application/json 25 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/app-settings.json
-pt/c_L5OMHLVQ.js 200 application/x-javascript 2504 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-L5OMHLVQ.js
-pt/c_LAI7PZPT.js 200 application/x-javascript 73851 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-LAI7PZPT.js
-pt/c_MT4GOQ2Q.js 200 application/x-javascript 2811 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-MT4GOQ2Q.js
-pt/c_OSL5PYZ4.js 200 application/x-javascript 3605 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-OSL5PYZ4.js
-pt/c_PG3UAPWM.js 200 application/x-javascript 2408 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-PG3UAPWM.js
-pt/c_PR5FKVD6.js 200 application/x-javascript 6654 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-PR5FKVD6.js
-pt/c_RBS3W7NX.js 200 application/x-javascript 3597 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-RBS3W7NX.js
-pt/c_T6PNGGAD.js 200 application/x-javascript 2857 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-T6PNGGAD.js
-pt/c_YJBVAICV.js 200 application/x-javascript 19715 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-YJBVAICV.js
+pt/el61.json 200 application/json 157193 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/election/data-electionId=61.json
+pt/el51.json 200 application/json 155657 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/election/data-electionId=51.json
