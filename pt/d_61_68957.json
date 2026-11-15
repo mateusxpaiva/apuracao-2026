@@ -1,0 +1,133 @@
+{
+  "data": {
+    "territoryId": 68957,
+    "territoryTypeId": 5,
+    "territoryName": "Açores",
+    "totalConsulates": 0,
+    "totalConsulatesApproved": 0,
+    "totalParishes": 156,
+    "totalParishesApproved": 156,
+    "currentResults": {
+      "votingState": "Published",
+      "totalBoycotts": 0,
+      "subscribedVoters": 230538,
+      "blankVotes": 3260,
+      "blankVotesPercentage": 3.39,
+      "nullVotes": 1200,
+      "nullVotesPercentage": 1.25,
+      "totalVoters": 96115,
+      "percentageVoters": 41.69,
+      "resultsParty": [
+        {
+          "id": 3584,
+          "typeId": 1,
+          "acronym": "António José Seguro",
+          "votes": 60900,
+          "percentage": 66.44
+        },
+        {
+          "id": 3585,
+          "typeId": 1,
+          "acronym": "André Ventura",
+          "votes": 30755,
+          "percentage": 33.56
+        }
+      ]
+    },
+    "previousResults": {
+      "subscribedVoters": 230538,
+      "blankVotes": 2320,
+      "blankVotesPercentage": 2.39,
+      "nullVotes": 1614,
+      "nullVotesPercentage": 1.66,
+      "totalVoters": 97182,
+      "percentageVoters": 42.15,
+      "resultsParty": [
+        {
+          "id": 3493,
+          "typeId": 1,
+          "acronym": "António José Seguro",
+          "votes": 28714,
+          "percentage": 30.79
+        },
+        {
+          "id": 3495,
+          "typeId": 1,
+          "acronym": "André Ventura",
+          "votes": 24938,
+          "percentage": 26.74
+        },
+        {
+          "id": 3494,
+          "typeId": 1,
+          "acronym": "Luís Marques Mendes",
+          "votes": 12879,
+          "percentage": 13.81
+        },
+        {
+          "id": 3491,
+          "typeId": 1,
+          "acronym": "João Cotrim de Figueiredo",
+          "votes": 12038,
+          "percentage": 12.91
+        },
+        {
+          "id": 3497,
+          "typeId": 1,
+          "acronym": "Henrique Gouveia e Melo",
+          "votes": 9766,
+          "percentage": 10.47
+        },
+        {
+          "id": 3490,
+          "typeId": 1,
+          "acronym": "Catarina Martins",
+          "votes": 2469,
+          "percentage": 2.65
+        },
+        {
+          "id": 3488,
+          "typeId": 1,
+          "acronym": "Manuel João Vieira",
+          "votes": 940,
+          "percentage": 1.01
+        },
+        {
+          "id": 3486,
+          "typeId": 1,
+          "acronym": "Jorge Pinto",
+          "votes": 614,
+          "percentage": 0.66
+        },
+        {
+          "id": 3496,
+          "typeId": 1,
+          "acronym": "António Filipe",
+          "votes": 589,
+          "percentage": 0.63
+        },
+        {
+          "id": 3485,
+          "typeId": 1,
+          "acronym": "André Pestana da Silva",
+          "votes": 213,
+          "percentage": 0.23
+        },
+        {
+          "id": 3492,
+          "typeId": 1,
+          "acronym": "Humberto Correia",
+          "votes": 88,
+          "percentage": 0.09
+        }
+      ]
+    }
+  },
+  "isSuccess": true,
+  "sysDate": {
+    "serverDate": "2026-03-03T11:27:13.4520643+00:00",
+    "serverDateString": "03/03/2026 11:27:13",
+    "userDate": "2026-03-03T11:27:13.4520643+00:00",
+    "userDateString": "03/03/2026 11:27:13"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "data": {
+    "territoryId": 56351,
+    "territoryTypeId": 5,
+    "territoryName": "Leiria",
+    "totalConsulates": 0,
+    "totalConsulatesApproved": 0,
+    "totalParishes": 116,
+    "totalParishesApproved": 116,
+    "currentResults": {
+      "votingState": "Published",
+      "totalBoycotts": 0,
+      "subscribedVoters": 412472,
+      "blankVotes": 3426,
+      "blankVotesPercentage": 1.34,
+      "nullVotes": 3007,
+      "nullVotesPercentage": 1.17,
+      "totalVoters": 256158,
+      "percentageVoters": 62.10,
+      "resultsParty": [
+        {
+          "id": 3493,
+          "typeId": 1,
+          "acronym": "António José Seguro",
+          "votes": 72835,
+          "percentage": 29.17
+        },
+        {
+          "id": 3495,
+          "typeId": 1,
+          "acronym": "André Ventura",
+          "votes": 57635,
+          "percentage": 23.08
+        },
+        {
+          "id": 3491,
+          "typeId": 1,
+          "acronym": "João Cotrim de Figueiredo",
+          "votes": 43085,
+          "percentage": 17.25
+        },
+        {
+          "id": 3497,
+          "typeId": 1,
+          "acronym": "Henrique Gouveia e Melo",
+          "votes": 32072,
+          "percentage": 12.84
+        },
+        {
+          "id": 3494,
+          "typeId": 1,
+          "acronym": "Luís Marques Mendes",
+          "votes": 31626,
+          "percentage": 12.66
+        },
+        {
+          "id": 3490,
+          "typeId": 1,
+          "acronym": "Catarina Martins",
+          "votes": 4484,
+          "percentage": 1.8
+        },
+        {
+          "id": 3488,
+          "typeId": 1,
+          "acronym": "Manuel João Vieira",
+          "votes": 3143,
+          "percentage": 1.26
+        },
+        {
+          "id": 3496,
+          "typeId": 1,
+          "acronym": "António Filipe",
+          "votes": 2745,
+          "percentage": 1.1
+        },
+        {
+          "id": 3486,
+          "typeId": 1,
+          "acronym": "Jorge Pinto",
+          "votes": 1494,
+          "percentage": 0.6
+        },
+        {
+          "id": 3485,
+          "typeId": 1,
+          "acronym": "André Pestana da Silva",
+          "votes": 437,
+          "percentage": 0.17
+        },
+        {
+          "id": 3492,
+          "typeId": 1,
+          "acronym": "Humberto Correia",
+          "votes": 169,
+          "percentage": 0.07
+        }
+      ]
+    },
+    "previousResults": {
+      "subscribedVoters": 413424,
+      "blankVotes": 2367,
+      "blankVotesPercentage": 1.28,
+      "nullVotes": 1824,
+      "nullVotesPercentage": 0.99,
+      "totalVoters": 184816,
+      "percentageVoters": 44.70,
+      "resultsParty": [
+        {
+          "id": 3385,
+          "typeId": 1,
+          "acronym": "MARCELO REBELO DE SOUSA",
+          "votes": 115484,
+          "percentage": 63.94
+        },
+        {
+          "id": 3387,
+          "typeId": 1,
+          "acronym": "ANDRÉ VENTURA",
+          "votes": 22576,
+          "percentage": 12.5
+        },
+        {
+          "id": 3390,
+          "typeId": 1,
+          "acronym": "ANA GOMES",
+          "votes": 18871,
+          "percentage": 10.45
+        },
+        {
+          "id": 3384,
+          "typeId": 1,
+          "acronym": "MARISA MATIAS",
+          "votes": 7222,
+          "percentage": 4
+        },
+        {
+          "id": 3389,
+          "typeId": 1,
+          "acronym": "JOÃO FERREIRA",
+          "votes": 5761,
+          "percentage": 3.19
+        },
+        {
+          "id": 3388,
+          "typeId": 1,
+          "acronym": "VITORINO SILVA",
+          "votes": 5526,
+          "percentage": 3.06
+        },
+        {
+          "id": 3386,
+          "typeId": 1,
+          "acronym": "TIAGO MAYAN GONÇALVES",
+          "votes": 5185,
+          "percentage": 2.87
+        }
+      ]
+    }
+  },
+  "isSuccess": true,
+  "sysDate": {
+    "serverDate": "2026-01-29T12:33:16.6876634+00:00",
+    "serverDateString": "29/01/2026 12:33:16",
+    "userDate": "2026-01-29T12:33:16.6876634+00:00",
+    "userDateString": "29/01/2026 12:33:16"
+  }
+}
