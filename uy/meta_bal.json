@@ -1,0 +1,83 @@
+{
+    "atributos": [
+        {
+            "descripcion": "Departamento del circuito",
+            "informacionAdicional": "",
+            "tipoDeDato": "String",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "Departamento"
+        },
+        {
+            "descripcion": "Comisión Receptora de Votos. Los circuitos cuya numeración es mayor o igual a 9000, son circuitos fictos para escrutar los votos Observados",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "CRV"
+        },
+        {
+            "descripcion": "Series con habilitados para votar en la CRV. Se utiliza el carácter espacio como separador cuando en la CRV pueden votar varias series. Las series terminadas en ZZ, son fictas para escrutar los votos Observados",
+            "informacionAdicional": "",
+            "tipoDeDato": "String",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "Serie"
+        },
+        {
+            "descripcion": "Cantidad de personas habilitadas para votar en la CRV, para los circuitos de votos observados, es 0 ya que esas personas están contabilizadas en el circuito que les correspondía votar",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "TotalHabilitados"
+        },
+        {
+            "descripcion": "Cantidad de votos emitidos en la CRV, ,para los circuitos de votos observados, es 0 ya que esos votos están contabilizados en el circuito donde se emitió originalmente el voto.",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "TotalVotosEmitidos"
+        },
+        {
+            "descripcion": "Cantidad de votos NO observados emitidos en la CRV",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "TotalVotosNoObservados"
+        },
+        {
+            "descripcion": "Cantidad de votos observados emitidos en la CRV",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "TotalVotosObservados"
+        },
+        {
+            "descripcion": "Cantidad de sobres cuyas hojas de votación fueron anuladas en su totalidad. Cantidad comprendida dentro de los NO observados",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "TotalAnulados"
+        },
+        {
+            "descripcion": "Cantidad de sobres en blanco total, que no contenían hojas de votación. Cantidad comprendida dentro de los NO observados",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "TotalEnBlanco"
+        },
+        {
+            "descripcion": "Cantidad de votos que recibió la fórmula Yamandú Orsi - Carolina Cosse. Cantidad comprendida dentro de los NO observados",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "TotalOrsiCosse"
+        },
+        {
+            "descripcion": "Cantidad de votos que recibió la fórmula Álvaro Delgado - Valeria Ripoll. Cantidad comprendida dentro de los NO observados",
+            "informacionAdicional": "",
+            "tipoDeDato": "Integer",
+            "recursoRelacionado": "",
+            "nombreDeAtributo": "TotalDelgadoRipoll"
+        }
+    ],
+    "titulo": "Metadatos de balotaje 2024",
+    "descripcion": "Metadatos de balotaje 2024"
+}
