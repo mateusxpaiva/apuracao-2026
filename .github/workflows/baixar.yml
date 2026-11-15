@@ -6,6 +6,9 @@ on:
       lista:
         description: "Arquivo com as fontes (nome url por linha)"
         default: "pipeline/fontes.txt"
+      tempo:
+        description: "Tempo máximo por arquivo (segundos)"
+        default: "240"
 
 permissions:
   contents: write
@@ -31,7 +34,7 @@ jobs:
           grep -v '^\s*#' "../main/${{ inputs.lista }}" | while read -r nome url; do
             [ -z "$nome" ] && continue
             mkdir -p "$(dirname "$nome")"
-            code=$(curl -sS -L --retry 3 --max-time 600 -A "$UA" -o "$nome" -w '%{http_code} %{content_type} %{size_download}' "$url" || echo "ERRO")
+            code=$(curl -sS -L --retry 1 --connect-timeout 20 --max-time ${{ inputs.tempo || 240 }} -A "$UA" -o "$nome" -w '%{http_code} %{content_type} %{size_download}' "$url" || echo "ERRO")
             echo "$nome $code $url" | tee -a log.txt
             if [ -f "$nome" ]; then
               case "$nome" in *.zip)
