@@ -1,35 +1,11 @@
-no/k03.json 200 application/hal+json;charset=utf-8 19968 https://valgresultat.no/api/2025/st/03
-no/k04.json 200 application/hal+json;charset=utf-8 21569 https://valgresultat.no/api/2025/st/04
-no/k05.json 200 application/hal+json;charset=utf-8 21859 https://valgresultat.no/api/2025/st/05
-no/k09.json 200 application/hal+json;charset=utf-8 20144 https://valgresultat.no/api/2025/st/09
-no/k10.json 200 application/hal+json;charset=utf-8 20133 https://valgresultat.no/api/2025/st/10
-no/k11.json 200 application/hal+json;charset=utf-8 22519 https://valgresultat.no/api/2025/st/11
-no/k12.json 200 application/hal+json;charset=utf-8 23132 https://valgresultat.no/api/2025/st/12
-no/k14.json 200 application/hal+json;charset=utf-8 20699 https://valgresultat.no/api/2025/st/14
-no/k15.json 200 application/hal+json;charset=utf-8 22930 https://valgresultat.no/api/2025/st/15
-no/k16.json 200 application/hal+json;charset=utf-8 21881 https://valgresultat.no/api/2025/st/16
-no/k17.json 200 application/hal+json;charset=utf-8 20958 https://valgresultat.no/api/2025/st/17
-no/k18.json 200 application/hal+json;charset=utf-8 25274 https://valgresultat.no/api/2025/st/18
-no/k31.json 200 application/hal+json;charset=utf-8 19985 https://valgresultat.no/api/2025/st/31
-no/k32.json 200 application/hal+json;charset=utf-8 22750 https://valgresultat.no/api/2025/st/32
-no/k33.json 200 application/hal+json;charset=utf-8 20878 https://valgresultat.no/api/2025/st/33
-no/k39.json 200 application/hal+json;charset=utf-8 18696 https://valgresultat.no/api/2025/st/39
-no/k40.json 200 application/hal+json;charset=utf-8 20503 https://valgresultat.no/api/2025/st/40
-no/k55.json 200 application/hal+json;charset=utf-8 21504 https://valgresultat.no/api/2025/st/55
-no/k56.json 200 application/hal+json;charset=utf-8 21023 https://valgresultat.no/api/2025/st/56
-no/2021.json 200 application/hal+json;charset=utf-8 18328 https://valgresultat.no/api/2021/st
-nl/tk2025_csv.zip 200 application/zip 2299191 https://data.overheid.nl/sites/default/files/dataset/a16f3352-c9ce-4831-a314-f989d442a258/resources/Verkiezingsuitslag%20Tweede%20Kamer%202025%20%28CSV%20Formaat%29.zip
-it/listeCIRC.csv 200 application/octet-stream 19440 https://documenti.camera.it/leg19/risultatiElettorali2022/UGE/VotiListe/ItaliaVotiListeCIRC.csv
-it/estero.csv 200 application/octet-stream 2150 https://documenti.camera.it/leg19/risultatiElettorali2022/UGE/Estero/RIEPILOGORIPARTIZIONIESTERO.csv
-at/bpw22.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 575304 https://www.bmi.gv.at/412/bundespraesidentenwahlen/bundespraesidentenwahl_2022/files/endgueltiges_gesamtergebnis_inkl_briefwahl_bpw22_20221028.xlsx
-fi/14db.csv 200 text/csv; charset=Windows-1252 677291 https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/pvaa/14db.px
-fi/14db_meta.json 200 application/json; charset=utf-8 2294 https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/pvaa/14db.px
-fi/14d6_meta.json 200 application/json; charset=utf-8 69367 https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/pvaa/14d6.px
-se/me0104c.json 200 application/json; charset=utf-8 1465 https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C
-se/t3_meta.json 200 application/json; charset=utf-8 7351 https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3
-kr/datago.html 200 text/html;charset=UTF-8 208786 https://www.data.go.kr/data/15133805/fileData.do
-tw/168059.html 200 text/html;charset=utf-8 523882 https://data.gov.tw/dataset/168059
-tw/33336.html 200 text/html;charset=utf-8 537157 https://data.gov.tw/dataset/33336
-bo/computo.html 000  0ERRO https://computo.oep.org.bo/
-ec/cne_res.html 000  0ERRO https://elecciones2025.cne.gob.ec/
-jp/soumu.html 200 text/html 44663 https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin50/index.html
+se/t3_2022.csv 200 text/csv; charset=Windows-1252 314 https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3
+se/t4_meta.json 400 text/html 11 https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T4
+jp/s51.html 200 text/html 43919 https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html
+kr/c15162558.json 200 text/html;charset=UTF-8 3133 https://www.data.go.kr/catalog/15162558/fileData.json
+kr/c15162566.json 200 text/html;charset=UTF-8 3144 https://www.data.go.kr/catalog/15162566/fileData.json
+kr/c15162716.json 200 text/html;charset=UTF-8 3139 https://www.data.go.kr/catalog/15162716/fileData.json
+kr/c15162714.json 200 text/html;charset=UTF-8 2896 https://www.data.go.kr/catalog/15162714/fileData.json
+kr/c15162288.json 200 text/html;charset=UTF-8 3077 https://www.data.go.kr/catalog/15162288/fileData.json
+tw/168060.html 200 text/html;charset=utf-8 544581 https://data.gov.tw/dataset/168060
+tw/168990.html 200 text/html;charset=utf-8 519488 https://data.gov.tw/dataset/168990
+tw/28485.html 200 text/html;charset=utf-8 530207 https://data.gov.tw/dataset/28485
