@@ -1,0 +1,10 @@
+2025 Federal Election House of Representatives Turnout By State [Event:31496 Phase:FinalResults Generated:2025-10-13T13:11:53 Cycle:dccf785f-1657-4ab0-9c1b-ef2d0b835c51 Created:2025-10-13T12:54:09 Environment:PROD Site:CANBERRA Server:Internal Version:10.11.386.0]
+StateAb,StateNm,Enrolment,Turnout,TurnoutPercentage,TurnoutSwing
+NSW,New South Wales,5692270,5213259,91.58,0.88
+VIC,Victoria,4578453,4232505,92.44,1.85
+QLD,Queensland,3736826,3313108,88.66,0.5
+WA,Western Australia,1888016,1664201,88.15,0.16
+SA,South Australia,1306665,1195145,91.47,0.4
+TAS,Tasmania,411596,383575,93.19,0.76
+ACT,Australian Capital Territory,322246,297796,92.41,0.34
+NT,Northern Territory,155519,110159,70.83,-2.25

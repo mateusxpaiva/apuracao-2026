@@ -1,0 +1,10 @@
+{
+ "_links": {
+     "self": { "nr": null, "href": "/2025", "hrefNavn": "/2025", "navn": "2025", "forelopigFhs": null, "forelopigVts": null, "forelopig": null, "endelig": null, "oppgjor": null},
+     "related": [
+         { "nr": null, "href": "/2025/sa", "hrefNavn": "/2025/sa", "navn": "sa", "forelopigFhs": null, "forelopigVts": null, "forelopig": null, "endelig": null, "oppgjor": null, "rapportGenerert": null, "harUnderordnet": true },
+         { "nr": null, "href": "/2025/st", "hrefNavn": "/2025/st", "navn": "st", "forelopigFhs": null, "forelopigVts": null, "forelopig": null, "endelig": null, "oppgjor": null, "rapportGenerert": null, "harUnderordnet": true }
+     ],
+     "up": { "nr": null, "href": "/", "hrefNavn": "/", "navn": "toppnivå", "forelopigFhs": null, "forelopigVts": null, "forelopig": null, "endelig": null, "oppgjor": null}
+ }
+}

@@ -1,2 +1,18 @@
-es/prov_202307.zip 403 text/html; charset=UTF-8 5752 https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_202307_1.zip
-es/prov_201911.zip 403 text/html; charset=UTF-8 5752 https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_201911_1.zip
+au/menu.html 200 text/html 28019 https://results.aec.gov.au/31496/Website/HouseDownloadsMenu-31496-Csv.htm
+au/fp_party.csv 200 application/octet-stream 3450 https://results.aec.gov.au/31496/Website/Downloads/HouseFirstPrefsByPartyDownload-31496.csv
+au/fp_state_party.csv 200 application/octet-stream 11384 https://results.aec.gov.au/31496/Website/Downloads/HouseFirstPrefsByStateByPartyDownload-31496.csv
+au/tpp_state.csv 200 application/octet-stream 921 https://results.aec.gov.au/31496/Website/Downloads/HouseTppByStateDownload-31496.csv
+au/elected.csv 200 application/octet-stream 9554 https://results.aec.gov.au/31496/Website/Downloads/HouseMembersElectedDownload-31496.csv
+au/turnout_state.csv 200 application/octet-stream 705 https://results.aec.gov.au/31496/Website/Downloads/HouseTurnoutByStateDownload-31496.csv
+nz/stats.html 403 text/html; charset=UTF-8 5772 https://archive.electionresults.govt.nz/electionresults_2023/statistics/index.html
+nz/root.html 403 text/html; charset=UTF-8 5687 https://archive.electionresults.govt.nz/electionresults_2023/
+nl/tk2025.json 200 application/json;charset=utf-8 8092 https://data.overheid.nl/data/api/3/action/package_show?id=verkiezingsuitslag-tweede-kamer-2025
+fi/pv1.json 403 text/html 520 https://www.avoindata.fi/data/api/3/action/package_show?id=637646ee-c3bc-4658-8be1-b40a419fd0a3
+fi/pv2.json 403 text/html 520 https://www.avoindata.fi/data/api/3/action/package_show?id=presidentivaalit
+fi/pxweb.json 200 application/json; charset=utf-8 2240 https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/pvaa/
+no/api.json 200 application/hal+json;charset=utf-8 17812 https://valgresultat.no/api/2025/st
+no/api_root.json 200 application/hal+json;charset=utf-8 854 https://valgresultat.no/api/2025
+it/camera.html 200 text/html; charset=UTF-8 64982 https://www.camera.it/deputati/elezioni/risultati-19-relazioni-csv-excel
+se/val.html 200 text/html;charset=UTF-8 256023 https://www.val.se/valresultat/riksdag-region-och-kommun/2022/radata-och-statistik.html
+at/bpw22.html 200 text/html 80291 https://www.bmi.gv.at/412/bundespraesidentenwahlen/bundespraesidentenwahl_2022/start.aspx
+cr/res.html 200 text/html; charset=UTF-8 16056 https://www.tse.go.cr/resultados-elecciones.html
