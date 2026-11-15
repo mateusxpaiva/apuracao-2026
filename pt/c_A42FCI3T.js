@@ -1,0 +1,1 @@
+import{_a as i}from"./chunk-4HQBJS4X.js";var p=(()=>{class t{transform(e){return`(Imagem) ${e}`}static{this.\u0275fac=function(r){return new(r||t)}}static{this.\u0275pipe=i({name:"siteImgAltText",type:t,pure:!0})}}return t})();export{p as a};

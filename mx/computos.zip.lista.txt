@@ -1,0 +1,8 @@
+Archive:  mx/computos.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+  6112814  2024-06-09 02:32   20240608_2030_COMPUTOS_DIP_FED.zip
+  6137547  2024-06-09 02:32   20240608_2030_COMPUTOS_PRES.zip
+  5950223  2024-06-09 02:32   20240608_2030_COMPUTOS_SEN.zip
+---------                     -------
+ 18200584                     3 files
