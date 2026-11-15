@@ -1,5 +1,2 @@
-uy/balotaje.csv 200 text/csv 273487 https://catalogodatos.gub.uy/dataset/2dc312e4-f3f7-41aa-b56d-74389083e7e1/resource/ac4cbd7c-dc15-4d3f-87ba-c00fb47604b7/download/balotaje-2024.csv
-uy/meta_bal.json 200 application/json 3828 https://catalogodatos.gub.uy/dataset/2dc312e4-f3f7-41aa-b56d-74389083e7e1/resource/ad61ab13-b7a9-499d-8df4-bf38c56646ae/download/metadatos_balotaje-2024.json
-uy/desglose.csv 200 text/csv 16778717 https://catalogodatos.gub.uy/dataset/7aaa1ff0-8ea5-4302-a3e6-c2d589b484a3/resource/f74aa981-47d3-4165-81be-5d2abcc5f6d5/download/desglose-de-votos.csv
-uy/totales.csv 200 text/csv 285506 https://catalogodatos.gub.uy/dataset/7aaa1ff0-8ea5-4302-a3e6-c2d589b484a3/resource/0f149bb6-4fff-463b-bc3a-8ab671bcdf34/download/totales-generales-por-comision-receptora-de-votos-y-plebiscitos-constitucionales.csv
-uy/meta_tot.json 200 application/json 4467 https://catalogodatos.gub.uy/dataset/7aaa1ff0-8ea5-4302-a3e6-c2d589b484a3/resource/83a77d8a-1708-4295-a7e8-5cee25fdc1a2/download/metadatos_totales-generales-por-comision-receptora-de-votos-y-plebiscitos-constitucionales.json
+es/prov_202307.zip 403 text/html; charset=UTF-8 5752 https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_202307_1.zip
+es/prov_201911.zip 403 text/html; charset=UTF-8 5752 https://infoelectoral.interior.gob.es/estaticos/docxl/PROV_02_201911_1.zip
