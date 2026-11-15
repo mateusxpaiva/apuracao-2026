@@ -1,11 +1,7 @@
-se/t3_2022.csv 200 text/csv; charset=Windows-1252 314 https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3
-se/t4_meta.json 400 text/html 11 https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T4
-jp/s51.html 200 text/html 43919 https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html
-kr/c15162558.json 200 text/html;charset=UTF-8 3133 https://www.data.go.kr/catalog/15162558/fileData.json
-kr/c15162566.json 200 text/html;charset=UTF-8 3144 https://www.data.go.kr/catalog/15162566/fileData.json
-kr/c15162716.json 200 text/html;charset=UTF-8 3139 https://www.data.go.kr/catalog/15162716/fileData.json
-kr/c15162714.json 200 text/html;charset=UTF-8 2896 https://www.data.go.kr/catalog/15162714/fileData.json
-kr/c15162288.json 200 text/html;charset=UTF-8 3077 https://www.data.go.kr/catalog/15162288/fileData.json
-tw/168060.html 200 text/html;charset=utf-8 544581 https://data.gov.tw/dataset/168060
-tw/168990.html 200 text/html;charset=utf-8 519488 https://data.gov.tw/dataset/168990
-tw/28485.html 200 text/html;charset=utf-8 530207 https://data.gov.tw/dataset/28485
+se/t3_2022_mun.csv 200 text/csv; charset=Windows-1252 142437 https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3
+jp/pr_pref_party.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 20322 https://www.soumu.go.jp/main_content/001061481.xlsx
+jp/pr_totais.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 13025 https://www.soumu.go.jp/main_content/001061483.xlsx
+jp/pr_eleitores.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 22340 https://www.soumu.go.jp/main_content/001061473.xlsx
+jp/assentos.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 16668 https://www.soumu.go.jp/main_content/001061475.xlsx
+jp/pr_party.xlsx 200 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 13261 https://www.soumu.go.jp/main_content/001061479.xlsx
+kr/busca.html 200 text/html;charset=UTF-8 432936 https://www.data.go.kr/tcs/dss/selectDataSetList.do?dType=FILE&keyword=%EB%8C%80%ED%86%B5%EB%A0%B9%EC%84%A0%EA%B1%B0+%EA%B0%9C%ED%91%9C%EA%B2%B0%EA%B3%BC
