@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Raio-X eleitoral · Apuração por IA</title>
+<meta name="author" content="Mateus Paiva">
+<meta name="description" content="Raio-X eleitoral do município: voto por local de votação e bairro, partidos na Câmara, quanto custa eleger um vereador e o histórico de prefeito. Dados oficiais do TSE. Design: Mateus Paiva.">
+<meta property="og:title" content="Raio-X eleitoral · Apuração por IA">
+<meta property="og:description" content="Voto por bairro e local de votação, partidos e vereadores. Dados oficiais do TSE. Design: Mateus Paiva.">
+<meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
+<meta name="theme-color" content="#0B1220">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Layout de relatório: capa com resumo executivo; mapa dos locais de votação com seletor de disputa; bairros em tabela; Câmara (partidos, custo de uma vaga, suplentes); histórico de prefeito; presidente na cidade x Brasil. Imprime como relatório em PDF. */
+:root{--ink:#080D18;--line:rgba(255,255,255,.08);--mute:#8C97AE;--fg:#EEF2F8;--sub:#C9D2E3;--gold:#E2B84B;--track:rgba(255,255,255,.06);--pt:#E0353D;--bol:#3B78EA;
+  --f-d:"Sora","Segoe UI",system-ui,sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.5 var(--f-b);-webkit-text-size-adjust:100%}
+body{background:radial-gradient(900px 520px at 50% -10%,rgba(226,184,75,.12),transparent 60%),var(--ink)}
+.wrap{max-width:1120px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:grid;gap:22px}
+.eyebrow{font:700 12px var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:800 clamp(34px,7vw,64px)/1.02 var(--f-d);letter-spacing:-.04em;margin:8px 0 0}
+h1 .uf{font-size:.45em;color:var(--mute);letter-spacing:0;margin-left:8px}
+.lede{font-size:16px;color:var(--sub);max-width:70ch;margin:10px 0 0}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:20px;padding:22px;min-width:0;break-inside:avoid}
+h2{font:700 clamp(20px,2.8vw,26px)/1.2 var(--f-d);letter-spacing:-.015em;margin:0;text-wrap:balance}
+h3{font:700 16px/1.25 var(--f-d);margin:0 0 8px}
+.sub{color:var(--mute);font-size:13.5px;margin:6px 0 14px;max-width:78ch}
+.note{font-size:13px;color:var(--mute);max-width:82ch;margin:12px 0 0;line-height:1.6}
+.note b{color:var(--fg)}.note a{color:var(--sub)}
+button,select{font:700 13px var(--f-b);background:rgba(255,255,255,.04);color:var(--fg);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 13px;cursor:pointer}
+select{border-radius:12px;background:#0B1325}
+button[aria-pressed="true"]{background:var(--gold);color:#0B1220;border-color:var(--gold)}
+button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.cta{display:inline-flex;align-items:center;gap:6px;font:800 14px var(--f-b);color:#0B1220;background:var(--gold);border-radius:999px;padding:10px 16px;text-decoration:none}
+.badge{display:inline-block;font:800 10.5px var(--f-b);letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(226,184,75,.16);color:var(--gold)}
+
+.res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.res{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.03);min-width:0}
+.kpi b{display:block;font:800 clamp(22px,3.4vw,30px)/1.08 var(--f-d);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-size:13px;color:var(--mute);margin-top:4px}
+.bul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.bul li{position:relative;padding-left:20px;color:var(--sub);font-size:15px}
+.bul li:before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.bul b{color:var(--fg)}
+
+.ctrls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+#map{height:520px;border-radius:16px;border:1px solid var(--line);background:#0B1220}
+@media (max-width:600px){#map{height:420px}}
+.leaflet-container{font:13px var(--f-b)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#0F1729;color:var(--fg);border:1px solid rgba(255,255,255,.14)}
+.leaflet-popup-content{margin:10px 12px;line-height:1.45}
+.leaflet-popup-content b{font-family:var(--f-d)}
+.leaflet-control-attribution{background:rgba(8,13,24,.75)!important;color:var(--mute)!important}
+.leaflet-control-attribution a{color:var(--sub)!important}
+.leg{display:grid;gap:8px;align-content:start}
+.lg{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:8px;align-items:center;font-size:13.5px}
+.lg i{width:14px;height:14px;border-radius:50%}
+.lg b{font-family:var(--f-d);font-variant-numeric:tabular-nums}
+.lg span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{font:700 11px var(--f-b);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap}
+th.num,td.num{text-align:right}
+td{padding:9px 6px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+td .mini{display:flex;height:10px;border-radius:3px;overflow:hidden;gap:1px;background:var(--ink);min-width:120px}
+td .mini i{display:block;height:100%}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:640px){.hide-m{display:none}}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.hb{display:grid;gap:9px}
+.hr{display:grid;grid-template-columns:110px minmax(0,1fr) 74px;gap:10px;align-items:center;font-size:13.5px}
+.hr .l{font:700 13.5px var(--f-d)}
+.hr .t{height:12px;background:var(--track);border-radius:0 4px 4px 0;position:relative}
+.hr .t i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0}
+.hr .v{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.hr .v small{display:block;color:var(--mute);font-weight:600;font-size:11.5px}
+.hist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:700px){.hist{grid-template-columns:1fr}}
+.hcard{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.025)}
+.hcard b.y{display:block;font:800 22px var(--f-d);color:var(--gold)}
+.hcard .w{font:700 15.5px var(--f-d);margin-top:6px}
+.hcard .w small{display:block;font:600 12.5px var(--f-b);color:var(--mute)}
+.hcard .o{font-size:12.5px;color:var(--mute);margin-top:8px}
+.loading{color:var(--mute)}
+footer{display:grid;gap:6px;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--mute)}
+footer .sig{font:700 16px var(--f-d);color:var(--gold)}
+@media print{
+  :root{--ink:#fff;--fg:#0B1220;--sub:#273041;--mute:#566074;--line:#D9DEE7;--track:#EEF1F5}
+  body{background:#fff}.apm,.acts,.ctrls button.np,#cta{display:none!important}
+  .card,.kpi,.hcard{background:#fff;border-color:#D9DEE7}
+  #map{height:420px}
+}
+</style>
+<script src="../menu.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <span class="badge">Raio-X eleitoral · exemplo gratuito</span>
+      <h1 id="titulo">Carregando…</h1>
+      <p class="lede" id="lede"></p>
+    </div>
+    <div class="acts"><button type="button" onclick="window.print()">Salvar em PDF</button><a class="cta" href="../planos/">Quero o da minha cidade</a></div>
+  </header>
+
+  <section class="res" id="kpis" aria-label="Números principais"></section>
+
+  <section class="card" aria-labelledby="h-res">
+    <h2 id="h-res">Resumo</h2>
+    <p class="sub">O que os números da cidade mostram, em poucas linhas.</p>
+    <ul class="bul" id="resumo"><li class="loading">Calculando…</li></ul>
+  </section>
+
+  <section class="card" aria-labelledby="h-map">
+    <h2 id="h-map">Voto por local de votação</h2>
+    <p class="sub">Cada círculo é um local de votação, do tamanho do número de votos. A cor mostra quem venceu ali. Toque num círculo para ver o detalhe.</p>
+    <div class="ctrls"><label class="sub" style="margin:0" for="disp">Disputa</label><select id="disp"></select></div>
+    <div class="mapgrid"><div id="map" role="region" aria-label="Mapa dos locais de votação"></div><div class="leg" id="leg"></div></div>
+    <p class="note" id="mapnote"></p>
+  </section>
+
+  <section class="card" aria-labelledby="h-bai">
+    <h2 id="h-bai">Por bairro</h2>
+    <p class="sub">Locais de votação agrupados pelo bairro registrado no TSE, na disputa escolhida acima. Toque no título de uma coluna para ordenar.</p>
+    <div class="scroll"><table id="bairros"></table></div>
+  </section>
+
+  <section class="two">
+    <div class="card"><h2>Câmara Municipal: votos por partido</h2><p class="sub" id="psub"></p><div class="hb" id="partidos"></div></div>
+    <div class="card"><h2>Quanto custou uma vaga</h2><p class="sub">Votação do vereador eleito com menos votos em cada partido em 2024. É uma referência de quantos votos um candidato precisa para entrar.</p><div class="hb" id="custo"></div><p class="note" id="supl"></p></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-pref">
+    <h2 id="h-pref">Prefeitos eleitos</h2>
+    <div class="hist" id="hist" style="margin-top:14px"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-pres">
+    <h2 id="h-pres">Presidente: a cidade comparada ao Brasil</h2>
+    <p class="sub">2º turno de 2022 e de 2026.</p>
+    <div class="hb" id="pres"></div>
+  </section>
+
+  <section class="card" id="cta" style="text-align:center;border-color:rgba(226,184,75,.45)">
+    <h2>Quer este Raio-X para a sua cidade?</h2>
+    <p class="sub" style="margin:8px auto 16px">Qualquer uma das 5.570 cidades, com mapa dos locais de votação, bairros, partidos e vereadores.</p>
+    <a class="cta" href="../planos/">Ver planos</a>
+  </section>
+
+  <section class="card">
+    <h2>Fonte e método</h2>
+    <p class="note"><b>Votos para prefeito e vereador:</b> TSE, "Votação por seção eleitoral" de 2020 e 2024, somada por local de votação. <b>Presidente:</b> TSE, votação por município (2022 e 2026). <b>Bairro e coordenadas:</b> TSE, "Eleitorado por local de votação". <b>Candidatos, partidos e situação</b> (eleito, suplente): TSE, "Votação nominal por município e zona". O comparecimento de cada local é a soma dos votos dados naquela disputa, incluindo brancos e nulos. Locais sem coordenada no cadastro do TSE ficam fora do mapa, mas entram nas tabelas.</p>
+  </section>
+
+  <footer>
+    <div class="sig">Design · Mateus Paiva</div>
+    <div>Apuração por IA · dados oficiais do TSE · mapa © OpenStreetMap, © CARTO</div>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+"use strict";
+var $ = function(id){ return document.getElementById(id); };
+var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1});
+var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+var tc = function(s){ var low = {DE:1,DA:1,DO:1,DAS:1,DOS:1,E:1}; return String(s || "").toLowerCase().split(" ").map(function(w,i){ return (i && low[w.toUpperCase()]) ? w : w.charAt(0).toUpperCase() + w.slice(1); }).join(" "); };
+var CAT = ["#E2B84B","#2BB3A6","#8B6FE8","#F08A3C","#E5679A","#4FA3E3"], OUT = "#5B6478";
+var cd = (/[?&]m=(\d+)/.exec(location.search) || [0,"66397"])[1];
+var S, MUN = {}, V = {}, BR, PRES = {};
+
+fetch("../data/secao/" + cd + ".json").then(function(r){ if (!r.ok) throw 0; return r.json(); }).then(function(s){
+  S = s; var uf = S.uf;
+  return Promise.all([2016, 2020, 2024].map(function(a){ return fetch("../data/mun/" + a + "/" + uf + ".json").then(function(r){ return r.json(); }).then(function(j){ MUN[a] = j.mun[cd]; }).catch(function(){}); })
+    .concat([2020, 2024].map(function(a){ return fetch("../data/mun/" + a + "/" + uf + "_v.json").then(function(r){ return r.json(); }).then(function(j){ V[a] = j.mun[cd]; }).catch(function(){}); }))
+    .concat([2022, 2026].map(function(a){ return fetch("../data/pres/" + a + ".json").then(function(r){ return r.json(); }).then(function(j){ var o = j.ord["2"], v = j.t["2"][cd]; if (v){ var x = {}; o.forEach(function(nr,i){ x[nr] = v[4+i]; }); PRES[a] = {v:x, cand:j.cand["2"]}; } }).catch(function(){}); }))
+    .concat([fetch("../data/mundo/br.json").then(function(r){ return r.json(); }).then(function(j){ BR = j; }).catch(function(){})]));
+}).then(init).catch(function(){
+  $("titulo").textContent = "Raio-X ainda não disponível";
+  $("lede").innerHTML = "Esta cidade ainda não foi processada. <a href='../planos/' style='color:var(--gold)'>Peça o Raio-X da sua cidade</a>.";
+});
+
+/* ---------- utilidades de disputa ---------- */
+function disputas(){
+  var L = [];
+  [["2024","11-1","Prefeito 2024 · 1º turno"],["2024","11-2","Prefeito 2024 · 2º turno"],["2024","13-1","Vereador 2024 · por partido"],["2026","1-2","Presidente 2026 · 2º turno"],["2026","1-1","Presidente 2026 · 1º turno"],["2022","1-2","Presidente 2022 · 2º turno"],["2020","11-1","Prefeito 2020 · 1º turno"],["2020","11-2","Prefeito 2020 · 2º turno"],["2020","13-1","Vereador 2020 · por partido"]]
+    .forEach(function(x){ if (S.el[x[0]] && S.el[x[0]][x[1]]) L.push(x); });
+  return L;
+}
+function partidoDe(nr, ano){ var v = V[ano]; if (v){ var c = v.c.find(function(c){ return c[0] === nr; }); if (c) return c[2]; } return null; }
+/* devolve {opc:[{id,nome,cor}], loc:{local:{tot, v:{id:votos}}}} */
+function serie(ano, k){
+  var E = S.el[ano][k], porPartido = k.indexOf("13-") === 0, loc = {}, tot = {}, nomes = {};
+  var siglaNum = {};
+  if (porPartido && V[ano]) V[ano].c.forEach(function(c){ siglaNum[c[0].slice(0,2)] = c[2]; });
+  Object.keys(E.loc).forEach(function(l){
+    var x = E.loc[l][2], o = {t:0, v:{}};
+    Object.keys(x).forEach(function(nr){
+      var q = x[nr]; o.t += q;
+      if (nr === "95" || nr === "96" || nr === "97") return;
+      var id = porPartido ? nr.slice(0,2) : nr;
+      o.v[id] = (o.v[id] || 0) + q; tot[id] = (tot[id] || 0) + q;
+      if (!nomes[id]) nomes[id] = porPartido ? (siglaNum[id] || "Partido " + id) : tc(E.cand[nr]);
+    });
+    loc[l] = o;
+  });
+  var ordem = Object.keys(tot).sort(function(a,b){ return tot[b] - tot[a]; });
+  var pres = k.indexOf("1-") === 0;
+  var opc = ordem.map(function(id, i){
+    var cor = pres ? (id === "13" ? "var(--pt)" : (id === "22" || id === "17") ? "var(--bol)" : OUT) : (i < CAT.length ? CAT[i] : OUT);
+    return {id:id, nome:nomes[id], cor:cor, tot:tot[id]};
+  });
+  return {opc:opc, loc:loc, total:Object.keys(loc).reduce(function(s,l){ return s + loc[l].t; }, 0)};
+}
+function css(c){ return c.indexOf("var(") === 0 ? getComputedStyle(document.documentElement).getPropertyValue(c.slice(4,-1)).trim() : c; }
+
+/* ---------- página ---------- */
+var map, layer;
+function init(){
+  var nome = tc(S.nome);
+  document.title = "Raio-X eleitoral de " + nome + " · Apuração por IA";
+  $("titulo").innerHTML = esc(nome) + "<span class='uf'>" + S.uf + "</span>";
+  var nloc = Object.keys(S.locais).length;
+  $("lede").textContent = "Prefeito e vereador em 2020 e 2024 por local de votação e por bairro, e o voto para presidente em 2022 e 2026. " + nloc + " locais de votação.";
+  var D = disputas();
+  $("disp").innerHTML = D.map(function(x,i){ return "<option value='" + i + "'>" + x[2] + "</option>"; }).join("");
+  $("disp").addEventListener("change", function(){ draw(D[+this.value]); });
+  map = L.map("map", {scrollWheelZoom:false, attributionControl:true});
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {maxZoom:18, subdomains:"abcd", attribution:"© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> © <a href='https://carto.com/attributions'>CARTO</a>"}).addTo(map);
+  draw(D[0]); kpis(); resumo(); camara(); historico(); presidente();
+}
+
+var curSerie;
+function draw(d){
+  var s = serie(d[0], d[1]); curSerie = s;
+  if (layer) layer.remove();
+  layer = L.layerGroup().addTo(map);
+  var pts = [], mx = 0, semc = 0;
+  Object.keys(s.loc).forEach(function(l){ mx = Math.max(mx, s.loc[l].t); });
+  Object.keys(s.loc).forEach(function(l){
+    var info = S.locais[l], x = s.loc[l]; if (!info) return;
+    if (info[3] == null){ semc++; return; }
+    var lid = Object.keys(x.v).sort(function(a,b){ return x.v[b] - x.v[a]; })[0], o = s.opc.find(function(c){ return c.id === lid; }) || {cor:OUT, nome:"—"};
+    var val = Object.keys(x.v).reduce(function(a,b){ return a + x.v[b]; }, 0) || 1;
+    var c = L.circleMarker([info[3], info[4]], {radius: 4 + Math.sqrt(x.t / mx) * 14, color:"#080D18", weight:1, fillColor:css(o.cor), fillOpacity:.85});
+    var top3 = s.opc.filter(function(c){ return x.v[c.id]; }).sort(function(a,b){ return x.v[b.id] - x.v[a.id]; }).slice(0,3);
+    c.bindPopup("<b>" + esc(tc(info[0])) + "</b><br><span style='color:#8C97AE'>" + esc(tc(info[2] || "")) + (info[2] ? " · " : "") + fmt.format(x.t) + " votos</span><br>" + top3.map(function(c){ return esc(c.nome) + ": <b>" + f1.format(x.v[c.id] / val * 100) + "%</b>"; }).join("<br>"));
+    c.addTo(layer); pts.push([info[3], info[4]]);
+  });
+  if (pts.length) map.fitBounds(pts, {padding:[24,24]});
+  var venc = {}; Object.keys(s.loc).forEach(function(l){ var x = s.loc[l], id = Object.keys(x.v).sort(function(a,b){ return x.v[b] - x.v[a]; })[0]; venc[id] = (venc[id] || 0) + 1; });
+  var vtot = s.opc.reduce(function(a,c){ return a + c.tot; }, 0) || 1;
+  $("leg").innerHTML = "<h3>" + d[2] + "</h3>" + s.opc.slice(0, 8).map(function(c){ return "<div class='lg'><i style='background:" + c.cor + "'></i><span>" + esc(c.nome) + "</span><b>" + f1.format(c.tot / vtot * 100) + "%</b></div><div class='sub' style='margin:-6px 0 0 22px;font-size:12px'>venceu em " + (venc[c.id] || 0) + " locais</div>"; }).join("");
+  $("mapnote").textContent = (d[1].indexOf("13-") === 0 ? "Votos nominais e de legenda somados por partido. " : "") + "Percentuais sobre votos válidos." + (semc ? " " + semc + " locais sem coordenada no TSE não aparecem no mapa." : "");
+  bairros(s);
+}
+
+var sortK = "votos", sortD = -1;
+function bairros(s){
+  var B = {};
+  Object.keys(s.loc).forEach(function(l){
+    var info = S.locais[l] || ["","","",null,null], b = (info[2] || "Sem bairro").trim().toUpperCase(), x = s.loc[l];
+    var o = B[b] = B[b] || {n:tc(b), locais:0, t:0, v:{}};
+    o.locais++; o.t += x.t; Object.keys(x.v).forEach(function(id){ o.v[id] = (o.v[id] || 0) + x.v[id]; });
+  });
+  var top = s.opc.slice(0, 3);
+  var rows = Object.keys(B).map(function(k){
+    var o = B[k], val = Object.keys(o.v).reduce(function(a,b){ return a + o.v[b]; }, 0) || 1;
+    var lid = Object.keys(o.v).sort(function(a,b){ return o.v[b] - o.v[a]; })[0], lc = s.opc.find(function(c){ return c.id === lid; });
+    return {n:o.n, locais:o.locais, votos:o.t, lider:lc ? lc.nome : "—", lcor:lc ? lc.cor : OUT, sh:top.map(function(c){ return (o.v[c.id] || 0) / val * 100; }), p0:(o.v[top[0].id] || 0) / val * 100};
+  });
+  var render = function(){
+    rows.sort(function(a,b){ var x = a[sortK], y = b[sortK]; return (typeof x === "string" ? x.localeCompare(y) : x - y) * sortD; });
+    $("bairros").innerHTML = "<thead><tr><th data-k='n'>Bairro</th><th class='num hide-m' data-k='locais'>Locais</th><th class='num' data-k='votos'>Votos</th><th data-k='lider'>Venceu</th><th data-k='p0'>" + esc(top.map(function(c){ return c.nome.split(" ")[0]; }).join(" · ")) + "</th></tr></thead><tbody>" +
+      rows.map(function(r){ return "<tr><td>" + esc(r.n) + "</td><td class='num hide-m'>" + r.locais + "</td><td class='num'>" + fmt.format(r.votos) + "</td><td><span style='display:inline-block;width:9px;height:9px;border-radius:50%;background:" + r.lcor + ";margin-right:6px'></span>" + esc(r.lider) + "</td><td><div class='mini' title='" + top.map(function(c,i){ return c.nome + " " + f1.format(r.sh[i]) + "%"; }).join(" · ") + "'>" + top.map(function(c,i){ return "<i style='width:" + r.sh[i] + "%;background:" + c.cor + "'></i>"; }).join("") + "</div></td></tr>"; }).join("") + "</tbody>";
+    $("bairros").querySelectorAll("th").forEach(function(th){ th.addEventListener("click", function(){ var k = th.getAttribute("data-k"); sortD = sortK === k ? -sortD : (k === "n" || k === "lider" ? 1 : -1); sortK = k; render(); }); });
+  };
+  render();
+}
+
+function vencedor(p){
+  if (!p) return null; var t = p.p["2"] || p.p["1"]; if (!t) return null;
+  var w = t.c.find(function(c){ return c[4] === "E"; }); if (!w) return null;
+  return {nome:tc(w[1]), sg:w[2], v:w[3], pct:w[3] / t.t[3] * 100, turno:p.p["2"] ? 2 : 1, seg:t.c.filter(function(c){ return c !== w; })[0]};
+}
+function kpis(){
+  var p24 = MUN[2024], w = vencedor(p24), t = p24 && p24.p["1"] ? p24.p["1"].t : null;
+  var ver = V[2024] ? V[2024].c.filter(function(c){ return c[4] === "E"; }) : [];
+  var pr = presCity(2026);
+  $("kpis").innerHTML =
+    "<div class='kpi'><b>" + (t ? fmt.format(t[0]) : "—") + "</b><span>eleitores aptos em 2024</span></div>" +
+    "<div class='kpi'><b>" + (w ? esc(w.nome.split(" ").slice(0,2).join(" ")) : "—") + "</b><span>prefeito eleito em 2024" + (w ? " (" + esc(w.sg) + ", " + f1.format(w.pct) + "% no " + w.turno + "º turno)" : "") + "</span></div>" +
+    "<div class='kpi'><b>" + ver.length + "</b><span>vereadores eleitos em 2024, de " + (V[2024] ? fmt.format(V[2024].c.length) : "—") + " candidatos</span></div>" +
+    "<div class='kpi'><b>" + (pr ? f1.format(pr.bol) + "%" : "—") + "</b><span>" + (pr ? "de Flávio no 2º turno de 2026 (Brasil: " + f1.format(pr.brBol) + "%)" : "presidente 2026") + "</span></div>";
+}
+function presCity(ano){
+  var P = PRES[ano]; if (!P || P.v["13"] == null || P.v["22"] == null) return null;
+  var v = P.v["13"] + P.v["22"];
+  var br = null; if (BR){ var e = BR.eleicoes.find(function(e){ return e.ano === ano; }); if (e && e.turnos["2"]){ var n = e.turnos["2"].nac; br = {pt:n.v["13"] / n.validos * 100, bol:n.v["22"] / n.validos * 100}; } }
+  return {pt:P.v["13"] / v * 100, bol:P.v["22"] / v * 100, ptNome:tc(P.cand["13"][0]), bNome:tc(P.cand["22"][0]), brPt:br ? br.pt : null, brBol:br ? br.bol : null};
+}
+function resumo(){
+  var L = [], w24 = vencedor(MUN[2024]), w20 = vencedor(MUN[2020]);
+  if (w24) L.push("<b>" + esc(w24.nome) + "</b> (" + esc(w24.sg) + ") foi eleito prefeito em 2024 com <b>" + f1.format(w24.pct) + "%</b> dos votos válidos" + (w24.turno === 2 ? " no 2º turno" : " já no 1º turno") + (w20 && w20.nome === w24.nome ? ", reeleito depois de vencer em 2020." : w20 ? ", sucedendo " + esc(w20.nome) + " (" + esc(w20.sg) + ")." : "."));
+  if (S.el["2024"] && S.el["2024"]["11-1"]){
+    var s = serie("2024", "11-1"), vc = {};
+    Object.keys(s.loc).forEach(function(l){ var x = s.loc[l], id = Object.keys(x.v).sort(function(a,b){ return x.v[b] - x.v[a]; })[0]; vc[id] = (vc[id] || 0) + 1; });
+    var a = s.opc[0], b = s.opc[1], n = Object.keys(s.loc).length;
+    if (a && b) L.push("No 1º turno de 2024, <b>" + esc(a.nome) + "</b> venceu em <b>" + (vc[a.id] || 0) + " de " + n + "</b> locais de votação; <b>" + esc(b.nome) + "</b> venceu em " + (vc[b.id] || 0) + ".");
+  }
+  if (V[2024]){
+    var seats = {}; V[2024].c.forEach(function(c){ if (c[4] === "E") seats[c[2]] = (seats[c[2]] || 0) + 1; });
+    var sp = Object.keys(seats).sort(function(a,b){ return seats[b] - seats[a]; });
+    var el = V[2024].c.filter(function(c){ return c[4] === "E"; }).sort(function(a,b){ return a[3] - b[3]; });
+    L.push("Na Câmara, <b>" + esc(sp[0]) + "</b> elegeu a maior bancada (" + seats[sp[0]] + " vereadores)" + (sp[1] ? ", seguido de " + esc(sp[1]) + " (" + seats[sp[1]] + ")" : "") + ". O eleito com menos votos entrou com <b>" + fmt.format(el[0][3]) + "</b> votos (" + esc(tc(el[0][1])) + ", " + esc(el[0][2]) + ").");
+  }
+  var p = presCity(2026), p22 = presCity(2022);
+  if (p) L.push("Para presidente, a cidade deu <b>" + f1.format(p.bol) + "%</b> a Flávio Bolsonaro no 2º turno de 2026" + (p.brBol ? ", contra " + f1.format(p.brBol) + "% no Brasil" : "") + (p22 ? ". Em 2022, Jair Bolsonaro teve " + f1.format(p22.bol) + "% aqui." : "."));
+  $("resumo").innerHTML = L.map(function(x){ return "<li>" + x + "</li>"; }).join("");
+}
+function camara(){
+  if (!V[2024]){ $("partidos").innerHTML = "<p class='note'>Sem dados de vereador.</p>"; return; }
+  var tot = function(v){ var o = {}; Object.keys(v.p).forEach(function(sg){ o[sg] = v.p[sg][0] + v.p[sg][1]; }); return o; };
+  var a = tot(V[2024]), b = V[2020] ? tot(V[2020]) : {}, all = Object.values(a).reduce(function(x,y){ return x + y; }, 0) || 1;
+  var seats = {}; V[2024].c.forEach(function(c){ if (c[4] === "E") seats[c[2]] = (seats[c[2]] || 0) + 1; });
+  var ord = Object.keys(a).sort(function(x,y){ return a[y] - a[x]; }).slice(0, 12), mx = a[ord[0]];
+  $("psub").textContent = "Votos nominais e de legenda em 2024. Entre parênteses, as cadeiras conquistadas. A variação compara com 2020 (siglas que mudaram de nome aparecem separadas).";
+  $("partidos").innerHTML = ord.map(function(sg, i){
+    var d = b[sg] ? (a[sg] - b[sg]) / b[sg] * 100 : null;
+    return "<div class='hr'><div class='l'>" + esc(sg) + " <span style='color:var(--mute);font-weight:600'>(" + (seats[sg] || 0) + ")</span></div><div class='t'><i style='width:" + (a[sg] / mx * 100) + "%;background:" + (i < CAT.length ? CAT[i] : OUT) + "'></i></div><div class='v'>" + f1.format(a[sg] / all * 100) + "%<small>" + (d === null ? "novo" : (d >= 0 ? "+" : "−") + f1.format(Math.abs(d)) + "% vs 2020") + "</small></div></div>";
+  }).join("");
+  var minE = {}; V[2024].c.forEach(function(c){ if (c[4] === "E" && (!minE[c[2]] || c[3] < minE[c[2]][3])) minE[c[2]] = c; });
+  var ps = Object.keys(minE).sort(function(x,y){ return minE[x][3] - minE[y][3]; }), mx2 = Math.max.apply(null, ps.map(function(p){ return minE[p][3]; }));
+  $("custo").innerHTML = ps.map(function(p){ var c = minE[p]; return "<div class='hr'><div class='l'>" + esc(p) + "</div><div class='t'><i style='width:" + (c[3] / mx2 * 100) + "%;background:var(--gold)'></i></div><div class='v'>" + fmt.format(c[3]) + "<small>" + esc(tc(c[1]).split(" ").slice(0,2).join(" ")) + "</small></div></div>"; }).join("");
+  var sup = V[2024].c.filter(function(c){ return c[4] !== "E"; }).sort(function(x,y){ return y[3] - x[3]; }).slice(0, 5);
+  $("supl").innerHTML = "<b>Mais votados que não se elegeram:</b> " + sup.map(function(c){ return esc(tc(c[1])) + " (" + esc(c[2]) + ", " + fmt.format(c[3]) + ")"; }).join(", ") + ". Ficaram de fora porque o partido não somou votos suficientes para mais uma cadeira.";
+}
+function historico(){
+  $("hist").innerHTML = [2016, 2020, 2024].map(function(a){
+    var w = vencedor(MUN[a]);
+    if (!w) return "<div class='hcard'><b class='y'>" + a + "</b><div class='w'>Sem eleito registrado</div></div>";
+    var sg = w.seg;
+    return "<div class='hcard'><b class='y'>" + a + "</b><div class='w'>" + esc(w.nome) + "<small>" + esc(w.sg) + " · " + fmt.format(w.v) + " votos (" + f1.format(w.pct) + "%)" + (w.turno === 2 ? " · 2º turno" : "") + "</small></div>" + (sg ? "<div class='o'>2º colocado: " + esc(tc(sg[1])) + " (" + esc(sg[2]) + ")</div>" : "") + "</div>";
+  }).join("");
+}
+function presidente(){
+  var rows = [];
+  [2022, 2026].forEach(function(a){ var p = presCity(a); if (!p) return;
+    rows.push("<div class='hr'><div class='l'>" + a + " · cidade</div><div class='t' style='display:flex;gap:2px;background:none'><i style='position:static;width:" + p.pt + "%;background:var(--pt);border-radius:3px 0 0 3px'></i><i style='position:static;width:" + p.bol + "%;background:var(--bol);border-radius:0 3px 3px 0'></i></div><div class='v'>" + f1.format(p.bol) + "%<small>" + esc(p.bNome.split(" ")[0]) + "</small></div></div>");
+    if (p.brPt) rows.push("<div class='hr'><div class='l' style='color:var(--mute)'>" + a + " · Brasil</div><div class='t' style='display:flex;gap:2px;background:none;opacity:.55'><i style='position:static;width:" + p.brPt + "%;background:var(--pt);border-radius:3px 0 0 3px'></i><i style='position:static;width:" + p.brBol + "%;background:var(--bol);border-radius:0 3px 3px 0'></i></div><div class='v'>" + f1.format(p.brBol) + "%<small>Brasil</small></div></div>");
+  });
+  $("pres").innerHTML = rows.join("") + "<div class='legend sub' style='margin-top:8px'><span style='color:var(--pt)'>■</span> candidato do PT · <span style='color:var(--bol)'>■</span> candidato da família Bolsonaro. O número à direita é a fatia do candidato da família Bolsonaro.</div>";
+}
+})();
+</script>
+</body>
+</html>
