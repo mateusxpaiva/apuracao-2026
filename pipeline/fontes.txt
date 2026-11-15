@@ -1,9 +1,9 @@
-# nome  url   (rodada 18: descoberta Polônia, Uruguai, Alemanha, Espanha, Canadá, Equador)
-pl/app.js https://wybory.gov.pl/prezydent2025/j/20250923200141052.min.js
-uy/nacionales.html https://www.corteelectoral.gub.uy/corte-electoral/elecciones-nacionales
-uy/periodo.html https://www.gub.uy/corte-electoral/comunicacion/publicaciones/elecciones-del-periodo-electoral-2024-2025
-de/kerg2.csv https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg2.csv
-de/kerg2_21.csv https://www.bundeswahlleiterin.de/bundestagswahlen/2021/ergebnisse/opendata/btw21/csv/kerg2.csv
-es/congreso2023.zip https://infoelectoral.interior.gob.es/estaticos/docxl/apliextr/02202307_TOTA.zip
-ca/res.html https://www.elections.ca/content.aspx?section=res&dir=rep/off&document=index&lang=e
-ec/cne.html https://www.cne.gob.ec/
+# nome  url   (rodada 19: Polônia, Uruguai, Canadá, Reino Unido)
+pl/woj1.zip https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_wojewodztwach_csv.zip
+pl/woj2.zip https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_wojewodztwach_w_drugiej_turze_csv.zip
+uy/balotaje.html https://www.corteelectoral.gub.uy/corte-electoral/balotaje
+uy/en2024.html https://www.gub.uy/corte-electoral/elecciones-nacionales-2024
+uy/tem2024.html https://www.gub.uy/corte-electoral/tematica/elecciones-nacionales-2024
+ca/45ge.html https://www.elections.ca/content.aspx?section=res&dir=rep/off/45gedata&document=index&lang=e
+ca/45ge_b.html https://www.elections.ca/content.aspx?section=res&dir=rep/off/45ge&document=index&lang=e
+uk/ge.html https://electionresults.parliament.uk/general-elections
