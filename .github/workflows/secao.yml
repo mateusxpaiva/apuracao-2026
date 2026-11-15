@@ -40,9 +40,14 @@ jobs:
           df -h . | tail -1
       - name: Processar
         run: ANOS="${{ inputs.anos }}" python pipeline/secao.py ${{ inputs.uf }} ${{ inputs.cidades }}
+      - name: Enviar ao Supabase (área de assinantes)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python pipeline/raiox_upload.py
       - name: Publicar
         run: |
-          du -sh data/secao/*
+          du -sh data/secao/* || true
           git config user.name "apuracao-por-ia-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/secao
