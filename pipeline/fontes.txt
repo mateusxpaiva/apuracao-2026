@@ -1,5 +1,2 @@
-# nome  url  (rodada 29: Coreia)
-kr/c15025528.json https://www.data.go.kr/catalog/15025528/fileData.json
-kr/p15025528.html https://www.data.go.kr/data/15025528/fileData.do
-kr/meta15025528.xml https://www.data.go.kr/dcat/metadata/15025528
-kr/meta15156333.xml https://www.data.go.kr/dcat/metadata/15156333
+# nome  url  (rodada 30: Coreia, link de download do arquivo)
+kr/dl_info.json https://www.data.go.kr/tcs/dss/selectFileDataDownload.do?publicDataPk=15025528&publicDataDetailPk=uddi:e95b84c2-53ef-4770-b028-d4b8210772da&fileDetailSn=1
