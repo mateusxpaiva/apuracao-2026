@@ -1,11 +1,6 @@
-# nome  url   (rodada 21: Polônia por município (com exterior), Uruguai CKAN, Canadá tabelas)
-pl/gm1.zip https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_gminach_csv.1758650309.zip
-pl/gm2.zip https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_gminach_w_drugiej_turze_csv.1758650309.zip
-uy/bal24.json https://catalogodatos.gub.uy/api/3/action/package_show?id=corte-electoral-balotaje_2024
-uy/nac24.json https://catalogodatos.gub.uy/api/3/action/package_show?id=corte-electoral-elecciones-nacionales-2024
-ca/t8.html https://www.elections.ca/res/rep/off/ovrGE45/62/table8E.html
-ca/t9.html https://www.elections.ca/res/rep/off/ovrGE45/62/table9E.html
-ca/t3.html https://www.elections.ca/res/rep/off/ovrGE45/62/table3E.html
-ca/tt08.csv https://www.elections.ca/res/rep/off/ovrGE45/62/data_donnees/table_tableau08.csv
-ca/tt09.csv https://www.elections.ca/res/rep/off/ovrGE45/62/data_donnees/table_tableau09.csv
-ca/tt03.csv https://www.elections.ca/res/rep/off/ovrGE45/62/data_donnees/table_tableau03.csv
+# nome  url   (rodada 22: Uruguai 2024, 1º turno e balotaje)
+uy/balotaje.csv https://catalogodatos.gub.uy/dataset/2dc312e4-f3f7-41aa-b56d-74389083e7e1/resource/ac4cbd7c-dc15-4d3f-87ba-c00fb47604b7/download/balotaje-2024.csv
+uy/meta_bal.json https://catalogodatos.gub.uy/dataset/2dc312e4-f3f7-41aa-b56d-74389083e7e1/resource/ad61ab13-b7a9-499d-8df4-bf38c56646ae/download/metadatos_balotaje-2024.json
+uy/desglose.csv https://catalogodatos.gub.uy/dataset/7aaa1ff0-8ea5-4302-a3e6-c2d589b484a3/resource/f74aa981-47d3-4165-81be-5d2abcc5f6d5/download/desglose-de-votos.csv
+uy/totales.csv https://catalogodatos.gub.uy/dataset/7aaa1ff0-8ea5-4302-a3e6-c2d589b484a3/resource/0f149bb6-4fff-463b-bc3a-8ab671bcdf34/download/totales-generales-por-comision-receptora-de-votos-y-plebiscitos-constitucionales.csv
+uy/meta_tot.json https://catalogodatos.gub.uy/dataset/7aaa1ff0-8ea5-4302-a3e6-c2d589b484a3/resource/83a77d8a-1708-4295-a7e8-5cee25fdc1a2/download/metadatos_totales-generales-por-comision-receptora-de-votos-y-plebiscitos-constitucionales.json
