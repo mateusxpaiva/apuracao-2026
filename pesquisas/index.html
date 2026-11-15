@@ -61,6 +61,25 @@ td.num,th.num{text-align:right}
 @media (max-width:640px){.hide-m{display:none}}
 .tag{display:inline-block;font:800 10px var(--f-b);letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:rgba(226,184,75,.16);color:var(--gold);margin-left:6px}
 .soon{border:1px dashed rgba(226,184,75,.45);border-radius:16px;padding:18px;background:rgba(226,184,75,.05)}
+.ackpi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+@media (max-width:700px){.ackpi{grid-template-columns:1fr}}
+.ackpi div{border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(255,255,255,.03)}
+.ackpi b{display:block;font:800 24px/1.1 var(--f-d)}
+.ackpi span{font-size:13px;color:var(--mute)}
+:root{--sub2:#7FA7FF}
+.aclist{display:grid;gap:8px}
+.acr{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:12px;align-items:center;font-size:13.5px}
+.acr .n{font:700 14px var(--f-d)}
+.acr .n small{display:block;font:600 11.5px var(--f-b);color:var(--mute)}
+.acr .t{position:relative;height:16px;background:var(--track);border-radius:4px}
+.acr .t:after{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--fg);opacity:.7}
+.acr .t i{position:absolute;top:2px;bottom:2px;border-radius:3px}
+.acr .v{text-align:right;font:700 13px var(--f-b);font-variant-numeric:tabular-nums}
+.acr .v small{display:block;font-weight:600;color:var(--mute);font-size:11.5px}
+.ok2{color:#7FD8B3}.ko2{color:#F3A1A5}
+.aclegend{display:flex;flex-wrap:wrap;gap:6px 16px;font:600 12px var(--f-b);color:var(--mute);margin-top:12px}
+.aclegend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+@media (max-width:560px){.acr{grid-template-columns:96px minmax(0,1fr) 112px;gap:8px}}
 footer{display:grid;gap:6px;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--mute)}
 footer .sig{font:700 16px var(--f-d);color:var(--gold)}
 </style>
@@ -71,7 +90,7 @@ footer .sig{font:700 16px var(--f-d);color:var(--gold)}
   <header>
     <div class="eyebrow">Apuração por IA · Pesquisas eleitorais</div>
     <h1>Quem faz as pesquisas, quanto custam e onde</h1>
-    <p class="lede">Toda pesquisa eleitoral divulgada precisa ser registrada no TSE antes. Aqui estão todos esses registros: institutos, custos declarados, tamanho das amostras e onde foram feitas.</p>
+    <p class="lede">Toda pesquisa eleitoral divulgada precisa ser registrada no TSE antes. Aqui estão todos esses registros, e o ranking de quem chegou mais perto do resultado das urnas.</p>
   </header>
 
   <div class="seg" role="group" aria-label="Eleição" id="anos"></div>
@@ -101,9 +120,16 @@ footer .sig{font:700 16px var(--f-d);color:var(--gold)}
     <h2>Cidades com mais pesquisas</h2><p class="sub">Eleição municipal: as cidades onde mais pesquisas foram registradas.</p><div class="hb" id="cid"></div>
   </section>
 
-  <section class="soon">
-    <h2>Em breve: resultados e ranking de acerto</h2>
-    <p class="note" style="margin-top:8px">O TSE publica o registro das pesquisas, não os números de intenção de voto. Vamos reunir os resultados divulgados por cada instituto, sempre com o número de registro, e comparar a última pesquisa de cada um com o resultado oficial das urnas, que já temos aqui. Assim dá para ver quem chega mais perto de verdade.</p>
+  <section class="card" aria-labelledby="h-ac" id="acerto">
+    <h2 id="h-ac">Quem acertou: ranking das pesquisas</h2>
+    <p class="sub">Última pesquisa de cada instituto antes do 2º turno para presidente, em votos válidos, comparada ao resultado oficial das urnas.</p>
+    <div class="seg" role="group" aria-label="Eleição do ranking" id="acAnos"></div>
+    <div class="ackpi" id="acKpi"></div>
+    <div class="aclist" id="acList"></div>
+    <div class="aclegend"><span><i style="background:var(--sub2)"></i>Subestimou Lula</span><span><i style="background:var(--gold)"></i>Superestimou Lula</span><span>· a linha do meio é o resultado oficial</span></div>
+    <h3 style="font:700 17px var(--f-d);margin:22px 0 10px">Nas duas eleições</h3>
+    <div class="scroll"><table id="acTab"></table></div>
+    <p class="note" id="acNota"></p>
   </section>
 
   <section class="card">
@@ -158,6 +184,32 @@ function nac(d){
   $("nac").innerHTML = "<thead><tr><th>Divulgação</th><th>Instituto</th><th class='hide-m'>Campo</th><th class='num'>Entrevistas</th><th class='num hide-m'>Custo</th><th class='hide-m'>Registro</th></tr></thead><tbody>" +
     L.slice(0, 60).map(function(x){ return "<tr><td>" + dbr(x[0]) + "</td><td>" + esc(tc(x[3])) + (x[7] ? "<span class='tag'>própria</span>" : "") + "</td><td class='hide-m'>" + dbr(x[1]) + " a " + dbr(x[2]) + "</td><td class='num'>" + fmt.format(x[4]) + "</td><td class='num hide-m'>" + brl.format(x[5]) + "</td><td class='hide-m' style='font-size:12px;color:var(--mute)'>" + esc(x[6]) + "</td></tr>"; }).join("") + "</tbody>";
 }
+
+/* ranking de acerto */
+fetch("../data/pesquisas/acerto.json").then(function(r){ return r.json(); }).then(function(A){
+  var f1 = function(x){ return x.toLocaleString("pt-BR", {minimumFractionDigits:1, maximumFractionDigits:1}); };
+  var sel = A.eleicoes[0].ano;
+  $("acAnos").innerHTML = A.eleicoes.map(function(e){ return "<button type='button' data-ac='" + e.ano + "' aria-pressed='" + (e.ano === sel) + "'>2º turno " + e.ano + "</button>"; }).join("");
+  var draw = function(){
+    var E = A.eleicoes.find(function(e){ return e.ano === sel; }), of = E.oficial[0];
+    var L = E.pesquisas.map(function(p){ return {n:p[0], l:p[1], a:p[2], f:p[3], err:p[1] - of, certo:(p[1] > 50) === (of > 50)}; }).sort(function(x, y){ return Math.abs(x.err) - Math.abs(y.err); });
+    var mx = Math.max(4, Math.max.apply(null, L.map(function(x){ return Math.abs(x.err); })));
+    var cert = L.filter(function(x){ return x.certo; }).length, sub = L.filter(function(x){ return x.err < 0; }).length;
+    $("acKpi").innerHTML = "<div><b>Lula " + f1(of) + "% × " + f1(E.oficial[1]) + "%</b><span>resultado oficial (" + esc(E.adv) + ")</span></div><div><b>" + cert + " de " + L.length + "</b><span>pesquisas apontaram o vencedor certo</span></div><div><b>" + (sub === L.length ? "Todas" : sub + " de " + L.length) + "</b><span>" + (sub * 2 > L.length ? "subestimaram" : "pesquisas subestimaram") + " o resultado de Lula</span></div>";
+    $("acList").innerHTML = L.map(function(x){
+      var w = Math.abs(x.err) / mx * 50;
+      return "<div class='acr'><span class='n'>" + esc(x.n) + "<small>Lula " + f1(x.l) + "% × " + f1(x.a) + "%</small></span><div class='t'><i style='" + (x.err < 0 ? "right:50%" : "left:50%") + ";width:" + w + "%;background:" + (x.err < 0 ? "var(--sub2)" : "var(--gold)") + "'></i></div><span class='v'>" + (x.err > 0 ? "+" : "−") + f1(Math.abs(x.err)) + " pts<small class='" + (x.certo ? "ok2'>acertou o vencedor" : "ko2'>errou o vencedor") + "</small></span></div>";
+    }).join("");
+  };
+  $("acAnos").addEventListener("click", function(e){ var b = e.target.closest("[data-ac]"); if (!b) return; sel = +b.getAttribute("data-ac"); this.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", String(x === b)); }); draw(); });
+  draw();
+  var I = {}; A.eleicoes.forEach(function(e){ e.pesquisas.forEach(function(p){ (I[p[0]] = I[p[0]] || {})[e.ano] = p[1] - e.oficial[0]; }); });
+  var anos = A.eleicoes.map(function(e){ return e.ano; });
+  var both = Object.keys(I).filter(function(k){ return anos.every(function(a){ return I[k][a] != null; }); }).map(function(k){ var m = anos.reduce(function(s, a){ return s + Math.abs(I[k][a]); }, 0) / anos.length; return {n:k, m:m}; }).sort(function(a, b){ return a.m - b.m; });
+  $("acTab").innerHTML = "<thead><tr><th>Instituto</th>" + anos.map(function(a){ return "<th class='num'>Erro " + a + "</th>"; }).join("") + "<th class='num'>Erro médio</th></tr></thead><tbody>" + both.map(function(x){ return "<tr><td><b>" + esc(x.n) + "</b></td>" + anos.map(function(a){ var e = I[x.n][a]; return "<td class='num'>" + (e > 0 ? "+" : "−") + f1(Math.abs(e)) + "</td>"; }).join("") + "<td class='num'><b>" + f1(x.m) + " pts</b></td></tr>"; }).join("") + "</tbody>";
+  var fontes = {}; A.eleicoes.forEach(function(e){ e.pesquisas.forEach(function(p){ p[3].forEach(function(u){ fontes[u] = 1; }); }); });
+  $("acNota").innerHTML = "<b>Método:</b> " + esc(A.metodo) + " " + esc(A.fora) + " <b>Fontes dos números das pesquisas:</b> " + Object.keys(fontes).map(function(u, i){ return "<a href='" + esc(u) + "' target='_blank' rel='noopener'>" + new URL(u).hostname.replace("www.", "") + "</a>"; }).join(", ") + ". Resultado oficial: TSE.";
+}).catch(function(){ $("acerto").hidden = true; });
 load();
 })();
 </script>
