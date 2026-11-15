@@ -1,0 +1,6 @@
+Archive:  pl/gm2.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   367764  2025-09-23 19:59   wyniki_gl_na_kandydatow_po_gminach_w_drugiej_turze_utf8.csv
+---------                     -------
+   367764                     1 file

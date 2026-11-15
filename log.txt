@@ -1,6 +1,10 @@
-pl/woj1.zip 200 application/zip 2813 https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_wojewodztwach_csv.1758650309.zip
-pl/woj2.zip 200 application/zip 2154 https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_wojewodztwach_w_drugiej_turze_csv.1758650309.zip
-ca/ovr45.html 200 text/html 793210 https://www.elections.ca/res/rep/off/ovrGE45/home.html
-ca/45bypro.html 200 text/html; charset=iso-8859-1 26685 https://www.elections.ca/content.aspx?section=res&dir=rep/off/45gedata&document=bypro&lang=e
-uy/abiertos.html 200 text/html; charset=UTF-8 48189 https://www.gub.uy/corte-electoral/datos-y-estadisticas/datos-abiertos
-uy/datos.html 200 text/html; charset=UTF-8 57668 https://www.gub.uy/corte-electoral/datos-y-estadisticas/datos
+pl/gm1.zip 200 application/zip 165047 https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_gminach_csv.1758650309.zip
+pl/gm2.zip 200 application/zip 126179 https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_gminach_w_drugiej_turze_csv.1758650309.zip
+uy/bal24.json 200 application/json;charset=utf-8 6697 https://catalogodatos.gub.uy/api/3/action/package_show?id=corte-electoral-balotaje_2024
+uy/nac24.json 200 application/json;charset=utf-8 22605 https://catalogodatos.gub.uy/api/3/action/package_show?id=corte-electoral-elecciones-nacionales-2024
+ca/t8.html 200 text/html 27521 https://www.elections.ca/res/rep/off/ovrGE45/62/table8E.html
+ca/t9.html 200 text/html 27472 https://www.elections.ca/res/rep/off/ovrGE45/62/table9E.html
+ca/t3.html 200 text/html 16150 https://www.elections.ca/res/rep/off/ovrGE45/62/table3E.html
+ca/tt08.csv 200 application/octet-stream 2353 https://www.elections.ca/res/rep/off/ovrGE45/62/data_donnees/table_tableau08.csv
+ca/tt09.csv 200 application/octet-stream 2571 https://www.elections.ca/res/rep/off/ovrGE45/62/data_donnees/table_tableau09.csv
+ca/tt03.csv 200 application/octet-stream 1316 https://www.elections.ca/res/rep/off/ovrGE45/62/data_donnees/table_tableau03.csv
