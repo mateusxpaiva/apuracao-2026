@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Mundo · Apuração por IA</title>
 <meta name="author" content="Mateus Paiva">
-<meta name="description" content="Eleições presidenciais do Brasil, Argentina, Chile, Uruguai, México, Estados Unidos, Canadá, França, Portugal, Espanha, Alemanha, Reino Unido, Polônia e Romênia lado a lado, com dados oficiais. Design: Mateus Paiva.">
+<meta name="description" content="Eleições presidenciais e parlamentares das Américas, Europa e Ásia-Pacífico lado a lado, com dados oficiais de cada país. Design: Mateus Paiva.">
 <meta property="og:title" content="Mundo · Apuração por IA">
-<meta property="og:description" content="Brasil, Argentina, Chile, Uruguai, México, EUA, Canadá, França, Portugal, Espanha, Alemanha, Reino Unido, Polônia e Romênia comparados: viradas no 2º turno, comparecimento e resultado por região. Design: Mateus Paiva.">
+<meta property="og:description" content="O Brasil comparado a outras democracias: viradas no 2º turno, comparecimento e resultado por região, com dados oficiais. Design: Mateus Paiva.">
 <meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
 <meta name="theme-color" content="#0B1220">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
@@ -34,6 +34,9 @@ button:disabled{opacity:.45;cursor:default}
 button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .seg{display:flex;flex-wrap:wrap;gap:6px}
 .flag{font-size:16px;margin-right:4px}
+#tabP{flex-direction:column;gap:10px;flex-wrap:nowrap}
+#tabP .grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#tabP .gl{flex-basis:100%;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--sub)}
 
 /* destaque */
 .hero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
@@ -108,7 +111,7 @@ footer a{color:var(--sub)}
   <header>
     <div class="eyebrow">Apuração por IA · Mundo</div>
     <h1>O Brasil comparado a outras democracias</h1>
-    <p class="lede">Eleições presidenciais com dados oficiais de cada país, lado a lado. Quem liderou o 1º turno e perdeu o 2º, quanto cada país vai às urnas e como votou cada região.</p>
+    <p class="lede">Eleições presidenciais e parlamentares com dados oficiais de cada país, lado a lado. Quem liderou o 1º turno e perdeu o 2º, quanto cada país vai às urnas e como votou cada região.</p>
   </header>
 
   <section class="hero" id="hero" aria-label="Destaques"></section>
@@ -143,7 +146,7 @@ footer a{color:var(--sub)}
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
-    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin, House of Commons Library, PKW, Elections Canada Corte Electoral do Uruguai Autoritatea Electorală Permanentă e Ministerio del Interior da Espanha</div>
+    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin, House of Commons Library, PKW, Elections Canada Corte Electoral do Uruguai Autoritatea Electorală Permanentă e Ministerio del Interior da Espanha Australian Electoral Commission, Camera dei Deputati, Kiesraad, BMI da Áustria, Statistics Finland e Valgdirektoratet</div>
   </footer>
 </div>
 
@@ -153,7 +156,8 @@ footer a{color:var(--sub)}
 var $ = function(id){ return document.getElementById(id); };
 var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1}), f2 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
 var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
-var PAISES = [["br","🇧🇷","Brasil"],["ar","🇦🇷","Argentina"],["cl","🇨🇱","Chile"],["mx","🇲🇽","México"],["us","🇺🇸","EUA"],["fr","🇫🇷","França"],["pt","🇵🇹","Portugal"],["de","🇩🇪","Alemanha"],["uk","🇬🇧","Reino Unido"],["pl","🇵🇱","Polônia"],["ca","🇨🇦","Canadá"],["uy","🇺🇾","Uruguai"],["ro","🇷🇴","Romênia"],["es","🇪🇸","Espanha"]];
+var PAISES = [["br","🇧🇷","Brasil","am"],["ar","🇦🇷","Argentina","am"],["cl","🇨🇱","Chile","am"],["mx","🇲🇽","México","am"],["us","🇺🇸","EUA","am"],["ca","🇨🇦","Canadá","am"],["uy","🇺🇾","Uruguai","am"],["fr","🇫🇷","França","eu"],["pt","🇵🇹","Portugal","eu"],["de","🇩🇪","Alemanha","eu"],["uk","🇬🇧","Reino Unido","eu"],["pl","🇵🇱","Polônia","eu"],["ro","🇷🇴","Romênia","eu"],["es","🇪🇸","Espanha","eu"],["it","🇮🇹","Itália","eu"],["nl","🇳🇱","Holanda","eu"],["at","🇦🇹","Áustria","eu"],["fi","🇫🇮","Finlândia","eu"],["no","🇳🇴","Noruega","eu"],["au","🇦🇺","Austrália","ap"]];
+var CONT = [["am","Américas"],["eu","Europa"],["ap","Ásia e Oceania"]];
 var OUT = "#5B6478";
 var D = {};
 
@@ -162,8 +166,9 @@ Promise.all(PAISES.map(function(p){ return fetch("../data/mundo/" + p[0] + ".jso
   cruzamento(); fontes(); initFicha();
 }).catch(function(){ $("ficha").innerHTML = "<p class='sub'>Não foi possível carregar os dados agora. Recarregue a página.</p>"; });
 
+function etapa(P, k){ return (P.etapas && P.etapas[k]) || (k + "º turno"); }
 function pct(T, id){ var n = T.nac; return n.validos ? n.v[id] / n.validos * 100 : 0; }
-function ranking(T){ return T.cand.slice().sort(function(a,b){ return (T.nac.v[b.id]||0) - (T.nac.v[a.id]||0); }); }
+function ranking(T){ return T.cand.slice().sort(function(a,b){ if (a.id === "O" || b.id === "O") return a.id === "O" ? 1 : -1; return (T.nac.v[b.id]||0) - (T.nac.v[a.id]||0); }); }
 function decisivo(e){ return e.turnos["2"] || e.turnos["1"]; }
 function vencedorUS(T){ return T.nac.ev.R > T.nac.ev.D ? "R" : "D"; }
 
@@ -196,7 +201,7 @@ function cruzamento(){
   var comp = [], marg = [];
   PAISES.forEach(function(p){
     var P = D[p[0]], e = P.eleicoes[P.eleicoes.length-1], T = decisivo(e), r = ranking(T);
-    if (T.nac.eleitores) comp.push({k:p[0], l:p[1] + " " + P.nome, s:e.ano + (e.turnos["2"] ? " · 2º turno" : ""), v:T.nac.votantes / T.nac.eleitores * 100});
+    if (T.nac.eleitores) comp.push({k:p[0], l:p[1] + " " + P.nome, s:e.ano + (e.turnos["2"] ? " · " + etapa(P, "2") : ""), v:T.nac.votantes / T.nac.eleitores * 100});
   });
   PAISES.forEach(function(p){
     if (D[p[0]].parlamentar) return;
@@ -222,11 +227,14 @@ function fontes(){
 /* ficha */
 var cur = {p:"br", a:null, t:null};
 function initFicha(){
-  $("tabP").innerHTML = PAISES.map(function(p){ return "<button type='button' data-p='" + p[0] + "'><span class='flag' aria-hidden='true'>" + p[1] + "</span>" + p[2] + "</button>"; }).join("");
+  $("tabP").innerHTML = CONT.map(function(c){
+    var ps = PAISES.filter(function(p){ return p[3] === c[0]; }); if (!ps.length) return "";
+    return "<div class='grp' role='group' aria-label='" + c[1] + "'><span class='gl'>" + c[1] + "</span>" + ps.map(function(p){ return "<button type='button' data-p='" + p[0] + "'><span class='flag' aria-hidden='true'>" + p[1] + "</span>" + p[2] + "</button>"; }).join("") + "</div>";
+  }).join("");
   $("tabP").addEventListener("click", function(e){ var b = e.target.closest("[data-p]"); if (!b) return; cur.p = b.getAttribute("data-p"); cur.a = null; cur.t = null; render(); });
   $("tabA").addEventListener("click", function(e){ var b = e.target.closest("[data-a]"); if (!b) return; cur.a = +b.getAttribute("data-a"); cur.t = null; render(); });
   $("tabT").addEventListener("click", function(e){ var b = e.target.closest("[data-t]"); if (!b) return; cur.t = b.getAttribute("data-t"); render(); });
-  var m = /[?&]p=(br|ar|cl|mx|us|fr|pt|de|uk|pl|ca|uy|ro|es)/.exec(location.search); if (m) cur.p = m[1];
+  var m = /[?&]p=([a-z]{2})/.exec(location.search); if (m && D[m[1]]) cur.p = m[1];
   render();
 }
 function render(){
@@ -238,21 +246,22 @@ function render(){
   $("tabP").querySelectorAll("[data-p]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-p") === cur.p)); });
   $("tabA").innerHTML = P.eleicoes.map(function(e){ return "<button type='button' data-a='" + e.ano + "' aria-pressed='" + (e.ano === cur.a) + "'>" + e.ano + "</button>"; }).join("");
   var ts = Object.keys(E.turnos).sort();
-  $("tabT").innerHTML = ts.length > 1 ? ts.map(function(k){ return "<button type='button' data-t='" + k + "' aria-pressed='" + (k === cur.t) + "'>" + k + "º turno</button>"; }).join("") : "<span class='sub' style='margin:0'>" + (cur.p === "us" ? "Turno único · colégio eleitoral" : P.parlamentar ? "Eleição parlamentar · voto em lista partidária" : P.sistema === "Turno único" ? "Turno único · vence quem tiver mais votos" : "Sem 2º turno nesta eleição") + "</span>";
+  $("tabT").innerHTML = ts.length > 1 ? ts.map(function(k){ return "<button type='button' data-t='" + k + "' aria-pressed='" + (k === cur.t) + "'>" + etapa(P, k) + "</button>"; }).join("") : "<span class='sub' style='margin:0'>" + (cur.p === "us" ? "Turno único · colégio eleitoral" : P.parlamentar ? "Eleição parlamentar · voto em lista partidária" : P.sistema === "Turno único" ? "Turno único · vence quem tiver mais votos" : "Sem 2º turno nesta eleição") + "</span>";
 
   var r = ranking(T), n = T.nac, isUS = cur.p === "us";
   var win = isUS ? vencedorUS(T) : r[0].id;
   var main = r.filter(function(c){ return c.cor !== OUT; }).slice(0, P.parlamentar ? 6 : 3); if (main.length < 2) main = r.slice(0, 2);
   var lista = r.slice(0, isUS ? 3 : (cur.t === "2" ? 2 : (P.parlamentar ? 7 : 5)));
   var max = n.v[r[0].id] / n.validos * 100;
-  var html = "<div class='two'><div class='box'><h3>" + P.nome + " · " + cur.a + (ts.length > 1 ? " · " + cur.t + "º turno" : "") + "</h3><div class='res'>" +
+  var html = "<div class='two'><div class='box'><h3>" + P.nome + " · " + cur.a + (ts.length > 1 ? " · " + etapa(P, cur.t) : "") + "</h3><div class='res'>" +
     lista.map(function(c){
       var p = pct(T, c.id), elect = (c.id === win && (isUS || cur.t === "2" || !E.turnos["2"]));
       var extra = isUS && c.id !== "O" ? " · " + n.ev[c.id] + " delegados" : "";
-      return "<div class='cand'><div class='nm'>" + esc(c.nome) + (c.grupo ? "<small>" + esc(c.grupo) + "</small>" : "") + (elect ? "<span class='tag'>" + (P.parlamentar ? "Mais votado" : "Eleito") + "</span>" : "") + "</div><div class='pc'>" + f2.format(p) + "%<small>" + fmt.format(n.v[c.id]) + " votos" + extra + "</small></div><div class='bar'><i style='width:" + (p / max * 100) + "%;background:" + (c.cor === OUT ? "#8C97AE" : c.cor) + "'></i></div></div>";
+      return "<div class='cand'><div class='nm'>" + esc(c.nome) + (c.grupo ? "<small>" + esc(c.grupo.replace(/^1 cadeiras/, "1 cadeira")) + "</small>" : "") + (elect ? "<span class='tag'>" + (P.parlamentar ? "Mais votado" : "Eleito") + "</span>" : "") + "</div><div class='pc'>" + f2.format(p) + "%<small>" + fmt.format(n.v[c.id]) + " votos" + extra + "</small></div><div class='bar'><i style='width:" + (p / max * 100) + "%;background:" + (c.cor === OUT ? "#8C97AE" : c.cor) + "'></i></div></div>";
     }).join("") + "</div>";
   if (n.eleitores) html += "<div class='stats'><div><b>" + fmt.format(n.eleitores) + "</b><span>eleitores</span></div><div><b>" + f1.format(n.votantes / n.eleitores * 100) + "%</b><span>comparecimento</span></div><div><b>" + (n.brancos !== null ? f1.format((n.brancos + n.nulos) / n.votantes * 100) + "%" : f1.format(n.nulos / n.votantes * 100) + "%") + "</b><span>brancos e nulos</span></div></div>";
-  else html += "<div class='stats'><div><b>" + fmt.format(n.validos) + "</b><span>votos</span></div><div><b>" + (n.ev.R + n.ev.D) + "</b><span>delegados</span></div><div><b>270</b><span>para vencer</span></div></div>";
+  else if (isUS) html += "<div class='stats'><div><b>" + fmt.format(n.validos) + "</b><span>votos</span></div><div><b>" + (n.ev.R + n.ev.D) + "</b><span>delegados</span></div><div><b>270</b><span>para vencer</span></div></div>";
+  else html += "<div class='stats'><div><b>" + fmt.format(n.validos) + "</b><span>votos válidos</span></div>" + (n.nulos ? "<div><b>" + fmt.format(n.nulos) + "</b><span>nulos</span></div>" : "") + "</div>";
   if (isUS && n.v[win] < Math.max(n.v.R, n.v.D)) html += "<p class='note'><b>Atenção:</b> o eleito teve menos votos no total do país. Nos EUA vence quem soma 270 delegados, e cada estado entrega quase todos os seus delegados a quem vence ali.</p>";
   html += "</div>";
 
