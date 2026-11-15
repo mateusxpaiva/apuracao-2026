@@ -6,12 +6,13 @@
   var me = document.currentScript || document.querySelector('script[src$="menu.js"]');
   var root = me ? me.src.replace(/menu\.js(\?.*)?$/, "") : "/";
   var ITEMS = [
-    { href: "", label: "Ao vivo 2026", sub: "2º turno presidencial, apuração em tempo real" },
+    { href: "", label: "Ao vivo", sub: "2º turno presidencial 2026, apuração em tempo real" },
     { href: "historico/", label: "Histórico", sub: "Todos os 2º turnos presidenciais, 1989–2026" },
     { href: "mapa/", label: "Mapa do voto", sub: "Presidente cidade por cidade, 2018, 2022 e 2026" },
-    { href: "municipios/", label: "Prefeitos e vereadores", sub: "Todas as cidades, 2016, 2020 e 2024" },
+    { href: "municipios/", label: "Cidades", sub: "Prefeitos e vereadores de todas as cidades, 2016–2024" },
     { href: "mundo/", label: "Mundo", sub: "Argentina, EUA e França comparados ao Brasil" },
-    { href: "calendario/", label: "Calendário", sub: "Próximas eleições, com contagem regressiva" }
+    { href: "calendario/", label: "Calendário", sub: "Próximas eleições, com contagem regressiva" },
+    { href: "planos/", label: "Planos", sub: "Raio-X do município, apuração com sua marca e dados Pro" }
   ];
   var here = location.href.split(/[?#]/)[0].replace(/index\.html$/, "");
   var current = -1;
@@ -30,7 +31,7 @@
     ".apm-links{display:flex;gap:4px;list-style:none;margin:0;padding:0}" +
     ".apm-links a{display:block;padding:8px 12px;border-radius:999px;font:700 13.5px/1 Manrope,system-ui,sans-serif;color:#C9D2E3;text-decoration:none;white-space:nowrap}" +
     ".apm-links a:hover{background:rgba(255,255,255,.06);color:#EEF2F8}" +
-    ".apm-links a[aria-current]{background:rgba(226,184,75,.14);color:#E2B84B}" +
+    ".apm-links a[href$='planos/']{color:#E2B84B;border:1px solid rgba(226,184,75,.45)}.apm-links a[aria-current]{background:rgba(226,184,75,.14);color:#E2B84B}" +
     ".apm-links a:focus-visible,.apm-btn:focus-visible,.apm-brand:focus-visible{outline:2px solid #E2B84B;outline-offset:2px}" +
     ".apm-btn{display:none;align-items:center;gap:8px;font:700 14px Manrope,system-ui,sans-serif;color:#EEF2F8;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 14px;cursor:pointer}" +
     ".apm-btn i{display:block;width:16px;height:2px;background:currentColor;border-radius:2px;position:relative}" +
