@@ -16,7 +16,9 @@ from municipais import BASE, baixar, n
 
 RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(RAIZ, "data", "secao")
-ANOS = {2020: ("11", "13"), 2022: ("1",), 2024: ("11", "13"), 2026: ("1",)}
+TODOS = {2020: ("11", "13"), 2022: ("1",), 2024: ("11", "13"), 2026: ("1",)}
+# Os arquivos de 2022 e 2026 trazem todos os cargos estaduais e federais e são muito grandes; por padrão só os municipais.
+ANOS = {int(a): TODOS[int(a)] for a in os.environ.get("ANOS", "2020 2024").split()}
 
 
 def col(r, *nomes):
