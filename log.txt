@@ -1,9 +1,13 @@
-mx/computos.zip 200 application/zip 18201180 https://computos2024.ine.mx/20240608_2030_COMPUTOS.zip
-pt/c_WSHZKGMM.js 200 application/x-javascript 2555 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-WSHZKGMM.js
-pt/c_BXBKRCMS.js 200 application/x-javascript 130 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-BXBKRCMS.js
-pt/c_RAW64QVF.js 200 application/x-javascript 1497 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-RAW64QVF.js
-pt/c_OG4ZJ7CG.js 200 application/x-javascript 83913 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-OG4ZJ7CG.js
-pt/c_A42FCI3T.js 200 application/x-javascript 243 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-A42FCI3T.js
-pt/c_4HQBJS4X.js 200 application/x-javascript 202545 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-4HQBJS4X.js
-pt/cfg_2s.json 404  10 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/config/app-settings.json
-pt/cfg2_2s.json 404  10 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/config/config.json
+pt/c_2WAZU4QR.js 200 application/x-javascript 5793 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-2WAZU4QR.js
+pt/c_6H6AEB7J.js 200 application/x-javascript 7282 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-6H6AEB7J.js
+pt/c_7WABMNKY.js 200 application/x-javascript 2719 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-7WABMNKY.js
+pt/c_BS4LWYQS.js 200 application/x-javascript 29539 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-BS4LWYQS.js
+pt/c_HOW5EQI4.js 200 application/x-javascript 762 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-HOW5EQI4.js
+pt/c_LA33NAWL.js 200 application/x-javascript 13737 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-LA33NAWL.js
+pt/c_O2L6XIKW.js 200 application/x-javascript 4449 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-O2L6XIKW.js
+pt/c_QQUUOZ3N.js 200 application/x-javascript 8108 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-QQUUOZ3N.js
+pt/c_QSGUB6NQ.js 200 application/x-javascript 4935 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-QSGUB6NQ.js
+pt/c_YP6UFSIY.js 200 application/x-javascript 3488 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-YP6UFSIY.js
+pt/app.json 404  10 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/application-.json
+pt/app2.json 200 application/json 299 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/application.json
+pt/conf.json 412  15 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/psconfiguration/configuration.json
