@@ -1,10 +1,14 @@
-# nome  url   (rodada 12: México base de dados, Portugal chunks)
-mx/computos.zip https://computos2024.ine.mx/20240608_2030_COMPUTOS.zip
-pt/c_WSHZKGMM.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-WSHZKGMM.js
-pt/c_BXBKRCMS.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-BXBKRCMS.js
-pt/c_RAW64QVF.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-RAW64QVF.js
-pt/c_OG4ZJ7CG.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-OG4ZJ7CG.js
-pt/c_A42FCI3T.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-A42FCI3T.js
-pt/c_4HQBJS4X.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-4HQBJS4X.js
-pt/cfg_2s.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/config/app-settings.json
-pt/cfg2_2s.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/config/config.json
+# nome  url   (rodada 13: Portugal, chunks de resultados e configuração)
+pt/c_2WAZU4QR.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-2WAZU4QR.js
+pt/c_6H6AEB7J.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-6H6AEB7J.js
+pt/c_7WABMNKY.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-7WABMNKY.js
+pt/c_BS4LWYQS.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-BS4LWYQS.js
+pt/c_HOW5EQI4.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-HOW5EQI4.js
+pt/c_LA33NAWL.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-LA33NAWL.js
+pt/c_O2L6XIKW.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-O2L6XIKW.js
+pt/c_QQUUOZ3N.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-QQUUOZ3N.js
+pt/c_QSGUB6NQ.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-QSGUB6NQ.js
+pt/c_YP6UFSIY.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-YP6UFSIY.js
+pt/app.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/application-.json
+pt/app2.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/application.json
+pt/conf.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/psconfiguration/configuration.json
