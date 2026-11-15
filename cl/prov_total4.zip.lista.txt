@@ -1,0 +1,6 @@
+Archive:  cl/prov_total4.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     3249  2025-12-22 18:32   total_votacion_4.json
+---------                     -------
+     3249                     1 file

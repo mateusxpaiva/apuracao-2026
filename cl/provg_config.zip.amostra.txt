@@ -1,0 +1,8 @@
+=== config.json
+[
+   {
+      "id":4,
+      "filtro":true,
+      "indice":"eleccion",
+      "nombre":"Presidente",
+

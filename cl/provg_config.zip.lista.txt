@@ -1,0 +1,6 @@
+Archive:  cl/provg_config.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     3498  2025-11-10 13:11   config.json
+---------                     -------
+     3498                     1 file

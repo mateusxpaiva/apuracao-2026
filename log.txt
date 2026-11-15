@@ -1,8 +1,13 @@
-mx/main.js 200 application/javascript 2114556 https://computos2024.ine.mx/main.d95c2231391298c8.js
-pt/mai_raiz.html 200 text/html 29494 https://www.eleicoes.mai.gov.pt/
-pt/mai_raiz2.html 000  0ERRO https://eleicoes.mai.gov.pt/
-pt/cne.html 404 text/html; charset=utf-8 9040 https://www.cne.pt/content/resultados-eleitorais
-pt/dadosgov_res.json 200 application/json 123263 https://dados.gov.pt/api/1/datasets/?q=resultados%20eleitorais&page_size=40
-co/preconteo.html 000  0ERRO https://resultadospreconteo.registraduria.gov.co/
-co/registraduria_www.html 403 text/html; charset=UTF-8 150789 https://www.registraduria.gov.co/
-co/socrata2.json 200 application/json;charset=utf-8 126944 https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co&q=registraduria&limit=50
+cl/nomina_4.zip 200 application/zip 1807966 https://elecciones.servel.cl/nomina_completa_4.zip
+cl/prov_config.zip 200 application/zip 1186 https://provisorios.servel.cl/config.zip
+cl/prov_total4.zip 200 application/zip 761 https://provisorios.servel.cl/total_votacion_4.zip
+cl/prov_iter.zip 403 text/html 99364 https://provisorios.servel.cl/iteracion.zip
+cl/provg_config.zip 200 application/zip 817 https://provisorios-generales.servel.cl/config.zip
+cl/provg_total4.zip 200 application/zip 1204 https://provisorios-generales.servel.cl/total_votacion_4.zip
+cl/prov_home.html 200 text/html 1479 https://provisorios.servel.cl/
+cl/historicos.html 200 text/html; charset=UTF-8 273870 https://www.servel.cl/biblioteca-de-documentos/resultados-electorales-historicos/
+pt/pr26_1s.html 200 text/html 14153 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/
+pt/pr26_2s.html 200 text/html 14168 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/
+pt/pr21.html 200 text/html 5789 https://www.eleicoes.mai.gov.pt/presidenciais2021/
+mx/nacional.json 200 application/json 624 https://computos2024.ine.mx/assets/JSON/PRESIDENTE/NACIONAL/Presidente_NACIONAL_AVANCE.json
+mx/runtime.js 200 application/javascript 4501 https://computos2024.ine.mx/runtime.22c5c12de00c0991.js
