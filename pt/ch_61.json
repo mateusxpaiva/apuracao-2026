@@ -1,0 +1,151 @@
+{
+  "data": [
+    {
+      "id": 65612,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Aveiro",
+      "final": false
+    },
+    {
+      "id": 65806,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Beja",
+      "final": false
+    },
+    {
+      "id": 65905,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Braga",
+      "final": false
+    },
+    {
+      "id": 66291,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Bragança",
+      "final": false
+    },
+    {
+      "id": 66530,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Castelo Branco",
+      "final": false
+    },
+    {
+      "id": 66670,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Coimbra",
+      "final": false
+    },
+    {
+      "id": 66849,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Évora",
+      "final": false
+    },
+    {
+      "id": 66939,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Faro",
+      "final": false
+    },
+    {
+      "id": 67032,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Guarda",
+      "final": false
+    },
+    {
+      "id": 67292,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Leiria",
+      "final": false
+    },
+    {
+      "id": 67425,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Lisboa",
+      "final": false
+    },
+    {
+      "id": 67583,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Portalegre",
+      "final": false
+    },
+    {
+      "id": 67671,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Porto",
+      "final": false
+    },
+    {
+      "id": 67965,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Santarém",
+      "final": false
+    },
+    {
+      "id": 68137,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Setúbal",
+      "final": false
+    },
+    {
+      "id": 68211,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Viana do Castelo",
+      "final": false
+    },
+    {
+      "id": 68435,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Vila Real",
+      "final": false
+    },
+    {
+      "id": 68650,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Viseu",
+      "final": false
+    },
+    {
+      "id": 69133,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Madeira",
+      "final": false
+    },
+    {
+      "id": 68957,
+      "parentId": 65611,
+      "typeId": 5,
+      "descriptionShort": "Açores",
+      "final": false
+    }
+  ],
+  "isSuccess": true,
+  "sysDate": {
+    "serverDate": "2026-03-03T11:27:09.089999+00:00",
+    "serverDateString": "03/03/2026 11:27:09",
+    "userDate": "2026-03-03T11:27:09.089999+00:00",
+    "userDateString": "03/03/2026 11:27:09"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "data": {
+    "territoryId": 65608,
+    "territoryTypeId": 10,
+    "territoryName": "Universo Global",
+    "totalConsulates": 107,
+    "totalConsulatesApproved": 107,
+    "totalParishes": 3259,
+    "totalParishesApproved": 3259,
+    "currentResults": {
+      "votingState": "Published",
+      "availableMandates": 0,
+      "totalBoycotts": 0,
+      "subscribedVoters": 11039672,
+      "blankVotes": 175508,
+      "blankVotesPercentage": 3.18,
+      "nullVotes": 98709,
+      "nullVotesPercentage": 1.79,
+      "totalVoters": 5519808,
+      "percentageVoters": 50.00,
+      "totalMandates": 1,
+      "resultsParty": [
+        {
+          "id": 3584,
+          "typeId": 1,
+          "acronym": "António José Seguro",
+          "votes": 3505846,
+          "percentage": 66.83,
+          "mandates": 1
+        },
+        {
+          "id": 3585,
+          "typeId": 1,
+          "acronym": "André Ventura",
+          "votes": 1739745,
+          "percentage": 33.17,
+          "mandates": 0
+        }
+      ]
+    },
+    "previousResults": {
+      "subscribedVoters": 11039672,
+      "blankVotes": 61237,
+      "blankVotesPercentage": 1.06,
+      "nullVotes": 65386,
+      "nullVotesPercentage": 1.13,
+      "totalVoters": 5769394,
+      "percentageVoters": 52.26,
+      "totalMandates": 0,
+      "resultsParty": [
+        {
+          "id": 3493,
+          "typeId": 1,
+          "acronym": "António José Seguro",
+          "votes": 1755764,
+          "percentage": 31.12,
+          "mandates": 0
+        },
+        {
+          "id": 3495,
+          "typeId": 1,
+          "acronym": "André Ventura",
+          "votes": 1326942,
+          "percentage": 23.52,
+          "mandates": 0
+        },
+        {
+          "id": 3491,
+          "typeId": 1,
+          "acronym": "João Cotrim de Figueiredo",
+          "votes": 903201,
+          "percentage": 16.01,
+          "mandates": 0
+        },
+        {
+          "id": 3497,
+          "typeId": 1,
+          "acronym": "Henrique Gouveia e Melo",
+          "votes": 695244,
+          "percentage": 12.32,
+          "mandates": 0
+        },
+        {
+          "id": 3494,
+          "typeId": 1,
+          "acronym": "Luís Marques Mendes",
+          "votes": 637535,
+          "percentage": 11.3,
+          "mandates": 0
+        },
+        {
+          "id": 3490,
+          "typeId": 1,
+          "acronym": "Catarina Martins",
+          "votes": 116413,
+          "percentage": 2.06,
+          "mandates": 0
+        },
+        {
+          "id": 3496,
+          "typeId": 1,
+          "acronym": "António Filipe",
+          "votes": 92634,
+          "percentage": 1.64,
+          "mandates": 0
+        },
+        {
+          "id": 3488,
+          "typeId": 1,
+          "acronym": "Manuel João Vieira",
+          "votes": 60934,
+          "percentage": 1.08,
+          "mandates": 0
+        },
+        {
+          "id": 3486,
+          "typeId": 1,
+          "acronym": "Jorge Pinto",
+          "votes": 38586,
+          "percentage": 0.68,
+          "mandates": 0
+        },
+        {
+          "id": 3485,
+          "typeId": 1,
+          "acronym": "André Pestana da Silva",
+          "votes": 10896,
+          "percentage": 0.19,
+          "mandates": 0
+        },
+        {
+          "id": 3492,
+          "typeId": 1,
+          "acronym": "Humberto Correia",
+          "votes": 4622,
+          "percentage": 0.08,
+          "mandates": 0
+        }
+      ]
+    }
+  },
+  "isSuccess": true,
+  "sysDate": {
+    "serverDate": "2026-03-03T11:27:13.6581267+00:00",
+    "serverDateString": "03/03/2026 11:27:13",
+    "userDate": "2026-03-03T11:27:13.6581267+00:00",
+    "userDateString": "03/03/2026 11:27:13"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "data": {
+    "territoryId": 54667,
+    "territoryTypeId": 10,
+    "territoryName": "Universo Global",
+    "totalConsulates": 109,
+    "totalConsulatesApproved": 109,
+    "totalParishes": 3259,
+    "totalParishesApproved": 3259,
+    "currentResults": {
+      "votingState": "Published",
+      "availableMandates": 1,
+      "totalBoycotts": 0,
+      "subscribedVoters": 11039672,
+      "blankVotes": 61237,
+      "blankVotesPercentage": 1.06,
+      "nullVotes": 65386,
+      "nullVotesPercentage": 1.13,
+      "totalVoters": 5769394,
+      "percentageVoters": 52.26,
+      "totalMandates": 0,
+      "resultsParty": [
+        {
+          "id": 3493,
+          "typeId": 1,
+          "acronym": "António José Seguro",
+          "votes": 1755764,
+          "percentage": 31.12,
+          "mandates": 0
+        },
+        {
+          "id": 3495,
+          "typeId": 1,
+          "acronym": "André Ventura",
+          "votes": 1326942,
+          "percentage": 23.52,
+          "mandates": 0
+        },
+        {
+          "id": 3491,
+          "typeId": 1,
+          "acronym": "João Cotrim de Figueiredo",
+          "votes": 903201,
+          "percentage": 16.01,
+          "mandates": 0
+        },
+        {
+          "id": 3497,
+          "typeId": 1,
+          "acronym": "Henrique Gouveia e Melo",
+          "votes": 695244,
+          "percentage": 12.32,
+          "mandates": 0
+        },
+        {
+          "id": 3494,
+          "typeId": 1,
+          "acronym": "Luís Marques Mendes",
+          "votes": 637535,
+          "percentage": 11.30,
+          "mandates": 0
+        },
+        {
+          "id": 3490,
+          "typeId": 1,
+          "acronym": "Catarina Martins",
+          "votes": 116413,
+          "percentage": 2.06,
+          "mandates": 0
+        },
+        {
+          "id": 3496,
+          "typeId": 1,
+          "acronym": "António Filipe",
+          "votes": 92634,
+          "percentage": 1.64,
+          "mandates": 0
+        },
+        {
+          "id": 3488,
+          "typeId": 1,
+          "acronym": "Manuel João Vieira",
+          "votes": 60934,
+          "percentage": 1.08,
+          "mandates": 0
+        },
+        {
+          "id": 3486,
+          "typeId": 1,
+          "acronym": "Jorge Pinto",
+          "votes": 38586,
+          "percentage": 0.68,
+          "mandates": 0
+        },
+        {
+          "id": 3485,
+          "typeId": 1,
+          "acronym": "André Pestana da Silva",
+          "votes": 10896,
+          "percentage": 0.19,
+          "mandates": 0
+        },
+        {
+          "id": 3492,
+          "typeId": 1,
+          "acronym": "Humberto Correia",
+          "votes": 4622,
+          "percentage": 0.08,
+          "mandates": 0
+        }
+      ]
+    },
+    "previousResults": {
+      "subscribedVoters": 10864327,
+      "blankVotes": 47055,
+      "blankVotesPercentage": 1.1,
+      "nullVotes": 40026,
+      "nullVotesPercentage": 0.94,
+      "totalVoters": 4262672,
+      "percentageVoters": 39.24,
+      "totalMandates": 1,
+      "resultsParty": [
+        {
+          "id": 3385,
+          "typeId": 1,
+          "acronym": "MARCELO REBELO DE SOUSA",
+          "votes": 2534745,
+          "percentage": 60.7,
+          "mandates": 1
+        },
+        {
+          "id": 3390,
+          "typeId": 1,
+          "acronym": "ANA GOMES",
+          "votes": 541556,
+          "percentage": 12.97,
+          "mandates": 0
+        },
+        {
+          "id": 3387,
+          "typeId": 1,
+          "acronym": "ANDRÉ VENTURA",
+          "votes": 496773,
+          "percentage": 11.9,
+          "mandates": 0
+        },
+        {
+          "id": 3389,
+          "typeId": 1,
+          "acronym": "JOÃO FERREIRA",
+          "votes": 180518,
+          "percentage": 4.32,
+          "mandates": 0
+        },
+        {
+          "id": 3384,
+          "typeId": 1,
+          "acronym": "MARISA MATIAS",
+          "votes": 164741,
+          "percentage": 3.95,
+          "mandates": 0
+        },
+        {
+          "id": 3386,
+          "typeId": 1,
+          "acronym": "TIAGO MAYAN GONÇALVES",
+          "votes": 134484,
+          "percentage": 3.22,
+          "mandates": 0
+        },
+        {
+          "id": 3388,
+          "typeId": 1,
+          "acronym": "VITORINO SILVA",
+          "votes": 122774,
+          "percentage": 2.94,
+          "mandates": 0
+        }
+      ]
+    }
+  },
+  "isSuccess": true,
+  "sysDate": {
+    "serverDate": "2026-01-29T12:33:19.9530955+00:00",
+    "serverDateString": "29/01/2026 12:33:19",
+    "userDate": "2026-01-29T12:33:19.9530955+00:00",
+    "userDateString": "29/01/2026 12:33:19"
+  }
+}

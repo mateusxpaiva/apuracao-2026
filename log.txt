@@ -1,2 +1,8 @@
-pt/el61.json 200 application/json 157193 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/election/data-electionId=61.json
-pt/el51.json 200 application/json 155657 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/election/data-electionId=51.json
+pt/ch_61.json 200 application/json 3095 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/territory/children-electionId=61-territoryId=65611.json
+pt/r_61_65608.json 200 application/json 3818 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/result/territory-electionId=61-territoryId=65608-organId=3.json
+pt/r_61_65611.json 200 application/json 3382 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/result/territory-electionId=61-territoryId=65611-organId=3.json
+pt/r_61_65609.json 200 application/json 3340 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/result/territory-electionId=61-territoryId=65609-organId=3.json
+pt/ch_51.json 200 application/json 3097 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/territory/children-electionId=51-territoryId=54670.json
+pt/r_51_54667.json 200 application/json 4789 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/result/territory-electionId=51-territoryId=54667-organId=3.json
+pt/r_51_54670.json 200 application/json 4408 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/result/territory-electionId=51-territoryId=54670-organId=3.json
+pt/r_51_54668.json 200 application/json 4356 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/assets/static/result/territory-electionId=51-territoryId=54668-organId=3.json
