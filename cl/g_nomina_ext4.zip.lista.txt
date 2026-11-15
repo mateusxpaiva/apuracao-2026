@@ -1,0 +1,6 @@
+Archive:  cl/g_nomina_ext4.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   708173  2025-11-25 18:19   nomina_completa_ext_4.json
+---------                     -------
+   708173                     1 file

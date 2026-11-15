@@ -1,13 +1,11 @@
-cl/nomina_4.zip 200 application/zip 1807966 https://elecciones.servel.cl/nomina_completa_4.zip
-cl/prov_config.zip 200 application/zip 1186 https://provisorios.servel.cl/config.zip
-cl/prov_total4.zip 200 application/zip 761 https://provisorios.servel.cl/total_votacion_4.zip
-cl/prov_iter.zip 403 text/html 99364 https://provisorios.servel.cl/iteracion.zip
-cl/provg_config.zip 200 application/zip 817 https://provisorios-generales.servel.cl/config.zip
-cl/provg_total4.zip 200 application/zip 1204 https://provisorios-generales.servel.cl/total_votacion_4.zip
-cl/prov_home.html 200 text/html 1479 https://provisorios.servel.cl/
-cl/historicos.html 200 text/html; charset=UTF-8 273870 https://www.servel.cl/biblioteca-de-documentos/resultados-electorales-historicos/
-pt/pr26_1s.html 200 text/html 14153 https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/
-pt/pr26_2s.html 200 text/html 14168 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/
-pt/pr21.html 200 text/html 5789 https://www.eleicoes.mai.gov.pt/presidenciais2021/
-mx/nacional.json 200 application/json 624 https://computos2024.ine.mx/assets/JSON/PRESIDENTE/NACIONAL/Presidente_NACIONAL_AVANCE.json
-mx/runtime.js 200 application/javascript 4501 https://computos2024.ine.mx/runtime.22c5c12de00c0991.js
+cl/g_nomina4.zip 200 application/zip 2395164 https://provisorios-generales.servel.cl/nomina_completa_4.zip
+cl/g_nomina_ext4.zip 200 application/zip 28688 https://provisorios-generales.servel.cl/nomina_completa_ext_4.zip
+cl/g_territorios.zip 200 application/zip 526556 https://provisorios-generales.servel.cl/territorios.zip
+cl/g_candidaturas.zip 200 application/zip 39217 https://provisorios-generales.servel.cl/candidaturas.zip
+cl/p_nomina4.zip 200 application/zip 1360169 https://provisorios.servel.cl/nomina_completa_4.zip
+cl/p_nomina_ext4.zip 200 application/zip 17347 https://provisorios.servel.cl/nomina_completa_ext_4.zip
+cl/p_territorios.zip 200 application/zip 526880 https://provisorios.servel.cl/territorios.zip
+mx/c3435.js 200 application/javascript 76703 https://computos2024.ine.mx/3435.9cce006cbdc1c554.js
+mx/c2474.js 200 application/javascript 4059 https://computos2024.ine.mx/2474.f448e4baf3cd70a2.js
+mx/c8731.js 200 application/javascript 81512 https://computos2024.ine.mx/8731.26df7c9fe04b3a82.js
+pt/main2s.js 200 application/x-javascript 101342 https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/main-4QIOKOLC.js
