@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Planos · Apuração por IA</title>
+<meta name="author" content="Mateus Paiva">
+<meta name="description" content="Inteligência eleitoral para pré-candidatos, partidos, consultorias e imprensa: Raio-X do município, apuração ao vivo com a sua marca e dados Pro. Design: Mateus Paiva.">
+<meta property="og:title" content="Planos · Apuração por IA">
+<meta property="og:description" content="Raio-X do município para 2028, apuração ao vivo com a sua marca e dados Pro. Dados oficiais do TSE.">
+<meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
+<meta name="theme-color" content="#0B1220">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: proposta de valor no topo com contagem até 2028; quatro planos em grade 2x2 (1 coluna no celular), o Raio-X em destaque; prova (o que já está no ar); perguntas frequentes; chamada final. */
+:root{--ink:#080D18;--line:rgba(255,255,255,.08);--mute:#8C97AE;--fg:#EEF2F8;--sub:#C9D2E3;--gold:#E2B84B;
+  --f-d:"Sora","Segoe UI",system-ui,sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.55 var(--f-b);-webkit-text-size-adjust:100%}
+body{background:radial-gradient(900px 520px at 50% -10%,rgba(226,184,75,.14),transparent 60%),var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 56px max(16px,env(safe-area-inset-left,0px));display:grid;gap:28px}
+.eyebrow{font:700 12px var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:800 clamp(34px,6.8vw,62px)/1.02 var(--f-d);letter-spacing:-.04em;margin:10px 0 0;text-wrap:balance;max-width:16ch}
+.lede{font-size:17.5px;color:var(--sub);max-width:60ch;margin:14px 0 0}
+h2{font:700 clamp(22px,3vw,30px)/1.15 var(--f-d);letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sub{color:var(--mute);font-size:14px;margin:6px 0 0;max-width:70ch}
+.cta{display:inline-flex;align-items:center;gap:8px;font:800 15px var(--f-b);color:#0B1220;background:var(--gold);border:0;border-radius:999px;padding:13px 22px;text-decoration:none;cursor:pointer}
+.cta.ghost{background:transparent;color:var(--fg);border:1px solid rgba(255,255,255,.2)}
+.cta:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.st{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.03)}
+.st b{display:block;font:800 clamp(24px,3.6vw,32px)/1.05 var(--f-d);letter-spacing:-.03em}
+.st span{font-size:13px;color:var(--mute)}
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.plans{grid-template-columns:1fr}}
+.pl{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015))}
+.pl.top{border-color:rgba(226,184,75,.55);background:linear-gradient(180deg,rgba(226,184,75,.13),rgba(226,184,75,.02))}
+.pl .tg{align-self:flex-start;font:800 10.5px var(--f-b);letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--sub)}
+.pl.top .tg{background:var(--gold);color:#0B1220}
+.pl h3{font:800 24px/1.15 var(--f-d);letter-spacing:-.02em;margin:14px 0 4px}
+.pl .who{color:var(--mute);font-size:14px;margin:0}
+.pl ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:9px}
+.pl li{position:relative;padding-left:24px;font-size:14.5px;color:var(--sub)}
+.pl li:before{content:"";position:absolute;left:2px;top:7px;width:12px;height:7px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+.pl .price{margin-top:auto;padding-top:20px;font:700 14px var(--f-b);color:var(--fg)}
+.pl .price small{display:block;color:var(--mute);font-weight:600}
+.pl .cta{margin-top:14px;align-self:flex-start}
+.proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.proof{grid-template-columns:1fr}}
+.pf{display:block;border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:var(--fg);background:rgba(255,255,255,.03)}
+.pf b{font:700 16px var(--f-d)}
+.pf span{display:block;font-size:13px;color:var(--mute);margin-top:4px}
+.pf:hover{border-color:rgba(226,184,75,.5)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{font:700 16px var(--f-d);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--gold);font-size:20px;line-height:1}
+details[open] summary:after{content:"–"}
+details p{color:var(--sub);margin:10px 0 0;max-width:75ch;font-size:14.5px}
+.final{border:1px solid rgba(226,184,75,.45);border-radius:24px;padding:28px;text-align:center;background:linear-gradient(180deg,rgba(226,184,75,.12),rgba(226,184,75,.02))}
+.final .ctas{justify-content:center}
+footer{display:grid;gap:6px;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--mute)}
+footer .sig{font:700 16px var(--f-d);color:var(--gold)}
+</style>
+<script src="../menu.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Apuração por IA · Para campanhas e imprensa</div>
+    <h1>Saiba onde estão os votos antes da campanha começar</h1>
+    <p class="lede">Os dados oficiais do TSE de todas as eleições, organizados por cidade, bairro e local de votação. Para pré-candidatos, partidos, consultorias e veículos de imprensa que vão disputar ou cobrir as municipais de 2028.</p>
+    <div class="ctas"><a class="cta" data-contato="Quero o Raio-X da minha cidade" href="#contato">Quero o Raio-X da minha cidade</a><a class="cta ghost" href="../raiox/?m=66397">Ver exemplo: Limeira →</a></div>
+  </header>
+
+  <section class="stats" aria-label="Números">
+    <div class="st"><b>5.570</b><span>cidades com histórico de prefeito, vereador e presidente</span></div>
+    <div class="st"><b>2016–2026</b><span>seis eleições organizadas, conferidas com o resultado oficial</span></div>
+    <div class="st"><b id="dias">–</b><span>dias até o 1º turno das municipais de 2028</span></div>
+    <div class="st"><b>+3 países</b><span>Argentina, EUA e França ao lado do Brasil; Chile em breve</span></div>
+  </section>
+
+  <section aria-labelledby="h-planos">
+    <h2 id="h-planos">Planos</h2>
+    <p class="sub">Preços de lançamento em definição. Entre na lista e receba a proposta antes da abertura oficial.</p>
+    <div class="plans" style="margin-top:18px">
+      <article class="pl top">
+        <span class="tg">Carro-chefe</span>
+        <h3>Raio-X do Município</h3>
+        <p class="who">Para pré-candidatos a prefeito e vereador, partidos e consultorias.</p>
+        <ul>
+          <li>Voto para prefeito e vereador por local de votação e por bairro, no mapa</li>
+          <li>Onde cada partido cresceu ou caiu de uma eleição para outra</li>
+          <li>Quantos votos elegeram vereador em cada partido, e quem ficou na suplência</li>
+          <li>Comparecimento, brancos e nulos por região da cidade</li>
+          <li>Cruzamento com o voto para presidente em 2022 e 2026</li>
+          <li>Painel online e versão pronta para imprimir ou salvar em PDF</li>
+        </ul>
+        <div class="price">Por cidade<small>Valor conforme o tamanho do eleitorado</small></div>
+        <a class="cta" data-contato="Quero o Raio-X do Município" href="#contato">Quero o Raio-X</a>
+      </article>
+      <article class="pl">
+        <span class="tg">Imprensa</span>
+        <h3>Apuração ao vivo com a sua marca</h3>
+        <p class="who">Para jornais, rádios, TVs e portais regionais.</p>
+        <ul>
+          <li>O painel ao vivo do Apuração por IA com o seu logo e as suas cores</li>
+          <li>Filtrado para a sua cidade ou região, prefeito e vereadores</li>
+          <li>Imagens prontas para redes sociais a cada atualização</li>
+          <li>Para incorporar no seu site ou usar na transmissão</li>
+          <li>Pronto para França (abril/2027), Argentina (outubro/2027) e municipais 2028</li>
+        </ul>
+        <div class="price">Por eleição<small>Pacotes para grupos de comunicação</small></div>
+        <a class="cta" data-contato="Quero a apuração ao vivo com a minha marca" href="#contato">Falar sobre o painel</a>
+      </article>
+      <article class="pl">
+        <span class="tg">Dados</span>
+        <h3>Apuração por IA Pro</h3>
+        <p class="who">Para jornalistas, pesquisadores, professores e analistas.</p>
+        <ul>
+          <li>Download em planilha de tudo o que está no site</li>
+          <li>Mapas em alta resolução para apresentações e reportagens</li>
+          <li>Comparações sob medida entre cidades, partidos e eleições</li>
+          <li>Alertas da sua cidade e do seu partido</li>
+          <li>Assistente com IA: pergunte aos dados em português</li>
+        </ul>
+        <div class="price">Assinatura mensal<small>Desconto para universidades</small></div>
+        <a class="cta" data-contato="Quero o Apuração por IA Pro" href="#contato">Entrar na lista do Pro</a>
+      </article>
+      <article class="pl">
+        <span class="tg">Marcas</span>
+        <h3>Patrocínio da noite da eleição</h3>
+        <p class="who">Para empresas que querem audiência no dia de maior tráfego.</p>
+        <ul>
+          <li>Assinatura "oferecido por" no painel ao vivo</li>
+          <li>Presença nas imagens compartilhadas no WhatsApp e no Instagram</li>
+          <li>Relatório de alcance depois da eleição</li>
+          <li>Só marcas não políticas, para manter a neutralidade</li>
+        </ul>
+        <div class="price">Por eleição<small>Cota única ou dividida</small></div>
+        <a class="cta" data-contato="Quero patrocinar a noite da eleição" href="#contato">Quero patrocinar</a>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-prova">
+    <h2 id="h-prova">O que já está no ar, de graça</h2>
+    <p class="sub">Tudo isso foi construído com dados oficiais e pode ser conferido agora.</p>
+    <div class="proof" style="margin-top:16px">
+      <a class="pf" href="../mapa/"><b>Mapa do voto →</b><span>Presidente nas 5.570 cidades, 2018 a 2026, e quem virou</span></a>
+      <a class="pf" href="../municipios/"><b>Prefeitos e vereadores →</b><span>Todas as cidades em 2016, 2020 e 2024</span></a>
+      <a class="pf" href="../mundo/"><b>Mundo →</b><span>Brasil, Argentina, EUA e França comparados</span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq" style="margin-bottom:10px">Perguntas frequentes</h2>
+    <details><summary>De onde vêm os dados?</summary><p>Do Portal de Dados Abertos do TSE (votação por seção, por município e zona, locais de votação e prestação de contas) e da malha do IBGE. Cada número publicado é conferido com o total oficial antes de ir ao ar.</p></details>
+    <details><summary>Vocês vendem dados pessoais de eleitores?</summary><p>Não. Trabalhamos só com resultados públicos e agregados: votos por seção, por local de votação, por bairro e por cidade. Nada de nome, CPF ou contato de eleitor ou de filiado, em respeito à LGPD.</p></details>
+    <details><summary>Uma campanha pode contratar?</summary><p>Pode. O serviço contratado por candidato ou partido deve ser declarado na prestação de contas da campanha, como qualquer outro fornecedor. Emitimos nota fiscal.</p></details>
+    <details><summary>Vocês fazem pesquisa eleitoral?</summary><p>Não. Analisamos resultados oficiais de eleições passadas. Pesquisa de intenção de voto exige registro no TSE e não faz parte destes planos.</p></details>
+    <details><summary>Quanto tempo leva para entregar um Raio-X?</summary><p>Para cidades já processadas, poucos dias. Novas cidades entram no coletor automático e ficam prontas em seguida. O exemplo de Limeira mostra o formato.</p></details>
+  </section>
+
+  <section class="final" id="contato">
+    <h2>Entre na lista de lançamento</h2>
+    <p class="sub" style="margin:8px auto 0">Quem entrar agora recebe a proposta e o preço de lançamento antes de todo mundo.</p>
+    <div class="ctas" id="ctaFinal"><span class="sub">Canal de contato em configuração.</span></div>
+  </section>
+
+  <footer>
+    <div class="sig">Design · Mateus Paiva</div>
+    <div>Apuração por IA · inteligência eleitoral com dados oficiais</div>
+  </footer>
+</div>
+<script>
+(function(){
+"use strict";
+/* Canal de contato: preencha um destes e o site passa a usá-lo em todos os botões. */
+var CONTATO = { whatsapp: "", email: "", form: "" };
+var d = Math.ceil((new Date(2028, 9, 1) - new Date()) / 864e5);
+document.getElementById("dias").textContent = d.toLocaleString("pt-BR");
+function link(msg){
+  var t = msg + " — vi no Apuração por IA.";
+  if (CONTATO.whatsapp) return "https://wa.me/" + CONTATO.whatsapp + "?text=" + encodeURIComponent(t);
+  if (CONTATO.email) return "mailto:" + CONTATO.email + "?subject=" + encodeURIComponent(msg) + "&body=" + encodeURIComponent(t + "\n\nCidade:\nCargo/função:\n");
+  if (CONTATO.form) return CONTATO.form;
+  return null;
+}
+var ok = !!link("x");
+document.querySelectorAll("[data-contato]").forEach(function(a){
+  var h = link(a.getAttribute("data-contato"));
+  if (h){ a.href = h; if (/^https/.test(h)){ a.target = "_blank"; a.rel = "noopener"; } }
+});
+if (ok) document.getElementById("ctaFinal").innerHTML = "<a class='cta' href='" + link("Quero entrar na lista de lançamento") + "'" + (CONTATO.email && !CONTATO.whatsapp ? "" : " target='_blank' rel='noopener'") + ">Quero entrar na lista</a>";
+})();
+</script>
+</body>
+</html>
