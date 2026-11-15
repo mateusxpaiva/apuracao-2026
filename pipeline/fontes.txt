@@ -1,9 +1,14 @@
-# nome  url   (rodada 9: descoberta Portugal, Colômbia, México)
-mx/main.js https://computos2024.ine.mx/main.d95c2231391298c8.js
-pt/mai_raiz.html https://www.eleicoes.mai.gov.pt/
-pt/mai_raiz2.html https://eleicoes.mai.gov.pt/
-pt/cne.html https://www.cne.pt/content/resultados-eleitorais
-pt/dadosgov_res.json https://dados.gov.pt/api/1/datasets/?q=resultados%20eleitorais&page_size=40
-co/preconteo.html https://resultadospreconteo.registraduria.gov.co/
-co/registraduria_www.html https://www.registraduria.gov.co/
-co/socrata2.json https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co&q=registraduria&limit=50
+# nome  url   (rodada 10: Chile 2º turno, Portugal 2026, México)
+cl/nomina_4.zip https://elecciones.servel.cl/nomina_completa_4.zip
+cl/prov_config.zip https://provisorios.servel.cl/config.zip
+cl/prov_total4.zip https://provisorios.servel.cl/total_votacion_4.zip
+cl/prov_iter.zip https://provisorios.servel.cl/iteracion.zip
+cl/provg_config.zip https://provisorios-generales.servel.cl/config.zip
+cl/provg_total4.zip https://provisorios-generales.servel.cl/total_votacion_4.zip
+cl/prov_home.html https://provisorios.servel.cl/
+cl/historicos.html https://www.servel.cl/biblioteca-de-documentos/resultados-electorales-historicos/
+pt/pr26_1s.html https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/
+pt/pr26_2s.html https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/
+pt/pr21.html https://www.eleicoes.mai.gov.pt/presidenciais2021/
+mx/nacional.json https://computos2024.ine.mx/assets/JSON/PRESIDENTE/NACIONAL/Presidente_NACIONAL_AVANCE.json
+mx/runtime.js https://computos2024.ine.mx/runtime.22c5c12de00c0991.js
