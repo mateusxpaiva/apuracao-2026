@@ -1,1 +1,1 @@
-kr/dl_info.json 200 text/html;charset=UTF-8 11625 https://www.data.go.kr/tcs/dss/selectFileDataDownload.do?publicDataPk=15025528&publicDataDetailPk=uddi:e95b84c2-53ef-4770-b028-d4b8210772da&fileDetailSn=1
+kr/pres21.csv 200 application/octet-stream; charset=UTF-8 13159711 https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003525373&fileDetailSn=1&dataNm=x
