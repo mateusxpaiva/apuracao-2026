@@ -1,0 +1,8 @@
+Archive:  nl/tk2025_csv.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     3448  2025-12-08 13:39   README_TK2025.txt
+ 24684389  2025-12-08 09:40   TK2025_Stemmen_Per_Lijst_Per_Stembureau.csv
+  4568712  2025-11-10 13:10   TK2025_uitslag.csv
+---------                     -------
+ 29256549                     3 files

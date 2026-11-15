@@ -1,0 +1,24 @@
+=== README_TK2025.txt
+Uitslagen verkiezing voor de Tweede Kamer (2025).
+
+Let op: dit is onderzoeksdata, en dus geen officiële verkiezingsuitslag!
+
+==========
+TK2025_uitslag.csv
+
+=== TK2025_Stemmen_Per_Lijst_Per_Stembureau.csv
+"GemeenteCode";"GemeenteNaam";"Postcode";"StembureauNaam";"StembureauCode";"PartijNaam";"AantalStemmen"
+14;Groningen;"9712HN";Stembureau Stadhuis (postcode: 9712 HN);SB100;"50PLUS";1
+14;Groningen;"9712HN";Stembureau Stadhuis (postcode: 9712 HN);SB100;BBB;5
+14;Groningen;"9712HN";Stembureau Stadhuis (postcode: 9712 HN);SB100;Belang Van Nederland (BVNL);4
+14;Groningen;"9712HN";Stembureau Stadhuis (postcode: 9712 HN);SB100;BIJ1;17
+14;Groningen;"9712HN";Stembureau Stadhuis (postcode: 9712 HN);SB100;CDA;123
+
+=== TK2025_uitslag.csv
+Regio;RegioCode;OuderRegioCode;GrootOuderRegioCode;Partij;LijstNummer;LijstNaam;KandidaatNummer;KandidaatInitialen;KandidaatVoornaam;KandidaatTussenvoegsel;KandidaatAchternaam;KandidaatWoonplaats;KandidaatGeslacht;VeldType;Waarde
+Nederland;L528;;;;;50PLUS;;;;;;;;LijstAantalZetels;2
+Nederland;L528;;;;;BBB;;;;;;;;LijstAantalZetels;4
+Nederland;L528;;;;;CDA;;;;;;;;LijstAantalZetels;18
+Nederland;L528;;;;;ChristenUnie;;;;;;;;LijstAantalZetels;3
+Nederland;L528;;;;;D66;;;;;;;;LijstAantalZetels;26
+
