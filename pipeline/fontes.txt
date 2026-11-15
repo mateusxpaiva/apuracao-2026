@@ -1,14 +1,12 @@
-# nome  url   (rodada 13: Portugal, chunks de resultados e configuração)
-pt/c_2WAZU4QR.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-2WAZU4QR.js
-pt/c_6H6AEB7J.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-6H6AEB7J.js
-pt/c_7WABMNKY.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-7WABMNKY.js
-pt/c_BS4LWYQS.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-BS4LWYQS.js
-pt/c_HOW5EQI4.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-HOW5EQI4.js
-pt/c_LA33NAWL.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-LA33NAWL.js
-pt/c_O2L6XIKW.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-O2L6XIKW.js
-pt/c_QQUUOZ3N.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-QQUUOZ3N.js
-pt/c_QSGUB6NQ.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-QSGUB6NQ.js
-pt/c_YP6UFSIY.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-YP6UFSIY.js
-pt/app.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/application-.json
-pt/app2.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/application.json
-pt/conf.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/assets/static/psconfiguration/configuration.json
+# nome  url   (rodada 14: Portugal, chunks estáticos e app-settings)
+pt/settings_2s.json https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/app-settings.json
+pt/settings_1s.json https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/app-settings.json
+pt/c_L5OMHLVQ.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-L5OMHLVQ.js
+pt/c_LAI7PZPT.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-LAI7PZPT.js
+pt/c_MT4GOQ2Q.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-MT4GOQ2Q.js
+pt/c_OSL5PYZ4.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-OSL5PYZ4.js
+pt/c_PG3UAPWM.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-PG3UAPWM.js
+pt/c_PR5FKVD6.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-PR5FKVD6.js
+pt/c_RBS3W7NX.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-RBS3W7NX.js
+pt/c_T6PNGGAD.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-T6PNGGAD.js
+pt/c_YJBVAICV.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/chunk-YJBVAICV.js
