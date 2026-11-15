@@ -7,11 +7,13 @@
   var root = me ? me.src.replace(/menu\.js(\?.*)?$/, "") : "/";
   var ITEMS = [
     { href: "", label: "Ao vivo", sub: "2º turno presidencial 2026, apuração em tempo real" },
-    { href: "historico/", label: "Histórico", sub: "Todos os 2º turnos presidenciais, 1989–2026" },
     { href: "mapa/", label: "Mapa do voto", sub: "Presidente cidade por cidade, 2018, 2022 e 2026" },
     { href: "municipios/", label: "Cidades", sub: "Prefeitos e vereadores de todas as cidades, 2016–2024" },
+    { href: "congresso/", label: "Congresso", sub: "Votações, alinhamento com o governo e gastos, todo dia" },
+    { href: "pesquisas/", label: "Pesquisas", sub: "Todas as pesquisas eleitorais registradas no TSE" },
     { href: "mundo/", label: "Mundo", sub: "Argentina, EUA e França comparados ao Brasil" },
     { href: "calendario/", label: "Calendário", sub: "Próximas eleições, com contagem regressiva" },
+    { href: "historico/", label: "Histórico", sub: "Todos os 2º turnos presidenciais, 1989–2026" },
     { href: "planos/", label: "Planos", sub: "Raio-X do município, apuração com sua marca e dados Pro" }
   ];
   var here = location.href.split(/[?#]/)[0].replace(/index\.html$/, "");
@@ -23,13 +25,13 @@
 
   var css =
     ".apm{position:sticky;top:0;z-index:50;background:rgba(8,13,24,.86);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid rgba(255,255,255,.08);font-family:Manrope,system-ui,-apple-system,'Segoe UI',sans-serif}" +
-    ".apm-in{max-width:1080px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}" +
+    ".apm-in{max-width:1240px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}" +
     ".apm-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#EEF2F8;min-width:0}" +
     ".apm-dot{width:10px;height:10px;border-radius:50%;background:#E2B84B;box-shadow:0 0 0 4px rgba(226,184,75,.18);flex:none}" +
     ".apm-brand b{font:800 15.5px/1 Sora,system-ui,sans-serif;letter-spacing:-.01em;white-space:nowrap}" +
     ".apm-brand small{display:block;font:700 9.5px/1 Manrope,system-ui,sans-serif;letter-spacing:.18em;color:#E2B84B;margin-top:4px;white-space:nowrap}" +
     ".apm-links{display:flex;gap:4px;list-style:none;margin:0;padding:0}" +
-    ".apm-links a{display:block;padding:8px 12px;border-radius:999px;font:700 13.5px/1 Manrope,system-ui,sans-serif;color:#C9D2E3;text-decoration:none;white-space:nowrap}" +
+    ".apm-links a{display:block;padding:8px 10px;border-radius:999px;font:700 13.5px/1 Manrope,system-ui,sans-serif;color:#C9D2E3;text-decoration:none;white-space:nowrap}" +
     ".apm-links a:hover{background:rgba(255,255,255,.06);color:#EEF2F8}" +
     ".apm-links a[href$='planos/']{color:#E2B84B;border:1px solid rgba(226,184,75,.45)}.apm-links a[aria-current]{background:rgba(226,184,75,.14);color:#E2B84B}" +
     ".apm-links a:focus-visible,.apm-btn:focus-visible,.apm-brand:focus-visible{outline:2px solid #E2B84B;outline-offset:2px}" +
@@ -41,7 +43,7 @@
     ".apm-btn[aria-expanded=true] i:before{transform:translateY(5px) rotate(45deg)}" +
     ".apm-btn[aria-expanded=true] i:after{transform:translateY(-5px) rotate(-45deg)}" +
     ".apm-drawer{display:none}" +
-    "@media (max-width:1020px){.apm-links{display:none}.apm-btn{display:inline-flex}" +
+    "@media (max-width:1240px){.apm-links{display:none}.apm-btn{display:inline-flex}" +
     ".apm-drawer{position:absolute;left:0;right:0;top:56px;background:#0B1220;border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 24px 40px -12px rgba(0,0,0,.7);padding:10px max(16px,env(safe-area-inset-right,0px)) 18px max(16px,env(safe-area-inset-left,0px))}" +
     ".apm-drawer.open{display:block}" +
     ".apm-drawer a{display:block;padding:14px 14px;border-radius:14px;text-decoration:none;color:#EEF2F8;border:1px solid transparent}" +
