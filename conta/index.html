@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Minha conta · Apuração por IA</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B1220">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+:root{--ink:#080D18;--line:rgba(255,255,255,.09);--mute:#8C97AE;--fg:#EEF2F8;--sub:#C9D2E3;--gold:#E2B84B;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.55 Manrope,system-ui,sans-serif}
+body{background:radial-gradient(900px 520px at 50% -10%,rgba(226,184,75,.12),transparent 60%),var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:grid;gap:20px}
+.eyebrow{font:700 12px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:800 clamp(28px,5vw,42px)/1.1 Sora,sans-serif;letter-spacing:-.03em;margin:6px 0 0}
+h2{font:700 20px/1.2 Sora,sans-serif;margin:0 0 10px}
+.card{border:1px solid var(--line);border-radius:20px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));min-width:0}
+.sub{color:var(--mute);font-size:13.5px;margin:4px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+.kpi{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.03)}
+.kpi b{display:block;font:800 22px/1.15 Sora,sans-serif}
+.kpi span{font-size:13px;color:var(--mute)}
+a{color:var(--gold)}
+button,select,input{font:700 13px Manrope,sans-serif;color:var(--fg);background:#0B1325;border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:7px 10px}
+button{cursor:pointer;background:rgba(255,255,255,.05)}
+button.pri{background:var(--gold);color:#0B1220;border-color:var(--gold)}
+.list{display:grid;gap:8px}
+.city{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font:700 11px Manrope,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
+td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.scroll{overflow-x:auto}
+.ok{color:#7FD8B3;font-weight:700}
+footer{text-align:center;border-top:1px solid var(--line);padding-top:18px;font:700 16px Sora,sans-serif;color:var(--gold)}
+</style>
+<script src="../menu.js" defer></script>
+<script src="../auth.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px">
+    <div><div class="eyebrow">Apuração por IA · Minha conta</div><h1 id="ola">Carregando…</h1></div>
+    <button type="button" id="sair" hidden>Sair</button>
+  </header>
+
+  <section class="grid" id="kpis"></section>
+
+  <section class="card" id="cidades" hidden>
+    <h2>Raio-X liberados para você</h2>
+    <p class="sub">Toque numa cidade para abrir o relatório.</p>
+    <div class="list" id="lista"></div>
+  </section>
+
+  <section class="card" id="upsell" hidden>
+    <h2>Libere o Raio-X da sua cidade</h2>
+    <p class="sub">Voto por local de votação e bairro, partidos, vereadores e o histórico completo da cidade.</p>
+    <a href="../planos/" style="display:inline-block;font:800 14px Manrope,sans-serif;color:#0B1220;background:var(--gold);border-radius:999px;padding:10px 16px;text-decoration:none">Ver planos</a>
+  </section>
+
+  <section class="card" id="admin" hidden>
+    <h2>Administração · usuários</h2>
+    <p class="sub">Defina o plano, as cidades liberadas (códigos TSE separados por vírgula) e a validade de cada pessoa.</p>
+    <div class="scroll"><table id="users"></table></div>
+  </section>
+
+  <section class="card" id="leads" hidden>
+    <h2>Administração · interessados</h2>
+    <p class="sub">Quem preencheu o formulário da página de planos. <button type="button" id="csv">Baixar planilha</button></p>
+    <div class="scroll"><table id="ltab"></table></div>
+  </section>
+
+  <footer>Design · Mateus Paiva</footer>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+"use strict";
+var $ = function(id){ return document.getElementById(id); };
+var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+var PL = {gratis:"Gratuito", raiox:"Raio-X", pro:"Pro", admin:"Administrador"};
+APIA.pronto(function(s){
+  if (!s.configurado){ $("ola").textContent = "Login em configuração"; return; }
+  if (!s.user){ location.replace(APIA.root + "entrar/?volta=" + encodeURIComponent(location.href)); return; }
+  var p = s.perfil || {plano:"gratis", cidades:[]};
+  $("ola").textContent = "Olá" + (p.nome ? ", " + p.nome.split(" ")[0] : "") + "!";
+  $("sair").hidden = false; $("sair").onclick = APIA.sair;
+  var val = p.validade ? new Date(p.validade + "T12:00:00").toLocaleDateString("pt-BR") : "sem prazo";
+  $("kpis").innerHTML = "<div class='kpi'><b>" + esc(PL[p.plano] || p.plano) + "</b><span>seu plano</span></div><div class='kpi'><b>" + esc(s.user.email) + "</b><span>e-mail de acesso</span></div><div class='kpi'><b>" + (p.plano === "gratis" ? "—" : val) + "</b><span>acesso válido até</span></div>";
+  s.client.from("raiox_cidades").select("*").order("nome").then(function(r){
+    var all = r.data || [], mine = all.filter(function(c){ return APIA.pode(c.cd); });
+    if (mine.length){ $("cidades").hidden = false; $("lista").innerHTML = mine.map(function(c){ return "<a class='city' href='../raiox/?m=" + c.cd + "' style='color:inherit;text-decoration:none'><b>" + esc(c.nome) + " · " + c.uf + "</b><span>Abrir →</span></a>"; }).join(""); }
+    else $("upsell").hidden = false;
+  });
+  if (p.plano !== "admin") return;
+  $("admin").hidden = false; $("leads").hidden = false;
+  function users(){
+    s.client.from("perfis").select("*").order("criado_em", {ascending:false}).then(function(r){
+      var U = r.data || [];
+      $("users").innerHTML = "<thead><tr><th>E-mail</th><th>Plano</th><th>Cidades (TSE)</th><th>Validade</th><th></th></tr></thead><tbody>" + U.map(function(u){
+        return "<tr data-id='" + u.id + "'><td>" + esc(u.email) + (u.nome ? "<br><span style='color:var(--mute)'>" + esc(u.nome) + "</span>" : "") + "</td><td><select>" + Object.keys(PL).map(function(k){ return "<option value='" + k + "'" + (u.plano === k ? " selected" : "") + ">" + PL[k] + "</option>"; }).join("") + "</select></td><td><input value='" + esc((u.cidades || []).join(", ")) + "' style='width:160px'></td><td><input type='date' value='" + (u.validade || "") + "'></td><td><button type='button' class='pri'>Salvar</button></td></tr>";
+      }).join("") + "</tbody>";
+    });
+  }
+  $("users").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return; var tr = b.closest("tr");
+    var upd = {plano: tr.querySelector("select").value, cidades: tr.querySelectorAll("input")[0].value.split(/[,\s]+/).filter(Boolean), validade: tr.querySelectorAll("input")[1].value || null};
+    b.textContent = "Salvando…";
+    s.client.from("perfis").update(upd).eq("id", tr.getAttribute("data-id")).then(function(r){ b.textContent = r.error ? "Erro" : "Salvo ✓"; setTimeout(function(){ b.textContent = "Salvar"; }, 1800); });
+  });
+  users();
+  var L = [];
+  s.client.from("interessados").select("*").order("criado_em", {ascending:false}).limit(500).then(function(r){
+    L = r.data || [];
+    $("ltab").innerHTML = "<thead><tr><th>Quando</th><th>Nome</th><th>Contato</th><th>Cidade</th><th>Interesse</th></tr></thead><tbody>" + (L.length ? L.map(function(x){ return "<tr><td>" + new Date(x.criado_em).toLocaleString("pt-BR") + "</td><td>" + esc(x.nome) + (x.perfil ? "<br><span style='color:var(--mute)'>" + esc(x.perfil) + "</span>" : "") + "</td><td>" + esc(x.email) + (x.whatsapp ? "<br>" + esc(x.whatsapp) : "") + "</td><td>" + esc(x.cidade) + "</td><td>" + esc(x.interesse) + (x.mensagem ? "<br><span style='color:var(--mute)'>" + esc(x.mensagem) + "</span>" : "") + "</td></tr>"; }).join("") : "<tr><td colspan='5' style='color:var(--mute)'>Ninguém ainda.</td></tr>") + "</tbody>";
+  });
+  $("csv").onclick = function(){
+    var cols = ["criado_em","nome","email","whatsapp","cidade","perfil","interesse","mensagem"];
+    var csv = cols.join(";") + "\n" + L.map(function(x){ return cols.map(function(c){ return '"' + String(x[c] == null ? "" : x[c]).replace(/"/g,'""') + '"'; }).join(";"); }).join("\n");
+    var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + csv], {type:"text/csv"})); a.download = "interessados-apuracao-por-ia.csv"; a.click();
+  };
+});
+});
+</script>
+</body>
+</html>
