@@ -1,36 +1,12 @@
-# nome  url  [corpo JSON para POST]   (rodada 26: Noruega, Holanda, Itália, Áustria, Finlândia, Suécia + descoberta Ásia/LatAm)
-no/k03.json https://valgresultat.no/api/2025/st/03
-no/k04.json https://valgresultat.no/api/2025/st/04
-no/k05.json https://valgresultat.no/api/2025/st/05
-no/k09.json https://valgresultat.no/api/2025/st/09
-no/k10.json https://valgresultat.no/api/2025/st/10
-no/k11.json https://valgresultat.no/api/2025/st/11
-no/k12.json https://valgresultat.no/api/2025/st/12
-no/k14.json https://valgresultat.no/api/2025/st/14
-no/k15.json https://valgresultat.no/api/2025/st/15
-no/k16.json https://valgresultat.no/api/2025/st/16
-no/k17.json https://valgresultat.no/api/2025/st/17
-no/k18.json https://valgresultat.no/api/2025/st/18
-no/k31.json https://valgresultat.no/api/2025/st/31
-no/k32.json https://valgresultat.no/api/2025/st/32
-no/k33.json https://valgresultat.no/api/2025/st/33
-no/k39.json https://valgresultat.no/api/2025/st/39
-no/k40.json https://valgresultat.no/api/2025/st/40
-no/k55.json https://valgresultat.no/api/2025/st/55
-no/k56.json https://valgresultat.no/api/2025/st/56
-no/2021.json https://valgresultat.no/api/2021/st
-nl/tk2025_csv.zip https://data.overheid.nl/sites/default/files/dataset/a16f3352-c9ce-4831-a314-f989d442a258/resources/Verkiezingsuitslag%20Tweede%20Kamer%202025%20%28CSV%20Formaat%29.zip
-it/listeCIRC.csv https://documenti.camera.it/leg19/risultatiElettorali2022/UGE/VotiListe/ItaliaVotiListeCIRC.csv
-it/estero.csv https://documenti.camera.it/leg19/risultatiElettorali2022/UGE/Estero/RIEPILOGORIPARTIZIONIESTERO.csv
-at/bpw22.xlsx https://www.bmi.gv.at/412/bundespraesidentenwahlen/bundespraesidentenwahl_2022/files/endgueltiges_gesamtergebnis_inkl_briefwahl_bpw22_20221028.xlsx
-fi/14db.csv https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/pvaa/14db.px {"query":[],"response":{"format":"csv"}}
-fi/14db_meta.json https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/pvaa/14db.px
-fi/14d6_meta.json https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/pvaa/14d6.px
-se/me0104c.json https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C
-se/t3_meta.json https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3
-kr/datago.html https://www.data.go.kr/data/15133805/fileData.do
-tw/168059.html https://data.gov.tw/dataset/168059
-tw/33336.html https://data.gov.tw/dataset/33336
-bo/computo.html https://computo.oep.org.bo/
-ec/cne_res.html https://elecciones2025.cne.gob.ec/
-jp/soumu.html https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin50/index.html
+# nome  url  [corpo JSON para POST]   (rodada 27: Suécia, Japão, Coreia, Taiwan)
+se/t3_2022.csv https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3 {"query":[{"code":"Tid","selection":{"filter":"item","values":["2022"]}},{"code":"ContentsCode","selection":{"filter":"item","values":["ME0104B6"]}}],"response":{"format":"csv"}}
+se/t4_meta.json https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T4
+jp/s51.html https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html
+kr/c15162558.json https://www.data.go.kr/catalog/15162558/fileData.json
+kr/c15162566.json https://www.data.go.kr/catalog/15162566/fileData.json
+kr/c15162716.json https://www.data.go.kr/catalog/15162716/fileData.json
+kr/c15162714.json https://www.data.go.kr/catalog/15162714/fileData.json
+kr/c15162288.json https://www.data.go.kr/catalog/15162288/fileData.json
+tw/168060.html https://data.gov.tw/dataset/168060
+tw/168990.html https://data.gov.tw/dataset/168990
+tw/28485.html https://data.gov.tw/dataset/28485
