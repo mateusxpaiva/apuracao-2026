@@ -1,4 +1,1 @@
-kr/c15025528.json 200 text/html;charset=UTF-8 3677 https://www.data.go.kr/catalog/15025528/fileData.json
-kr/p15025528.html 200 text/html;charset=UTF-8 212162 https://www.data.go.kr/data/15025528/fileData.do
-kr/meta15025528.xml 503 text/html; charset=iso-8859-1 428 https://www.data.go.kr/dcat/metadata/15025528
-kr/meta15156333.xml 503 text/html; charset=iso-8859-1 428 https://www.data.go.kr/dcat/metadata/15156333
+kr/dl_info.json 200 text/html;charset=UTF-8 11625 https://www.data.go.kr/tcs/dss/selectFileDataDownload.do?publicDataPk=15025528&publicDataDetailPk=uddi:e95b84c2-53ef-4770-b028-d4b8210772da&fileDetailSn=1
