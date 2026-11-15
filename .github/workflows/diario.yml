@@ -1,0 +1,40 @@
+name: Coletor diário (Congresso e pesquisas)
+
+on:
+  schedule:
+    - cron: "17 9 * * *"   # todo dia, 06:17 em Brasília
+  workflow_dispatch:
+    inputs:
+      anos_pesquisas:
+        description: "Anos das pesquisas eleitorais"
+        default: "2026"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coletor-dados
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Congresso (Câmara e Senado)
+        run: python pipeline/congresso.py
+      - name: Pesquisas eleitorais (TSE)
+        run: python pipeline/pesquisas.py ${{ github.event.inputs.anos_pesquisas || '2026' }}
+      - name: Publicar
+        run: |
+          git config user.name "apuracao-por-ia-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/congresso data/pesquisas
+          if git diff --cached --quiet; then echo "Sem mudanças"; exit 0; fi
+          git commit -m "Coletor diário: Congresso e pesquisas $(date -u +%F)"
+          git pull --rebase -q
+          git push
