@@ -1,7 +1,6 @@
 Archive:  pl/woj2.zip
-  End-of-central-directory signature not found.  Either this file is not
-  a zipfile, or it constitutes one disk of a multi-part archive.  In the
-  latter case the central directory and zipfile comment will be found on
-  the last disk(s) of this archive.
-unzip:  cannot find zipfile directory in one of pl/woj2.zip or
-        pl/woj2.zip.zip, and cannot find pl/woj2.zip.ZIP, period.
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     4146  2025-09-23 19:59   wyniki_gl_na_kandydatow_po_wojewodztwach_w_drugiej_turze_utf8.csv
+---------                     -------
+     4146                     1 file

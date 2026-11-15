@@ -1,8 +1,6 @@
-pl/woj1.zip 200 text/html 27173 https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_wojewodztwach_csv.zip
-pl/woj2.zip 200 text/html 27173 https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_wojewodztwach_w_drugiej_turze_csv.zip
-uy/balotaje.html 200 text/html; charset=UTF-8 51056 https://www.corteelectoral.gub.uy/corte-electoral/balotaje
-uy/en2024.html 200 text/html; charset=UTF-8 45149 https://www.gub.uy/corte-electoral/elecciones-nacionales-2024
-uy/tem2024.html 200 text/html; charset=UTF-8 45943 https://www.gub.uy/corte-electoral/tematica/elecciones-nacionales-2024
-ca/45ge.html 200 text/html; charset=iso-8859-1 17798 https://www.elections.ca/content.aspx?section=res&dir=rep/off/45gedata&document=index&lang=e
-ca/45ge_b.html 500 text/html; charset=iso-8859-1 3692 https://www.elections.ca/content.aspx?section=res&dir=rep/off/45ge&document=index&lang=e
-uk/ge.html 200 text/html; charset=utf-8 23812 https://electionresults.parliament.uk/general-elections
+pl/woj1.zip 200 application/zip 2813 https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_wojewodztwach_csv.1758650309.zip
+pl/woj2.zip 200 application/zip 2154 https://wybory.gov.pl/prezydent2025/data/csv/wyniki_gl_na_kandydatow_po_wojewodztwach_w_drugiej_turze_csv.1758650309.zip
+ca/ovr45.html 200 text/html 793210 https://www.elections.ca/res/rep/off/ovrGE45/home.html
+ca/45bypro.html 200 text/html; charset=iso-8859-1 26685 https://www.elections.ca/content.aspx?section=res&dir=rep/off/45gedata&document=bypro&lang=e
+uy/abiertos.html 200 text/html; charset=UTF-8 48189 https://www.gub.uy/corte-electoral/datos-y-estadisticas/datos-abiertos
+uy/datos.html 200 text/html; charset=UTF-8 57668 https://www.gub.uy/corte-electoral/datos-y-estadisticas/datos
