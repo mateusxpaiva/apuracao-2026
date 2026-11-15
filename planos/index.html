@@ -62,10 +62,19 @@ details[open] summary:after{content:"–"}
 details p{color:var(--sub);margin:10px 0 0;max-width:75ch;font-size:14.5px}
 .final{border:1px solid rgba(226,184,75,.45);border-radius:24px;padding:28px;text-align:center;background:linear-gradient(180deg,rgba(226,184,75,.12),rgba(226,184,75,.02))}
 .final .ctas{justify-content:center}
+.lead{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:640px;margin:0 auto;text-align:left}
+.lead .full{grid-column:1/-1}
+@media (max-width:600px){.lead{grid-template-columns:1fr}}
+.lead label{display:block;font:700 11.5px var(--f-b);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:5px}
+.lead input,.lead select,.lead textarea{width:100%;font:600 15px var(--f-b);color:var(--fg);background:#0B1325;border:1.5px solid rgba(255,255,255,.16);border-radius:12px;padding:11px 12px;outline:none}
+.lead input:focus,.lead select:focus,.lead textarea:focus{border-color:var(--gold)}
+.lmsg{margin:4px 0 0;padding:12px 14px;border-radius:12px;font-size:14px}
+.lmsg.ok{background:rgba(63,182,139,.14);color:#9FE3C7}.lmsg.err{background:rgba(224,53,61,.14);color:#F5A3A7}
 footer{display:grid;gap:6px;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--mute)}
 footer .sig{font:700 16px var(--f-d);color:var(--gold)}
 </style>
 <script src="../menu.js" defer></script>
+<script src="../auth.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -167,8 +176,18 @@ footer .sig{font:700 16px var(--f-d);color:var(--gold)}
 
   <section class="final" id="contato">
     <h2>Entre na lista de lançamento</h2>
-    <p class="sub" style="margin:8px auto 0">Quem entrar agora recebe a proposta e o preço de lançamento antes de todo mundo.</p>
-    <div class="ctas" id="ctaFinal"><span class="sub">Canal de contato em configuração.</span></div>
+    <p class="sub" style="margin:8px auto 18px">Quem entrar agora recebe a proposta e o preço de lançamento antes de todo mundo.</p>
+    <form id="lead" class="lead" novalidate>
+      <div class="fg"><label for="l-nome">Nome</label><input id="l-nome" required maxlength="120" autocomplete="name"></div>
+      <div class="fg"><label for="l-email">E-mail</label><input id="l-email" type="email" required maxlength="200" autocomplete="email"></div>
+      <div class="fg"><label for="l-wa">WhatsApp (opcional)</label><input id="l-wa" type="tel" maxlength="30" autocomplete="tel" placeholder="(19) 99999-9999"></div>
+      <div class="fg"><label for="l-cid">Cidade de interesse</label><input id="l-cid" maxlength="120" placeholder="Ex.: Limeira (SP)"></div>
+      <div class="fg"><label for="l-perf">Você é</label><select id="l-perf"><option>Pré-candidato(a)</option><option>Partido</option><option>Consultoria ou assessoria</option><option>Imprensa</option><option>Pesquisador(a) ou professor(a)</option><option>Empresa (patrocínio)</option><option>Outro</option></select></div>
+      <div class="fg"><label for="l-int">Interesse</label><select id="l-int"><option>Raio-X do Município</option><option>Apuração ao vivo com a minha marca</option><option>Apuração por IA Pro</option><option>Patrocínio da noite da eleição</option></select></div>
+      <div class="fg full"><label for="l-msg">Mensagem (opcional)</label><textarea id="l-msg" maxlength="1000" rows="3"></textarea></div>
+      <div class="full"><button class="cta" type="submit" id="l-send">Quero entrar na lista</button></div>
+      <p class="full lmsg" id="l-out" role="status" hidden></p>
+    </form>
   </section>
 
   <footer>
@@ -177,26 +196,31 @@ footer .sig{font:700 16px var(--f-d);color:var(--gold)}
   </footer>
 </div>
 <script>
-(function(){
+document.addEventListener("DOMContentLoaded", function(){
 "use strict";
-/* Canal de contato: preencha um destes e o site passa a usá-lo em todos os botões. */
-var CONTATO = { whatsapp: "", email: "", form: "" };
+var $ = function(id){ return document.getElementById(id); };
 var d = Math.ceil((new Date(2028, 9, 1) - new Date()) / 864e5);
-document.getElementById("dias").textContent = d.toLocaleString("pt-BR");
-function link(msg){
-  var t = msg + " — vi no Apuração por IA.";
-  if (CONTATO.whatsapp) return "https://wa.me/" + CONTATO.whatsapp + "?text=" + encodeURIComponent(t);
-  if (CONTATO.email) return "mailto:" + CONTATO.email + "?subject=" + encodeURIComponent(msg) + "&body=" + encodeURIComponent(t + "\n\nCidade:\nCargo/função:\n");
-  if (CONTATO.form) return CONTATO.form;
-  return null;
-}
-var ok = !!link("x");
+$("dias").textContent = d.toLocaleString("pt-BR");
+var INT = {"Quero o Raio-X da minha cidade":"Raio-X do Município","Quero o Raio-X do Município":"Raio-X do Município","Quero a apuração ao vivo com a minha marca":"Apuração ao vivo com a minha marca","Quero o Apuração por IA Pro":"Apuração por IA Pro","Quero patrocinar a noite da eleição":"Patrocínio da noite da eleição"};
 document.querySelectorAll("[data-contato]").forEach(function(a){
-  var h = link(a.getAttribute("data-contato"));
-  if (h){ a.href = h; if (/^https/.test(h)){ a.target = "_blank"; a.rel = "noopener"; } }
+  a.addEventListener("click", function(){ var v = INT[a.getAttribute("data-contato")]; if (v) $("l-int").value = v; setTimeout(function(){ $("l-nome").focus(); }, 400); });
 });
-if (ok) document.getElementById("ctaFinal").innerHTML = "<a class='cta' href='" + link("Quero entrar na lista de lançamento") + "'" + (CONTATO.email && !CONTATO.whatsapp ? "" : " target='_blank' rel='noopener'") + ">Quero entrar na lista</a>";
-})();
+var out = function(t, ok){ var o = $("l-out"); o.hidden = false; o.className = "full lmsg " + (ok ? "ok" : "err"); o.textContent = t; };
+$("lead").addEventListener("submit", function(e){
+  e.preventDefault();
+  var row = {nome:$("l-nome").value.trim(), email:$("l-email").value.trim(), whatsapp:$("l-wa").value.trim() || null, cidade:$("l-cid").value.trim() || null, perfil:$("l-perf").value, interesse:$("l-int").value, mensagem:$("l-msg").value.trim() || null};
+  if (row.nome.length < 2){ out("Conte seu nome.", false); return; }
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(row.email)){ out("Confira o e-mail.", false); return; }
+  var st = window.APIA && APIA.estado();
+  if (!st || !st.client){ out("O cadastro está sendo configurado. Tente de novo em breve.", false); return; }
+  $("l-send").disabled = true; $("l-send").textContent = "Enviando…";
+  st.client.from("interessados").insert(row).then(function(r){
+    $("l-send").disabled = false; $("l-send").textContent = "Quero entrar na lista";
+    if (r.error){ out("Não foi possível enviar agora. Tente de novo em instantes.", false); return; }
+    $("lead").reset(); out("Recebido, " + row.nome.split(" ")[0] + "! Você está na lista e vai receber a proposta por e-mail" + (row.whatsapp ? " ou WhatsApp" : "") + ".", true);
+  });
+});
+});
 </script>
 </body>
 </html>
