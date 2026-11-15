@@ -1,4 +1,2 @@
-ie2025.csv 200 text/csv 3428 https://opendata.housing.gov.ie/dataset/540faa23-c657-4e13-a42f-461e0e9a5ba7/resource/fd682c53-24fc-4285-bf75-38b1abddd78e/download/presidential-election-2025.csv
-ie2018.csv 200 text/csv 3966 https://opendata.housing.gov.ie/dataset/60a8a3a5-cbac-4f28-ad7c-efad33d94a1f/resource/b9fcfe9a-2928-4e27-a01f-736fb5e41550/download/presidential-election-2018.csv
-ie2011.csv 200 text/csv 4627 https://opendata.housing.gov.ie/dataset/98ba8fc7-7979-420d-b95e-64a80d4ef672/resource/4812a26d-b6a6-46f4-9a71-1fbd7b1d0536/download/count-1-2011-presidential-election.csv
-ie2011c4.csv 200 text/csv 2716 https://opendata.housing.gov.ie/dataset/98ba8fc7-7979-420d-b95e-64a80d4ef672/resource/d69ff3e7-7080-4a9b-8bf3-28c414f51d89/download/count-4-2011-presidential-election.csv
+pa_c1.csv 200 text/csv 6806 https://www.datosabiertos.gob.pa/dataset/f50c57bb-e115-4b64-93f8-0a623207c095/resource/2fe06acf-6696-4d55-84c0-1fe03ea836f0/download/cuadro-01-presidente-3-2.csv
+pa_c2.csv 200 text/csv 10355 https://www.datosabiertos.gob.pa/dataset/d6cec812-c682-42ff-9e9e-0bc9960a2cc7/resource/8de5b05e-37b5-456d-8164-22892ce05f48/download/cuadro-02-presidente-3-1.csv
