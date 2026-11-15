@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Mundo · Apuração por IA</title>
 <meta name="author" content="Mateus Paiva">
-<meta name="description" content="Eleições presidenciais do Brasil, Argentina, Chile, México, Estados Unidos, França, Portugal e Alemanha lado a lado, com dados oficiais. Design: Mateus Paiva.">
+<meta name="description" content="Eleições presidenciais do Brasil, Argentina, Chile, México, Estados Unidos, França, Portugal, Alemanha e Reino Unido lado a lado, com dados oficiais. Design: Mateus Paiva.">
 <meta property="og:title" content="Mundo · Apuração por IA">
-<meta property="og:description" content="Brasil, Argentina, Chile, México, EUA, França, Portugal e Alemanha comparados: viradas no 2º turno, comparecimento e resultado por região. Design: Mateus Paiva.">
+<meta property="og:description" content="Brasil, Argentina, Chile, México, EUA, França, Portugal, Alemanha e Reino Unido comparados: viradas no 2º turno, comparecimento e resultado por região. Design: Mateus Paiva.">
 <meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
 <meta name="theme-color" content="#0B1220">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
@@ -143,7 +143,7 @@ footer a{color:var(--sub)}
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
-    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI e Bundeswahlleiterin</div>
+    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin e House of Commons Library</div>
   </footer>
 </div>
 
@@ -153,7 +153,7 @@ footer a{color:var(--sub)}
 var $ = function(id){ return document.getElementById(id); };
 var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1}), f2 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
 var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
-var PAISES = [["br","🇧🇷","Brasil"],["ar","🇦🇷","Argentina"],["cl","🇨🇱","Chile"],["mx","🇲🇽","México"],["us","🇺🇸","EUA"],["fr","🇫🇷","França"],["pt","🇵🇹","Portugal"],["de","🇩🇪","Alemanha"]];
+var PAISES = [["br","🇧🇷","Brasil"],["ar","🇦🇷","Argentina"],["cl","🇨🇱","Chile"],["mx","🇲🇽","México"],["us","🇺🇸","EUA"],["fr","🇫🇷","França"],["pt","🇵🇹","Portugal"],["de","🇩🇪","Alemanha"],["uk","🇬🇧","Reino Unido"]];
 var OUT = "#5B6478";
 var D = {};
 
@@ -226,7 +226,7 @@ function initFicha(){
   $("tabP").addEventListener("click", function(e){ var b = e.target.closest("[data-p]"); if (!b) return; cur.p = b.getAttribute("data-p"); cur.a = null; cur.t = null; render(); });
   $("tabA").addEventListener("click", function(e){ var b = e.target.closest("[data-a]"); if (!b) return; cur.a = +b.getAttribute("data-a"); cur.t = null; render(); });
   $("tabT").addEventListener("click", function(e){ var b = e.target.closest("[data-t]"); if (!b) return; cur.t = b.getAttribute("data-t"); render(); });
-  var m = /[?&]p=(br|ar|cl|mx|us|fr|pt|de)/.exec(location.search); if (m) cur.p = m[1];
+  var m = /[?&]p=(br|ar|cl|mx|us|fr|pt|de|uk)/.exec(location.search); if (m) cur.p = m[1];
   render();
 }
 function render(){
@@ -242,7 +242,7 @@ function render(){
 
   var r = ranking(T), n = T.nac, isUS = cur.p === "us";
   var win = isUS ? vencedorUS(T) : r[0].id;
-  var main = r.filter(function(c){ return c.cor !== OUT; }).slice(0, P.parlamentar ? 5 : 3); if (main.length < 2) main = r.slice(0, 2);
+  var main = r.filter(function(c){ return c.cor !== OUT; }).slice(0, P.parlamentar ? 6 : 3); if (main.length < 2) main = r.slice(0, 2);
   var lista = r.slice(0, isUS ? 3 : (cur.t === "2" ? 2 : (P.parlamentar ? 7 : 5)));
   var max = n.v[r[0].id] / n.validos * 100;
   var html = "<div class='two'><div class='box'><h3>" + P.nome + " · " + cur.a + (ts.length > 1 ? " · " + cur.t + "º turno" : "") + "</h3><div class='res'>" +
@@ -261,11 +261,12 @@ function render(){
     var outros = Math.max(0, 100 - sh.reduce(function(a,b){ return a+b; }, 0));
     var w = main.slice().sort(function(a,b){ return (g.v[b.id]||0) - (g.v[a.id]||0); });
     var mg = ((g.v[w[0].id]||0) - (g.v[w[1].id]||0)) / tot * 100;
+    if (P.parlamentar && outros > (g.v[w[0].id]||0) / tot * 100) return {g:g, sh:sh, outros:outros, w:{id:"O", nome:"Outros"}, mg:outros - (g.v[w[0].id]||0) / tot * 100};
     return {g:g, sh:sh, outros:outros, w:w[0], mg:mg};
   }).sort(function(a,b){ return a.w.id === b.w.id ? b.mg - a.mg : (a.w.id === main[0].id ? -1 : b.w.id === main[0].id ? 1 : 0); });
   var venceu = {}; regs.forEach(function(x){ venceu[x.w.id] = (venceu[x.w.id] || 0) + 1; });
   html += "<div class='box'><h3>Por " + P.nivel.toLowerCase() + " · " + T.reg.length + "</h3>" +
-    "<div class='legend'>" + main.map(function(c){ return "<span><i style='background:" + c.cor + "'></i>" + esc(c.nome) + " · venceu em " + (venceu[c.id] || 0) + "</span>"; }).join("") + (cur.t === "2" ? "" : "<span><i style='background:" + OUT + "'></i>Outros</span>") + "</div>" +
+    "<div class='legend'>" + main.map(function(c){ return "<span><i style='background:" + c.cor + "'></i>" + esc(c.nome) + " · venceu em " + (venceu[c.id] || 0) + "</span>"; }).join("") + (cur.t === "2" ? "" : "<span><i style='background:" + OUT + "'></i>Outros" + (venceu.O ? " · venceu em " + venceu.O : "") + "</span>") + "</div>" +
     (T.reg.length > 30 ? "<input class='filter' id='rf' type='search' placeholder='Buscar " + P.nivel.toLowerCase() + "' aria-label='Buscar região'>" : "") +
     "<div class='regs' id='regs'>" + regs.map(function(x){
       return "<div class='rg' data-n='" + esc(x.g.n.toLowerCase()) + "' title='" + esc(x.g.n) + ": " + main.map(function(c,i){ return c.nome + " " + f1.format(x.sh[i]) + "%"; }).join(", ") + "'><div class='n'>" + esc(x.g.n) + "</div><div class='s'>" +
