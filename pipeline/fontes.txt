@@ -1,14 +1,12 @@
-# nome  url   (rodada 10: Chile 2º turno, Portugal 2026, México)
-cl/nomina_4.zip https://elecciones.servel.cl/nomina_completa_4.zip
-cl/prov_config.zip https://provisorios.servel.cl/config.zip
-cl/prov_total4.zip https://provisorios.servel.cl/total_votacion_4.zip
-cl/prov_iter.zip https://provisorios.servel.cl/iteracion.zip
-cl/provg_config.zip https://provisorios-generales.servel.cl/config.zip
-cl/provg_total4.zip https://provisorios-generales.servel.cl/total_votacion_4.zip
-cl/prov_home.html https://provisorios.servel.cl/
-cl/historicos.html https://www.servel.cl/biblioteca-de-documentos/resultados-electorales-historicos/
-pt/pr26_1s.html https://www.eleicoes.mai.gov.pt/presidenciais2026_1S/
-pt/pr26_2s.html https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/
-pt/pr21.html https://www.eleicoes.mai.gov.pt/presidenciais2021/
-mx/nacional.json https://computos2024.ine.mx/assets/JSON/PRESIDENTE/NACIONAL/Presidente_NACIONAL_AVANCE.json
-mx/runtime.js https://computos2024.ine.mx/runtime.22c5c12de00c0991.js
+# nome  url   (rodada 11: Chile por região, México chunks, Portugal app)
+cl/g_nomina4.zip https://provisorios-generales.servel.cl/nomina_completa_4.zip
+cl/g_nomina_ext4.zip https://provisorios-generales.servel.cl/nomina_completa_ext_4.zip
+cl/g_territorios.zip https://provisorios-generales.servel.cl/territorios.zip
+cl/g_candidaturas.zip https://provisorios-generales.servel.cl/candidaturas.zip
+cl/p_nomina4.zip https://provisorios.servel.cl/nomina_completa_4.zip
+cl/p_nomina_ext4.zip https://provisorios.servel.cl/nomina_completa_ext_4.zip
+cl/p_territorios.zip https://provisorios.servel.cl/territorios.zip
+mx/c3435.js https://computos2024.ine.mx/3435.9cce006cbdc1c554.js
+mx/c2474.js https://computos2024.ine.mx/2474.f448e4baf3cd70a2.js
+mx/c8731.js https://computos2024.ine.mx/8731.26df7c9fe04b3a82.js
+pt/main2s.js https://www.eleicoes.mai.gov.pt/presidenciais2026_2S/main-4QIOKOLC.js
