@@ -80,4 +80,5 @@
   btn.addEventListener("click", function () { setOpen(btn.getAttribute("aria-expanded") !== "true"); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
   document.addEventListener("click", function (e) { if (!bar.contains(e.target)) setOpen(false); });
+  if (!document.querySelector('script[src$="auth.js"]')) { var au = document.createElement("script"); au.src = root + "auth.js"; document.head.appendChild(au); }
 })();
