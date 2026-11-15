@@ -1,9 +1,9 @@
-# nome  url   (rodada 8: Portugal, Colômbia, México)
-pt/mai_2026.html https://www.eleicoes.mai.gov.pt/presidenciais2026/
-pt/dadosgov_busca.json https://dados.gov.pt/api/1/datasets/?q=presidenciais%202026&page_size=30
-pt/dadosgov_busca2.json https://dados.gov.pt/api/1/datasets/?q=eleicao%20presidente%20republica%20resultados&page_size=30
-co/registraduria.html https://resultados.registraduria.gov.co/
-co/socrata.json https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co&q=resultados%20presidencial&limit=40
-mx/computos.html https://computos2024.ine.mx/presidencia/nacional/candidatura
-mx/basedatos.html https://computos2024.ine.mx/base-de-datos
-mx/ine_datos.html https://www.ine.mx/transparencia/datos-abiertos/
+# nome  url   (rodada 9: descoberta Portugal, Colômbia, México)
+mx/main.js https://computos2024.ine.mx/main.d95c2231391298c8.js
+pt/mai_raiz.html https://www.eleicoes.mai.gov.pt/
+pt/mai_raiz2.html https://eleicoes.mai.gov.pt/
+pt/cne.html https://www.cne.pt/content/resultados-eleitorais
+pt/dadosgov_res.json https://dados.gov.pt/api/1/datasets/?q=resultados%20eleitorais&page_size=40
+co/preconteo.html https://resultadospreconteo.registraduria.gov.co/
+co/registraduria_www.html https://www.registraduria.gov.co/
+co/socrata2.json https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co&q=registraduria&limit=50
