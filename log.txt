@@ -1,13 +1,4 @@
-camara/votacoes.json 200 application/json 42547 https://dadosabertos.camara.leg.br/api/v2/votacoes?dataInicio=2026-10-01&dataFim=2026-11-14&ordem=DESC&ordenarPor=dataHoraRegistro&itens=200
-camara/deputados.json 200 application/json 179353 https://dadosabertos.camara.leg.br/api/v2/deputados?itens=600&ordem=ASC&ordenarPor=nome
-camara/proposicoes.json 200 application/json 44644 https://dadosabertos.camara.leg.br/api/v2/proposicoes?dataApresentacaoInicio=2026-11-01&itens=100&ordem=DESC&ordenarPor=id
-camara/eventos.json 200 application/json 107527 https://dadosabertos.camara.leg.br/api/v2/eventos?dataInicio=2026-11-10&itens=100
-camara/ceap_2026.zip 200 application/zip 4669971 https://www.camara.leg.br/cotas/Ano-2026.csv.zip
-camara/votacoes_2026.json 200 application/json 9539553 https://dadosabertos.camara.leg.br/arquivos/votacoes/json/votacoes-2026.json
-camara/votacoesvotos_2026.json 200 application/json 32661540 https://dadosabertos.camara.leg.br/arquivos/votacoesVotos/json/votacoesVotos-2026.json
-senado/votacoes.json 200 application/json 296786 https://legis.senado.leg.br/dadosabertos/plenario/lista/votacao/20261001/20261114.json
-senado/senadores.json 200 application/json 129557 https://legis.senado.leg.br/dadosabertos/senador/lista/atual.json
-tse/pesquisa_2026.zip 200 application/zip 6165504 https://cdn.tse.jus.br/estatistica/sead/odsele/pesquisa_eleitoral/pesquisa_eleitoral_2026.zip
-tse/pesquisa_2024.zip 200 application/zip 25744897 https://cdn.tse.jus.br/estatistica/sead/odsele/pesquisa_eleitoral/pesquisa_eleitoral_2024.zip
-tse/pesquisa_2022.zip 200 application/zip 3171871 https://cdn.tse.jus.br/estatistica/sead/odsele/pesquisa_eleitoral/pesquisa_eleitoral_2022.zip
-tse/dadosabertos_pesquisa.html 200 text/html; charset=utf-8 114120 https://dadosabertos.tse.jus.br/dataset/?q=pesquisa+eleitoral
+camara/votacoesobjetos_2026.json 200 application/json 23912936 https://dadosabertos.camara.leg.br/arquivos/votacoesObjetos/json/votacoesObjetos-2026.json
+camara/votacoesorientacoes_2026.json 200 application/json 761154 https://dadosabertos.camara.leg.br/arquivos/votacoesOrientacoes/json/votacoesOrientacoes-2026.json
+senado/votacao_nova.json 200 application/json 305089 https://legis.senado.leg.br/dadosabertos/votacao?dataInicio=2026-08-01&dataFim=2026-11-14&v=1
+senado/votacao_nova_b.json 200 application/json 305105 https://legis.senado.leg.br/dadosabertos/votacao.json?dataInicio=2026-08-01&dataFim=2026-11-14
