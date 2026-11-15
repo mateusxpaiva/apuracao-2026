@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+<meta charset="iso-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="dcterms.issued" content="2026-11-03">
+<meta name="dcterms.language" content="eng"> 
+<meta name="dcterms.creator" content="Elections Canada"> 
+<meta name="dcterms.accessRights" content="2"> 
+<meta name="gcaaterms.sitename" content="Elections"/>
+<link href="/templates/styles/style.css" rel="stylesheet" type="text/css" media="all">
+<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="templates/styles/ie.css"><![endif]-->
+<link href="/templates/styles/print.css" rel="stylesheet" type="text/css" media="print">
+<link href="/templates/styles/responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="//assets.adobedtm.com/be5dfd287373/994f2c60afa3/launch-fd35fe39edac.min.js"></script>
+<title>Elections Canada's Legislated Reports &ndash; Elections Canada</title>
+<meta name="dcterms.title" content="Elections Canada's Legislated Reports" />
+<meta property="og:site_name" content="Elections Canada" />
+<meta property="og:title" content="Elections Canada's Legislated Reports" />
+<meta property="og:description" content="---" />
+<meta property="og:image" content="http://www.elections.ca/templates/images/facebook/elections.png" />
+
+<meta name="dc.subject" content="reports, statutory reports, official voting results, election reports">
+<meta name="keywords" content="reports, statutory reports, official voting results, election reports">
+<meta name="description" content="Official reports published by Elections Canada.">
+
+    <style>
+		div.topic {
+			/* display: none; */
+			margin-bottom: 1em;
+			padding: .25em;
+			<!--border: black thin solid;-->
+			background-color: #FFFFFF;
+			width: auto;
+		}
+
+		p.button {
+			margin: .25em;
+			padding: .25em;
+            text-align: right;
+		}
+
+		h2 {
+			margin: 0;
+			padding: 0;
+			margin-top: 1em;
+		}
+
+    button {
+        padding: 5px;
+    }
+		a.buttonControl {
+			color: #004400;
+			text-decoration: none;
+			border-bottom: 1px solid #004400;
+            border-radius: 3px;
+            padding: 8px;
+		}
+
+		a.buttonControl:hover,
+		a.buttonControl:active,
+		a.buttonControl:focus {
+			color: #880000;
+			border-bottom: 2px solid #880000;
+		}
+        .openercloser {
+				display: none;
+				cursor: pointer;
+			}
+	
+		button.openercloser > * {
+			pointer-events: none;
+		}
+		
+	.col1am{float:left; width: 370; padding: 10px;}
+	.col2am{float:right; width: 370; padding: 10px;}
+	.col3am{width: 370; padding: 10px;}
+	
+	@media print {
+	#content-main {
+		width: auto;
+	}
+}
+</style>
+
+
+<script src="/templates/scripts/jquery-3.7.1.min.js"></script>
+<script src="/templates/scripts/world.js"></script>	
+</head>
+
+<body>
+<!--BEGIN - DIV.WRAP -->
+<div id="wrap">
+	
+
+<!--BEGIN - DIV.HEADER -->
+<div id="header">
+	<header>
+		<div id="headercol1">
+			<div id="logo">
+				<a href="/home.aspx">
+					<img src="/templates/images/logo2.jpg" alt="Elections Canada logo" /><span class="hidden">Elections Canada Home</span>
+				</a>
+			</div>
+		</div>
+		<div id="headercol2">
+			<div id="searchbar">
+				<form action="https://www.canada.ca/en/elections-canada/search.html" accept-charset="UTF-8" method="get" role="search"> 
+					<p class="nopadnomarg">
+						<label for="q" class="hidden">Search the site</label>	
+						<input type="text" id="q"  name="q" class="styled" />
+						<input value="Search" class="button" type="submit" name="send"  role="button"/>
+					</p>
+				</form>
+				<div id="navaid2">
+					<a href="#top"><span>Skip to content</span></a>
+				</div>
+			</div>
+		</div>
+		<div id="headercol3">
+			<nav id="menubar" aria-label="Quick links">
+				<ul id="navlist">
+					<li><a href="/home.aspx">Home</a></li>
+					<li><a href="/content.aspx?section=abo&amp;document=index&amp;lang=e">About Us</a></li>
+					<li><a href="/content.aspx?section=cont&amp;document=index&amp;lang=e">Contact Us</a></li>
+					<li class="hidden"><a href="#custom-launcher">Chat with us</a></li>
+					<li class="last"><a href="https://www.elections.ca/content.aspx?section=res&amp;dir=rep/off&amp;document=index&amp;lang=f" lang="fr" xml:lang="fr">Fran&#231;ais</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="clearall"></div>
+	</header>
+	<a href="#topnav" class="topnav-link"><img src="images/openicon.png" alt="open" /> Site Menu</a>
+	  <nav id="topnav" aria-label="Main">
+		<ul id="mainmenu">
+			<li><a href="/content.aspx?section=vot&amp;document=index&amp;lang=e">Voters
+				<span class="small">Find all you need to know about registering and voting</span></a></li>
+			<li><a href="/content.aspx?section=ele&amp;document=index&amp;lang=e">Elections
+				<span class="small">Get info and data on federal elections</span></a></li>
+			<li aria-current="true" class="current" ><a href="/content.aspx?section=res&amp;document=index&amp;lang=e">Resource Centre
+				<span class="small">Learn about election laws, electoral districts, our research and more</span></a></li>
+			<li><a href="/content.aspx?section=med&amp;document=index&amp;lang=e">Media
+				<span class="small">See our news releases and other media resources</span></a></li>
+			<li><a href="/content.aspx?section=emp&amp;document=index&amp;lang=e">Employment
+				<span class="small">Learn about working for Elections Canada and how to apply</span></a></li>
+			<li><a href="/content.aspx?section=fin&amp;&amp;document=index&amp;lang=e">Political Financing
+				<span class="small">Learn about political financing,  view financial reports</span></a></li>
+			<li><a href="/content.aspx?section=pol&amp;&amp;document=index&amp;lang=e">Political Entities
+				<span class="small">Access resources for parties, candidates, third parties and more</span></a></li>
+		</ul>
+	</nav>
+</div>
+<!--END - DIV.HEADER -->
+
+
+		
+	<!-- <form method="post" action="./content.aspx?section=res&amp;dir=rep%2foff&amp;document=index&amp;lang=e" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5MzI3NzU5ODYPZBYCZg9kFgICAg9kFgICAg9kFgICAQ8WAh4EVGV4dAXhDjx1bCBjbGFzcz0ibWVudWdyb3VwIj48bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9bG9pJmFtcDtkb2N1bWVudD1pbmRleCZhbXA7bGFuZz1lIj5MZWdpc2xhdGlvbjwvYT48L2xpPgo8bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9Z3VpJmFtcDtkb2N1bWVudD1pbmRleCZhbXA7bGFuZz1lIj5PcGluaW9ucywgR3VpZGVsaW5lcyBhbmQgSW50ZXJwcmV0YXRpb25zIDwvYT48L2xpPgo8bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9ZGlzJmFtcDtkb2N1bWVudD1pbmRleCZhbXA7bGFuZz1lIj5FbGVjdG9GYWN0czwvYT48L2xpPgo8bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9cGNhJmFtcDtkb2N1bWVudD1pbmRleCZhbXA7bGFuZz1lIj5PZmZpY2lhbCBFbGVjdGlvbnMgQ2FuYWRhIENvbW11bmljYXRpb24gUHJvZHVjdHM8L2E+PC9saT4KPGxpPjxhIGhyZWY9ImNvbnRlbnQuYXNweD9zZWN0aW9uPXJlcyZhbXA7ZGlyPXJlYyZhbXA7ZG9jdW1lbnQ9aW5kZXgmYW1wO2xhbmc9ZSI+UmVzZWFyY2g8L2E+PC9saT4KPGxpPjxhIGhyZWY9ImNvbnRlbnQuYXNweD9zZWN0aW9uPXJlcyZhbXA7ZGlyPWNpciZhbXA7ZG9jdW1lbnQ9aW5kZXgmYW1wO2xhbmc9ZSI+RWxlY3RvcmFsIERpc3RyaWN0czwvYT48L2xpPgo8bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9cmVwJmFtcDtkb2N1bWVudD1pbmRleCZhbXA7bGFuZz1lIj5SZXBvcnRzPC9hPgo8dWwgY2xhc3M9Im1lbnVncm91cCI+PGxpPjxhIGhyZWY9ImNvbnRlbnQuYXNweD9zZWN0aW9uPXJlcyZhbXA7ZGlyPXJlcC9vZmYmYW1wO2RvY3VtZW50PWluZGV4JmFtcDtsYW5nPWUiIGNsYXNzPSJjdXJyZW50LWFjdGl2ZSI+RWxlY3Rpb25zIENhbmFkYSdzIExlZ2lzbGF0ZWQgUmVwb3J0czwvYT48L2xpPgo8bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9cmVwL290aCZhbXA7ZG9jdW1lbnQ9aW5kZXgmYW1wO2xhbmc9ZSI+T3RoZXIgUmVwb3J0czwvYT48L2xpPgo8bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9cmVwL3RyYSZhbXA7ZG9jdW1lbnQ9aW5kZXgmYW1wO2xhbmc9ZSI+VHJhbnNwb3NpdGlvbiBvZiB2b3RlcyByZXBvcnRzPC9hPjwvbGk+CjwvdWw+PC9saT4KPGxpPjxhIGhyZWY9ImNvbnRlbnQuYXNweD9zZWN0aW9uPXJlcyZhbXA7ZGlyPXBvbGkmYW1wO2RvY3VtZW50PWluZGV4JmFtcDtsYW5nPWUiPlJlZ3VsYXRvcnkgUG9saWN5PC9hPjwvbGk+CjxsaT48YSBocmVmPSJjb250ZW50LmFzcHg/c2VjdGlvbj1yZXMmYW1wO2Rpcj1jb25zJmFtcDtkb2N1bWVudD1pbmRleCZhbXA7bGFuZz1lIj5Db25zdWx0YXRpb25zPC9hPjwvbGk+CjxsaT48YSBocmVmPSJjb250ZW50LmFzcHg/c2VjdGlvbj1yZXMmYW1wO2Rpcj1wdWImYW1wO2RvY3VtZW50PWluZGV4JmFtcDtsYW5nPWUiPlB1YmxpY2F0aW9uczwvYT48L2xpPgo8bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9aWFkJmFtcDtkb2N1bWVudD1pbmRleCZhbXA7bGFuZz1lIj5JbnRlcm5hdGlvbmFsIEVsZWN0b3JhbCBSZXNvdXJjZXM8L2E+PC9saT4KPGxpPjxhIGhyZWY9ImNvbnRlbnQuYXNweD9zZWN0aW9uPXJlcyZhbXA7ZGlyPWhpcyZhbXA7ZG9jdW1lbnQ9aW5kZXgmYW1wO2xhbmc9ZSI+QSBIaXN0b3J5IG9mIHRoZSBWb3RlIGluIENhbmFkYTwvYT48L2xpPgo8bGk+PGEgaHJlZj0iY29udGVudC5hc3B4P3NlY3Rpb249cmVzJmFtcDtkaXI9Z2xvJmFtcDtkb2N1bWVudD1pbmRleCZhbXA7bGFuZz1lIj5HbG9zc2FyeTwvYT48L2xpPgo8L3VsPg0KZGQnhbDT/mJoH6L9viLU4lScEHnqxklrPxJJZnAfaXVksg==" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="65E7F3AF" />
+</div>
+	 -->
+
+
+		
+		
+		<a id="msId" class="leftnav-link" href="#leftnav" aria-label="Secondary menu"><img src="images/openicon.png" alt="open" /> Secondary menu</a>
+
+		<div id="navbox">
+			<div id="rootname-bg">
+				<div id="rootname"><h2>Resource Centre</h2></div>
+			</div>				
+			<div id="leftnav">
+				<div class="leftnav">
+					<nav aria-labelledby="msId">
+						
+    <ul class="menugroup"><li><a href="content.aspx?section=res&amp;dir=loi&amp;document=index&amp;lang=e">Legislation</a></li>
+<li><a href="content.aspx?section=res&amp;dir=gui&amp;document=index&amp;lang=e">Opinions, Guidelines and Interpretations </a></li>
+<li><a href="content.aspx?section=res&amp;dir=dis&amp;document=index&amp;lang=e">ElectoFacts</a></li>
+<li><a href="content.aspx?section=res&amp;dir=pca&amp;document=index&amp;lang=e">Official Elections Canada Communication Products</a></li>
+<li><a href="content.aspx?section=res&amp;dir=rec&amp;document=index&amp;lang=e">Research</a></li>
+<li><a href="content.aspx?section=res&amp;dir=cir&amp;document=index&amp;lang=e">Electoral Districts</a></li>
+<li><a href="content.aspx?section=res&amp;dir=rep&amp;document=index&amp;lang=e">Reports</a>
+<ul class="menugroup"><li><a href="content.aspx?section=res&amp;dir=rep/off&amp;document=index&amp;lang=e" class="current-active">Elections Canada's Legislated Reports</a></li>
+<li><a href="content.aspx?section=res&amp;dir=rep/oth&amp;document=index&amp;lang=e">Other Reports</a></li>
+<li><a href="content.aspx?section=res&amp;dir=rep/tra&amp;document=index&amp;lang=e">Transposition of votes reports</a></li>
+</ul></li>
+<li><a href="content.aspx?section=res&amp;dir=poli&amp;document=index&amp;lang=e">Regulatory Policy</a></li>
+<li><a href="content.aspx?section=res&amp;dir=cons&amp;document=index&amp;lang=e">Consultations</a></li>
+<li><a href="content.aspx?section=res&amp;dir=pub&amp;document=index&amp;lang=e">Publications</a></li>
+<li><a href="content.aspx?section=res&amp;dir=iad&amp;document=index&amp;lang=e">International Electoral Resources</a></li>
+<li><a href="content.aspx?section=res&amp;dir=his&amp;document=index&amp;lang=e">A History of the Vote in Canada</a></li>
+<li><a href="content.aspx?section=res&amp;dir=glo&amp;document=index&amp;lang=e">Glossary</a></li>
+</ul>
+
+
+					</nav>
+				</div>
+			</div>
+		</div>								
+	
+    <main><div id="content-main"><nav id="breadcrumbs" aria-label="breadcrumbs" ><ol itemscope itemtype="https://schema.org/BreadcrumbList">
+<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a  itemprop="item" href="home.aspx"><span itemprop="name"> Home</span></a><meta itemprop="position" content="1" /></li>
+<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="content.aspx?section=res&amp;document=index&amp;lang=e"><span itemprop="name"> Resource Centre</span></a><meta itemprop="position" content="2" /></li>
+<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="content.aspx?section=res&amp;dir=rep&amp;document=index&amp;lang=e"><span itemprop="name"> Reports</span></a><meta itemprop="position" content="3" /></li>
+<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="item"><span itemprop="name"> Elections Canada's Legislated Reports</span><meta itemprop="position" content="4" /></span></li>
+</ol>
+</nav><h1 id="top">Elections Canada's Legislated Reports</h1>
+
+<p>This section is organized by electoral event. Choose an election or a referendum to see the reports that are required under the <cite>Canada Elections Act</cite>. For other information about an electoral event, go to the <a href="/content.aspx?section=ele&dir=pas&document=index&lang=e">Past elections</a> page.</p>
+
+<!--<p>This section is organized by electoral event. Choose an election or a referendum to see the official reports:</p>-->
+
+<ul class="hidden">
+<li><a href="#general">General election</a></li>
+<li><a href="#t1-label">By-election</a></li>
+<li><a href="#referendum">Referendum</a></li>
+</ul>
+
+
+<div class="col2am">
+<h2 id="t1-label">By-elections</h2>
+<h3>2026</h3>
+<ul>
+	<li><a href="#apr1326">April 13, 2025, By-elections: Terrebonne (QC), Scarborough Southwest (ON), University&ndash;Rosedale (ON)</a></li>
+</ul>
+
+<h3>2025</h3>
+<ul>
+	<li><a href="#aug1825">August 18, 2025, By-election: Battle River&ndash;Crowfoot (AB)</a></li>
+</ul>
+
+<h3>2024</h3>
+<ul>
+	<li><a href="#dec1624">December 16, 2024, By-election: Cloverdale&ndash;Langley City (BC)</a></li>
+	<li><a href="#sep1624">September 16, 2024 by-elections: LaSalle&ndash;&Eacute;mard&ndash;Verdun (QC), Elmwood&ndash;Transcona (MB)</a></li>
+	<li><a href="#jun2024">June 24, 2024 by-election: Toronto&ndash;St. Paul's (ON)</a></li>
+	<li><a href="#mar2024">March 4, 2024 by-election: Durham (ON)</a></li>
+</ul>
+
+<h3><button class="openercloser" aria-expanded="false"><span>Show more</span> by-elections</button></h3>
+<div class="collapserPanel">
+<h3>2023</h3>
+<ul>
+	<li><a href="#jul2023">July 24, 2023 by-election: Calgary Heritage (AB)</a></li>
+	<li><a href="#jun2023">June 19, 2023 by-elections: Notre-Dame-de-Gr&acirc;ce&ndash;Westmount (QC), Oxford (ON), Portage&ndash;Lisgar (MB), Winnipeg South Centre (MB)</a></li>
+</ul>
+	<h3>2022</h3>
+	<ul>
+		<li><a href="#dec122022">December 12, 2022 by-election: Mississauga&ndash;Lakeshore (ON)</a></li>
+	</ul>
+	<h3>2020</h3>
+	<ul>
+	<li><a href="#oct262020">October 26, 2020 by-elections: Toronto Centre (ON), York Centre (ON)</a></li>
+	</ul>
+	<h3>2019</h3>
+	<ul>
+	<li><a href="#may62019">May 6, 2019 by-election: Nanaimo&#8211;Ladysmith (BC)</a></li>
+	<li><a href="#feb252019">February 25, 2019 by-elections: Outremont (QC), York&#8211;Simcoe (ON), Burnaby South (BC)</a></li>
+	</ul>
+	<h3>2018</h3>
+	<ul>
+	<li><a href="#dec032018">December 3, 2018 by-election: Leeds&#8211;Grenville&#8211;Thousand Islands and Rideau Lakes (ON)</a></li>
+	<li><a href="#jun182018">June 18, 2018 by-election: Chicoutimi&#8211;Le Fjord (QC)</a></li>
+	</ul>
+	<h3>2017</h3>
+	<ul>
+	<li><a href="#dec112017">December 11, 2017 by-elections: Bonavista&#8211;Burin&#8211;Trinity (NL), Scarborough&#8211;Agincourt (ON), Battlefords&#8211;Lloydminster (SK),
+	South Surrey&#8211;White Rock (BC)</a></li>
+	<li><a href="#oct232017">October 23, 2017 by-elections: Lac-Saint-Jean (QC), Sturgeon River&#8211;Parkland (AB)</a></li>
+	<li><a href="#apr032017">April 3, 2017 by-elections: Saint-Laurent (QC), Markham&#8211;Thornhill (ON), Ottawa&#8211;Vanier (ON), Calgary Heritage (AB), 
+	Calgary Midnapore (AB)</a></li>
+	</ul>
+	<h3>2016</h3>
+	<ul>
+	<li><a href="#oct242016">October 24, 2016 by-election: Medicine Hat&#8211;Cardston&#8211;Warner (AB)</a></li>
+	</ul>
+	<h3>2014</h3>
+	<ul>
+	<li><a href="#nov172014">November 17, 2014 by-elections: Whitby&#8211;Oshawa (ON), Yellowhead (AB)</a></li>
+	<li><a href="#jun302014">June 30, 2014 by-elections: Trinity&#8211;Spadina (ON),
+	 Scarborough&#8211;Agincourt (ON), Fort McMurray&#8211;Athabasca (AB), Macleod (AB)</a></li>
+	</ul>
+	<h3>2013</h3>
+	<ul>
+	<li><a href="#nov252013">November 25, 2013 by-elections: Bourassa (QC), Brandon&#8211;Souris (MB), Provencher (MB), Toronto Centre (ON)</a></li>
+	<li><a href="#may132013">May 13, 2013 by-election: Labrador (NL)</a></li>
+	</ul>
+	<h3>2012</h3>
+	<ul>
+	<li><a href="#nov262012">November 26, 2012 by-elections: Calgary Centre (AB), Durham (ON), Victoria (BC)</a></li>
+	<li><a href="#mar192012">March 19, 2012 by-elections: Toronto&#8211;Danforth (ON)</a></li>
+	</ul>
+	<h3>2010</h3>
+	<ul>
+	<li><a href="#nov292010">November 29, 2010 by-elections: Dauphin&#8211;Swan River&#8211;Marquette (MB), Vaughan (ON), Winnipeg North (MB)</a></li>
+	</ul>
+	<h3>2009</h3>
+	<ul>
+	<li><a href="#nov092009">November 9, 2009 by-elections: Cumberland&#8211;Colchester&#8211;Musquodoboit Valley (NS), Hochelaga (QC), Montmagny&#8211;L'Islet&#8211;Kamouraska&#8211;Rivi&#232;re-du-Loup (QC), New Westminster&#8211;Coquitlam (BC)</a></li>
+	</ul>
+	<h3>2008</h3>
+	<ul>
+	<li><a href="#mar172008">March 17, 2008 by-elections: Desneth&#233;&#8211;Missinippi&#8211;Churchill River (MB), Toronto Centre (ON),     Vancouver Quadra (BC), Willowdale (ON)</a></li>
+	</ul>
+	<h3>2007</h3>
+	<ul>
+	<li><a href="#sep172007">September 17, 2007 by-elections: Outremont (QC), Roberval&#8211;Lac-Saint-Jean (QC), Saint-Hyacinthe&#8211;Bagot (QC)</a></li>
+	</ul>
+	<h3>2006</h3>
+	<ul>
+	<li><a href="#nov272006">November 27, 2006 by-elections: Repentigny (QC), London North Centre (ON)</a></li>
+	</ul>
+	<h3>2005</h3>
+	<ul>
+	<li><a href="#may242005">May 24, 2005 by-election: Labrador (NL)</a></li>
+	</ul>
+	<h3>2003</h3>
+	<ul>
+	<li><a href="#jun162003">June 16, 2003 by-elections: L&#233;vis-et-Chutes-de-la-Chaudi&#232;re (QC), T&#233;miscamingue (QC)</a></li>
+	<li><a href="#may122003">May 12, 2003 by-election: Perth&#8211;Middlesex (ON)</a></li>
+	</ul>
+	<h3>2002</h3>
+	<ul>
+	<li><a href="#dec092002">December 9, 2002 by-elections: Berthier&#8211;Montcalm (QC), Lac-Saint-Jean&#8211;Saguenay (QC)</a></li>
+	<li><a href="#may132002">May 13, 2002 by-elections: Bonavista&#8211;Trinity&#8211;Conception (NL), Calgary Southwest (AB), Gander&#8211;Grand Falls (NL), Saint Boniface (MB), Saint-L&#233;onard&#8211;Saint-Michel (QC), Verdun&#8211;Saint-Henri&#8211;Saint-Paul&#8211;Pointe Sainte-Charles (QC), Windsor West (ON)</a></li>
+	</ul>
+	<h3>2000</h3>
+	<ul>
+	<li><a href="#sep112000">September 11, 2000 by-elections: Okanagan&#8211;Coquihalla (BC), Kings&#8211;Hants (NS)</a></li>
+	<li><a href="#may152000">May 15, 2000 by-election: St. John's West (NL)</a></li>
+	</ul>
+	<h3>1999</h3>
+	<ul>
+	<li><a href="#nov151999">November 15, 1999 by-elections: York West (ON), Saskatoon&#8211;Rosetown&#8211;Biggar (SK), Mount Royal (QC), Hull&#8211;Aylmer (QC)</a></li>
+	<li><a href="#apr121999">April 12, 1999 by-election: Windsor&#8211;St. Clair (ON)</a></li>
+	</ul>
+	<h3>1998</h3>
+	<ul>
+	<li><a href="#sep141998">September 14, 1998 by-election: Sherbrooke (QC)</a></li>
+	<li><a href="#mar301998">March 30, 1998 by-election: Port&#8211;Coquitlam (BC)</a></li>
+	</ul>
+	<h3>1996</h3>
+	<ul>
+	<li><a href="#mar251996">March 25, 1996 by-elections: Humber&#8211;St. Barbe&#8211;Baie Verte (NL), Labrador (NL), Lac-Saint-Jean (QC), Papineau&#8211;Saint-Michel (QC), Saint-Laurent&#8211;Cartierville (QC), Etobicoke North  (ON), Hamilton East (ON)</a></li>
+	</ul>
+	</div>
+</div>
+
+
+
+<div class="col1am">
+<h2 id="general">General Elections</h2>
+<ul>
+<li><a href="#45GE">45th general election  &#8211; April&nbsp;28, 2025</a></li>
+<li><a href="#44GE">44th general election  &#8211; September&nbsp;20, 2021</a></li>
+<li><a href="#43GE">43rd general election  &#8211; October 21, 2019</a></li>
+<li><a href="#42GE">42nd general election  &#8211; October 19, 2015</a></li>
+<li><a href="#41GE">41st general election  &#8211; May 2, 2011</a></li>
+<li><a href="#40GE">40th general election  &#8211; October 14, 2008</a></li>
+<li><a href="#39GE">39th general election  &#8211; January 23, 2006</a></li>
+<li><a href="#38GE">38th general election  &#8211; June 28, 2004</a></li>
+<li><a href="#37GE">37th general election  &#8211; November 27, 2000</a></li>
+<li><a href="#36GE">36th general election  &#8211; June 2, 1997</a></li>
+</ul>
+</div>
+
+<div class="col3am">
+<h2 id="referendum">Referendum</h2>
+<ul>
+<li><a href="#ref1992">1992 federal referendum  &#8211; October 26, 1992</a></li>
+</ul>
+</div>
+
+
+<div class="clearall"></div>
+
+<h2 id="45GE" class="titream">45th General Election</h2>
+<p><!--There are several steps to closing a general election and reporting on how it unfolded, as well as drawing lessons for future elections. Elections Canada is committed to sharing its analysis and reports.--> Reports are added as they become available.</p>
+<p><strong>Date:</strong> April&nbsp;28, 2025</p>
+
+<!--<h3>Official Reports</h3>-->
+<ul>
+	<li> <a href="/content.aspx?section=res&dir=rep/off/sta_ge45&document=index&lang=e">Statutory Report &ndash; September 15, 2025</a>
+	<p>The Chief Electoral Officer of Canada provides an overview of the events that took place during the election period. This report must be presented to the Speaker of the House of Commons within 90 days after the date specified for the return of the writs in the election proclamation.</p>
+	</li>
+	<li><a href="/res/rep/off/ovrGE45/home.html">Official Voting Results</a>
+		<p>The official voting results present the results of the election in much greater detail than the validated results that were shared immediately after the election. While the results themselves do not change, the official voting results provide more context by combining multiple data sources including updated data on the number of registered electors, demographic information on candidates and poll-by-poll results and presenting the data as a complete package, shared in multiple formats.</p>
+	<li>Recommendations Report
+		<p>The Recommendations Report presents a list of recommendations to amend the <cite>Canada Elections Act</cite> with the aim of providing better services to electors or improving the way Elections Canada does its business. </p>
+	</li>
+	</li>
+	<li><a href="/content.aspx?section=ele&dir=pas/45ge/aud&document=index&lang=e">External Audit Report</a>
+		<p>The <cite>Canada Elections Act</cite> states that an independent audit must be performed for each federal general election and by-election to report whether election officers properly exercised the powers conferred on them or performed specific duties imposed on them.</p>
+	</li>
+</ul>
+
+
+
+<h2 id="44GE" class="titream">44th General Election</h2>
+
+<p><strong>Date:</strong> September 20, 2021</p>
+<ul>
+	<li> <a href="/content.aspx?section=res&dir=rep/off/sta_ge44&document=index&lang=e">Statutory Report &ndash; January 31, 2022</a></li>
+	<li> <a href="https://www.elections.ca/res/rep/off/ovr2021app/home.html">Official Voting Results &ndash; April 7, 2022</a></li>
+	<li> <a href="/content.aspx?section=res&dir=rep/off/rec_2022&document=index&lang=e">Recommendations Report &ndash; Spring 2022</a></li>
+	<li> <a href="/content.aspx?section=ele&dir=pas/44ge/ege&document=ex-au-index&lang=e">External Audit Report</a></li>
+</ul>
+
+<!--
+<ul>
+	<li><a href="/content.aspx?section=res&dir=rec/eval/pes2021/ege&document=index&lang=e">Retrospective Report &ndash; October 11, 2022</a><br>
+	The Retrospective Report evaluates Elections Canada's success in delivering the 44th general election, as measured against specific performance indicators, and identifies areas for improvement going forward. The assessment is based on information and data collected through post-election analyses, official reports and audits; feedback from key stakeholder groups; and the results of research and surveys on the experience of electors, candidates and election officers.</li>
+	
+	<li><a href="/content.aspx?section=res&dir=rec/eval/pes2021/car&document=index&lang=e">Complaints Analysis Report</a><br
+	>Between August&nbsp;1 and November&nbsp;1, 2021, Elections Canada reviewed complaints from electors about the 44th general election. This report summarizes key findings of the review and identifies areas where the agency can improve the elector experience.</li>
+</ul>
+-->
+
+<h2 id="43GE" class="titream">43rd General Election</h2>
+<p><strong>Date:</strong> October 21, 2019</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_ge43&document=index&lang=e">Statutory Report &#8211; February 18, 2020</a></li>
+<li><a href="/res/rep/off/ovr2019app/home.html">Official Voting Results &#8211; April&nbsp;6, 2020</a></li>
+<li> <a href="/content.aspx?section=res&dir=rep/off/rec_2022&document=index&lang=e">Recommendations Report &ndash; Spring 2022</a></li>
+<li><a href="/content.aspx?section=ele&dir=pas/43ge/ege&document=ex-au-index&lang=e">External Audit Report</a></li>
+
+<!--
+<li><a href="/content.aspx?section=res&dir=rep/off/camp_43&document=index&lang=e">Campus Voting Turnout &#8211; April&nbsp;30, 2020</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/int_43&document=index&lang=e">International Elector Registration and Turnout &#8211; 43rd General Election</a></li>
+<li><a href="/content.aspx?section=res&dir=rec/eval/pes2019/ege&document=index&lang=e">Retrospective Report &#8211; April 15, 2021</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/cou&document=index43&lang=e">Cost of the 43rd General Election</a></li>
+-->
+</ul>
+
+<h2 id="42GE" class="titream">42nd General Election</h2>
+<p><strong>Date:</strong> October 19, 2015</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2015&document=index&lang=e">Statutory Report &#8211; February 3, 2016</a></li>
+<li><a href="/res/rep/off/ovr2015app/home.html">Official Voting Results &#8211; February 29, 2016</a></li>
+<li><a href="/content.aspx?section=res&dir=rec/eval/pes2015/ege&document=app2-index&lang=e">External Audit Report &#8211; February 16, 2016</a></li>
+<li><a href="/content.aspx?section=res&dir=rec/eval/pes2015&document=index&lang=e">Retrospective Report &#8211; September 21, 2016</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/rec_2016&document=index&lang=e">Recommendations Report &#8211; September 27, 2016</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/srd&document=ltr&lang=e">Supplementary Recommendations on Division 2 of Part 11 of the <span class="italic">Canada Elections Act</span>  &#8211; June 5, 2017</a></li>
+
+
+</ul>
+
+<h2 id="41GE" class="titream">41st General Election</h2>
+<p><strong>Date:</strong> May 2, 2011</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2011&document=index&lang=e">Statutory Report &#8211; August 17, 2011</a></li>
+<li><a href="/scripts/ovr2011/default.html">Official Voting Results &#8211; August 17, 2011</a>  (<a href="/content.aspx?section=res&dir=rep/off/41gedata&document=index&lang=e">Raw data for researchers <span class="hidden">for the results of the May 2, 2011 general election</span></a>)</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/comm&document=index&lang=e">Recommendations Report &#8211; March 27, 2013</a></li>
+</ul>
+
+<h2 id="40GE" class="titream">40th General Election</h2>
+<p><strong>Date:</strong> October 14, 2008</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2008&document=index&lang=e">Statutory Report &#8211; February 3, 2009</a></li>
+<li><a href="/scripts/OVR2008/default.html">Official Voting Results &#8211; February 3, 2009</a>  (<a href="/content.aspx?section=res&dir=rep/off/40gedata&document=index&lang=e">Raw data for researchers <span class="hidden">for the results of the October 14, 2008 general election</span></a>)</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/r40&document=index&lang=e">Recommendations Report &#8211; June 10, 2010</a></li>
+</ul>
+
+<h2 id="39GE" class="titream">39th General Election</h2>
+<p><strong>Date:</strong> January 23, 2006</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2006&document=index&lang=e">Statutory Report &#8211; May 12, 2006</a></li>
+<li><a href="/scripts/OVR2006/default.html">Official Voting Results &#8211; February 3, 2009</a>  (<a href="/content.aspx?section=res&dir=rep/off/39gedata&document=index&lang=e">Raw data for researchers <span class="hidden">for the results of the January 23, 2006 general election</span></a>)</li>
+</ul>
+
+<h2 id="38GE" class="titream">38th General Election</h2>
+<p><strong>Date:</strong> June 28, 2004</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta2004&document=index&lang=e">Statutory Report &#8211; October 21, 2004</a></li>
+<li><a href="/scripts/OVR2004/default.html">Official Voting Results &#8211; November 17, 2004</a> (<a href="/content.aspx?section=res&dir=rep/off/38gedata&document=index&lang=e">Raw data for researchers <span class="hidden">for the results of the June 28, 2004 general election</span></a>)</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/r38&document=index&lang=e">Recommendations Report &#8211; September 29, 2005</a></li>
+</ul>
+
+<h2 id="37GE" class="titream">37th General Election</h2>
+<p><strong>Date:</strong> November 27, 2000</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta&document=index&lang=e">Statutory Report &#8211; March&nbsp;19, 2001</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/37g&document=index&lang=e">Official Voting Results Synopsis &#8211; May&nbsp;2, 2001</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/37d&document=index&lang=e">Official Voting Results Poll-by-poll Results &#8211; May&nbsp;2, 2001</a></li>
+</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/wbc&document=index&lang=e">Recommendations Report &#8211; November&nbsp;27, 2001</a></li>
+</ul>
+
+<h2 id="36GE" class="titream">36th General Election</h2>
+<p><strong>Date:</strong> June 2, 1997</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/ceo&document=index&lang=e">Statutory Report &#8211; August 22, 1997</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/dec3097&document=index&lang=e">Official Voting Results Synopsis &#8211; December 30, 1997</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/37d&document=index&lang=e">Official Voting Results Poll-by-poll Results &#8211; December 30, 1997</a></li>
+</li>
+
+</ul>
+
+<div class="spaceneeded2"></div>
+
+
+
+
+
+
+<h2 class="titream" id="apr1326">April 13, 2026, By-elections</h2>
+<p><strong>Electoral districts:</strong> Terrebonne (QC), Scarborough Southwest (ON), University&ndash;Rosedale (ON)</p>
+<ul>
+	<!--<li><a href="/content.aspx?section=res&dir=rep/off/sta_2025&document=index&lang=e">Statutory Report on the 2025 By-elections</a></li>-->
+	<li><a href="/res/rep/off/ovr_2026/home.html">Official Voting Results</a></li>
+    <li><a href="/content.aspx?section=res&dir=rep/off/audit_apr1326&document=index&lang=e">External Audit Report &#8211; July 17, 2026</a></li>
+</ul>
+
+
+<h2 class="titream" id="aug1825">August 18, 2025, By-election</h2>
+<p><strong>Electoral district:</strong> Battle River&ndash;Crowfoot (AB)</p>
+<ul>
+	<li><a href="/content.aspx?section=res&dir=rep/off/sta_2025&document=index&lang=e">Statutory Report on the 2025 By-elections</a></li>
+	<li><a href="/res/rep/off/ovr_2025/home.html">Official Voting Results &ndash; November 26, 2025</a></li>
+    <li><a href="/content.aspx?section=res&dir=rep/off/audit_aug1825&document=index&lang=e">External Audit Report &#8211; April 1, 2026</a></li>
+</ul>
+
+<h2 class="titream" id="dec1624">December 16, 2024, By-election</h2>
+<p><strong>Electoral district:</strong> Cloverdale&ndash;Langley City (BC)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_apr25&document=index&lang=e">Statutory Report on the 2024 By-elections</a></li>
+<li><a href="/res/rep/off/ovr_2024d/home.html">Official Voting Results &ndash; March 19, 2025</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_dec1624&document=index&lang=e">External Audit Report &#8211; November 26, 2025</a></li>
+</ul>
+
+<h2 class="titream" id="sep1624">September 16, 2024 By-elections</h2>
+<p><strong>Electoral districts:</strong> LaSalle&ndash;&Eacute;mard&ndash;Verdun (QC), Elmwood&ndash;Transcona (MB)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_apr25&document=index&lang=e">Statutory Report on the 2024 By-elections</a>
+<li><a href="/res/rep/off/ovr_2024c/home.html">Official Voting Results &ndash; December 13, 2024</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_sep1624&document=index&lang=e">External Audit Report &#8211; October 31, 2025</a></li>
+</ul>
+
+<h2 class="titream" id="jun2024">June 24, 2024 By-election</h2>
+<p><strong>Electoral district:</strong> Toronto&ndash;St. Paul's (ON)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_apr25&document=index&lang=e">Statutory Report on the 2024 By-elections</a>
+<li><a href="/res/rep/off/ovr_2024b/home.html">Official Voting Results &ndash; September 27, 2024</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_jun2424&document=index&lang=e">External Audit Report &#8211; December&nbsp;17,&nbsp;2024</a></li>
+</ul>
+
+<h2 class="titream" id="mar2024">March 4, 2024 By-election</h2>
+<p><strong>Electoral district:</strong> Durham (ON)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_apr25&document=index&lang=e">Statutory Report on the 2024 By-elections</a>
+<li><a href="/res/rep/off/ovr_2024/home.html">Official Voting Results &ndash; June 12, 2024</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_mar0424&document=index&lang=e">External Audit Report &#8211; June 11, 2024</a></li>
+</ul>
+
+<h2 class="titream" id="jul2023">July 24, 2023 By-election</h2>
+<p><strong>Electoral district:</strong> Calgary Heritage (AB)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_mar24&document=index&lang=e">Statutory Report on the 2023 By-elections</a></li>
+<li><a href="/res/rep/off/ovr_2023b/home.html">Official Voting Results &ndash; October 12, 2023</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_jul2423&document=index&lang=e">External Audit Report &#8211; November 9, 2023</a></li>
+</ul>
+
+<h2 class="titream" id="jun2023">June 19, 2023 By-elections  </h2>
+<p><strong>Electoral districts:</strong> Notre-Dame-de-Gr&acirc;ce&ndash;Westmount (QC), Oxford (ON), Portage&ndash;Lisgar (MB), Winnipeg South Centre (MB)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_mar24&document=index&lang=e">Statutory Report on the 2023 By-elections</a></li>
+<li><a href="/res/rep/off/ovr_2023/home.html">Official Voting Results &ndash; September 14, 2023</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_jun1923&document=index&lang=e">External Audit Report &ndash; September 6, 2023</a></li>
+</ul>
+
+<h2 class="titream" id="dec122022">December 12, 2022 By-election  </h2>
+<p><strong>Electoral district:</strong> Mississauga&ndash;Lakeshore (ON)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_dec1222&document=index&lang=e">Statutory Report &#8211; March 28, 2023</a></li>
+<li><a href="/res/rep/off/ovr_2022/home.html">Official Voting Results &#8211; March 13, 2023</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_dec1222&document=index&lang=e">External Audit Report &#8211; May 18, 2023</a></li>
+</ul>
+<h2 class="titream" id="oct262020">October 26, 2020 By-elections  </h2>
+<p><strong>Electoral districts:</strong> Toronto Centre (ON), York Centre (ON)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_oct2620&document=index&lang=e">Statutory Report &#8211; April 12, 2021</a></li>
+<li><a href="/res/rep/off/ovr_2020/home.html">Official Voting Results &#8211; October 26, 2020</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_oct2620&document=index&lang=e">External Audit Report &#8211; January 25, 2021</a></li>
+</ul>
+
+<h2 class="titream" id="may62019">May 6, 2019 By-election  </h2>
+<p><strong>Electoral district:</strong> Nanaimo&#8211;Ladysmith (BC)</p>
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2020&document=index&lang=e">Statutory Report &#8211; April 13, 2020</a></li>
+<li><a href="/res/rep/off/ovr_2019b/home.html">Official Voting Results &#8211; May 6, 2019</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_may0619&document=index&lang=e">External Audit Report &#8211; November 13, 2019</a></li>
+</ul>
+
+<h2 class="titream" id="feb252019">February 25, 2019 By-elections </h2>
+<p><strong>Electoral districts:</strong> Outremont (QC), York&#8211;Simcoe (ON), Burnaby South (BC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2020&document=index&lang=e">Statutory Report &#8211; April   13, 2020</a></li>
+<li><a href="/res/rep/off/ovr_2019/home.html">Official Voting Results &#8211; February 25, 2019</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_feb2519&document=index&lang=e">External Audit Report &#8211; August 7, 2019</a></li>
+</ul>
+
+<h2 class="titream" id="dec032018">December 3, 2018 By-election </h2>
+<p><strong>Electoral district:</strong> Leeds&#8211;Grenville&#8211;Thousand Islands and Rideau Lakes (ON)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2019&document=index&lang=e">Statutory Report &#8211; March 29, 2019</li>
+<li><a href="/res/rep/off/ovr_2018b/home.html">Official Voting Results &#8211; March 14, 2019</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_dec0318&document=index&lang=e">External Audit Report &#8211; June 10, 2019</a></li>
+</ul>
+
+<h2 class="titream" id="jun182018">June 18, 2018 By-election </h2>
+<p><strong>Electoral district:</strong> Chicoutimi&#8211;Le Fjord (QC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2019&document=index&lang=e">Statutory Report &#8211; March 29, 2019</li>
+<li><a href="/res/rep/off/ovr_2018/home.html">Official Voting Results &#8211; September 20, 2018</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_jun1818&document=index&lang=e">External Audit Report &#8211; January 21, 2019</a></li>
+</ul>
+
+<h2 class="titream" id="dec112017">December 11, 2017 By-elections </h2>
+<p><strong>Electoral districts:</strong> Bonavista&#8211;Burin&#8211;Trinity (NL), Scarborough&#8211;Agincourt (ON), Battlefords&#8211;Lloydminster (SK), South Surrey&#8211;White Rock (BC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2018&document=index&lang=e">Statutory Report &#8211; March 27, 2018</li>
+<li><a href="/res/rep/off/ovr_2017d/home.html">Official Voting Results &#8211; March 14, 2018</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_dec1117&document=index&lang=e">External Audit Report &#8211; April 26, 2018</a></li>
+</ul>
+
+<h2 class="titream" id="oct232017">October 23, 2017 By-elections </h2>
+<p><strong>Electoral districts:</strong> Lac-Saint-Jean (QC), Sturgeon River&#8211;Parkland (AB)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2018&document=index&lang=e">Statutory Report &#8211; March 27, 2018</li>
+<li><a href="/res/rep/off/ovr_2017c/home.html">Official Voting Results &#8211; January 29, 2018</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_oct2317&document=index&lang=e">External Audit Report &#8211; February 23, 2018</a></li>
+</ul>
+
+<h2 class="titream" id="apr032017">April 3, 2017 By-elections </h2>
+<p><strong>Electoral districts:</strong> Calgary Heritage (AB), Calgary Midnapore (AB), Markham&#8211;Thornhill (ON), Ottawa&#8211;Vanier (ON), Saint-Laurent (QC) </p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2018&document=index&lang=e">Statutory Report &#8211; March 27, 2018</li>
+<li><a href="/res/rep/off/ovr_2017b/home.html">Official Voting Results &#8211; June 28, 2017</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/audit_apr0317&document=index&lang=e">External Audit Report &#8211; December 18, 2017</a></li>
+</ul>
+
+<h2 class="titream" id="oct242016">October 24, 2016 By-elections </h2>
+<p><strong>Electoral district:</strong> Medicine Hat&#8211;Cardston&#8211;Warner (AB)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2017&document=index&lang=e">Statutory Report &#8211; March 28, 2017</li>
+<li><a href="/res/rep/off/ovr_2016/home.html">Official Voting Results &#8211; April 4, 2017</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2017&document=p5&lang=e">External Audit Report &#8211; January 12, 2017</a></li>
+</ul>
+
+<h2 class="titream" id="nov172014">November 17, 2014 By-elections </h2>
+<p><strong>Electoral district:</strong> Whitby&#8211;Oshawa (ON), Yellowhead (YK)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2014&document=index&lang=e">Statutory Report &#8211; March 31, 2015</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2014b&document=index&lang=e">Official Voting Results &#8211; March 3, 2015</a></li>
+</ul>
+
+<h2 class="titream" id="jun302014">June 30, 2014 By-elections </h2>
+<p><strong>Electoral districts:</strong> Fort McMurray&#8211;Athabasca (AB), Macleod (AB), Scarborough&#8211;Agincourt (ON), Trinity&#8211;Spadina (ON)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2014&document=index&lang=e">Statutory Report &#8211; March 31, 2015</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2014&document=index&lang=e">Official Voting Results &#8211; June 30, 2015</a></li>
+</ul>
+
+<h2 class="titream" id="nov252013">November 25, 2013 By-elections </h2>
+<p><strong>Electoral districts:</strong> Bourassa (QC), Brandon&#8211;Souris (MB), Provencher (MB), Toronto Centre (ON)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2013&document=index&lang=e">Statutory Report &#8211; March 31, 2014</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2013b2&document=index&lang=e">Official Voting Results &#8211; November 25, 2013</a></li>
+</ul>
+
+<h2 class="titream" id="may132013">May 13, 2013 By-election </h2>
+<p><strong>Electoral district:</strong> Labrador (NL)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2012&document=index&lang=e">Statutory Report &#8211; March 31, 2014</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2013b&document=index&lang=e">Official Voting Results &#8211; August 15, 2013</a></li>
+</ul>
+
+<h2 class="titream" id="nov262012">November 26, 2012 By-elections </h2>
+<p><strong>Electoral districts:</strong> Calgary Centre (AB), Durham (ON), Victoria (BC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2012&document=index&lang=e">Statutory Report &#8211; April 15, 2013</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2012b&document=index&lang=e">Official Voting Results &#8211; February 22, 2013</a></li>
+</ul>
+
+<h2 class="titream" id="mar192012">March 19, 2012 By-election </h2>
+<p><strong>Electoral districts:</strong> Toronto&#8211;Danforth (ON)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2012&document=index&lang=e">Statutory Report &#8211; April 15, 2013</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2012&document=index&lang=e">Official Voting Results &#8211; June 20, 2012</a></li>
+</ul>
+
+<h2 class="titream" id="nov292010">November 29, 2010 By-elections </h2>
+<p><strong>Electoral districts:</strong> Dauphin&#8211;Swan River&#8211;Marquette (MB), Vaughan (ON), Winnipeg North (MB)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2010&document=index&lang=e">Statutory Report &#8211; March 24, 2011</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2010&document=index&lang=e">Official Voting Results &#8211; March 2, 2011</a></li>
+<li><a href="/content.aspx?section=res&dir=rep/oth/avd&document=index&lang=e">Report Following the Pilot Project on the Use of an Assistive Voting Device &#8211; March 24, 2011</a></li>
+</ul>
+
+<h2 class="titream" id="nov092009">November 9, 2009 By-elections </h2>
+<p><strong>Electoral districts:</strong> Cumberland&#8211;Colchester&#8211;Musquodoboit Valley (NS), Hochelaga (QC), Montmagny&#8211;L'Islet&#8211;Kamouraska&#8211;Rivi&egrave;re-du-Loup (QC), New Westminster&#8211;Coquitlam (BC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2009&document=index&lang=e">Statutory Report &#8211; March 31, 2010</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2009&document=index&lang=e">Official Voting Results &#8211; February 18, 2010</a></li>
+</ul>
+
+<h2 class="titream" id="mar172008">March 17, 2008 By-elections </h2>
+<p><strong>Electoral districts:</strong> Desneth&eacute;&#8211;Missinippi&#8211;Churchill River (SK), Toronto Centre (ON), Vancouver Quadra (BC), Willowdale (ON)</p>
+
+<ul>
+
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2008&document=index&lang=e">Official Voting Results &#8211; June 24, 2008</a></li>
+</ul>
+
+<h2 class="titream" id="sep172007">September 17, 2007 By-elections </h2>
+<p><strong>Electoral districts:</strong> Outremont (QC), Roberval&#8211;Lac-Saint-Jean (QC), Saint-Hyacinthe&#8211;Bagot (QC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2007&document=index&lang=e">Statutory Report &#8211; March 31, 2008</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2007&document=index&lang=e">Official Voting Results &#8211; December 14, 2007</a></li>
+</ul>
+
+<h2 class="titream" id="nov272006">November 27, 2006 By-elections </h2>
+<p><strong>Electoral districts:</strong>  London North Centre (ON), Repentigny (QC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_lr2006&document=index&lang=e">Statutory Report &#8211; March 28, 2007</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2006&document=index&lang=e">Official Voting Results &#8211; March 6, 2007</a></li>
+</ul>
+
+<h2 class="titream" id="may242005">May 24, 2005 By-election </h2>
+<p><strong>Electoral district:</strong>  Labrador (NL)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_lab2005&document=index&lang=e">Statutory Report &#8211; March 30, 2006</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_052405&document=index&lang=e">Official Voting Results &#8211; August 24, 2005</a></li>
+</ul>
+
+
+<h2 class="titream" id="jun162003">June 16, 2003 By-elections </h2>
+<p><strong>Electoral districts:</strong> L&eacute;vis-et-Chutes-de-la-Chaudi&egrave;re (QC), T&eacute;miscamingue (QC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta2003&document=index&lang=e">Statutory Report &#8211; March 31, 2004</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2003&document=index&lang=e">Official Voting Results &#8211; August 19, 2003</a></li>
+</ul>
+
+<h2 class="titream" id="may122003">May 12, 2003 By-election </h2>
+<p><strong>Electoral district:</strong> Perth&#8211;Middlesex (ON)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta2003&document=index&lang=e">Statutory Report &#8211; March 31, 2004</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2003&document=index&lang=e">Official Voting Results &#8211; August 19, 2003</a></li>
+</ul>
+
+<h2 class="titream" id="dec092002">December 9, 2002 By-elections </h2>
+<p><strong>Electoral district:</strong> Berthier&#8211;Montcalm (QC), Lac-Saint-Jean&#8211;Saguenay (QC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2002&document=index&lang=e">Statutory Report &#8211; March 31, 2003</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_120902&document=index&lang=e">Official Voting Results &#8211; February 18, 2003</a></li>
+</ul>
+
+<h2 class="titream" id="may132002">May 13, 2002 By-elections </h2>
+<p><strong>Electoral districts:</strong> Calgary Southwest (AB), Saint Boniface (MB), Windsor West (ON), Saint-L&eacute;onard&#8211;Saint-Michel (QC), Verdun&#8211;Saint-Henri&#8211;Saint-Paul&#8211;Pointe Saint-Charles (QC), Bonavista&#8211;Trinity&#8211;Conception (NL), Gander&#8211;Grand Falls (NL)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_2002&document=index&lang=e">Statutory Report &#8211; March 31, 2003</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2002&document=index&lang=e">Official Voting Results &#8211; August 19, 2002</a></li>
+</ul>
+
+<h2 class="titream" id="sep112000">September 11, 2000 By-elections </h2>
+<p><strong>Electoral districts:</strong> Okanagan&#8211;Coquihalla (BC), Kings&#8211;Hants (NS)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_091100&document=index&lang=e">Statutory Report &#8211; February 6, 2001</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2000&document=index&lang=e">Official Voting Results &#8211; December 31, 2000</a></li>
+</ul>
+
+<h2 class="titream" id="may152000">May 15, 2000 By-election </h2>
+<p><strong>Electoral district:</strong> St. John's West (NL)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_051500&document=index&lang=e">Statutory Report &#8211; August 22, 2000</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovr_2000&document=index&lang=e">Official Voting Results &#8211; December 31, 2000</a></li>
+</ul>
+
+<h2 class="titream" id="nov151999">November 15, 1999 By-elections </h2>
+<p><strong>Electoral district:</strong> Hull&#8211;Aylmer (QC), Mount Royal (QC), Saskatoon&#8211;Rosetown&#8211;Biggar (SK), York West (ON)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_111599&document=index&lang=e">Statutory Report &#8211; January 21, 2000</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovresults99&document=index&lang=e">Official Voting Results &#8211; February 8, 2000</a></li>
+</ul>
+
+<h2 class="titream" id="apr121999">April 12, 1999 By-election </h2>
+<p><strong>Electoral district:</strong> Windsor&#8211;St. Clair (ON)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_windsor99&document=index&lang=e">Statutory Report &#8211; January 21, 2000</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/ovresults99&document=index&lang=e">Official Voting Results &#8211; February 8, 2000</a></li>
+</ul>
+
+<h2 class="titream" id="sep141998">September 14, 1998 By-election </h2>
+<p><strong>Electoral district:</strong> Sherbrooke (QC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_sher98&document=index&lang=e">Statutory Report &#8211; November 20, 1998</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/98ov_results&document=index&lang=e">Official Voting Results &#8211; December 30, 1998</a></li>
+</ul>
+
+<h2 class="titream" id="mar301998">March 30, 1998 By-election </h2>
+<p><strong>Electoral district:</strong> Port Moody&#8211;Coquitlam (BC)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/sta_port&document=index&lang=e">Statutory Report &#8211; November 20, 1998</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/98ov_results&document=index&lang=e">Official Voting Results &#8211; September 28, 1998</a></li>
+</ul>
+
+<h2 class="titream" id="mar251996">March 25, 1996 By-elections </h2>
+<p><strong>Electoral districts:</strong> Humber&#8211;St. Barbe&#8211;Baie Verte (NL), Labrador (NL), Lac-Saint-Jean (QC), Papineau&#8211;Saint-Michel (QC), Saint-Laurent&#8211;Cartierville (QC), Etobicoke North  (ON), Hamilton East (ON)</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/inn&document=index&lang=e">Statutory Report &#8211; June 6, 1996</li>
+<li><a href="/content.aspx?section=res&dir=rep/off/98ov_results&document=index&lang=e">Official Voting Results &#8211; December 13, 1996</a></li>
+</ul>
+
+<h2 class="titream" id="ref1992">1992 Federal Referendum</h2>
+<p><strong>Date :</strong> October 26, 1992</p>
+
+<ul>
+<li><a href="/content.aspx?section=res&dir=rep/off/1992&document=index&lang=e">Report  &#8211; January 17, 1994</a> </li>
+
+</ul>
+<div class="spaceneeded"></div>
+<div class="spaceneeded"></div>
+<div class="spaceneeded"></div>
+<div class="spaceneeded"></div>
+
+<script src="/wcag-buttons-panels-v1.js"></script>
+</div></main>
+
+	<!--</form>-->
+  
+	<br class="clearall noclearprint">
+	<br>
+
+<!--END - DIV.WRAP -->   
+</div>
+	
+<footer>
+<!--BEGIN - DIV.FOOTER -->
+<div id="footer">
+
+
+
+	<!--BEGIN - Top Footer -->
+	<div id="footerwrap1">
+		<div class="socialwrap">
+			<div class="container">
+				<h2><span class="allcaps"><strong>Follow us</strong></span> on social media</h2>
+				<p class="alignCenter"><a class="footerSocImages" href="/content.aspx?section=cont&amp;dir=soc&amp;document=index&amp;lang=e"><img src="/templates/images/followus.png" alt="Follow us on social media" /></a></p>
+			</div>       
+		</div>
+		<div class="socialwrap2">
+			<div class="container">
+				<h2><span class="allcaps"><strong>Share this page</strong></span> on social media</h2>
+				<script src="/sb.js"></script>
+				<noscript>
+					<p style="font-size:0.85em; margin-top:0px;"><a href="https://www.facebook.com">Go to Facebook</a>. <a href="https://www.twitter.com">Go to Twitter</a>. <a href="https://www.linkedin.com/">Go to Linkedin</a>. <a href="https://reddit.com">Go to Reddit</a>. <a href="https://www.bluesky.com/">Go to Bluesky</a>. <a href="mailto:?subject=Elections%20Canada%20en%20ligne">Send this page to a friend</a>.</p>
+				</noscript>            
+			</div>
+		</div>
+		<div class="socialwrap3">
+			<div class="contact">Questions? <a href="/content.aspx?section=cont&amp;document=index&amp;lang=e">Contact us</a>.</div> 
+		</div>
+	</div>   
+	<!--END - Top Footer -->
+
+	<!--BEGIN - Links Middle Footer -->
+	<div id="footerwrap2">
+		<div class="footercol">     
+			<nav class="span-2" aria-labelledby="aboutUs">
+				<h4 id="aboutUs" class="FontcolorWhite">About us</h4>
+				<ul>
+					<li><a href="/content.aspx?section=abo&amp;dir=mis&amp;document=index&amp;lang=e">Our mandate</a></li>
+					<li><a href="/content.aspx?section=abo&amp;dir=ceo&amp;document=index&amp;lang=e">The Chief Electoral Officer</a></li>
+					<li><a href="/content.aspx?section=abo&amp;dir=pri&amp;document=index&amp;lang=e">Privacy at Elections Canada</a></li>
+					<li><a href="/content.aspx?section=vot&amp;dir=spe&amp;document=index&amp;lang=e">Our Accessibility Plan</a></li>
+				</ul>
+			</nav>    
+			<nav class="span-2" aria-labelledby="newsroom">
+				<h4 id="newsroom" class="FontcolorWhite">Newsroom</h4>
+				<ul>
+					<li><a href="/content.aspx?section=med&amp;dir=pre&amp;document=index&amp;lang=e">News Releases</a></li>
+					<li><a href="/content.aspx?section=med&amp;dir=spe&amp;document=index&amp;lang=e">Statements and Speeches</a></li>
+				</ul>
+			</nav> 
+			<nav class="span-2" aria-labelledby="usefullLinks">
+				<h4 id="usefullLinks" class="FontcolorWhite">Useful Links</h4>
+				<ul>
+					<li><a href="/sub.aspx?lang=e">Subscription Service</a></li> 
+					<li><a href="/content.aspx?section=new&amp;document=index&amp;lang=e">What's New</a></li>
+					<li><a href="/content.aspx?section=lin&amp;document=index&amp;lang=e">Links</a></li>
+				</ul>
+			</nav> 
+			<nav class="span-2" aria-labelledby="contactUs">
+				<h4 id="contactUs" class="FontcolorWhite">Contact us</h4>
+				<ul>
+					<li><a href="/content.aspx?section=cont&amp;document=index&amp;lang=e">Questions, Complaints, Feedback</a></li>
+					<li><a href="/content.aspx?section=abo&dir=pro/sup&document=index&lang=e">Become a supplier to Elections Canada</a></li>
+				</ul>
+			</nav> 
+		</div>
+	</div> 
+	<!--END - Links Middle Footer -->
+  
+	<!--BEGIN - Page Bottom -->
+	<div id="footerwrap3">
+		<div class="column1">Date Modified: November 03, 2026</div>
+		<div class="column2"><a href="/content.aspx?section=pri&amp;document=index&amp;lang=e">Terms and Conditions</a></div>
+	</div>
+	<!--END - Page Bottom --> 
+
+	
+
+	<script>
+		$(document).ready(function() { 
+
+		$('#topnav').addClass('jsenabled');
+		$('#leftnav').addClass('jsenabled');
+
+		var $menu = $('#topnav'),
+		$menu2 = $('#leftnav'),
+					$menulink = $('.topnav-link'),
+					$menulink2 = $('.leftnav-link');
+
+		$menulink.click(function() {
+		  $menulink.toggleClass('topnavexpanded');
+		  $menu.toggleClass('topnavexpanded');
+		  return false;
+		});
+
+		$menulink2.click(function() {
+		  $menulink2.toggleClass('topnavexpanded');
+		  $menu2.toggleClass('topnavexpanded');
+		  return false;
+		});});
+	</script>
+	<script type="text/javascript">_satellite.pageBottom();</script>
+
+<!--END - DIV.FOOTER -->	
+</div>
+</footer>
+	
+
+</body>
+</html>
