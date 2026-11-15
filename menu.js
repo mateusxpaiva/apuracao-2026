@@ -6,12 +6,12 @@
   var me = document.currentScript || document.querySelector('script[src$="menu.js"]');
   var root = me ? me.src.replace(/menu\.js(\?.*)?$/, "") : "/";
   var ITEMS = [
-    { href: "", label: "Ao vivo", sub: "2º turno presidencial 2026, apuração em tempo real" },
+    { href: "", label: "Painel", sub: "Sua cidade, seu estado, o Brasil e o mundo em indicadores" },
     { href: "mapa/", label: "Mapa do voto", sub: "Presidente cidade por cidade, 2018, 2022 e 2026" },
     { href: "municipios/", label: "Cidades", sub: "Prefeitos e vereadores de todas as cidades, 2016–2024" },
     { href: "congresso/", label: "Congresso", sub: "Votações, alinhamento com o governo e gastos, todo dia" },
     { href: "pesquisas/", label: "Pesquisas", sub: "Todas as pesquisas eleitorais registradas no TSE" },
-    { href: "mundo/", label: "Mundo", sub: "Argentina, EUA e França comparados ao Brasil" },
+    { href: "mundo/", label: "Mundo", sub: "26 países com dados oficiais comparados ao Brasil" },
     { href: "calendario/", label: "Calendário", sub: "Próximas eleições, com contagem regressiva" },
     { href: "historico/", label: "Histórico", sub: "Todos os 2º turnos presidenciais, 1989–2026" },
     { href: "planos/", label: "Planos", sub: "Raio-X do município, apuração com sua marca e dados Pro" }
