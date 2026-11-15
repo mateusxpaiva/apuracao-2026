@@ -102,12 +102,13 @@ footer .sig{font:700 16px var(--f-d);color:var(--gold)}
 }
 </style>
 <script src="../menu.js" defer></script>
+<script src="../auth.js" defer></script>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <div>
-      <span class="badge">Raio-X eleitoral · exemplo gratuito</span>
+      <span class="badge" id="badge">Raio-X eleitoral</span>
       <h1 id="titulo">Carregando…</h1>
       <p class="lede" id="lede"></p>
     </div>
@@ -181,16 +182,31 @@ var CAT = ["#E2B84B","#2BB3A6","#8B6FE8","#F08A3C","#E5679A","#4FA3E3"], OUT = "
 var cd = (/[?&]m=(\d+)/.exec(location.search) || [0,"66397"])[1];
 var S, MUN = {}, V = {}, BR, PRES = {};
 
-fetch("../data/secao/" + cd + ".json").then(function(r){ if (!r.ok) throw 0; return r.json(); }).then(function(s){
+var DEMO = "66397";
+function fail(t, html){ $("titulo").textContent = t; $("lede").innerHTML = html; ["kpis"].forEach(function(id){ $(id).innerHTML = ""; }); document.querySelectorAll("main > section, .wrap > section").forEach(function(sec){ if (sec.id !== "cta") sec.hidden = true; }); }
+function getDados(){
+  if (cd === DEMO) return fetch("../data/secao/" + cd + ".json").then(function(r){ if (!r.ok) throw 0; return r.json(); });
+  return new Promise(function(ok, no){
+    APIA.pronto(function(st){
+      if (!st.configurado) return no({msg:"Raio-X sob encomenda", html:"Esta cidade ainda não está disponível. <a href='../planos/' style='color:var(--gold)'>Peça o Raio-X da sua cidade</a>."});
+      if (!st.user) return no({msg:"Entre para ver este Raio-X", html:"O Raio-X desta cidade é exclusivo para assinantes. <a href='../entrar/?volta=" + encodeURIComponent(location.href) + "' style='color:var(--gold)'>Entrar</a> ou <a href='../planos/' style='color:var(--gold)'>ver planos</a>."});
+      if (!APIA.pode(cd)) return no({msg:"Raio-X não liberado na sua conta", html:"Sua conta ainda não tem acesso a esta cidade. <a href='../planos/' style='color:var(--gold)'>Fale com a gente para liberar</a>."});
+      st.client.from("raiox").select("dados").eq("cd", cd).maybeSingle().then(function(r){
+        if (r.data) ok(r.data.dados); else no({msg:"Raio-X em preparação", html:"Os dados desta cidade ainda estão sendo processados. Volte em breve."});
+      });
+    });
+  });
+}
+document.addEventListener("DOMContentLoaded", function(){ getDados().then(function(s){
   S = s; var uf = S.uf;
   return Promise.all([2016, 2020, 2024].map(function(a){ return fetch("../data/mun/" + a + "/" + uf + ".json").then(function(r){ return r.json(); }).then(function(j){ MUN[a] = j.mun[cd]; }).catch(function(){}); })
     .concat([2020, 2024].map(function(a){ return fetch("../data/mun/" + a + "/" + uf + "_v.json").then(function(r){ return r.json(); }).then(function(j){ V[a] = j.mun[cd]; }).catch(function(){}); }))
     .concat([2022, 2026].map(function(a){ return fetch("../data/pres/" + a + ".json").then(function(r){ return r.json(); }).then(function(j){ var o = j.ord["2"], v = j.t["2"][cd]; if (v){ var x = {}; o.forEach(function(nr,i){ x[nr] = v[4+i]; }); PRES[a] = {v:x, cand:j.cand["2"]}; } }).catch(function(){}); }))
     .concat([fetch("../data/mundo/br.json").then(function(r){ return r.json(); }).then(function(j){ BR = j; }).catch(function(){})]));
-}).then(init).catch(function(){
-  $("titulo").textContent = "Raio-X ainda não disponível";
-  $("lede").innerHTML = "Esta cidade ainda não foi processada. <a href='../planos/' style='color:var(--gold)'>Peça o Raio-X da sua cidade</a>.";
-});
+}).then(init).catch(function(e){
+  if (e && e.msg) fail(e.msg, e.html);
+  else fail("Raio-X ainda não disponível", "Esta cidade ainda não foi processada. <a href='../planos/' style='color:var(--gold)'>Peça o Raio-X da sua cidade</a>.");
+}); });
 
 /* ---------- utilidades de disputa ---------- */
 function disputas(){
@@ -229,7 +245,7 @@ function css(c){ return c.indexOf("var(") === 0 ? getComputedStyle(document.docu
 /* ---------- página ---------- */
 var map, layer;
 function init(){
-  var nome = tc(S.nome);
+  var nome = tc(S.nome); $("badge").textContent = cd === DEMO ? "Raio-X eleitoral · exemplo gratuito" : "Raio-X eleitoral · exclusivo para assinantes";
   document.title = "Raio-X eleitoral de " + nome + " · Apuração por IA";
   $("titulo").innerHTML = esc(nome) + "<span class='uf'>" + S.uf + "</span>";
   var nloc = Object.keys(S.locais).length;
@@ -267,7 +283,7 @@ function draw(d){
   bairros(s);
 }
 
-var sortK = "votos", sortD = -1;
+var sortK = "votos", sortD = -1, todos = false;
 function bairros(s){
   var B = {};
   Object.keys(s.loc).forEach(function(l){
@@ -284,7 +300,8 @@ function bairros(s){
   var render = function(){
     rows.sort(function(a,b){ var x = a[sortK], y = b[sortK]; return (typeof x === "string" ? x.localeCompare(y) : x - y) * sortD; });
     $("bairros").innerHTML = "<thead><tr><th data-k='n'>Bairro</th><th class='num hide-m' data-k='locais'>Locais</th><th class='num' data-k='votos'>Votos</th><th data-k='lider'>Venceu</th><th data-k='p0'>" + esc(top.map(function(c){ return c.nome.split(" ")[0]; }).join(" · ")) + "</th></tr></thead><tbody>" +
-      rows.map(function(r){ return "<tr><td>" + esc(r.n) + "</td><td class='num hide-m'>" + r.locais + "</td><td class='num'>" + fmt.format(r.votos) + "</td><td><span style='display:inline-block;width:9px;height:9px;border-radius:50%;background:" + r.lcor + ";margin-right:6px'></span>" + esc(r.lider) + "</td><td><div class='mini' title='" + top.map(function(c,i){ return c.nome + " " + f1.format(r.sh[i]) + "%"; }).join(" · ") + "'>" + top.map(function(c,i){ return "<i style='width:" + r.sh[i] + "%;background:" + c.cor + "'></i>"; }).join("") + "</div></td></tr>"; }).join("") + "</tbody>";
+      rows.slice(0, todos ? rows.length : 15).map(function(r){ return "<tr><td>" + esc(r.n) + "</td><td class='num hide-m'>" + r.locais + "</td><td class='num'>" + fmt.format(r.votos) + "</td><td><span style='display:inline-block;width:9px;height:9px;border-radius:50%;background:" + r.lcor + ";margin-right:6px'></span>" + esc(r.lider) + "</td><td><div class='mini' title='" + top.map(function(c,i){ return c.nome + " " + f1.format(r.sh[i]) + "%"; }).join(" · ") + "'>" + top.map(function(c,i){ return "<i style='width:" + r.sh[i] + "%;background:" + c.cor + "'></i>"; }).join("") + "</div></td></tr>"; }).join("") + "</tbody>" + (rows.length > 15 ? "<tfoot><tr><td colspan='5'><button type='button' id='mais'>" + (todos ? "Mostrar só os 15 maiores" : "Ver todos os " + rows.length + " bairros") + "</button></td></tr></tfoot>" : "");
+    var mb = $("mais"); if (mb) mb.addEventListener("click", function(){ todos = !todos; render(); });
     $("bairros").querySelectorAll("th").forEach(function(th){ th.addEventListener("click", function(){ var k = th.getAttribute("data-k"); sortD = sortK === k ? -sortD : (k === "n" || k === "lider" ? 1 : -1); sortK = k; render(); }); });
   };
   render();
@@ -319,6 +336,12 @@ function resumo(){
     Object.keys(s.loc).forEach(function(l){ var x = s.loc[l], id = Object.keys(x.v).sort(function(a,b){ return x.v[b] - x.v[a]; })[0]; vc[id] = (vc[id] || 0) + 1; });
     var a = s.opc[0], b = s.opc[1], n = Object.keys(s.loc).length;
     if (a && b) L.push("No 1º turno de 2024, <b>" + esc(a.nome) + "</b> venceu em <b>" + (vc[a.id] || 0) + " de " + n + "</b> locais de votação; <b>" + esc(b.nome) + "</b> venceu em " + (vc[b.id] || 0) + ".");
+    if (S.el["2024"]["11-2"]){
+      var s2 = serie("2024", "11-2"), v2 = {};
+      Object.keys(s2.loc).forEach(function(l){ var x = s2.loc[l], id = Object.keys(x.v).sort(function(p,q){ return x.v[q] - x.v[p]; })[0]; v2[id] = (v2[id] || 0) + 1; });
+      var w2 = s2.opc[0];
+      if (w2 && a && w2.id !== a.id) L.push("No 2º turno houve <b>virada</b>: " + esc(w2.nome) + " passou a vencer em <b>" + (v2[w2.id] || 0) + "</b> locais e ganhou a eleição.");
+    }
   }
   if (V[2024]){
     var seats = {}; V[2024].c.forEach(function(c){ if (c[4] === "E") seats[c[2]] = (seats[c[2]] || 0) + 1; });
