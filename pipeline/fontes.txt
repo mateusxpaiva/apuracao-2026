@@ -1,12 +1,8 @@
-# nome  url  [corpo JSON para POST]   (rodada 27: Suécia, Japão, Coreia, Taiwan)
-se/t3_2022.csv https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3 {"query":[{"code":"Tid","selection":{"filter":"item","values":["2022"]}},{"code":"ContentsCode","selection":{"filter":"item","values":["ME0104B6"]}}],"response":{"format":"csv"}}
-se/t4_meta.json https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T4
-jp/s51.html https://www.soumu.go.jp/senkyo/senkyo_s/data/shugiin51/index.html
-kr/c15162558.json https://www.data.go.kr/catalog/15162558/fileData.json
-kr/c15162566.json https://www.data.go.kr/catalog/15162566/fileData.json
-kr/c15162716.json https://www.data.go.kr/catalog/15162716/fileData.json
-kr/c15162714.json https://www.data.go.kr/catalog/15162714/fileData.json
-kr/c15162288.json https://www.data.go.kr/catalog/15162288/fileData.json
-tw/168060.html https://data.gov.tw/dataset/168060
-tw/168990.html https://data.gov.tw/dataset/168990
-tw/28485.html https://data.gov.tw/dataset/28485
+# nome  url  [corpo JSON para POST]   (rodada 28: Suécia por município, Japão 2026, busca Coreia)
+se/t3_2022_mun.csv https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3 {"query":[{"code":"Region","selection":{"filter":"all","values":["*"]}},{"code":"Tid","selection":{"filter":"item","values":["2022"]}},{"code":"ContentsCode","selection":{"filter":"item","values":["ME0104B6"]}}],"response":{"format":"csv"}}
+jp/pr_pref_party.xlsx https://www.soumu.go.jp/main_content/001061481.xlsx
+jp/pr_totais.xlsx https://www.soumu.go.jp/main_content/001061483.xlsx
+jp/pr_eleitores.xlsx https://www.soumu.go.jp/main_content/001061473.xlsx
+jp/assentos.xlsx https://www.soumu.go.jp/main_content/001061475.xlsx
+jp/pr_party.xlsx https://www.soumu.go.jp/main_content/001061479.xlsx
+kr/busca.html https://www.data.go.kr/tcs/dss/selectDataSetList.do?dType=FILE&keyword=%EB%8C%80%ED%86%B5%EB%A0%B9%EC%84%A0%EA%B1%B0+%EA%B0%9C%ED%91%9C%EA%B2%B0%EA%B3%BC
