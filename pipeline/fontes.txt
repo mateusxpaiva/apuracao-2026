@@ -1,8 +1,5 @@
-# nome  url  [corpo JSON para POST]   (rodada 28: Suécia por município, Japão 2026, busca Coreia)
-se/t3_2022_mun.csv https://api.scb.se/OV0104/v1/doris/sv/ssd/ME/ME0104/ME0104C/ME0104T3 {"query":[{"code":"Region","selection":{"filter":"all","values":["*"]}},{"code":"Tid","selection":{"filter":"item","values":["2022"]}},{"code":"ContentsCode","selection":{"filter":"item","values":["ME0104B6"]}}],"response":{"format":"csv"}}
-jp/pr_pref_party.xlsx https://www.soumu.go.jp/main_content/001061481.xlsx
-jp/pr_totais.xlsx https://www.soumu.go.jp/main_content/001061483.xlsx
-jp/pr_eleitores.xlsx https://www.soumu.go.jp/main_content/001061473.xlsx
-jp/assentos.xlsx https://www.soumu.go.jp/main_content/001061475.xlsx
-jp/pr_party.xlsx https://www.soumu.go.jp/main_content/001061479.xlsx
-kr/busca.html https://www.data.go.kr/tcs/dss/selectDataSetList.do?dType=FILE&keyword=%EB%8C%80%ED%86%B5%EB%A0%B9%EC%84%A0%EA%B1%B0+%EA%B0%9C%ED%91%9C%EA%B2%B0%EA%B3%BC
+# nome  url  (rodada 29: Coreia)
+kr/c15025528.json https://www.data.go.kr/catalog/15025528/fileData.json
+kr/p15025528.html https://www.data.go.kr/data/15025528/fileData.do
+kr/meta15025528.xml https://www.data.go.kr/dcat/metadata/15025528
+kr/meta15156333.xml https://www.data.go.kr/dcat/metadata/15156333
