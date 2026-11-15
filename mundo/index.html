@@ -146,7 +146,7 @@ footer a{color:var(--sub)}
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
-    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin, House of Commons Library, PKW, Elections Canada Corte Electoral do Uruguai Autoritatea Electorală Permanentă e Ministerio del Interior da Espanha Australian Electoral Commission, Camera dei Deputati, Kiesraad, BMI da Áustria, Statistics Finland e Valgdirektoratet</div>
+    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin, House of Commons Library, PKW, Elections Canada Corte Electoral do Uruguai Autoritatea Electorală Permanentă e Ministerio del Interior da Espanha Australian Electoral Commission, Camera dei Deputati, Kiesraad, BMI da Áustria, Statistics Finland, Valgdirektoratet, SCB da Suécia e MIC do Japão</div>
   </footer>
 </div>
 
@@ -156,7 +156,7 @@ footer a{color:var(--sub)}
 var $ = function(id){ return document.getElementById(id); };
 var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1}), f2 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
 var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
-var PAISES = [["br","🇧🇷","Brasil","am"],["ar","🇦🇷","Argentina","am"],["cl","🇨🇱","Chile","am"],["mx","🇲🇽","México","am"],["us","🇺🇸","EUA","am"],["ca","🇨🇦","Canadá","am"],["uy","🇺🇾","Uruguai","am"],["fr","🇫🇷","França","eu"],["pt","🇵🇹","Portugal","eu"],["de","🇩🇪","Alemanha","eu"],["uk","🇬🇧","Reino Unido","eu"],["pl","🇵🇱","Polônia","eu"],["ro","🇷🇴","Romênia","eu"],["es","🇪🇸","Espanha","eu"],["it","🇮🇹","Itália","eu"],["nl","🇳🇱","Holanda","eu"],["at","🇦🇹","Áustria","eu"],["fi","🇫🇮","Finlândia","eu"],["no","🇳🇴","Noruega","eu"],["au","🇦🇺","Austrália","ap"]];
+var PAISES = [["br","🇧🇷","Brasil","am"],["ar","🇦🇷","Argentina","am"],["cl","🇨🇱","Chile","am"],["mx","🇲🇽","México","am"],["us","🇺🇸","EUA","am"],["ca","🇨🇦","Canadá","am"],["uy","🇺🇾","Uruguai","am"],["fr","🇫🇷","França","eu"],["pt","🇵🇹","Portugal","eu"],["de","🇩🇪","Alemanha","eu"],["uk","🇬🇧","Reino Unido","eu"],["pl","🇵🇱","Polônia","eu"],["ro","🇷🇴","Romênia","eu"],["es","🇪🇸","Espanha","eu"],["it","🇮🇹","Itália","eu"],["nl","🇳🇱","Holanda","eu"],["at","🇦🇹","Áustria","eu"],["fi","🇫🇮","Finlândia","eu"],["no","🇳🇴","Noruega","eu"],["se","🇸🇪","Suécia","eu"],["au","🇦🇺","Austrália","ap"],["jp","🇯🇵","Japão","ap"]];
 var CONT = [["am","Américas"],["eu","Europa"],["ap","Ásia e Oceania"]];
 var OUT = "#5B6478";
 var D = {};
