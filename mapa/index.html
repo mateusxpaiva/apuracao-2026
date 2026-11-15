@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mapa do voto · Apuração por IA</title>
+<meta name="author" content="Mateus Paiva">
+<meta name="description" content="Como votou cada uma das 5.570 cidades do Brasil para presidente em 2018, 2022 e 2026. Dados oficiais do TSE. Design: Mateus Paiva.">
+<meta property="og:title" content="Mapa do voto · Apuração por IA">
+<meta property="og:description" content="Cidade por cidade: onde Lula e Flávio venceram, quem virou de 2022 para 2026. Dados do TSE. Design: Mateus Paiva.">
+<meta property="og:image" content="https://mateusxpaiva.github.io/apuracao-2026/og.jpg">
+<meta name="theme-color" content="#0B1220">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: título + destaques; o mapa ocupa a largura com controles numa linha acima e o painel da cidade ao lado (abaixo no celular); depois "onde a eleição foi decidida" por região e as listas de maiores mudanças. */
+:root{--ink:#080D18;--line:rgba(255,255,255,.08);--mute:#8C97AE;--fg:#EEF2F8;--sub:#C9D2E3;--gold:#E2B84B;--track:rgba(255,255,255,.06);
+  --pt:#E0353D;--bol:#3B78EA;--nd:#262E3D;
+  --f-d:"Sora","Segoe UI",system-ui,sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.5 var(--f-b);-webkit-text-size-adjust:100%}
+body{background:radial-gradient(900px 520px at 50% -10%,rgba(226,184,75,.12),transparent 60%),var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:grid;gap:22px}
+.eyebrow{font:700 12px var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:800 clamp(30px,6vw,54px)/1.04 var(--f-d);letter-spacing:-.035em;margin:8px 0 0;text-wrap:balance}
+.lede{font-size:16.5px;color:var(--sub);max-width:66ch;margin:12px 0 0}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:20px;padding:22px;min-width:0}
+h2{font:700 clamp(20px,2.8vw,26px)/1.2 var(--f-d);letter-spacing:-.015em;margin:0;text-wrap:balance}
+h3{font:700 17px/1.25 var(--f-d);margin:0 0 8px}
+.sub{color:var(--mute);font-size:13.5px;margin:6px 0 16px;max-width:76ch}
+.note{font-size:13px;color:var(--mute);max-width:80ch;margin:12px 0 0;line-height:1.6}
+.note b{color:var(--fg)}.note a{color:var(--sub)}
+button{font:700 13px var(--f-b);background:rgba(255,255,255,.04);color:var(--fg);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 13px;cursor:pointer}
+button[aria-pressed="true"]{background:var(--gold);color:#0B1220;border-color:var(--gold)}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+select,input[type=search]{font:600 14px var(--f-b);color:var(--fg);background:#0B1325;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px 12px}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.03);min-width:0}
+.kpi b{display:block;font:800 clamp(24px,3.6vw,32px)/1.05 var(--f-d);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--mute)}
+.kpi i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+
+.ctrls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:14px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.lab{font:700 11px var(--f-b);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-right:2px}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+.mapbox{position:relative;border:1px solid var(--line);border-radius:16px;background:#060A13;overflow:hidden;touch-action:manipulation}
+#map{display:block;width:100%;height:auto}
+#map path.m{stroke:#060A13;stroke-width:.35;vector-effect:non-scaling-stroke;cursor:pointer}
+#map path.m:hover,#map path.m.sel{stroke:#fff;stroke-width:1.6}
+#map path.uf{fill:none;stroke:rgba(238,242,248,.55);stroke-width:.9;vector-effect:non-scaling-stroke;pointer-events:none}
+.tip{position:absolute;pointer-events:none;background:rgba(11,18,32,.96);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:8px 10px;font-size:12.5px;line-height:1.4;max-width:240px;box-shadow:0 12px 30px -8px rgba(0,0,0,.7)}
+.tip b{font:700 13.5px var(--f-d)}
+.zoomtools{position:absolute;right:10px;top:10px;display:flex;gap:6px}
+.zoomtools button{background:rgba(11,18,32,.85)}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:10px;font:600 12px var(--f-b);color:var(--mute)}
+.ramp{display:flex;gap:2px}
+.ramp i{display:block;width:24px;height:12px}
+.ramp i:first-child{border-radius:3px 0 0 3px}.ramp i:last-child{border-radius:0 3px 3px 0}
+.side{display:grid;gap:12px}
+.panel{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.025);min-width:0}
+.panel .nm{font:800 22px/1.15 var(--f-d);letter-spacing:-.02em}
+.panel .uf{font:700 13px var(--f-b);color:var(--mute);margin-left:4px}
+.row{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;align-items:center;margin-top:10px;font-size:13px}
+.row .y{font:700 13px var(--f-d);color:var(--sub)}
+.split{display:flex;height:14px;border-radius:4px;overflow:hidden;gap:2px;background:var(--ink)}
+.split i{display:block;height:100%}
+.row small{grid-column:2;color:var(--mute);font-size:12px;margin-top:-4px;font-variant-numeric:tabular-nums}
+.empty{color:var(--mute);font-size:14px}
+.btnlink{display:inline-block;margin-top:12px;font:700 13px var(--f-b);color:var(--gold);text-decoration:none}
+
+.regs{display:grid;gap:12px}
+.rg{display:grid;grid-template-columns:120px minmax(0,1fr) 170px;gap:12px;align-items:center}
+.rg .n{font:700 14.5px var(--f-d)}
+.rg .bars{display:grid;gap:3px}
+.rg .b{position:relative;height:12px;background:var(--track);border-radius:3px}
+.rg .b i{position:absolute;top:0;bottom:0;border-radius:3px}
+.rg .b:after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:rgba(255,255,255,.35)}
+.rg .v{font:700 13px var(--f-b);text-align:right;font-variant-numeric:tabular-nums;line-height:1.3}
+.rg .v small{display:block;font-weight:600;color:var(--mute)}
+@media (max-width:560px){.rg{grid-template-columns:90px minmax(0,1fr);}.rg .v{grid-column:1/-1;text-align:left}}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+.lst{display:grid;gap:0}
+.li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;cursor:pointer}
+.li:first-child{border-top:0}
+.li b{font-family:var(--f-d);font-variant-numeric:tabular-nums}
+.li small{color:var(--mute);font-weight:700;margin-left:6px}
+.li:hover{color:var(--gold)}
+footer{display:grid;gap:6px;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--mute)}
+footer .sig{font:700 16px var(--f-d);color:var(--gold)}
+</style>
+<script src="../menu.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Apuração por IA · Mapa do voto</div>
+    <h1>Como cada cidade do Brasil votou para presidente</h1>
+    <p class="lede">As 5.570 cidades em 2018, 2022 e 2026, com dados oficiais do TSE. Toque numa cidade para ver como ela votou nas três eleições, ou mude para "Mudança" e veja quem virou.</p>
+  </header>
+
+  <section class="kpis" id="kpis" aria-label="Destaques"></section>
+
+  <section class="card" aria-labelledby="h-map">
+    <h2 id="h-map" class="sr" style="position:absolute;left:-9999px">Mapa</h2>
+    <div class="ctrls">
+      <div class="seg" role="group" aria-label="Eleição"><span class="lab">Eleição</span><span id="anos"></span></div>
+      <div class="seg" role="group" aria-label="Turno"><span class="lab">Turno</span><button type="button" data-t="1">1º</button><button type="button" data-t="2">2º</button></div>
+      <div class="seg" role="group" aria-label="O que mostrar"><span class="lab">Mostrar</span><button type="button" data-mo="venc">Quem venceu</button><button type="button" data-mo="mud">Mudança</button><button type="button" data-mo="comp">Comparecimento</button></div>
+    </div>
+    <div class="ctrls">
+      <select id="ufsel" aria-label="Aproximar estado"><option value="">Brasil inteiro</option></select>
+      <input type="search" id="busca" list="cidades" placeholder="Buscar cidade" aria-label="Buscar cidade" style="min-width:220px">
+      <datalist id="cidades"></datalist>
+    </div>
+    <div class="mapgrid">
+      <div>
+        <div class="mapbox" id="mapbox">
+          <svg id="map" role="img" aria-label="Mapa do Brasil por município"></svg>
+          <div class="tip" id="tip" hidden></div>
+          <div class="zoomtools"><button type="button" id="reset" hidden>Ver Brasil</button></div>
+        </div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <aside class="side">
+        <div class="panel" id="panel"><p class="empty">Toque ou passe o mouse numa cidade do mapa, ou busque pelo nome.</p></div>
+      </aside>
+    </div>
+    <p class="note" id="mapnote"></p>
+  </section>
+
+  <section class="card" aria-labelledby="h-reg">
+    <h2 id="h-reg">Onde o 2º turno de 2026 foi decidido</h2>
+    <p class="sub">Saldo de votos de Lula sobre o adversário em cada região, no 2º turno de 2022 e de 2026. A barra cresce para a esquerda quando Lula teve mais votos e para a direita quando o candidato da família Bolsonaro teve mais.</p>
+    <div class="regs" id="regs"></div>
+    <p class="note" id="regnote"></p>
+  </section>
+
+  <section class="two">
+    <div class="card"><h2>Maiores mudanças para Lula</h2><p class="sub">Variação da fatia de Lula entre o 2º turno de 2022 e o de 2026, em cidades com mais de 50 mil eleitores.</p><div class="lst" id="topPT"></div></div>
+    <div class="card"><h2>Maiores mudanças para Flávio</h2><p class="sub">Mesma conta, no sentido contrário.</p><div class="lst" id="topBOL"></div></div>
+  </section>
+
+  <section class="card">
+    <h2>Fonte e método</h2>
+    <p class="note"><b>Votos:</b> TSE, arquivos "Votação nominal por município e zona" e "Detalhe da apuração por município e zona" de 2018, 2022 e 2026, somados por cidade. Os totais nacionais conferem com o resultado oficial. <b>Mapa:</b> malha municipal do IBGE (2022). <b>Boa Esperança do Norte (MT)</b>, criada depois dessa malha, não aparece no mapa, mas seus votos estão nos totais.</p>
+    <p class="note"><b>Cores:</b> vermelho para o candidato do PT (Haddad em 2018, Lula em 2022 e 2026) e azul para o candidato da família Bolsonaro (Jair em 2018 e 2022, Flávio em 2026). Quanto mais forte a cor, maior a vantagem. <b>Mudança</b> compara a fatia de cada um entre os dois candidatos com a eleição anterior no mesmo turno.</p>
+  </section>
+
+  <footer>
+    <div class="sig">Design · Mateus Paiva</div>
+    <div>Apuração por IA · dados oficiais do TSE e malha do IBGE</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $ = function(id){ return document.getElementById(id); };
+var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1});
+var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+var tc = function(s){ var low = {DE:1,DA:1,DO:1,DAS:1,DOS:1,E:1}; return String(s).toLowerCase().split(" ").map(function(w,i){ return (i && low[w.toUpperCase()]) ? w : w.charAt(0).toUpperCase() + w.slice(1); }).join(" "); };
+var ANOS = [2018, 2022, 2026];
+var PT = ["#5A2B33","#8E2F38","#C2353D","#F2555B"], BO = ["#25365A","#2B4B91","#3769D2","#6A98FF"], ND = "#262E3D";
+var GD = ["#3A3220","#6B5824","#A6872E","#D9B246","#F7DA7F"];
+var cur = {a:2026, t:"2", mo:"venc", uf:"", sel:null};
+var GEO, D = {}, RES, paths = {}, svg = $("map");
+
+Promise.all([fetch("../data/mapa/geo.json").then(function(r){ return r.json(); }), fetch("../data/mapa/resumo.json").then(function(r){ return r.json(); })].concat(ANOS.map(function(a){ return fetch("../data/mapa/" + a + ".json").then(function(r){ return r.json(); }); }))).then(function(all){
+  GEO = all[0]; RES = all[1]; ANOS.forEach(function(a,i){ D[a] = all[2+i]; });
+  build(); controls(); paint(); kpis(); regioes(); listas();
+}).catch(function(){ $("panel").innerHTML = "<p class='empty'>Não foi possível carregar o mapa agora. Recarregue a página.</p>"; });
+
+function build(){
+  svg.setAttribute("viewBox", "0 0 " + GEO.w + " " + GEO.h);
+  var byUf = {}, html = "";
+  Object.keys(GEO.m).forEach(function(cd){ var m = GEO.m[cd]; (byUf[m[1]] = byUf[m[1]] || []).push("<path class='m' data-c='" + cd + "' d='" + m[2] + "'/>"); });
+  Object.keys(byUf).sort().forEach(function(uf){ html += "<g data-uf='" + uf + "'>" + byUf[uf].join("") + "</g>"; });
+  html += "<g>" + Object.keys(GEO.uf).map(function(u){ return "<path class='uf' d='" + GEO.uf[u] + "'/>"; }).join("") + "</g>";
+  svg.innerHTML = html;
+  svg.querySelectorAll("path.m").forEach(function(p){ paths[p.getAttribute("data-c")] = p; });
+  $("ufsel").innerHTML += Object.keys(byUf).sort().map(function(u){ return "<option>" + u + "</option>"; }).join("");
+  $("cidades").innerHTML = Object.keys(GEO.m).map(function(cd){ return "<option value='" + esc(GEO.m[cd][0] + " (" + GEO.m[cd][1] + ")") + "'>"; }).join("");
+}
+
+function controls(){
+  $("anos").innerHTML = ANOS.map(function(a){ return "<button type='button' data-a='" + a + "'>" + a + "</button>"; }).join("");
+  document.querySelector(".card").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b || b.disabled) return;
+    if (b.hasAttribute("data-a")) cur.a = +b.getAttribute("data-a");
+    else if (b.hasAttribute("data-t")) cur.t = b.getAttribute("data-t");
+    else if (b.hasAttribute("data-mo")) cur.mo = b.getAttribute("data-mo");
+    else return;
+    if (cur.mo === "mud" && cur.a === 2018) cur.a = 2026;
+    paint(); if (cur.sel) panel(cur.sel);
+  });
+  $("ufsel").addEventListener("change", function(){ zoom(this.value); });
+  $("reset").addEventListener("click", function(){ $("ufsel").value = ""; zoom(""); });
+  $("busca").addEventListener("change", function(){
+    var v = this.value, cd = Object.keys(GEO.m).find(function(c){ return GEO.m[c][0] + " (" + GEO.m[c][1] + ")" === v; });
+    if (cd){ select(cd); zoom(GEO.m[cd][1], cd); this.blur(); }
+  });
+  svg.addEventListener("pointermove", function(e){
+    var p = e.target.closest("path.m"), tip = $("tip");
+    if (!p || e.pointerType === "touch"){ tip.hidden = true; return; }
+    var r = $("mapbox").getBoundingClientRect(); tip.hidden = false; tip.innerHTML = tipHtml(p.getAttribute("data-c"));
+    var x = e.clientX - r.left + 14, y = e.clientY - r.top + 14;
+    if (x + 250 > r.width) x -= 270; if (y + 110 > r.height) y -= 120;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  });
+  svg.addEventListener("pointerleave", function(){ $("tip").hidden = true; });
+  svg.addEventListener("click", function(e){ var p = e.target.closest("path.m"); if (p) select(p.getAttribute("data-c")); });
+}
+function sync(){
+  document.querySelectorAll("[data-a]").forEach(function(b){ var a = +b.getAttribute("data-a"); b.setAttribute("aria-pressed", String(a === cur.a)); b.disabled = cur.mo === "mud" && a === 2018; });
+  document.querySelectorAll("[data-t]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-t") === cur.t)); });
+  document.querySelectorAll("[data-mo]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-mo") === cur.mo)); });
+}
+
+function share(r){ var s = r[3] + r[4]; return s ? r[3] / s * 100 : null; }
+function prevAno(a){ return a === 2026 ? 2022 : a === 2022 ? 2018 : null; }
+function cor(cd){
+  var r = D[cur.a].t[cur.t][cd]; if (!r) return ND;
+  if (cur.mo === "venc"){
+    var s = share(r); if (s === null) return ND; var m = Math.abs(s - 50) * 2, i = m < 10 ? 0 : m < 25 ? 1 : m < 40 ? 2 : 3;
+    return s >= 50 ? PT[i] : BO[i];
+  }
+  if (cur.mo === "comp"){ var c = r[1] / r[0] * 100; return GD[c < 70 ? 0 : c < 75 ? 1 : c < 80 ? 2 : c < 85 ? 3 : 4]; }
+  var p = D[prevAno(cur.a)].t[cur.t][cd]; if (!p) return ND;
+  var d = share(r) - share(p), a = Math.abs(d), j = a < 2 ? 0 : a < 5 ? 1 : a < 10 ? 2 : 3;
+  return d >= 0 ? PT[j] : BO[j];
+}
+function nomes(a, t){ var c = D[a].cand[t]; return {pt: tc(c.pt[0]), bol: tc(c.bol[0])}; }
+function paint(){
+  sync();
+  Object.keys(paths).forEach(function(cd){ paths[cd].setAttribute("fill", cor(cd)); });
+  var n = nomes(cur.a, cur.t), L = $("legend"), ramp = function(arr){ return "<span class='ramp'>" + arr.map(function(c){ return "<i style='background:" + c + "'></i>"; }).join("") + "</span>"; };
+  if (cur.mo === "venc") L.innerHTML = "<span>" + esc(n.bol) + " venceu por</span>" + ramp(BO.slice().reverse()) + ramp(PT) + "<span>" + esc(n.pt) + " venceu por</span><span style='width:100%'>Faixas de vantagem: até 10, 10 a 25, 25 a 40 e mais de 40 pontos.</span>";
+  else if (cur.mo === "comp") L.innerHTML = "<span>Comparecimento</span>" + ramp(GD) + "<span>menos de 70% · 70–75 · 75–80 · 80–85 · mais de 85%</span>";
+  else { var p = nomes(prevAno(cur.a), cur.t); L.innerHTML = "<span>Mais votos para o lado Bolsonaro</span>" + ramp(BO.slice().reverse()) + ramp(PT) + "<span>Mais votos para o PT</span><span style='width:100%'>Comparado a " + prevAno(cur.a) + " (" + esc(p.pt) + " × " + esc(p.bol) + "). Faixas: até 2, 2 a 5, 5 a 10 e mais de 10 pontos.</span>"; }
+  var R = RES.anos[cur.a].t[cur.t].venceu;
+  $("mapnote").innerHTML = "<b>" + cur.a + " · " + cur.t + "º turno:</b> " + esc(n.pt) + " venceu em " + fmt.format(R.pt) + " cidades e " + esc(n.bol) + " em " + fmt.format(R.bol) + "." + (cur.t === "1" ? " No 1º turno o mapa compara só os dois mais votados; os demais candidatos ficam de fora da conta da cor." : "");
+}
+function tipHtml(cd){
+  var g = GEO.m[cd], r = D[cur.a].t[cur.t][cd], n = nomes(cur.a, cur.t);
+  if (!r) return "<b>" + esc(g[0]) + "</b> " + g[1] + "<br>Sem dados";
+  var s = r[2] || 1;
+  return "<b>" + esc(g[0]) + "</b> · " + g[1] + "<br>" + esc(n.pt) + " " + f1.format(r[3]/s*100) + "% · " + esc(n.bol) + " " + f1.format(r[4]/s*100) + "%<br><span style='color:#8C97AE'>" + fmt.format(r[0]) + " eleitores · " + f1.format(r[1]/r[0]*100) + "% foram votar</span>";
+}
+function select(cd){
+  if (cur.sel && paths[cur.sel]) paths[cur.sel].classList.remove("sel");
+  cur.sel = cd; if (paths[cd]){ paths[cd].classList.add("sel"); paths[cd].parentNode.appendChild(paths[cd]); }
+  panel(cd);
+}
+function panel(cd){
+  var g = GEO.m[cd], html = "<div class='nm'>" + esc(g[0]) + "<span class='uf'>" + g[1] + "</span></div>";
+  var r26 = D[2026].t["2"][cd]; if (r26) html += "<div class='sub' style='margin:4px 0 0'>" + fmt.format(r26[0]) + " eleitores em 2026</div>";
+  html += "<h3 style='margin-top:14px'>2º turno nas três eleições</h3>";
+  ANOS.forEach(function(a){
+    var r = D[a].t["2"][cd], n = nomes(a, "2"); if (!r){ html += "<div class='row'><span class='y'>" + a + "</span><span class='empty'>sem dados</span></div>"; return; }
+    var s = r[2] || 1, p = r[3]/s*100, b = r[4]/s*100;
+    html += "<div class='row'><span class='y'>" + a + "</span><div class='split'><i style='width:" + p + "%;background:var(--pt)'></i><i style='width:" + b + "%;background:var(--bol)'></i></div><small>" + esc(n.pt) + " " + f1.format(p) + "% · " + esc(n.bol) + " " + f1.format(b) + "%</small></div>";
+  });
+  var a = D[2022].t["2"][cd], b = D[2026].t["2"][cd];
+  if (a && b){ var d = share(b) - share(a); html += "<p class='note'>De 2022 para 2026, Lula " + (d >= 0 ? "ganhou " : "perdeu ") + "<b>" + f1.format(Math.abs(d)) + " pontos</b> na fatia dos dois candidatos" + ((share(a) >= 50) !== (share(b) >= 50) ? ", e a cidade <b>virou</b>." : ".") + "</p>"; }
+  var tse = D[2026].tse[cd]; if (tse) html += "<a class='btnlink' href='../municipios/?m=" + tse + "'>Prefeito e vereadores da cidade →</a>";
+  $("panel").innerHTML = html;
+}
+function zoom(uf, cd){
+  $("reset").hidden = !uf;
+  var bb;
+  if (!uf) bb = {x:0, y:0, width:GEO.w, height:GEO.h};
+  else { var g = svg.querySelector("g[data-uf='" + uf + "']"); if (!g) return; bb = g.getBBox(); }
+  var pad = Math.max(bb.width, bb.height) * .06;
+  svg.setAttribute("viewBox", (bb.x - pad) + " " + (bb.y - pad) + " " + (bb.width + pad*2) + " " + (bb.height + pad*2));
+  if (cd) select(cd);
+}
+
+function kpis(){
+  var v = RES.viradas_2022_2026, r22 = RES.anos[2022].t["2"].venceu, r26 = RES.anos[2026].t["2"].venceu;
+  var tot = function(a){ var s = 0, x = RES.anos[a].t["2"].reg; Object.keys(x).forEach(function(k){ s += x[k][3] - x[k][4]; }); return s; };
+  $("kpis").innerHTML =
+    "<div class='kpi'><b>" + fmt.format(r26.pt) + "</b><span><i style='background:var(--pt)'></i>cidades com vitória de Lula no 2º turno de 2026 (" + fmt.format(r22.pt) + " em 2022)</span></div>" +
+    "<div class='kpi'><b>" + fmt.format(r26.bol) + "</b><span><i style='background:var(--bol)'></i>cidades com vitória de Flávio (" + fmt.format(r22.bol) + " de Jair em 2022)</span></div>" +
+    "<div class='kpi'><b>" + fmt.format(v.bol) + " × " + fmt.format(v.pt) + "</b><span>cidades que viraram para Flávio × para Lula, de 2022 para 2026</span></div>" +
+    "<div class='kpi'><b>+" + f1.format(tot(2026)/1e6) + " mi</b><span>votos de saldo de Lula em 2026, contra +" + f1.format(tot(2022)/1e6) + " mi em 2022</span></div>";
+}
+function regioes(){
+  var R22 = RES.anos[2022].t["2"].reg, R26 = RES.anos[2026].t["2"].reg, ord = ["Nordeste","Norte","Sudeste","Centro-Oeste","Sul","Exterior"];
+  var mx = 0; ord.forEach(function(k){ [R22,R26].forEach(function(R){ if (R[k]) mx = Math.max(mx, Math.abs(R[k][3]-R[k][4])); }); });
+  var bar = function(v, op){ var w = Math.abs(v)/mx*50; return "<div class='b'><i style='" + (v >= 0 ? "right:50%" : "left:50%") + ";width:" + w + "%;background:" + (v >= 0 ? "var(--pt)" : "var(--bol)") + ";opacity:" + op + "'></i></div>"; };
+  var sg = function(v){ return (v >= 0 ? "+" : "−") + fmt.format(Math.abs(v)); };
+  $("regs").innerHTML = "<div class='legend' style='margin:0 0 4px'><span>Barra clara: 2022 · barra forte: 2026</span></div>" + ord.map(function(k){
+    var a = R22[k][3]-R22[k][4], b = R26[k][3]-R26[k][4];
+    return "<div class='rg'><div class='n'>" + k + "</div><div class='bars'>" + bar(a, .45) + bar(b, 1) + "</div><div class='v'>" + sg(b) + "<small>" + (b - a >= 0 ? "Lula +" : "Lula −") + fmt.format(Math.abs(b - a)) + " vs 2022</small></div></div>";
+  }).join("");
+  var d = {}; ord.forEach(function(k){ d[k] = (R26[k][3]-R26[k][4]) - (R22[k][3]-R22[k][4]); });
+  $("regnote").innerHTML = "Lula ampliou o saldo sobretudo no <b>Sudeste</b> (" + sg(d.Sudeste) + " votos em relação a 2022) e no <b>Nordeste</b> (" + sg(d.Nordeste) + "), e praticamente empatou no Norte. No <b>Sul</b> o saldo piorou (" + sg(d.Sul) + "). Por isso Lula venceu por mais votos ganhando em menos cidades: a melhora veio das cidades grandes, enquanto cidades menores viraram para Flávio.";
+}
+function listas(){
+  var a = D[2022].t["2"], b = D[2026].t["2"], arr = [];
+  Object.keys(b).forEach(function(cd){ if (a[cd] && b[cd][0] >= 50000) arr.push({cd:cd, d: share(b[cd]) - share(a[cd])}); });
+  arr.sort(function(x,y){ return y.d - x.d; });
+  var li = function(x){ var g = GEO.m[x.cd]; return "<div class='li' data-c='" + x.cd + "' role='button' tabindex='0'><span>" + esc(g[0]) + "<small>" + g[1] + "</small></span><b>" + (x.d >= 0 ? "+" : "−") + f1.format(Math.abs(x.d)) + " pts</b></div>"; };
+  $("topPT").innerHTML = arr.slice(0, 10).map(li).join("");
+  $("topBOL").innerHTML = arr.slice(-10).reverse().map(li).join("");
+  [$("topPT"), $("topBOL")].forEach(function(el){ el.addEventListener("click", function(e){ var x = e.target.closest("[data-c]"); if (!x) return; var cd = x.getAttribute("data-c"); cur.mo = "mud"; cur.a = 2026; cur.t = "2"; paint(); $("ufsel").value = GEO.m[cd][1]; zoom(GEO.m[cd][1], cd); $("mapbox").scrollIntoView({behavior:"smooth", block:"center"}); }); });
+}
+})();
+</script>
+</body>
+</html>
