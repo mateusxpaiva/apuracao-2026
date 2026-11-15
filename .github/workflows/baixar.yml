@@ -31,10 +31,12 @@ jobs:
           cd raw
           UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
           : > log.txt
-          grep -v '^\s*#' "../main/${{ inputs.lista }}" | while read -r nome url; do
+          grep -v '^\s*#' "../main/${{ inputs.lista }}" | while read -r nome url corpo; do
             [ -z "$nome" ] && continue
             mkdir -p "$(dirname "$nome")"
-            code=$(curl -sS -L --retry 1 --connect-timeout 20 --max-time ${{ inputs.tempo || 240 }} -A "$UA" -o "$nome" -w '%{http_code} %{content_type} %{size_download}' "$url" || echo "ERRO")
+            # terceira coluna opcional: corpo JSON -> POST (APIs PxWeb de estatística oficial)
+            if [ -n "$corpo" ]; then extra=(-X POST -H "Content-Type: application/json" --data "$corpo"); else extra=(); fi
+            code=$(curl -sS -L --retry 1 --connect-timeout 20 --max-time ${{ inputs.tempo || 240 }} -A "$UA" "${extra[@]}" -o "$nome" -w '%{http_code} %{content_type} %{size_download}' "$url" || echo "ERRO")
             echo "$nome $code $url" | tee -a log.txt
             if [ -f "$nome" ]; then
               case "$nome" in *.zip)
