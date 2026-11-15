@@ -8,6 +8,7 @@
   var ITEMS = [
     { href: "", label: "Ao vivo 2026", sub: "2º turno presidencial, apuração em tempo real" },
     { href: "historico/", label: "Histórico", sub: "Todos os 2º turnos presidenciais, 1989–2026" },
+    { href: "mapa/", label: "Mapa do voto", sub: "Presidente cidade por cidade, 2018, 2022 e 2026" },
     { href: "municipios/", label: "Prefeitos e vereadores", sub: "Todas as cidades, 2016, 2020 e 2024" },
     { href: "mundo/", label: "Mundo", sub: "Argentina, EUA e França comparados ao Brasil" },
     { href: "calendario/", label: "Calendário", sub: "Próximas eleições, com contagem regressiva" }
@@ -39,7 +40,7 @@
     ".apm-btn[aria-expanded=true] i:before{transform:translateY(5px) rotate(45deg)}" +
     ".apm-btn[aria-expanded=true] i:after{transform:translateY(-5px) rotate(-45deg)}" +
     ".apm-drawer{display:none}" +
-    "@media (max-width:760px){.apm-links{display:none}.apm-btn{display:inline-flex}" +
+    "@media (max-width:1020px){.apm-links{display:none}.apm-btn{display:inline-flex}" +
     ".apm-drawer{position:absolute;left:0;right:0;top:56px;background:#0B1220;border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 24px 40px -12px rgba(0,0,0,.7);padding:10px max(16px,env(safe-area-inset-right,0px)) 18px max(16px,env(safe-area-inset-left,0px))}" +
     ".apm-drawer.open{display:block}" +
     ".apm-drawer a{display:block;padding:14px 14px;border-radius:14px;text-decoration:none;color:#EEF2F8;border:1px solid transparent}" +
