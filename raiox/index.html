@@ -55,6 +55,8 @@ button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(
 #map{height:520px;border-radius:16px;border:1px solid var(--line);background:#0B1220}
 @media (max-width:600px){#map{height:420px}}
 .leaflet-container{font:13px var(--f-b)}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.82) contrast(.92) saturate(.6)}
+@media print{.leaflet-tile-pane{filter:none}}
 .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#0F1729;color:var(--fg);border:1px solid rgba(255,255,255,.14)}
 .leaflet-popup-content{margin:10px 12px;line-height:1.45}
 .leaflet-popup-content b{font-family:var(--f-d)}
@@ -166,7 +168,7 @@ footer .sig{font:700 16px var(--f-d);color:var(--gold)}
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
-    <div>Apuração por IA · dados oficiais do TSE · mapa © OpenStreetMap, © CARTO</div>
+    <div>Apuração por IA · dados oficiais do TSE · mapa © OpenStreetMap</div>
   </footer>
 </div>
 
@@ -254,7 +256,7 @@ function init(){
   $("disp").innerHTML = D.map(function(x,i){ return "<option value='" + i + "'>" + x[2] + "</option>"; }).join("");
   $("disp").addEventListener("change", function(){ draw(D[+this.value]); });
   map = L.map("map", {scrollWheelZoom:false, attributionControl:true});
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {maxZoom:18, subdomains:"abcd", attribution:"© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> © <a href='https://carto.com/attributions'>CARTO</a>"}).addTo(map);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:19, attribution:"© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>"}).addTo(map);
   draw(D[0]); kpis(); resumo(); camara(); historico(); presidente();
 }
 
