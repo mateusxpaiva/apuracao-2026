@@ -146,7 +146,7 @@ footer a{color:var(--sub)}
 
   <footer>
     <div class="sig">Design · Mateus Paiva</div>
-    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin, House of Commons Library, PKW, Elections Canada Corte Electoral do Uruguai Autoritatea Electorală Permanentă e Ministerio del Interior da Espanha Australian Electoral Commission, Camera dei Deputati, Kiesraad, BMI da Áustria, Statistics Finland, Valgdirektoratet, SCB da Suécia, MIC do Japão e NEC da Coreia do Sul</div>
+    <div>Apuração por IA · dados oficiais de TSE, DINE, SERVEL, INE, FEC, Ministère de l'Intérieur, MAI, Bundeswahlleiterin, House of Commons Library, PKW, Elections Canada, Corte Electoral do Uruguai, Autoritatea Electorală Permanentă, Ministerio del Interior da Espanha, Australian Electoral Commission, Electoral Commission da Nova Zelândia, Camera dei Deputati, Kiesraad, BMI da Áustria, Statistics Finland, Valgdirektoratet, SCB da Suécia, MIC do Japão e NEC da Coreia do Sul</div>
   </footer>
 </div>
 
@@ -156,7 +156,7 @@ footer a{color:var(--sub)}
 var $ = function(id){ return document.getElementById(id); };
 var fmt = new Intl.NumberFormat("pt-BR"), f1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1}), f2 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
 var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
-var PAISES = [["br","🇧🇷","Brasil","am"],["ar","🇦🇷","Argentina","am"],["cl","🇨🇱","Chile","am"],["mx","🇲🇽","México","am"],["us","🇺🇸","EUA","am"],["ca","🇨🇦","Canadá","am"],["uy","🇺🇾","Uruguai","am"],["fr","🇫🇷","França","eu"],["pt","🇵🇹","Portugal","eu"],["de","🇩🇪","Alemanha","eu"],["uk","🇬🇧","Reino Unido","eu"],["pl","🇵🇱","Polônia","eu"],["ro","🇷🇴","Romênia","eu"],["es","🇪🇸","Espanha","eu"],["it","🇮🇹","Itália","eu"],["nl","🇳🇱","Holanda","eu"],["at","🇦🇹","Áustria","eu"],["fi","🇫🇮","Finlândia","eu"],["no","🇳🇴","Noruega","eu"],["se","🇸🇪","Suécia","eu"],["au","🇦🇺","Austrália","ap"],["jp","🇯🇵","Japão","ap"],["kr","🇰🇷","Coreia do Sul","ap"]];
+var PAISES = [["br","🇧🇷","Brasil","am"],["ar","🇦🇷","Argentina","am"],["cl","🇨🇱","Chile","am"],["mx","🇲🇽","México","am"],["us","🇺🇸","EUA","am"],["ca","🇨🇦","Canadá","am"],["uy","🇺🇾","Uruguai","am"],["fr","🇫🇷","França","eu"],["pt","🇵🇹","Portugal","eu"],["de","🇩🇪","Alemanha","eu"],["uk","🇬🇧","Reino Unido","eu"],["pl","🇵🇱","Polônia","eu"],["ro","🇷🇴","Romênia","eu"],["es","🇪🇸","Espanha","eu"],["it","🇮🇹","Itália","eu"],["nl","🇳🇱","Holanda","eu"],["at","🇦🇹","Áustria","eu"],["fi","🇫🇮","Finlândia","eu"],["no","🇳🇴","Noruega","eu"],["se","🇸🇪","Suécia","eu"],["au","🇦🇺","Austrália","ap"],["nz","🇳🇿","Nova Zelândia","ap"],["jp","🇯🇵","Japão","ap"],["kr","🇰🇷","Coreia do Sul","ap"]];
 var CONT = [["am","Américas"],["eu","Europa"],["ap","Ásia e Oceania"]];
 var OUT = "#5B6478";
 var D = {};
@@ -176,6 +176,7 @@ function cruzamento(){
   var rows = [], vir = 0, tot = 0;
   PAISES.map(function(p){ return p[0]; }).filter(function(k){ return k !== "us" && k !== "mx"; }).forEach(function(k){
     var P = D[k], flag = PAISES.find(function(p){ return p[0] === k; })[1];
+    if (!P || P.parlamentar) return;
     P.eleicoes.forEach(function(e){
       if (!e.turnos["2"]) return;
       var t1 = e.turnos["1"], t2 = e.turnos["2"], l = ranking(t1)[0], w = ranking(t2)[0];
