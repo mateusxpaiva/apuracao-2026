@@ -1,8 +1,8 @@
-pt/mai_2026.html 404  10 https://www.eleicoes.mai.gov.pt/presidenciais2026/
-pt/dadosgov_busca.json 200 application/json 27591 https://dados.gov.pt/api/1/datasets/?q=presidenciais%202026&page_size=30
-pt/dadosgov_busca2.json 200 application/json 27591 https://dados.gov.pt/api/1/datasets/?q=eleicao%20presidente%20republica%20resultados&page_size=30
-co/registraduria.html 000  0ERRO https://resultados.registraduria.gov.co/
-co/socrata.json 200 application/json;charset=utf-8 129 https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co&q=resultados%20presidencial&limit=40
-mx/computos.html 200 text/html; charset=UTF-8 13647 https://computos2024.ine.mx/presidencia/nacional/candidatura
-mx/basedatos.html 200 text/html; charset=UTF-8 13647 https://computos2024.ine.mx/base-de-datos
-mx/ine_datos.html 200 text/html; charset=UTF-8 137166 https://www.ine.mx/transparencia/datos-abiertos/
+mx/main.js 200 application/javascript 2114556 https://computos2024.ine.mx/main.d95c2231391298c8.js
+pt/mai_raiz.html 200 text/html 29494 https://www.eleicoes.mai.gov.pt/
+pt/mai_raiz2.html 000  0ERRO https://eleicoes.mai.gov.pt/
+pt/cne.html 404 text/html; charset=utf-8 9040 https://www.cne.pt/content/resultados-eleitorais
+pt/dadosgov_res.json 200 application/json 123263 https://dados.gov.pt/api/1/datasets/?q=resultados%20eleitorais&page_size=40
+co/preconteo.html 000  0ERRO https://resultadospreconteo.registraduria.gov.co/
+co/registraduria_www.html 403 text/html; charset=UTF-8 150789 https://www.registraduria.gov.co/
+co/socrata2.json 200 application/json;charset=utf-8 126944 https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co&q=registraduria&limit=50

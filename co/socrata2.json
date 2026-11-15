@@ -1,0 +1,3154 @@
+{
+  "results" :
+    [
+      {
+        "resource" :
+          {
+            "name" : "Puestos de Votación Florida Valle del Cauca",
+            "id" : "suzs-si92",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Puestos de Votación Florida Valle del Cauca",
+            "attribution" : "Alcaldía de Florida, Valle del Cauca",
+            "attribution_link" : "https://www.florida-valle.gov.co",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-09-15T22:32:42.000Z",
+            "createdAt" : "2021-12-21T18:28:46.000Z",
+            "metadata_updated_at" : "2026-09-15T22:32:42.000Z",
+            "data_updated_at" : "2021-12-21T18:55:03.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 15,
+                "page_views_last_month" : 62,
+                "page_views_total" : 3421,
+                "page_views_last_week_log" : 4.0,
+                "page_views_last_month_log" : 5.977279923499917,
+                "page_views_total_log" : 11.740624044489413
+              },
+            "columns_name" :
+              [
+                "MUNICIPIO",
+                "DEPARTAMENTO",
+                "PUESTO",
+                "ZONA VOTACION",
+                "NOMBRE PUESTO",
+                "MESA"
+              ],
+            "columns_field_name" :
+              [
+                "municipio",
+                "departamento",
+                "puesto",
+                "zona_votacion",
+                "nombre_puesto",
+                "mesa"
+              ],
+            "columns_datatype" :
+              [ "Text", "Text", "Number", "Text", "Text", "Text" ],
+            "columns_description" : [ "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {} ],
+            "download_count" : 207,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-12-21T18:55:09.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Estadísticas Nacionales",
+            "domain_tags" :
+              [
+                "florida valle",
+                "registraduria",
+                "votacion",
+                "puesto de votacion",
+                "elecciones"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Municipal"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Planeación"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Área-o-dependencia",
+                  "value" : "Oficina TIC"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Alcaldía de Florida, Valle del Cauca"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Territorial"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Florida"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "76275"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Valle Del Cauca"
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/suzs-si92",
+        "link" : "https://www.datos.gov.co/Estadísticas-Nacionales/Puestos-de-Votación-Florida-Valle-del-Cauca/suzs-si92",
+        "owner" :
+          {
+            "id" : "8imd-6gfg",
+            "user_type" : "interactive",
+            "display_name" : "Hernando Mueses"
+          },
+        "creator" :
+          {
+            "id" : "8imd-6gfg",
+            "user_type" : "interactive",
+            "display_name" : "Hernando Mueses"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "RESULTADOS ELECTORALES 2018 CAMARA DE REPRESENTANTES",
+            "id" : "vkjr-c6fe",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T17:18:18.000Z",
+            "createdAt" : "2021-02-09T22:42:58.000Z",
+            "metadata_updated_at" : "2026-05-18T17:18:18.000Z",
+            "data_updated_at" : "2021-02-09T23:06:17.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 60,
+                "page_views_last_month" : 202,
+                "page_views_total" : 18924,
+                "page_views_last_week_log" : 5.930737337562887,
+                "page_views_last_month_log" : 7.6653359171851765,
+                "page_views_total_log" : 14.208005679760456
+              },
+            "columns_name" :
+              [
+                "ZZ",
+                "NCircunscripcion",
+                "PP",
+                "NDepto",
+                "candidato",
+                "partido",
+                "mesa",
+                "votos",
+                "Npuesto",
+                "NMpio"
+              ],
+            "columns_field_name" :
+              [
+                "zz",
+                "ncircunscripcion",
+                "pp",
+                "ndepto",
+                "candidato",
+                "partido",
+                "mesa",
+                "votos",
+                "npuesto",
+                "nmpio"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Number",
+                "Number",
+                "Text",
+                "Text"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 2547,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-02-09T23:06:17.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Resultados Electorales",
+            "domain_tags" :
+              [ "resultados electorales", "cámara de representantes", "2018" ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/vkjr-c6fe",
+        "link" : "https://www.datos.gov.co/Resultados-Electorales/RESULTADOS-ELECTORALES-2018-CAMARA-DE-REPRESENTANT/vkjr-c6fe",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "RESULTADOS ELECTORALES 2018 SENADO DE LA REPUBLICA",
+            "id" : "75f2-fe2s",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T16:41:40.000Z",
+            "createdAt" : "2020-10-26T13:38:17.000Z",
+            "metadata_updated_at" : "2026-05-18T16:41:40.000Z",
+            "data_updated_at" : "2021-03-15T20:46:15.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 59,
+                "page_views_last_month" : 215,
+                "page_views_total" : 16767,
+                "page_views_last_week_log" : 5.906890595608519,
+                "page_views_last_month_log" : 7.754887502163469,
+                "page_views_total_log" : 14.033423001537452
+              },
+            "columns_name" :
+              [
+                "partido",
+                "PP",
+                "ZZ",
+                "NMpio",
+                "mesa",
+                "candidato",
+                "votos",
+                "NCircunscripcion",
+                "Npuesto",
+                "NDepto"
+              ],
+            "columns_field_name" :
+              [
+                "partido",
+                "pp",
+                "zz",
+                "nmpio",
+                "mesa",
+                "candidato",
+                "votos",
+                "ncircunscripcion",
+                "npuesto",
+                "ndepto"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Number",
+                "Text",
+                "Number",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 2860,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-03-15T20:16:23.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Resultados Electorales",
+            "domain_tags" : [ "senado", "2018" ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/75f2-fe2s",
+        "link" : "https://www.datos.gov.co/Resultados-Electorales/RESULTADOS-ELECTORALES-2018-SENADO-DE-LA-REPUBLICA/75f2-fe2s",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "ELEGIDOS CONSEJEROS MUNICIPALES Y LOCALES DE JUVENTUD",
+            "id" : "wk45-pgw8",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Listado de Elegidos de los Consejeros Municipales y Locales de Juventud",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T18:45:55.000Z",
+            "createdAt" : "2022-12-28T17:13:31.000Z",
+            "metadata_updated_at" : "2026-05-18T18:45:55.000Z",
+            "data_updated_at" : "2022-12-28T17:23:47.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 91,
+                "page_views_last_month" : 349,
+                "page_views_total" : 26581,
+                "page_views_last_week_log" : 6.523561956057013,
+                "page_views_last_month_log" : 8.451211111832329,
+                "page_views_total_log" : 14.698162035011254
+              },
+            "columns_name" :
+              [
+                "TIPO ASIGNACION",
+                "CURUL",
+                "NOMBRE CONSEJERO",
+                "DEPARTAMENTO",
+                "MUNICIPIO",
+                "AÑO"
+              ],
+            "columns_field_name" :
+              [
+                "tipo_asignacion",
+                "curul",
+                "nombre_consejero",
+                "departamento",
+                "municipio",
+                "a_o"
+              ],
+            "columns_datatype" :
+              [ "Text", "Text", "Text", "Text", "Text", "Number" ],
+            "columns_description" : [ "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," }
+              ],
+            "download_count" : 4999,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2022-12-28T17:23:53.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Resultados Electorales",
+            "domain_tags" :
+              [
+                "municipal",
+                "2021",
+                "jovenes",
+                "consejos de juventud",
+                "local"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/wk45-pgw8",
+        "link" : "https://www.datos.gov.co/Resultados-Electorales/ELEGIDOS-CONSEJEROS-MUNICIPALES-Y-LOCALES-DE-JUVEN/wk45-pgw8",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "PROGRAMAS DE GOBIERNO ELEGIDOS GOBERNADORES Y ALCALDES",
+            "id" : "h236-q58p",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Programas de Gobierno de los Gobernadores y Alcaldes Elegidos cada cuatro años",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : "https://www.registraduria.gov.co/-Historico-de-resultados-electorales-.html",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T18:49:55.000Z",
+            "createdAt" : "2022-12-28T13:01:59.000Z",
+            "metadata_updated_at" : "2026-05-18T18:49:55.000Z",
+            "data_updated_at" : "2022-12-28T13:11:05.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 88,
+                "page_views_last_month" : 360,
+                "page_views_total" : 20675,
+                "page_views_last_week_log" : 6.475733430966398,
+                "page_views_last_month_log" : 8.49585502688717,
+                "page_views_total_log" : 14.335669486946104
+              },
+            "columns_name" :
+              [
+                "Corporación",
+                "Año",
+                "Nombre del elegido",
+                "Agrupacion Politica",
+                "Municipio",
+                "Departamento",
+                "Programa de Gobierno"
+              ],
+            "columns_field_name" :
+              [
+                "corporacion",
+                "a_o",
+                "nombre_del_elegido",
+                "agrupacion_politica",
+                "municipio",
+                "departamento",
+                "progama_de_gobierno"
+              ],
+            "columns_datatype" :
+              [ "Text", "Number", "Text", "Text", "Text", "Text", "URL" ],
+            "columns_description" : [ "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                {},
+                {},
+                {},
+                {}
+              ],
+            "download_count" : 4004,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2022-12-28T13:11:11.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Justicia y Derecho",
+            "domain_tags" :
+              [
+                "2019",
+                "elecciones territoriales",
+                "gobernadores",
+                "alcaldes",
+                "alcaldía",
+                "gobernación"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/h236-q58p",
+        "link" : "https://www.datos.gov.co/Justicia-y-Derecho/PROGRAMAS-DE-GOBIERNO-ELEGIDOS-GOBERNADORES-Y-ALCA/h236-q58p",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "VISTA FLORIDA",
+            "id" : "qwex-uqp3",
+            "resource_name" : null,
+            "parent_fxf" : [ "suzs-si92" ],
+            "description" : "Puestos de Votación Florida Valle del Cauca",
+            "attribution" : "Alcaldía de Florida, Valle del Cauca",
+            "attribution_link" : "https://www.florida-valle.gov.co",
+            "contact_email" : null,
+            "type" : "filter",
+            "updatedAt" : "2026-05-18T17:51:16.000Z",
+            "createdAt" : "2023-11-25T00:05:09.000Z",
+            "metadata_updated_at" : "2026-05-18T17:51:16.000Z",
+            "data_updated_at" : "2021-12-21T18:55:03.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 3,
+                "page_views_last_month" : 31,
+                "page_views_total" : 876,
+                "page_views_last_week_log" : 2.0,
+                "page_views_last_month_log" : 5.0,
+                "page_views_total_log" : 9.776433032444734
+              },
+            "columns_name" :
+              [
+                "PUESTO",
+                "MUNICIPIO",
+                "MESA",
+                "ZONA VOTACION",
+                "NOMBRE PUESTO",
+                "DEPARTAMENTO"
+              ],
+            "columns_field_name" :
+              [
+                "puesto",
+                "municipio",
+                "mesa",
+                "zona_votacion",
+                "nombre_puesto",
+                "departamento"
+              ],
+            "columns_datatype" :
+              [ "Number", "Text", "Text", "Text", "Text", "Text" ],
+            "columns_description" : [ "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {} ],
+            "download_count" : 58,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2023-11-25T00:05:18.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Estadísticas Nacionales",
+            "domain_tags" :
+              [
+                "florida valle",
+                "puesto de votacion",
+                "votacion",
+                "elecciones",
+                "registraduria"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Municipal"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Planeación"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Alcaldía de La Florida, Nariño"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Territorial"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "La Florida"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "52381"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Nariño"
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/qwex-uqp3",
+        "link" : "https://www.datos.gov.co/Estadísticas-Nacionales/VISTA-FLORIDA/qwex-uqp3",
+        "owner" :
+          {
+            "id" : "r4qn-dwdd",
+            "user_type" : "interactive",
+            "display_name" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+          },
+        "creator" :
+          {
+            "id" : "r4qn-dwdd",
+            "user_type" : "interactive",
+            "display_name" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Entidades de Garagoa Boyacá",
+            "id" : "i9t5-qqbw",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Contacto de las diferentes Entidades en Garagoa Boyacá (Droguerias, Policia, Iglesias, etc)",
+            "attribution" : "Alcaldía de Garagoa, Boyacá",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T19:18:40.000Z",
+            "createdAt" : "2025-06-25T20:49:39.000Z",
+            "metadata_updated_at" : "2026-05-18T19:18:40.000Z",
+            "data_updated_at" : "2025-06-25T21:18:22.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 12,
+                "page_views_last_month" : 45,
+                "page_views_total" : 990,
+                "page_views_last_week_log" : 3.700439718141092,
+                "page_views_last_month_log" : 5.523561956057013,
+                "page_views_total_log" : 9.95274124718649
+              },
+            "columns_name" :
+              [
+                "Entidades",
+                "Correo Electronico",
+                "Direccion",
+                "Telefono",
+                "Tipo de Entidad"
+              ],
+            "columns_field_name" :
+              [
+                "entidades",
+                "correo_electronico",
+                "direccion",
+                "telefono",
+                "tipo_de_entidad"
+              ],
+            "columns_datatype" : [ "Text", "Text", "Text", "Text", "Text" ],
+            "columns_description" :
+              [
+                "Nombre de La Entidad",
+                "Correo Electrónico de Contacto de la Entidad",
+                "Direccion de la Entidad",
+                "Numero Telefónico de Contacto de la Entidad",
+                "Tipo de Entidad a la que Pertenece"
+              ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {}
+              ],
+            "download_count" : 202,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2025-06-25T21:18:40.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Ordenamiento Territorial",
+            "domain_tags" :
+              [ "registraduria", "taxis", "droguerias", "policia" ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Municipal"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Planeación"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Alcaldía de Garagoa, Boyacá"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Territorial"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Garagoa"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "15299"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Boyacá"
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/i9t5-qqbw",
+        "link" : "https://www.datos.gov.co/Ordenamiento-Territorial/Entidades-de-Garagoa-Boyacá/i9t5-qqbw",
+        "owner" :
+          {
+            "id" : "v68p-6dny",
+            "user_type" : "interactive",
+            "display_name" : "AlcaldiaGaragoa"
+          },
+        "creator" :
+          {
+            "id" : "v68p-6dny",
+            "user_type" : "interactive",
+            "display_name" : "AlcaldiaGaragoa"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Elección sensor datos boyaca",
+            "id" : "cpb3-pgac",
+            "resource_name" : null,
+            "parent_fxf" : [ "75f2-fe2s" ],
+            "description" : "",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "filter",
+            "updatedAt" : "2025-12-19T23:29:26.000Z",
+            "createdAt" : "2022-12-05T06:34:49.000Z",
+            "metadata_updated_at" : "2025-12-19T23:29:26.000Z",
+            "data_updated_at" : "2021-03-15T20:46:15.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 15,
+                "page_views_last_month" : 46,
+                "page_views_total" : 1488,
+                "page_views_last_week_log" : 4.0,
+                "page_views_last_month_log" : 5.554588851677638,
+                "page_views_total_log" : 10.5401280385821
+              },
+            "columns_name" :
+              [
+                "PP",
+                "NCircunscripcion",
+                "NDepto",
+                "NMpio",
+                "ZZ",
+                "Npuesto",
+                "mesa",
+                "partido",
+                "votos",
+                "candidato"
+              ],
+            "columns_field_name" :
+              [
+                "pp",
+                "ncircunscripcion",
+                "ndepto",
+                "nmpio",
+                "zz",
+                "npuesto",
+                "mesa",
+                "partido",
+                "votos",
+                "candidato"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Number",
+                "Text",
+                "Number",
+                "Text"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 178,
+            "provenance" : "community",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2022-12-05T06:35:21.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Resultados Electorales",
+            "domain_tags" : [ "2018", "senado" ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "No aplica"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Justicia y del Derecho"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Área-o-dependencia",
+                  "value" : "Registraduria Nacional del Estado Civil"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduria Nacional del Estado Civil"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/cpb3-pgac",
+        "link" : "https://www.datos.gov.co/Resultados-Electorales/Elección-sensor-datos-boyaca/cpb3-pgac",
+        "owner" :
+          {
+            "id" : "wqma-j854",
+            "user_type" : "interactive",
+            "display_name" : "pilar delgado"
+          },
+        "creator" :
+          {
+            "id" : "wqma-j854",
+            "user_type" : "interactive",
+            "display_name" : "pilar delgado"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Divipole Elecciones Territoritoriales 2023 con georreferenciación",
+            "id" : "mv2e-prx5",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Divipole Elecciones Territoritoriales 2023 actualizada con georreferenciación en la cual podrán encontrar el listado de instalaciones públicas y privadas empleadas para la realización de la jornada de votación y los escrutinios de mesa, y que reflejan la organización del territorio con propósitos electorales según departamento, municipio, puesto, comuna, dirección, coordenadas (latitud y longitud) y elecciones ofertadas.",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T18:46:09.000Z",
+            "createdAt" : "2023-10-10T19:52:31.000Z",
+            "metadata_updated_at" : "2026-05-18T18:46:09.000Z",
+            "data_updated_at" : "2023-10-11T00:53:27.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 95,
+                "page_views_last_month" : 335,
+                "page_views_total" : 13334,
+                "page_views_last_week_log" : 6.584962500721156,
+                "page_views_last_month_log" : 8.39231742277876,
+                "page_views_total_log" : 13.70293020443829
+              },
+            "columns_name" :
+              [
+                "COMUNA",
+                "LONGITUD",
+                "LATITUD",
+                "DIRECCIÓN",
+                "CONCEJO",
+                "DEPARTAMENTO",
+                "PUESTO",
+                "ASAMBLEA",
+                "JAL",
+                "GOBERNACIÓN",
+                "ALCALDE",
+                "MUNICIPIO",
+                "CANTIDAD ELECCIONES"
+              ],
+            "columns_field_name" :
+              [
+                "comuna",
+                "longitud",
+                "latitud",
+                "direccion",
+                "concejo",
+                "departamento",
+                "puesto",
+                "asamblea",
+                "jal",
+                "gobernacion",
+                "alcalde",
+                "municipio",
+                "cantidad_elecciones"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Number",
+                "Number",
+                "Text",
+                "Number",
+                "Text",
+                "Text",
+                "Number",
+                "Number",
+                "Number",
+                "Number",
+                "Text",
+                "Number"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," }
+              ],
+            "download_count" : 30356,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2023-10-11T00:53:33.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Participación ciudadana",
+            "domain_tags" :
+              [
+                "municipio",
+                "puesto de votación",
+                "votaciones",
+                "elecciones",
+                "departamento"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/mv2e-prx5",
+        "link" : "https://www.datos.gov.co/Participación-ciudadana/Divipole-Elecciones-Territoritoriales-2023-con-geo/mv2e-prx5",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Dipole Exterior Presidente 2018",
+            "id" : "vh8b-jfhg",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Puesto de Votación de Presidencia de la República del año 2018 con la cantidad de ciudadanos aptos para votar en el Exterior",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : "https://www.datos.gov.co/d/vh8b-jfhg",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T16:56:22.000Z",
+            "createdAt" : "2021-03-15T21:26:26.000Z",
+            "metadata_updated_at" : "2026-05-18T16:56:22.000Z",
+            "data_updated_at" : "2021-03-15T21:32:39.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 8,
+                "page_views_last_month" : 45,
+                "page_views_total" : 2064,
+                "page_views_last_week_log" : 3.1699250014423126,
+                "page_views_last_month_log" : 5.523561956057013,
+                "page_views_total_log" : 11.011926066306808
+              },
+            "columns_name" :
+              [
+                "mujeres",
+                "departamento",
+                "mm",
+                "puesto",
+                "municipio",
+                "total",
+                "hombres",
+                "pp",
+                "dd",
+                "zz"
+              ],
+            "columns_field_name" :
+              [
+                "mujeres",
+                "departamento",
+                "mm",
+                "puesto",
+                "municipio",
+                "total",
+                "hombres",
+                "pp",
+                "dd",
+                "zz"
+              ],
+            "columns_datatype" :
+              [
+                "Number",
+                "Text",
+                "Number",
+                "Text",
+                "Text",
+                "Number",
+                "Number",
+                "Number",
+                "Number",
+                "Number"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 475,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-03-15T21:32:39.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Resultados Electorales",
+            "domain_tags" :
+              [
+                "presidencia de la república",
+                "2018",
+                "resultados electorales",
+                "exterior"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/vh8b-jfhg",
+        "link" : "https://www.datos.gov.co/Resultados-Electorales/Dipole-Exterior-Presidente-2018/vh8b-jfhg",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Dipole Exterior Congreso 2018",
+            "id" : "2r2t-ej3x",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Puesto de Votación de Congreso de la República del año 2018 con la cantidad de ciudadanos aptos para votar en el Exterior",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : "https://www.datos.gov.co/d/2r2t-ej3x",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T18:21:53.000Z",
+            "createdAt" : "2021-03-15T21:13:17.000Z",
+            "metadata_updated_at" : "2026-05-18T18:21:53.000Z",
+            "data_updated_at" : "2021-03-15T21:26:06.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 12,
+                "page_views_last_month" : 32,
+                "page_views_total" : 1262,
+                "page_views_last_week_log" : 3.700439718141092,
+                "page_views_last_month_log" : 5.044394119358453,
+                "page_views_total_log" : 10.302638923787553
+              },
+            "columns_name" :
+              [
+                "pp",
+                "hombres",
+                "mm",
+                "dd",
+                "departamento",
+                "puesto",
+                "municipio",
+                "mujeres",
+                "zz",
+                "total"
+              ],
+            "columns_field_name" :
+              [
+                "pp",
+                "hombres",
+                "mm",
+                "dd",
+                "departamento",
+                "puesto",
+                "municipio",
+                "mujeres",
+                "zz",
+                "total"
+              ],
+            "columns_datatype" :
+              [
+                "Number",
+                "Number",
+                "Number",
+                "Number",
+                "Text",
+                "Text",
+                "Text",
+                "Number",
+                "Number",
+                "Number"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 250,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-03-15T21:26:07.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Resultados Electorales",
+            "domain_tags" :
+              [
+                "exterior",
+                "resultados electorales",
+                "2018",
+                "congreso de la república"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/2r2t-ej3x",
+        "link" : "https://www.datos.gov.co/Resultados-Electorales/Dipole-Exterior-Congreso-2018/2r2t-ej3x",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "REGISTRO DE ACTIVOS DE INFORMACIÓN",
+            "id" : "436c-83m9",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "El Registro de Activos de Información es el inventario de la información pública que el Archivo General de la Nación genere, obtenga, adquiera, transforme o controle la entidad",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : "https://www.datos.gov.co/d/436c-83m9",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T18:22:39.000Z",
+            "createdAt" : "2021-10-22T15:45:16.000Z",
+            "metadata_updated_at" : "2026-05-18T18:22:39.000Z",
+            "data_updated_at" : "2021-10-22T16:01:29.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 6,
+                "page_views_last_month" : 20,
+                "page_views_total" : 743,
+                "page_views_last_week_log" : 2.807354922057604,
+                "page_views_last_month_log" : 4.392317422778761,
+                "page_views_total_log" : 9.539158811108031
+              },
+            "columns_name" :
+              [
+                "ENTIDAD PUBLICADORA",
+                "AREA",
+                "FRECUENCIA DE ACTUALIZACIÓN",
+                "FECHA DE GENERACIÓN DE LA INFORMACIÓN",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN 1",
+                "LUGAR DE CONSULTA",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN",
+                "INFORMACIÓN PUBLICADA\nO DISPONIBLE",
+                "IDIOMA/ LENGUA O DIALECTO",
+                "DESCRIPCIÓN DEL CONTENIDO",
+                "MEDIO DE CONSERVACIÓN (Físico, análogo y/o Digital)",
+                "FORMATO"
+              ],
+            "columns_field_name" :
+              [
+                "entidad_publicadora",
+                "area",
+                "frecuencia_de_actualizaci",
+                "fecha_de_generaci_n_de_la",
+                "nombre_o_t_tulo_de_la_1",
+                "lugar_de_consulta",
+                "nombre_o_t_tulo_de_la",
+                "informaci_n_publicada_o",
+                "idioma_lengua_o_dialecto",
+                "descripci_n_del_contenido",
+                "medio_de_conservaci_n_f_sico",
+                "formato"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 1300,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-10-22T16:01:35.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Función pública",
+            "domain_tags" :
+              [
+                "registro de activos de información",
+                "activos de información",
+                "activos de información registraduría"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/436c-83m9",
+        "link" : "https://www.datos.gov.co/Función-pública/REGISTRO-DE-ACTIVOS-DE-INFORMACIÓN/436c-83m9",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "ESQUEMA DE PUBLICACIÓN DE LA INFORMACIÓN",
+            "id" : "24zd-s9xt",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "El Esquema de Publicación de Información es el instrumento del que disponen los sujetos obligados para informar, de forma ordenada, a la ciudadanía, interesados y usuarios, sobre la información publicada y que publicará, conforme al principio de divulgación proactiva de la información previsto en el artículo 3° de la Ley 1712 de 2014, y sobre los medios a través de los cuales se puede acceder a la misma.",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : "https://www.datos.gov.co/d/24zd-s9xt",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T16:36:27.000Z",
+            "createdAt" : "2021-10-22T16:07:43.000Z",
+            "metadata_updated_at" : "2026-05-18T16:36:27.000Z",
+            "data_updated_at" : "2021-10-22T16:10:54.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 9,
+                "page_views_last_month" : 29,
+                "page_views_total" : 723,
+                "page_views_last_week_log" : 3.3219280948873626,
+                "page_views_last_month_log" : 4.906890595608519,
+                "page_views_total_log" : 9.499845887083206
+              },
+            "columns_name" :
+              [
+                "INFORMACIÓN PUBLICADA\nO DISPONIBLE",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN",
+                "NOMBRE DE RESPONSABLE DE LA PRODUCCIÓN DE LA INFORMACIÓN",
+                "FRECUENCIA DE ACTUALIZACIÓN",
+                "DESCRIPCIÓN DEL CONTENIDO",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN 1",
+                "NOMBRE DEL RESPONSABLE DE LA INFORMACIÓN",
+                "FORMATO",
+                "FECHA DE GENERACIÓN DE LA INFORMACIÓN",
+                "AREA",
+                "LUGAR DE CONSULTA",
+                "MEDIO DE CONSERVACIÓN (Físico, análogo y/o Digital)",
+                "ENTIDAD PUBLICADORA",
+                "IDIOMA/ LENGUA O DIALECTO"
+              ],
+            "columns_field_name" :
+              [
+                "informaci_n_publicada_o",
+                "nombre_o_t_tulo_de_la",
+                "nombre_de_responsable_de",
+                "frecuencia_de_actualizaci",
+                "descripci_n_del_contenido",
+                "nombre_o_t_tulo_de_la_1",
+                "nombre_del_responsable_de",
+                "formato",
+                "fecha_de_generaci_n_de_la",
+                "area",
+                "lugar_de_consulta",
+                "medio_de_conservaci_n_f_sico",
+                "entidad_publicadora",
+                "idioma_lengua_o_dialecto"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 2985,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-10-22T16:11:00.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Función pública",
+            "domain_tags" :
+              [
+                "esquema de publicación",
+                "esquema de publicación de la información",
+                "esquema de publicación de la registraduría"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/24zd-s9xt",
+        "link" : "https://www.datos.gov.co/Función-pública/ESQUEMA-DE-PUBLICACIÓN-DE-LA-INFORMACIÓN/24zd-s9xt",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "ÍNDICE DE INFORMACIÓN CLASIFICADA Y RESERVADA",
+            "id" : "2bj9-hehn",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "El Índice de Información Clasificada y Reservada es el inventario de la información pública generada, obtenida, adquirida o controlada por el sujeto obligado, en calidad de tal, que ha sido calificada como clasificada o reservada.",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : "https://www.datos.gov.co/d/2bj9-hehn",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T16:42:08.000Z",
+            "createdAt" : "2021-10-22T16:02:53.000Z",
+            "metadata_updated_at" : "2026-05-18T16:42:08.000Z",
+            "data_updated_at" : "2021-10-22T16:06:50.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 6,
+                "page_views_last_month" : 29,
+                "page_views_total" : 731,
+                "page_views_last_week_log" : 2.807354922057604,
+                "page_views_last_month_log" : 4.906890595608519,
+                "page_views_total_log" : 9.515699838284043
+              },
+            "columns_name" :
+              [
+                "MEDIO DE CONSERVACIÓN (Físico, análogo y/o Digital)",
+                "OBJETIVO LEGITIMO DE LA EXCEPCIÓN",
+                "AREA",
+                "LUGAR DE CONSULTA",
+                "FECHA DE LA CALIFICACION",
+                "CLASIFICACIÓN DE LA INFORMACIÓN",
+                "PLAZO DE \nCLASIFICACION O RESERVA",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN 1",
+                "FUNDAMENTO JURIDICO DE LA EXCEPCION",
+                "IDIOMA/ LENGUA O DIALECTO",
+                "FORMATO",
+                "INFORMACIÓN PUBLICADA\nO DISPONIBLE",
+                "ENTIDAD PUBLICADORA",
+                "NOMBRE DEL RESPONSABLE DE LA INFORMACIÓN",
+                "OBJETIVO LEGITIMO DE LA EXCEPCIÓN 1",
+                "FECHA DE GENERACIÓN DE LA INFORMACIÓN",
+                "DESCRIPCIÓN DEL CONTENIDO",
+                "FUNDAMENTO \nCONSTITUCIONAL\nO LEGAL",
+                "EXCEPCION TOTAL O PARCIAL"
+              ],
+            "columns_field_name" :
+              [
+                "medio_de_conservaci_n_f_sico",
+                "objetivo_legitimo_de_la",
+                "area",
+                "lugar_de_consulta",
+                "fecha_de_la_calificacion",
+                "clasificaci_n_de_la_informaci",
+                "plazo_de_clasificacion_o",
+                "nombre_o_t_tulo_de_la",
+                "nombre_o_t_tulo_de_la_1",
+                "fundamento_juridico_de_la",
+                "idioma_lengua_o_dialecto",
+                "formato",
+                "informaci_n_publicada_o",
+                "entidad_publicadora",
+                "nombre_del_responsable_de",
+                "objetivo_legitimo_de_la_1",
+                "fecha_de_generaci_n_de_la",
+                "descripci_n_del_contenido",
+                "fundamento_constitucional",
+                "excepcion_total_o_parcial"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ],
+            "download_count" : 350,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-10-22T16:07:02.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Función pública",
+            "domain_tags" :
+              [
+                "indice de informacion",
+                "indice de informacion clasificada y reservada de la registraduría",
+                "indice de información clasificada y reservada"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/2bj9-hehn",
+        "link" : "https://www.datos.gov.co/Función-pública/ÍNDICE-DE-INFORMACIÓN-CLASIFICADA-Y-RESERVADA/2bj9-hehn",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Vista ESQUEMA DE PUBLICACIÓN DE LA INFORMACIÓN Nombre o titulo de la información Informes",
+            "id" : "n4pq-fx53",
+            "resource_name" : null,
+            "parent_fxf" : [ "24zd-s9xt" ],
+            "description" : "El Esquema de Publicación de Información es el instrumento del que disponen los sujetos obligados para informar, de forma ordenada, a la ciudadanía, interesados y usuarios, sobre la información publicada y que publicará, conforme al principio de divulgación proactiva de la información previsto en el artículo 3° de la Ley 1712 de 2014, y sobre los medios a través de los cuales se puede acceder a la misma.",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : "https://www.datos.gov.co/d/24zd-s9xt",
+            "contact_email" : null,
+            "type" : "filter",
+            "updatedAt" : "2026-05-18T17:50:01.000Z",
+            "createdAt" : "2023-10-26T17:32:39.000Z",
+            "metadata_updated_at" : "2026-05-18T17:50:01.000Z",
+            "data_updated_at" : "2021-10-22T16:10:54.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 4,
+                "page_views_last_month" : 21,
+                "page_views_total" : 646,
+                "page_views_last_week_log" : 2.321928094887362,
+                "page_views_last_month_log" : 4.459431618637297,
+                "page_views_total_log" : 9.337621901992508
+              },
+            "columns_name" :
+              [
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN 1",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN",
+                "IDIOMA/ LENGUA O DIALECTO",
+                "NOMBRE DEL RESPONSABLE DE LA INFORMACIÓN",
+                "MEDIO DE CONSERVACIÓN (Físico, análogo y/o Digital)",
+                "FORMATO",
+                "LUGAR DE CONSULTA",
+                "NOMBRE DE RESPONSABLE DE LA PRODUCCIÓN DE LA INFORMACIÓN",
+                "INFORMACIÓN PUBLICADA\nO DISPONIBLE",
+                "FECHA DE GENERACIÓN DE LA INFORMACIÓN",
+                "FRECUENCIA DE ACTUALIZACIÓN",
+                "DESCRIPCIÓN DEL CONTENIDO",
+                "ENTIDAD PUBLICADORA",
+                "AREA"
+              ],
+            "columns_field_name" :
+              [
+                "nombre_o_t_tulo_de_la_1",
+                "nombre_o_t_tulo_de_la",
+                "idioma_lengua_o_dialecto",
+                "nombre_del_responsable_de",
+                "medio_de_conservaci_n_f_sico",
+                "formato",
+                "lugar_de_consulta",
+                "nombre_de_responsable_de",
+                "informaci_n_publicada_o",
+                "fecha_de_generaci_n_de_la",
+                "frecuencia_de_actualizaci",
+                "descripci_n_del_contenido",
+                "entidad_publicadora",
+                "area"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 172,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2023-10-26T17:32:49.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Función pública",
+            "domain_tags" :
+              [
+                "esquema de publicación de la registraduría",
+                "esquema de publicación de la información",
+                "esquema de publicación"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/n4pq-fx53",
+        "link" : "https://www.datos.gov.co/Función-pública/Vista-ESQUEMA-DE-PUBLICACIÓN-DE-LA-INFORMACIÓN-Nom/n4pq-fx53",
+        "owner" :
+          {
+            "id" : "r4qn-dwdd",
+            "user_type" : "interactive",
+            "display_name" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+          },
+        "creator" :
+          {
+            "id" : "r4qn-dwdd",
+            "user_type" : "interactive",
+            "display_name" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Registraduría. Bogotá D.C.",
+            "id" : "fwkc-cxky",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Entidad con autonomía administrativa que tiene a su cargo el Registro de la vida civil y la identificación de los colombianos además de llevar acabo la realización de los procesos electorales y todos los mecanismos de participación ciudadana con las garantías necesarias para los colombianos.",
+            "attribution" : null,
+            "attribution_link" : null,
+            "contact_email" : "mailto:ideca@catastrobogota.gov.co",
+            "type" : "federated_href",
+            "updatedAt" : "2026-09-10T19:29:27.000Z",
+            "createdAt" : "2026-07-10T19:54:26.000Z",
+            "metadata_updated_at" : "2026-09-10T19:29:27.000Z",
+            "data_updated_at" : "2026-07-10T19:54:26.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 9,
+                "page_views_last_month" : 14,
+                "page_views_total" : 187,
+                "page_views_last_week_log" : 3.3219280948873626,
+                "page_views_last_month_log" : 3.9068905956085187,
+                "page_views_total_log" : 7.554588851677638
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 0,
+            "provenance" : "official",
+            "lens_view_type" : "href",
+            "lens_display_type" : "federated",
+            "locked" : false,
+            "backend" : "not_a_dataset",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-07-10T19:54:26.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" :
+              [
+                "puesto votación",
+                "elección",
+                "votaciones",
+                "elecciones",
+                "candidato",
+                "registraduría"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Common-Core_Contact-Email",
+                  "value" : "mailto:ideca@catastrobogota.gov.co"
+                },
+                {
+                  "key" : "Common-Core_Last-Update",
+                  "value" : "2020-09-22T19:05:59.477837"
+                },
+                {
+                  "key" : "Common-Core_License",
+                  "value" : "https://creativecommons.org/licenses/by/4.0/"
+                },
+                {
+                  "key" : "Common-Core_Public-Access-Level",
+                  "value" : "public"
+                },
+                {
+                  "key" : "Common-Core_Unique-Identifier",
+                  "value" : "a2a59bf7-2327-408a-8280-29201f642e58"
+                },
+                {
+                  "key" : "Common-Core_Publisher",
+                  "value" : "Infraestructura de Datos Espaciales para el Distrito Capital - IDECA"
+                },
+                {
+                  "key" : "Common-Core_Homepage",
+                  "value" : "https://datosabiertos.bogota.gov.co/dataset/registraduria-bogota-d-c"
+                },
+                {
+                  "key" : "Common-Core_Contact-Name",
+                  "value" : "La IDE de Bogotá"
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "additional_access_points" :
+              [
+                {
+                  "urls" :
+                    {
+                      "Esri REST" : "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/sitiosinteres/registraduria/MapServer/0"
+                    },
+                  "description" : "Visualización y descarga",
+                  "title" : "Servicios REST"
+                },
+                {
+                  "urls" :
+                    {
+                      "WMS" : "https://serviciosgis.catastrobogota.gov.co/arcgis/services/sitiosinteres/registraduria/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+                    },
+                  "description" : "Visualización",
+                  "title" : "Web Map Service (WMS)"
+                },
+                {
+                  "urls" :
+                    {
+                      "GPKG" : "https://datosabiertos.bogota.gov.co/dataset/a2a59bf7-2327-408a-8280-29201f642e58/resource/62f67863-c01d-49cd-b0f5-a73cae863c35/download/registraduriaauxiliar.gpkg"
+                    },
+                  "description" : "GPKG",
+                  "title" : "Geo Package (GPKG)"
+                },
+                {
+                  "urls" :
+                    {
+                      "application/geo+json" : "https://datosabiertos.bogota.gov.co/dataset/a2a59bf7-2327-408a-8280-29201f642e58/resource/53bc6864-e0ea-496f-ae4c-d674ce88478c/download/registraduriaauxiliar.geojson"
+                    },
+                  "description" : "GEOJSON",
+                  "title" : "Geo JavaScript Object Notation (GEOJSON)"
+                },
+                {
+                  "urls" :
+                    {
+                      "DXF" : "https://datosabiertos.bogota.gov.co/dataset/a2a59bf7-2327-408a-8280-29201f642e58/resource/3692677c-a493-4560-9ccc-5fa8020e335d/download/registraduriaauxiliar.dxf"
+                    },
+                  "description" : "DXF",
+                  "title" : "Drawing Exchange Format (DXF)"
+                },
+                {
+                  "urls" :
+                    {
+                      "application/vnd.google-earth.kmz+xml" : "https://datosabiertos.bogota.gov.co/dataset/a2a59bf7-2327-408a-8280-29201f642e58/resource/4ef3da6b-5a93-4471-884f-e3659f26bec9/download/registraduriaauxiliar.kmz"
+                    },
+                  "description" : "KMZ",
+                  "title" : "Keyhole Markup Zip (KMZ)"
+                },
+                {
+                  "urls" :
+                    {
+                      "application/octet-stream" : "https://datosabiertos.bogota.gov.co/dataset/a2a59bf7-2327-408a-8280-29201f642e58/resource/59293c9a-d47b-47b6-bae6-e45569ff99ce/download/registraduriaauxiliar.zip"
+                    },
+                  "description" : "SHP",
+                  "title" : "Shape File (SHP)"
+                }
+              ],
+            "access_points" :
+              {
+                "Esri REST" : "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/sitiosinteres/registraduria/MapServer/0"
+              }
+          },
+        "permalink" : "https://www.datos.gov.co/d/fwkc-cxky",
+        "link" : "https://www.datos.gov.co/dataset/Registraduría-Bogotá-D-C-/fwkc-cxky",
+        "owner" :
+          {
+            "id" : "r4qn-dwdd",
+            "user_type" : "interactive",
+            "display_name" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+          },
+        "creator" :
+          {
+            "id" : "r4qn-dwdd",
+            "user_type" : "interactive",
+            "display_name" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Puesto de Votación. Bogota D.C",
+            "id" : "yfff-j5sj",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Puntos temporalmente habilitados por la Registraduría Distrital del Estado Civil para ejercer el derecho al voto de los ciudadanos en el Distrito Capital.",
+            "attribution" : null,
+            "attribution_link" : null,
+            "contact_email" : "mailto:ideca@catastrobogota.gov.co",
+            "type" : "federated_href",
+            "updatedAt" : "2026-09-10T19:30:53.000Z",
+            "createdAt" : "2026-07-10T19:51:24.000Z",
+            "metadata_updated_at" : "2026-09-10T19:30:53.000Z",
+            "data_updated_at" : "2026-07-10T19:51:24.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 8,
+                "page_views_last_month" : 35,
+                "page_views_total" : 156,
+                "page_views_last_week_log" : 3.1699250014423126,
+                "page_views_last_month_log" : 5.169925001442312,
+                "page_views_total_log" : 7.294620748891627
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 0,
+            "provenance" : "official",
+            "lens_view_type" : "href",
+            "lens_display_type" : "federated",
+            "locked" : false,
+            "backend" : "not_a_dataset",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-07-10T19:51:24.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" :
+              [
+                "voto",
+                "puesto de votación",
+                "registraduría",
+                "candidato",
+                "elecciones",
+                "votaciones"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Common-Core_Contact-Email",
+                  "value" : "mailto:ideca@catastrobogota.gov.co"
+                },
+                {
+                  "key" : "Common-Core_Last-Update",
+                  "value" : "2026-03-04T19:49:00.716291"
+                },
+                {
+                  "key" : "Common-Core_License",
+                  "value" : "https://creativecommons.org/licenses/by/4.0/"
+                },
+                {
+                  "key" : "Common-Core_Public-Access-Level",
+                  "value" : "public"
+                },
+                {
+                  "key" : "Common-Core_Unique-Identifier",
+                  "value" : "d03ad429-75f7-4307-9521-da7442154289"
+                },
+                {
+                  "key" : "Common-Core_Publisher",
+                  "value" : "Infraestructura de Datos Espaciales para el Distrito Capital - IDECA"
+                },
+                {
+                  "key" : "Common-Core_Homepage",
+                  "value" : "https://datosabiertos.bogota.gov.co/dataset/puesto-de-votacion"
+                },
+                {
+                  "key" : "Common-Core_Contact-Name",
+                  "value" : "La IDE de Bogotá"
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "additional_access_points" :
+              [
+                {
+                  "urls" :
+                    {
+                      "Esri REST" : "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/sitiosinteres/puestovotacion/MapServer/0"
+                    },
+                  "description" : "Visualización y descarga",
+                  "title" : "Servicio REST"
+                },
+                {
+                  "urls" :
+                    {
+                      "WMS" : "https://serviciosgis.catastrobogota.gov.co/arcgis/services/sitiosinteres/puestovotacion/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+                    },
+                  "description" : "Visualización",
+                  "title" : "Web Map Service (WMS)"
+                },
+                {
+                  "urls" :
+                    {
+                      "application/octet-stream" : "https://serviciosgis.catastrobogota.gov.co/arcgis/services/sitiosinteres/puestovotacion/MapServer/WFSServer?request=GetCapabilities&service=WFS"
+                    },
+                  "description" : "Descarga",
+                  "title" : "Web Feature Service (WFS)"
+                },
+                {
+                  "urls" :
+                    {
+                      "text/html" : "https://mapas.bogota.gov.co/?l=585&e=-74.55402821651158,4.420884106973099,-73.55358571162839,4.927994387351987,4686&b=7256"
+                    },
+                  "title" : "Mapas Bogotá"
+                },
+                {
+                  "urls" :
+                    {
+                      "GPKG" : "https://datosabiertos.bogota.gov.co/dataset/d03ad429-75f7-4307-9521-da7442154289/resource/e637b36a-f309-46b9-ae6c-f36fcaf31329/download/puesto_de_votacion.gpkg"
+                    },
+                  "title" : "Geo Package (GPKG)"
+                },
+                {
+                  "urls" :
+                    {
+                      "application/geo+json" : "https://datosabiertos.bogota.gov.co/dataset/d03ad429-75f7-4307-9521-da7442154289/resource/acc0e326-b82c-46f7-8af6-9a46f2ff79de/download/puesto_de_votacion.geojson"
+                    },
+                  "title" : "Geo JavaScript Object Notation (GEOJSON)"
+                },
+                {
+                  "urls" :
+                    {
+                      "application/octet-stream" : "https://datosabiertos.bogota.gov.co/dataset/d03ad429-75f7-4307-9521-da7442154289/resource/0dacc0d1-2784-4f31-9390-1ca977d2f0fe/download/shapefile.zip"
+                    },
+                  "title" : "Shape File (SHP)"
+                },
+                {
+                  "urls" :
+                    {
+                      "application/vnd.google-earth.kmz+xml" : "https://datosabiertos.bogota.gov.co/dataset/d03ad429-75f7-4307-9521-da7442154289/resource/1e3dccba-1b39-4763-a063-85e22128ef49/download/puesto_de_votacion.kmz"
+                    },
+                  "title" : "Keyhole Markup Zip (KMZ)"
+                },
+                {
+                  "urls" :
+                    {
+                      "DXF" : "https://datosabiertos.bogota.gov.co/dataset/d03ad429-75f7-4307-9521-da7442154289/resource/c5b6e6fa-5d34-4f50-9028-6905102c7f8c/download/puesto_de_votacion.dxf"
+                    },
+                  "title" : "Drawing Exchange Format (DXF)"
+                }
+              ],
+            "access_points" :
+              {
+                "Esri REST" : "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/sitiosinteres/puestovotacion/MapServer/0"
+              }
+          },
+        "permalink" : "https://www.datos.gov.co/d/yfff-j5sj",
+        "link" : "https://www.datos.gov.co/dataset/Puesto-de-Votación-Bogota-D-C/yfff-j5sj",
+        "owner" :
+          {
+            "id" : "r4qn-dwdd",
+            "user_type" : "interactive",
+            "display_name" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+          },
+        "creator" :
+          {
+            "id" : "r4qn-dwdd",
+            "user_type" : "interactive",
+            "display_name" : "Ministerio de Tecnologías de la Información y las Comunicaciones - Datos Abiertos"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Esquema de Publicación de Información",
+            "id" : "b8kj-3gbb",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "",
+            "attribution" : "Registraduría Nacional del Estado Civil, Bogotá D.C.",
+            "attribution_link" : "https://www.datos.gov.co/d/b8kj-3gbb",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-18T19:00:55.000Z",
+            "createdAt" : "2020-11-30T21:24:29.000Z",
+            "metadata_updated_at" : "2026-05-18T19:00:55.000Z",
+            "data_updated_at" : "2020-11-30T21:29:12.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 6,
+                "page_views_last_month" : 27,
+                "page_views_total" : 736,
+                "page_views_last_week_log" : 2.807354922057604,
+                "page_views_last_month_log" : 4.807354922057604,
+                "page_views_total_log" : 9.52552080909507
+              },
+            "columns_name" :
+              [
+                "Unnamed Column 12",
+                "IDENTIFICACIÓN",
+                "Unnamed Column 21",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN",
+                "Unnamed Column 16",
+                "Unnamed Column 24",
+                "Unnamed Column",
+                "Unnamed Column 4",
+                "Unnamed Column 5",
+                "Unnamed Column 8",
+                "Unnamed Column 17",
+                "Unnamed Column 23",
+                "Unnamed Column 6",
+                "Unnamed Column 20",
+                "Unnamed Column 10",
+                "FECHA DE GENERACIÓN DE LA INFORMACIÓN",
+                "FRECUENCIA DE ACTUALIZACIÓN",
+                "Unnamed Column 7",
+                "DESCRIPCIÓN DEL CONTENIDO",
+                "Unnamed Column 9",
+                "Unnamed Column 22",
+                "Unnamed Column 19",
+                "ENTIDAD PUBLICADORA",
+                "Unnamed Column 14",
+                "LUGAR DE CONSULTA",
+                "Unnamed Column 11",
+                "Unnamed Column 3",
+                "DOCUMENTO FÍSICO",
+                "FORMATO",
+                "NOMBRE DE RESPONSABLE DE LA PRODUCCIÓN DE LA INFORMACIÓN",
+                "NOMBRE DEL RESPONSABLE DE LA INFORMACIÓN",
+                "AREA",
+                "INFORMACIÓN PUBLICADA\nO DISPONIBLE",
+                "Unnamed Column 18",
+                "NOMBRE O TÍTULO DE LA INFORMACIÓN 1",
+                "Unnamed Column 2",
+                "Unnamed Column 15",
+                "COMUNICACIÓN INTERNA",
+                "IDIOMA/ LENGUA O DIALECTO",
+                "MEDIO DE CONSERVACIÓN (Físico, análogo y/o Digital)",
+                "Unnamed Column 13",
+                "Unnamed Column 1"
+              ],
+            "columns_field_name" :
+              [
+                "unnamed_column_12",
+                "identificaci_n",
+                "unnamed_column_21",
+                "nombre_o_t_tulo_de_la",
+                "unnamed_column_16",
+                "unnamed_column_24",
+                "unnamed_column",
+                "unnamed_column_4",
+                "unnamed_column_5",
+                "unnamed_column_8",
+                "unnamed_column_17",
+                "unnamed_column_23",
+                "unnamed_column_6",
+                "unnamed_column_20",
+                "unnamed_column_10",
+                "fecha_de_generaci_n_de_la",
+                "frecuencia_de_actualizaci",
+                "unnamed_column_7",
+                "descripci_n_del_contenido",
+                "unnamed_column_9",
+                "unnamed_column_22",
+                "unnamed_column_19",
+                "entidad_publicadora",
+                "unnamed_column_14",
+                "lugar_de_consulta",
+                "unnamed_column_11",
+                "unnamed_column_3",
+                "documento_f_sico",
+                "formato",
+                "nombre_de_responsable_de",
+                "nombre_del_responsable_de",
+                "area",
+                "informaci_n_publicada_o",
+                "unnamed_column_18",
+                "nombre_o_t_tulo_de_la_1",
+                "unnamed_column_2",
+                "unnamed_column_15",
+                "comunicaci_n_interna",
+                "idioma_lengua_o_dialecto",
+                "medio_de_conservaci_n_f_sico",
+                "unnamed_column_13",
+                "unnamed_column_1"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ],
+            "download_count" : 6119,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2020-11-30T21:29:12.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Función pública",
+            "domain_tags" :
+              [
+                "esquema de publicación de la información",
+                "esquema de publicación registraduria",
+                "esquema de publicación"
+              ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Anual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Interior"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Registraduría Nacional del Estado Civil, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/b8kj-3gbb",
+        "link" : "https://www.datos.gov.co/Función-pública/Esquema-de-Publicación-de-Información/b8kj-3gbb",
+        "owner" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          },
+        "creator" :
+          {
+            "id" : "txx4-n3xb",
+            "user_type" : "interactive",
+            "display_name" : "datos abiertos RNEC"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Estadísticas de la Población en el proceso de reincorporación",
+            "id" : "jenm-aku6",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "El conjunto “Estadísticas de la Población en el proceso de reincorporación”, es de interés de la Entidad y de la ciudadanía en general, pues contiene la caracterización de las personas pertenecientes al proceso de reincorporación en el marco del Acuerdo Final suscrito entre el Gobierno Nacional y las FARC-EP en el 2016, detallando información de los participantes en el proceso que permita analizar y dar a conocer las condiciones demográficas y de caracterización con variables tales como: Estado en el proceso, sexo, grupo etario, última ubicación reportada, pertenencia étnica y discapacidad, nivel de bancarización, nivel educativo, desembolso de proyecto productivo y casos de riesgo presentados.",
+            "attribution" : "Agencia para la Reincorporación y la Normalización - ARN, Bogotá D.C.",
+            "attribution_link" : "https://www.datos.gov.co/d/jenm-aku6",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-11-03T00:05:29.000Z",
+            "createdAt" : "2022-05-03T19:32:58.000Z",
+            "metadata_updated_at" : "2026-11-03T00:05:21.000Z",
+            "data_updated_at" : "2026-11-03T00:05:29.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 82,
+                "page_views_last_month" : 348,
+                "page_views_total" : 11974,
+                "page_views_last_week_log" : 6.375039431346925,
+                "page_views_last_month_log" : 8.447083226209653,
+                "page_views_total_log" : 13.547738035510905
+              },
+            "columns_name" :
+              [
+                "FechaCorte",
+                "Sexo",
+                "FechaActualizacion",
+                "Tipo último caso de riesgo",
+                "Fecha -Hechos Último CR",
+                "Municipio de Residencia DANE",
+                "Tipo de Discapacidad",
+                "Departamento Hechos Último CR DANE",
+                "Municipio Hechos Último CR Descr",
+                "Departamento de Residencia DANE",
+                "Desembolso Proyecto Productivo de Reincorporación Económica-PRE ",
+                "Municipio Hechos Último CR DANE",
+                "Estado_SIRR",
+                "Instrumento",
+                "GrupoEtario",
+                "Municipio de Residencia Descr",
+                "Nivel Educativo",
+                "Antiguo ETCR",
+                "Discapacidad",
+                "Etnico",
+                "Departamento Hechos Último CR",
+                "Departamento de Residencia Descr",
+                "Ha presentado casos de riesgo",
+                "Bancarizado"
+              ],
+            "columns_field_name" :
+              [
+                "fechacorte",
+                "sexo",
+                "fechaactualizacion",
+                "tipo_ltimo_caso_de_riesgo",
+                "fecha_hechos_ltimo_cr",
+                "municipio_de_residencia_",
+                "tipo_de_discapacidad",
+                "departamento_hechos_ltimo_cr_dane",
+                "municipio_hechos_ltimo_cr_descr",
+                "departamento_de_residencia_dane",
+                "desembolso_bie",
+                "municipio_hechos_ltimo_cr",
+                "estado_sirr",
+                "presentornr",
+                "grupoetario",
+                "municipio_de_residencia",
+                "nivel_educativo",
+                "antiguo_etcr",
+                "discapacidad",
+                "etnico",
+                "departamento_hechos_ltimo",
+                "departamento_de_residencia",
+                "ha_presentado_casos_de_riesgo",
+                "bancarizado"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [
+                "Fecha de corte de generación de la información",
+                "Sexo del individuo Femenino Masculino",
+                "Fecha en la que se realiza la actualización del conjunto de datos",
+                "Tipo de situacion por la cual se presenta el último caso de riesgo No Aplica -No presenta casos de riesgo",
+                "Fecha de los hechos que desencadenaron el último caso de riesgo No Aplica -No presenta casos de riesgo",
+                "Código de municipio de residencia.",
+                "Tipo de discapacidad de la Persona en Proceso de Reincorporación  <No Aplica> (cuando no tiene instrumento) Discapacidad auditiva Discapacidad Física Discapacidad intelectual Discapacidad múltiple Discapacidad psicosocial (mental) Discapacidad visual N/A - corresponden a la respuesta del No en la Discapacidad",
+                "",
+                "",
+                "Código DANE departamento de residencia",
+                "Define si el individuo tiene o no Proyecto Productivo de Reincorporacion Económica desembolsado a la fecha de corte Proyecto Productivo de Reincorporación Economica (PRE):  Son unidades de negocio lideradas por organizaciones formales, cuyos miembros se han organizado con el propósito de aumentar sus ingresos, acceder a mercados formales y a recursos de cooperación mediante la realización de operaciones de producción, procesamiento, almacenamiento, distribución y comercialización de insumos, productos o servicios que son comunes para los integrantes de la organización.",
+                "Municipio de los hechos del último caso de riesgo con el código DANE. El valor <No aplica> corresponde a personas que no han registrado casos de riesgo. ",
+                "A continuación, se encuentra la descripción de las variables relacionadas con los estados del proceso de reincorporación:  Población que no ha ingresado al proceso de reincorporación.  Es la población acreditada que no se ha presentado en la Agencia para empezar su proceso de reincorporación en el marco del Programa de Reincorporación Integral (PRI). Dentro de este grupo tenemos los siguientes estados:  Acreditado sin Registro de Ingreso.  Estado en el que se encuentra una persona que no ha formalizado su ingreso al Programa de Reincorporación Integral (PRI).  Extraditado.  Persona que haya sido extraditada y no cuenta con acto administrativo debidamente ejecutoriado que determine la limitante definitiva de acceso a los beneficios del proceso de reincorporación.  No aplica programa de reincorporación.  Persona que se encuentra activa en el proceso de reintegración especial de Justicia y Paz, y que fue acreditada como exintegrante FARC-EP en el marco del Acuerdo Final para la construcción de una Paz Estable y Duradera por la Oficina del Alto Comisionado para la Paz. Una vez finalice su tiempo obligatorio en el proceso de justicia y paz, podrá ingresar al proceso de reincorporación si así lo manifiesta.   Población en proceso de reincorporación.  Son las personas que la ARN atiende permanentemente y que están cumpliendo con su ruta de reincorporación en el marco del Programa de Reincorporación Integral (PRI). Actualmente, se tienen tres estados en este grupo:  Activo.  Asistió a por lo menos una actividad de su ruta de reincorporación durante el mes calendario o el mes anterior para el cual se realiza el cálculo de estado (dos últimos periodos de asistencias cerrados) o no han transcurrido más de 3 meses desde su fecha de ingreso al PRI.   Ausente.  Persona que ha superado los 3 meses desde su fecha de ingreso al PRI y que no registra asistencias a las actividades de reincorporación dispuestas por la ARN en los últimos dos (2) periodos de asistencias mensuales cerrados.  Ausente 4 meses.  Persona que ha superado los 3 meses desde su fecha de ingreso al PRI y que no registra asistencias a las actividades de reincorporación dispuestas por la ARN en los últimos cuatro (4) periodos de asistencias mensuales cerrados.   Población ausente del proceso de reincorporación.  Esta es la situación en la que se encuentra una persona que ha dejado de ser atendida por la ARN, pero una vez supere la causal que la originó, podrá ingresar nuevamente al proceso.  Ausente 6 meses.  Persona que luego de haber suscrito el acta de compromiso e ingresado al PRI, no registre asistencias a las actividades de su proceso en los últimos seis (6) meses y no cuenta con un acto administrativo de limitante temporal o definitiva o de finalización.  En investigación para limitante definitiva.  Persona que se encuentra en alguna de las causales de limitante definitiva por incumplimiento al proceso (sin acta de compromiso, sin plan individual, sin presentación posterior a limitante temporal), pero que no cuenta aún con el respectivo acto administrativo.  En investigación por privación de la Libertad.  Estado en el que se encuentra una persona con registro en INPEC como privada de la libertad (intramural o detención domiciliaria), y que no cuenta con acto administrativo debidamente ejecutoriado que determine la limitante temporal de acceso a los beneficios del proceso de reincorporación.   Ausente por Desaparición Forzada.  Personas que cuentan con documento de soporte (copia de denuncia ante Fiscalía o registro con estado admitido en el Sistema de información de la UARIV) que evidencia el hecho victimizante por desaparición forzada, permitiendo a sus familiares ingresar a la estrategia de acompañamiento definida por el Auto SAR de la JEP.  Limitante Temporal.  Estado en el que se encuentra una persona a la cual se le declaró mediante acto administrativo debidamente ejecutoriado alguna de las causales contempladas como limitantes temporales en la normatividad vigente.   Población culminada del proceso de reincorporación.  Son las personas que han cumplido con todos los requisitos establecidos por la ARN para terminar satisfactoriamente su proceso de reincorporación en el marco del Programa de Reincorporación Integral (PRI):  Cumplió Componentes.  Estado en el que se encuentra una persona en proceso de reincorporación a la cual se le declaró mediante acto administrativo debidamente ejecutoriado, la finalización de la Ruta de Reincorporación por haber cumplido alguno de los criterios establecidos en los numerales 1, 2 y 3 del artículo 60 de la resolución 2319 de 2024, o la norma que los modifique o adicione.  Finalizado por tiempo  Persona que finaliza su proceso por no haber cumplido los criterios establecidos en los numerales 1,2 y 3 del artículo 60 de la resolución 2319 de 2024, o la norma que los modifique o adicione, al término de la duración del Programa de Reincorporación Integral establecido en el Artículo 2.3.2.6.1.8. del Decreto 1081 de 2015 modificado por el Decreto 0846 de 2024. (Num. 4° del art. 60 de la Resolución 2319 de 2024), o las normas que lo modifiquen o adicionen.   Población fuera del proceso de reincorporación.  Se refiere a las personas que salieron del proceso de reincorporación y no acceden a sus beneficios por razón de fallecimiento, limitante definitiva, renuncia voluntaria, exclusión por la OACP o finalización:  Finalizado.  Persona que mediante decisión adoptada por la Oficina del Consejero Comisionado de Paz (OCCP) o la Jurisdicción Especial para la PAZ (JEP), no cuenta con la calidad de acreditado como exintegrante del Grupo Armado Organizado al Margen de la Ley de las FARC-EP en virtud del acuerdo de Paz.  Fallecido.  Persona que haya fallecido de acuerdo con reporte de la Registraduría Nacional del Estado Civil o el registro civil de defunción o el certificado del DANE junto con certificado de vigencia de la cédula de ciudadanía.  Limitante Definitiva.  Estado en el que se encuentra una persona a la cual se le declaró mediante acto administrativo debidamente ejecutoriado alguna de las causales contempladas como limitantes definitivas en la normatividad vigente.  Renuncia Voluntaria.  Estado en el que se encuentra una persona que manifestó su voluntad de retirarse del proceso de reincorporación, aceptada mediante Acto Administrativo debidamente notificado y ejecutoriado.  Excluido por OACP.  Persona que mediante acto administrativo proferido por la Oficina del Alto Comisionado para la Paz (OACP, ahora Oficina del Consejero Comisionado de Paz - OCCP), fue excluido de los listados de población acreditada como exintegrantes del Grupo Armado Organizado al Margen de la Ley de las FARC-EP.",
+                "El Instrumento de Caracterización: Recopila, evalúa y analiza datos estadísticos de las personas en proceso de reincorporación y sus familias, en cuanto a identificación, características sociodemográficas y acceso a derechos fundamentales, así como las necesidades, intereses y barreras relacionadas a los componentes de la ruta de reincorporación.  Sí: Población en reincorporación con aplicación del Instrumento de Caracterización. No: Personas en estado activo que no cuentan con aplicación del instrumento, y personas con estados diferentes a activo que ya no hacen parte del objeto de aplicación del instrumento.",
+                "Rango de edad al que pertenece el individuo  Entre 18 y 25 años  Entre 26 y 40 años Entre 41 y 60 años Mayor de 60 años  <Sin Registro> El valor <Sin registro> corresponde a las personas que no cuentan con documento de identificación colombiano, por ende, no se cuenta con la fecha de nacimiento oficial.",
+                "Municipio de la última ubicación de la Persona en Proceso de Reincorporación con el código DANE. El valor <Sin registro> corresponde a personas que no han registrado asistencias y no se han asignado a un Grupo Territorial.",
+                "Máximo nivel educativo de la Persona en Proceso de Reincorporación alcanzado No Registra - No se cuenta con información de esta variable",
+                "ETCR de la última ubicación de la Persona en Proceso de Reincorporación, en caso de no estar ubicado en algún ETCR, su valor es \"NO APLICA\" ETCR (Espacios Territoriales de Capacitación y Reincorporación): lugares destinados para la capacitación, el desarrollo de proyectos productivos y la participación comunitaria de la población en reincorporación. (ver CSIVI, CTR, Decreto 1274 de 2017, Decreto 2026 de 2017, Reincorporación y ZVTN). A partir del Decreto 1629 de 2019, se nombrará antiguo ETCR.",
+                "\"SI\" en el caso de presentar alguna discapacidad, en caso contrario el valor de la celda es \"NO\"  y No aplica cuando no tiene instrumento de caracterización",
+                "Si se autorreconoce como perteneciente a alguno de los grupos étnicos <No Aplica> (cuando no tiene instrumento) Ninguno de los anteriores Afrocolombiano/a Indígena/Pueblo originario Negro/a Palenquero/a Raizal Rom o gitano/a  ",
+                "Departamento de los hechos del último caso de riesgo. El valor <No aplica> corresponde a personas que no han registrado casos de riesgo. ",
+                "Departamento de la última ubicación de la Persona en Proceso de Reincorporación. El valor <Sin registro> corresponde a personas que no han registrado asistencias y no se han asignado a un Grupo Territorial.",
+                "Define si la persona ha presentado en algún momento un registro de casos de riesgo. Si el número de casos de riesgo es mayor o igual a 1 = Sí; menor o igual que 1 = No",
+                "Define si el individuo se encuentra o no bancarizado, es decir, si posee cuenta de ahorro o corriente"
+              ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+              ],
+            "download_count" : 1710,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2025-10-01T13:50:00.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Inclusión Social y Reconciliación",
+            "domain_tags" : [ "desmovilizados", "arn", "reincorporación" ],
+            "domain_metadata" :
+              [
+                { "key" : "Información-de-Datos_Idioma", "value" : "Español" },
+                {
+                  "key" : "Información-de-Datos_Cobertura-Geográfica",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-Datos_Frecuencia-de-Actualización",
+                  "value" : "Mensual"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Sector",
+                  "value" : "Inclusión Social y Reconciliación"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Área-o-dependencia",
+                  "value" : "siste"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Nombre-de-la-Entidad",
+                  "value" : "Agencia para la Reincorporación y la Normalización - ARN, Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Orden",
+                  "value" : "Nacional"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Municipio",
+                  "value" : "Bogotá D.C."
+                },
+                {
+                  "key" : "Información-de-la-Entidad_DIVIPOLA-Municipio",
+                  "value" : "11001"
+                },
+                {
+                  "key" : "Información-de-la-Entidad_Departamento",
+                  "value" : "Bogotá D.C."
+                }
+              ]
+          },
+        "metadata" :
+          {
+            "domain" : "www.datos.gov.co",
+            "license" : "Creative Commons Attribution | Share Alike 4.0 International"
+          },
+        "permalink" : "https://www.datos.gov.co/d/jenm-aku6",
+        "link" : "https://www.datos.gov.co/Inclusión-Social-y-Reconciliación/Estadísticas-de-la-Población-en-el-proceso-de-rein/jenm-aku6",
+        "owner" :
+          {
+            "id" : "ae6c-4yhs",
+            "user_type" : "interactive",
+            "display_name" : "AGENCIA PARA LA REINCORPORACIÓN Y LA NORMALIZACIÓN"
+          },
+        "creator" :
+          {
+            "id" : "ae6c-4yhs",
+            "user_type" : "interactive",
+            "display_name" : "AGENCIA PARA LA REINCORPORACIÓN Y LA NORMALIZACIÓN"
+          }
+      }
+    ],
+  "resultSetSize" : 19,
+  "timings" : { "serviceMillis" : 21, "searchMillis" : [ 2, 6 ] },
+  "warnings" : []
+}
