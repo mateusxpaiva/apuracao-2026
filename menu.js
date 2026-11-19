@@ -53,7 +53,7 @@
     ".apm-drawer a[aria-current]{background:rgba(226,184,75,.1);border-color:rgba(226,184,75,.35)}" +
     ".apm-drawer a[aria-current] b{color:#E2B84B}" +
     ".apm-drawer .apm-sig{font:700 12px Manrope,system-ui,sans-serif;color:#8C97AE;letter-spacing:.06em;padding:12px 14px 0}" +
-    ".apm-drawer .apm-sig b{color:#E2B84B}}" +
+    ".apm-drawer .apm-sig b{color:#E2B84B}.apm-drawer a.apm-ig{border-color:rgba(226,184,75,.3)}}" +
     "@media (prefers-reduced-motion:reduce){.apm-btn i:before,.apm-btn i:after{transition:none}}";
 
   var st = document.createElement("style");
@@ -73,6 +73,7 @@
     "</div>" +
     '<nav class="apm-drawer" id="apm-drawer" aria-label="Menu principal">' +
       ITEMS.map(function (it, i) { return '<a href="' + root + it.href + '"' + cur(i) + "><b>" + it.label + "</b><span>" + it.sub + "</span></a>"; }).join("") +
+      '<a class="apm-ig" href="https://www.instagram.com/apuracoesporia/" target="_blank" rel="noopener"><b>Instagram</b><span>Siga @apuracoesporia: política em dados, todo dia</span></a>' +
       '<div class="apm-sig">Dados oficiais · <b>Design Mateus Paiva</b></div>' +
     "</nav>";
   document.body.insertBefore(bar, document.body.firstChild);
